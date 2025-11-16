@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - AgriMart</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="agri-header">
+        <nav class="navbar navbar-expand-lg agri-navbar sticky-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">AgriMart</a>
+                
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#agriNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="agriNavbar">
+                    <!-- Navigation Links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link active" href="product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Bar -->
+                    <form class="d-flex mx-auto my-2 my-lg-0">
+                        <input class="form-control agri-search-box" type="search" placeholder="Search for equipment..." aria-label="Search">
+                    </form>
+                    
+                    <!-- Icons -->
+                    <div class="d-flex">
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="agri-cart-count">3</span>
+                        </button>
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="agri-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="agri-page-title">Agricultural Equipment</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb agri-breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Products</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All Equipment</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="agri-main">
+        <div class="container">
+            <div class="row">
+                <!-- Filter Sidebar -->
+                <div class="col-lg-3">
+                    <div class="agri-filter-sidebar">
+                        <h3 class="agri-filter-title">Filters</h3>
+                        
+                        <!-- Price Range -->
+                        <div class="agri-filter-group">
+                            <h4 class="agri-filter-group-title">Price Range</h4>
+                            <div class="agri-price-range">
+                                <input type="number" class="agri-price-input" placeholder="Min" value="0" id="min-price">
+                                <span>-</span>
+                                <input type="number" class="agri-price-input" placeholder="Max" value="5000" id="max-price">
+                            </div>
+                            <input type="range" class="form-range" min="0" max="10000" step="100" value="5000" id="price-slider">
+                        </div>
+                        
+                        <!-- Categories -->
+                        <div class="agri-filter-group">
+                            <h4 class="agri-filter-group-title">Categories</h4>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="category-tractors" checked class="category-filter">
+                                <label for="category-tractors">Tractors</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="category-irrigation" checked class="category-filter">
+                                <label for="category-irrigation">Irrigation Tools</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="category-fertilizers" class="category-filter">
+                                <label for="category-fertilizers">Fertilizers</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="category-seeds" class="category-filter">
+                                <label for="category-seeds">Seeds</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="category-harvesters" checked class="category-filter">
+                                <label for="category-harvesters">Harvesters</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="category-sprayers" class="category-filter">
+                                <label for="category-sprayers">Sprayers</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Brands -->
+                        <div class="agri-filter-group">
+                            <h4 class="agri-filter-group-title">Brands</h4>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="brand-john-deere" checked class="brand-filter">
+                                <label for="brand-john-deere">John Deere</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="brand-case-ih" class="brand-filter">
+                                <label for="brand-case-ih">Case IH</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="brand-new-holland" checked class="brand-filter">
+                                <label for="brand-new-holland">New Holland</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="brand-kubota" class="brand-filter">
+                                <label for="brand-kubota">Kubota</label>
+                            </div>
+                            <div class="agri-filter-option">
+                                <input type="checkbox" id="brand-mahindra" class="brand-filter">
+                                <label for="brand-mahindra">Mahindra</label>
+                            </div>
+                        </div>
+                        
+                        <button class="agri-filter-btn" id="apply-filters">Apply Filters</button>
+                        <button class="agri-filter-btn mt-2" id="reset-filters" style="background-color: #6c757d;">Reset Filters</button>
+                    </div>
+                </div>
+                
+                <!-- Product Grid -->
+                <div class="col-lg-9">
+                    <!-- Sort Bar -->
+                    <div class="agri-sort-bar">
+                        <div>
+                            <span class="agri-sort-label">Sort by:</span>
+                            <div class="agri-sort-options">
+                                <button class="agri-sort-option active" data-sort="popular">Popular</button>
+                                <button class="agri-sort-option" data-sort="price-low">Price: Low to High</button>
+                                <button class="agri-sort-option" data-sort="price-high">Price: High to Low</button>
+                                <button class="agri-sort-option" data-sort="rating">Rating</button>
+                                <button class="agri-sort-option" data-sort="newest">Newest</button>
+                            </div>
+                        </div>
+                        <div class="agri-product-count" id="product-count">Showing 1-12 of 48 products</div>
+                    </div>
+                    
+                    <!-- Products -->
+                    <div class="row" id="product-grid">
+                        <!-- Products will be dynamically loaded here -->
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav aria-label="Product pagination">
+                        <ul class="pagination agri-pagination" id="pagination">
+                            <!-- Pagination will be dynamically loaded here -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="agri-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">About AgriMart</h5>
+                    <p>We provide high-quality agricultural equipment to farmers and agricultural businesses worldwide. Our mission is to support sustainable farming practices.</p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Quick Links</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Support Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Customer Support</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Icons Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Follow Us</h5>
+                    <div class="agri-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <p><i class="fas fa-envelope me-2"></i> info@agrimart.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="agri-copyright">
+                <div class="container">
+                    <p>&copy; 2023 AgriMart. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Product Data -->
+    <script>
+        // Product data - You can easily edit this to add/remove products
+        const products = [
+            {
+                id: 1,
+                name: "Compact Tractor 45HP",
+                category: "Tractors",
+                brand: "John Deere",
+                price: 12499,
+                rating: 4.5,
+                reviews: 24,
+                image: "https://images.unsplash.com/photo-1595231776515-9d80b14a2f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 2,
+                name: "Drip Irrigation Kit",
+                category: "Irrigation Tools",
+                brand: "Rain Bird",
+                price: 349,
+                rating: 4.0,
+                reviews: 18,
+                image: "https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: true
+            },
+            {
+                id: 3,
+                name: "Organic Fertilizer 50lb",
+                category: "Fertilizers",
+                brand: "Organic Grow",
+                price: 29.99,
+                rating: 5.0,
+                reviews: 32,
+                image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 4,
+                name: "Premium Corn Seeds",
+                category: "Seeds",
+                brand: "Pioneer",
+                price: 45.50,
+                rating: 4.5,
+                reviews: 27,
+                image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: true
+            },
+            {
+                id: 5,
+                name: "Agricultural Sprayer 50L",
+                category: "Sprayers",
+                brand: "Chapin",
+                price: 189,
+                rating: 4.0,
+                reviews: 15,
+                image: "https://images.unsplash.com/photo-1592066575527-8e0a0f0c9b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 6,
+                name: "Combine Harvester",
+                category: "Harvesters",
+                brand: "Case IH",
+                price: 85000,
+                rating: 5.0,
+                reviews: 9,
+                image: "https://images.unsplash.com/photo-1572984338827-2c6f4b26d1d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 7,
+                name: "Garden Tool Set",
+                category: "Tools",
+                brand: "Fiskars",
+                price: 79.99,
+                rating: 4.5,
+                reviews: 41,
+                image: "https://images.unsplash.com/photo-1589923188651-268a35c9160f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: true
+            },
+            {
+                id: 8,
+                name: "Farm Trailer 2000L",
+                category: "Transport",
+                brand: "Big Tex",
+                price: 2499,
+                rating: 4.0,
+                reviews: 12,
+                image: "https://images.unsplash.com/photo-1592066376323-84d644f764b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 9,
+                name: "Wheat Seeds Premium",
+                category: "Seeds",
+                brand: "Monsanto",
+                price: 38.75,
+                rating: 4.5,
+                reviews: 19,
+                image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 10,
+                name: "Heavy Duty Plow",
+                category: "Tools",
+                brand: "John Deere",
+                price: 450,
+                rating: 4.0,
+                reviews: 8,
+                image: "https://images.unsplash.com/photo-1592066376323-84d644f764b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: true
+            },
+            {
+                id: 11,
+                name: "Utility Tractor 75HP",
+                category: "Tractors",
+                brand: "New Holland",
+                price: 24999,
+                rating: 4.5,
+                reviews: 14,
+                image: "https://images.unsplash.com/photo-1595231776515-9d80b14a2f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            },
+            {
+                id: 12,
+                name: "Rotary Sprinkler System",
+                category: "Irrigation Tools",
+                brand: "Hunter",
+                price: 225,
+                rating: 4.0,
+                reviews: 11,
+                image: "https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                isNew: false
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize products
+            displayProducts(products);
+            setupPagination(products.length, 12, 1);
+            
+            // Sort option buttons
+            const sortButtons = document.querySelectorAll('.agri-sort-option');
+            sortButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    sortButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const sortType = this.getAttribute('data-sort');
+                    sortProducts(sortType);
+                });
+            });
+            
+            // Price range slider
+            const priceSlider = document.getElementById('price-slider');
+            const minPriceInput = document.getElementById('min-price');
+            const maxPriceInput = document.getElementById('max-price');
+            
+            priceSlider.addEventListener('input', function() {
+                maxPriceInput.value = this.value;
+            });
+            
+            maxPriceInput.addEventListener('input', function() {
+                priceSlider.value = this.value;
+            });
+            
+            // Apply filters button
+            document.getElementById('apply-filters').addEventListener('click', applyFilters);
+            
+            // Reset filters button
+            document.getElementById('reset-filters').addEventListener('click', resetFilters);
+        });
+
+        // Display products in the grid
+        function displayProducts(productsToShow) {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = '';
+            
+            productsToShow.forEach(product => {
+                const ratingStars = getRatingStars(product.rating);
+                
+                const productCard = `
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="agri-product-card">
+                            <div class="agri-product-img">
+                                <img src="${product.image}" alt="${product.name}">
+                                ${product.isNew ? '<span class="badge bg-success position-absolute top-0 start-0 m-2">New</span>' : ''}
+                            </div>
+                            <div class="agri-product-info">
+                                <div class="agri-product-category">${product.category}</div>
+                                <h3 class="agri-product-title">${product.name}</h3>
+                                <div class="agri-product-price">$${product.price.toLocaleString()}</div>
+                                <div class="agri-product-rating">
+                                    ${ratingStars}
+                                    <span class="ms-1">(${product.reviews})</span>
+                                </div>
+                                <button class="agri-product-btn" onclick="addToCart(${product.id})">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                productGrid.innerHTML += productCard;
+            });
+            
+            // Update product count
+            document.getElementById('product-count').textContent = `Showing 1-${productsToShow.length} of ${productsToShow.length} products`;
+        }
+
+        // Get rating stars HTML
+        function getRatingStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Sort products
+        function sortProducts(sortType) {
+            let sortedProducts = [...products];
+            
+            switch(sortType) {
+                case 'price-low':
+                    sortedProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sortedProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    sortedProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'newest':
+                    // Assuming newer products have higher IDs
+                    sortedProducts.sort((a, b) => b.id - a.id);
+                    break;
+                case 'popular':
+                default:
+                    // Default sorting (by ID)
+                    sortedProducts.sort((a, b) => a.id - b.id);
+                    break;
+            }
+            
+            displayProducts(sortedProducts);
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('max-price').value) || 10000;
+            
+            const selectedCategories = [];
+            document.querySelectorAll('.category-filter:checked').forEach(checkbox => {
+                selectedCategories.push(checkbox.nextElementSibling.textContent.trim());
+            });
+            
+            const selectedBrands = [];
+            document.querySelectorAll('.brand-filter:checked').forEach(checkbox => {
+                selectedBrands.push(checkbox.nextElementSibling.textContent.trim());
+            });
+            
+            const filteredProducts = products.filter(product => {
+                const priceInRange = product.price >= minPrice && product.price <= maxPrice;
+                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+                const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+                
+                return priceInRange && categoryMatch && brandMatch;
+            });
+            
+            displayProducts(filteredProducts);
+        }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('min-price').value = 0;
+            document.getElementById('max-price').value = 5000;
+            document.getElementById('price-slider').value = 5000;
+            
+            document.querySelectorAll('.category-filter').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            document.querySelectorAll('.brand-filter').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Re-check some default options
+            document.getElementById('category-tractors').checked = true;
+            document.getElementById('category-irrigation').checked = true;
+            document.getElementById('category-harvesters').checked = true;
+            document.getElementById('brand-john-deere').checked = true;
+            document.getElementById('brand-new-holland').checked = true;
+            
+            displayProducts(products);
+        }
+
+        // Setup pagination
+        function setupPagination(totalItems, itemsPerPage, currentPage) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            // Previous button
+            const prevLi = document.createElement('li');
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>`;
+            pagination.appendChild(prevLi);
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement('li');
+                pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                pageLi.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                pagination.appendChild(pageLi);
+            }
+            
+            // Next button
+            const nextLi = document.createElement('li');
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `<a class="page-link" href="#">Next</a>`;
+            pagination.appendChild(nextLi);
+        }
+
+        // Add to cart function
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Added ${product.name} to cart!`);
+            // In a real application, you would update the cart count and store the item
+        }
+    </script>
+</body>
+</html>

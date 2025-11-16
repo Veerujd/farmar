@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - AgriMart</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="agri-header">
+        <nav class="navbar navbar-expand-lg agri-navbar sticky-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">AgriMart</a>
+                
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#agriNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="agriNavbar">
+                    <!-- Navigation Links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Bar -->
+                    <form class="d-flex mx-auto my-2 my-lg-0">
+                        <input class="form-control agri-search-box" type="search" placeholder="Search for equipment..." aria-label="Search">
+                    </form>
+                    
+                    <!-- Icons -->
+                    <div class="d-flex">
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="agri-cart-count">3</span>
+                        </button>
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="agri-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="agri-page-title">Checkout</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb agri-breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Cart</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Content -->
+    <main class="agri-main">
+        <div class="container">
+            <!-- Checkout Steps -->
+            <div class="agri-checkout-steps">
+                <div class="agri-checkout-step active" id="step-1">
+                    <div class="agri-step-icon">1</div>
+                    <div class="agri-step-label">Delivery Address</div>
+                </div>
+                <div class="agri-checkout-step" id="step-2">
+                    <div class="agri-step-icon">2</div>
+                    <div class="agri-step-label">Payment Method</div>
+                </div>
+                <div class="agri-checkout-step" id="step-3">
+                    <div class="agri-step-icon">3</div>
+                    <div class="agri-step-label">Order Summary</div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Checkout Forms -->
+                <div class="col-lg-8">
+                    <!-- Step 1: Delivery Address -->
+                    <div class="agri-checkout-content" id="step-1-content">
+                        <h2 class="agri-checkout-title">Delivery Address</h2>
+                        
+                        <!-- Saved Addresses -->
+                        <div class="agri-saved-addresses">
+                            <h3 class="agri-checkout-subtitle">Select a saved address</h3>
+                            <div class="agri-address-card selected">
+                                <div class="agri-address-name">John Farmer</div>
+                                <div class="agri-address-details">123 Farm Street, Agricultural Zone, Green Valley, 560001</div>
+                                <div class="agri-address-phone">+1 (555) 123-4567</div>
+                            </div>
+                            <div class="agri-address-card">
+                                <div class="agri-address-name">Sarah Johnson</div>
+                                <div class="agri-address-details">456 Orchard Road, Farm District, Harvest City, 560002</div>
+                                <div class="agri-address-phone">+1 (555) 987-6543</div>
+                            </div>
+                        </div>
+                        
+                        <div class="agri-checkout-form">
+                            <h3 class="agri-checkout-subtitle">Or add a new address</h3>
+                            <div class="agri-form-group">
+                                <label class="agri-form-label">Full Name</label>
+                                <input type="text" class="agri-form-control" placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="agri-form-group">
+                                <label class="agri-form-label">Phone Number</label>
+                                <input type="tel" class="agri-form-control" placeholder="Enter your phone number">
+                            </div>
+                            
+                            <div class="agri-form-group">
+                                <label class="agri-form-label">Address</label>
+                                <textarea class="agri-form-control" rows="3" placeholder="Enter your complete address"></textarea>
+                            </div>
+                            
+                            <div class="agri-form-row">
+                                <div class="agri-form-col">
+                                    <div class="agri-form-group">
+                                        <label class="agri-form-label">City</label>
+                                        <input type="text" class="agri-form-control" placeholder="Enter your city">
+                                    </div>
+                                </div>
+                                <div class="agri-form-col">
+                                    <div class="agri-form-group">
+                                        <label class="agri-form-label">State</label>
+                                        <input type="text" class="agri-form-control" placeholder="Enter your state">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="agri-form-group">
+                                <label class="agri-form-label">Pincode</label>
+                                <input type="text" class="agri-form-control" placeholder="Enter pincode" maxlength="6">
+                            </div>
+                        </div>
+                        
+                        <div class="agri-checkout-nav">
+                            <button class="agri-nav-btn" disabled>Back to Cart</button>
+                            <button class="agri-nav-btn next" id="to-step-2">Continue to Payment</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Payment Method -->
+                    <div class="agri-checkout-content d-none" id="step-2-content">
+                        <h2 class="agri-checkout-title">Payment Method</h2>
+                        
+                        <div class="agri-payment-options">
+                            <div class="agri-payment-option selected">
+                                <div class="agri-payment-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="agri-payment-details">
+                                    <div class="agri-payment-title">Cash on Delivery</div>
+                                    <div class="agri-payment-desc">Pay when you receive your order</div>
+                                </div>
+                            </div>
+                            
+                            <div class="agri-payment-option">
+                                <div class="agri-payment-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="agri-payment-details">
+                                    <div class="agri-payment-title">UPI Payment</div>
+                                    <div class="agri-payment-desc">Pay using UPI apps like Google Pay, PhonePe</div>
+                                </div>
+                            </div>
+                            
+                            <div class="agri-payment-option">
+                                <div class="agri-payment-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="agri-payment-details">
+                                    <div class="agri-payment-title">Credit/Debit Card</div>
+                                    <div class="agri-payment-desc">Pay using Visa, Mastercard, or RuPay</div>
+                                </div>
+                            </div>
+                            
+                            <div class="agri-payment-option">
+                                <div class="agri-payment-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="agri-payment-details">
+                                    <div class="agri-payment-title">Net Banking</div>
+                                    <div class="agri-payment-desc">Pay directly from your bank account</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="agri-checkout-nav">
+                            <button class="agri-nav-btn" id="back-to-step-1">Back to Address</button>
+                            <button class="agri-nav-btn next" id="to-step-3">Review Order</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Order Summary -->
+                    <div class="agri-checkout-content d-none" id="step-3-content">
+                        <h2 class="agri-checkout-title">Order Summary</h2>
+                        
+                        <div class="agri-order-details">
+                            <h3 class="agri-checkout-subtitle">Delivery Address</h3>
+                            <div class="agri-address-card">
+                                <div class="agri-address-name">John Farmer</div>
+                                <div class="agri-address-details">123 Farm Street, Agricultural Zone, Green Valley, 560001</div>
+                                <div class="agri-address-phone">+1 (555) 123-4567</div>
+                            </div>
+                            
+                            <h3 class="agri-checkout-subtitle" style="margin-top: 2rem;">Payment Method</h3>
+                            <div class="agri-payment-option">
+                                <div class="agri-payment-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="agri-payment-details">
+                                    <div class="agri-payment-title">Cash on Delivery</div>
+                                    <div class="agri-payment-desc">Pay when you receive your order</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="agri-checkout-nav">
+                            <button class="agri-nav-btn" id="back-to-step-2">Back to Payment</button>
+                            <button class="agri-nav-btn next" id="place-order">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="agri-order-summary">
+                        <h3 class="agri-summary-title">Order Summary</h3>
+                        
+                        <div class="agri-summary-items">
+                            <div class="agri-summary-item">
+                                <div class="agri-summary-img">
+                                    <img src="https://images.unsplash.com/photo-1595231776515-9d80b14a2f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Compact Tractor">
+                                </div>
+                                <div class="agri-summary-details">
+                                    <div class="agri-summary-name">Compact Tractor 45HP</div>
+                                    <div class="agri-summary-qty">Qty: 2</div>
+                                </div>
+                                <div class="agri-summary-price">$24,998</div>
+                            </div>
+                            
+                            <div class="agri-summary-item">
+                                <div class="agri-summary-img">
+                                    <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Drip Irrigation Kit">
+                                </div>
+                                <div class="agri-summary-details">
+                                    <div class="agri-summary-name">Drip Irrigation Kit</div>
+                                    <div class="agri-summary-qty">Qty: 1</div>
+                                </div>
+                                <div class="agri-summary-price">$349</div>
+                            </div>
+                            
+                            <div class="agri-summary-item">
+                                <div class="agri-summary-img">
+                                    <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Organic Fertilizer">
+                                </div>
+                                <div class="agri-summary-details">
+                                    <div class="agri-summary-name">Organic Fertilizer 50lb</div>
+                                    <div class="agri-summary-qty">Qty: 2</div>
+                                </div>
+                                <div class="agri-summary-price">$59.98</div>
+                            </div>
+                        </div>
+                        
+                        <div class="agri-summary-row">
+                            <span class="agri-summary-label">Subtotal</span>
+                            <span class="agri-summary-value">$25,406.98</span>
+                        </div>
+                        
+                        <div class="agri-summary-row">
+                            <span class="agri-summary-label">Delivery Charges</span>
+                            <span class="agri-summary-value">$250.00</span>
+                        </div>
+                        
+                        <div class="agri-summary-row">
+                            <span class="agri-summary-label">Tax</span>
+                            <span class="agri-summary-value">$1,270.35</span>
+                        </div>
+                        
+                        <div class="agri-summary-row agri-summary-total">
+                            <span class="agri-summary-label">Total</span>
+                            <span class="agri-summary-value">$26,927.33</span>
+                        </div>
+                        
+                        <button class="agri-place-order-btn" id="summary-place-order" disabled>
+                            <i class="fas fa-lock me-2"></i> Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="agri-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">About AgriMart</h5>
+                    <p>We provide high-quality agricultural equipment to farmers and agricultural businesses worldwide. Our mission is to support sustainable farming practices.</p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Quick Links</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Support Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Customer Support</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Icons Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Follow Us</h5>
+                    <div class="agri-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <p><i class="fas fa-envelope me-2"></i> info@agrimart.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="agri-copyright">
+                <div class="container">
+                    <p>&copy; 2023 AgriMart. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Checkout Page Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Step Navigation
+            const steps = document.querySelectorAll('.agri-checkout-step');
+            const stepContents = document.querySelectorAll('.agri-checkout-content');
+            const placeOrderBtn = document.getElementById('place-order');
+            const summaryPlaceOrderBtn = document.getElementById('summary-place-order');
+            
+            // Navigation buttons
+            document.getElementById('to-step-2').addEventListener('click', function() {
+                navigateToStep(2);
+            });
+            
+            document.getElementById('back-to-step-1').addEventListener('click', function() {
+                navigateToStep(1);
+            });
+            
+            document.getElementById('to-step-3').addEventListener('click', function() {
+                navigateToStep(3);
+            });
+            
+            document.getElementById('back-to-step-2').addEventListener('click', function() {
+                navigateToStep(2);
+            });
+            
+            // Place Order button
+            placeOrderBtn.addEventListener('click', function() {
+                alert('Your order has been placed successfully!');
+                // In a real application, this would process the order
+            });
+            
+            // Address selection
+            const addressCards = document.querySelectorAll('.agri-address-card');
+            addressCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    addressCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Payment option selection
+            const paymentOptions = document.querySelectorAll('.agri-payment-option');
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    paymentOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Step navigation function
+            function navigateToStep(stepNumber) {
+                // Update step indicators
+                steps.forEach((step, index) => {
+                    if (index < stepNumber - 1) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    } else if (index === stepNumber - 1) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active', 'completed');
+                    }
+                });
+                
+                // Show/hide step contents
+                stepContents.forEach((content, index) => {
+                    if (index === stepNumber - 1) {
+                        content.classList.remove('d-none');
+                    } else {
+                        content.classList.add('d-none');
+                    }
+                });
+                
+                // Enable/disable place order button
+                if (stepNumber === 3) {
+                    placeOrderBtn.disabled = false;
+                    summaryPlaceOrderBtn.disabled = false;
+                } else {
+                    placeOrderBtn.disabled = true;
+                    summaryPlaceOrderBtn.disabled = true;
+                }
+            }
+            
+            // Initialize first step
+            navigateToStep(1);
+        });
+    </script>
+</body>
+</html>

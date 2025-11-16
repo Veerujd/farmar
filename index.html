@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriMart - Agricultural Equipment</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="agri-header">
+        <nav class="navbar navbar-expand-lg agri-navbar sticky-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">AgriMart</a>
+                
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#agriNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="agriNavbar">
+                    <!-- Navigation Links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="categories.html">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Bar -->
+                    <form class="d-flex mx-auto my-2 my-lg-0">
+                        <input class="form-control agri-search-box" type="search" placeholder="Search for equipment..." aria-label="Search">
+                    </form>
+                    
+                    <!-- Icons -->
+                    <div class="d-flex">
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="agri-cart-count">3</span>
+                        </button>
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="agri-hero-section">
+        <div class="container">
+            <h1>Quality Agricultural Equipment</h1>
+            <p>Discover our wide range of farming tools, machinery, and supplies to boost your agricultural productivity and efficiency.</p>
+            <div class="agri-hero-buttons">
+                <button class="agri-hero-btn agri-hero-btn-primary">Shop Now</button>
+                <button class="agri-hero-btn agri-hero-btn-outline">Explore Categories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Section -->
+    <section class="agri-categories py-5">
+        <div class="container">
+            <h2 class="agri-section-title">Browse Categories</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3 class="agri-category-title">Tractors</h3>
+                        <p class="agri-category-desc">Powerful machines for all farming needs</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="agri-category-title">Fertilizers</h3>
+                        <p class="agri-category-desc">Nutrient-rich solutions for healthy crops</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="agri-category-title">Seeds</h3>
+                        <p class="agri-category-desc">High-quality seeds for better yield</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="agri-category-title">Irrigation Tools</h3>
+                        <p class="agri-category-desc">Efficient water management systems</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-harvest"></i>
+                        </div>
+                        <h3 class="agri-category-title">Harvesters</h3>
+                        <p class="agri-category-desc">Modern harvesting equipment</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <h3 class="agri-category-title">Sprayers</h3>
+                        <p class="agri-category-desc">Precision application tools</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="agri-category-title">Hand Tools</h3>
+                        <p class="agri-category-desc">Essential tools for daily farming</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="agri-category-card">
+                        <div class="agri-category-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="agri-category-title">Transport</h3>
+                        <p class="agri-category-desc">Farm vehicles and trailers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="agri-products py-5 bg-light">
+        <div class="container">
+            <h2 class="agri-section-title">Featured Products</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1595231776515-9d80b14a2f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Compact Tractor">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Compact Tractor</h3>
+                            <div class="agri-product-price">$12,499</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Drip Irrigation Kit">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Drip Irrigation Kit</h3>
+                            <div class="agri-product-price">$349</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Organic Fertilizer">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Organic Fertilizer</h3>
+                            <div class="agri-product-price">$29.99</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Corn Seeds">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Premium Corn Seeds</h3>
+                            <div class="agri-product-price">$45.50</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1592066575527-8e0a0f0c9b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sprayer">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Agricultural Sprayer</h3>
+                            <div class="agri-product-price">$189</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1572984338827-2c6f4b26d1d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Harvester">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Combine Harvester</h3>
+                            <div class="agri-product-price">$85,000</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1589923188651-268a35c9160f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Garden Tools">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Garden Tool Set</h3>
+                            <div class="agri-product-price">$79.99</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="agri-product-card">
+                        <div class="agri-product-img">
+                            <img src="https://images.unsplash.com/photo-1592066376323-84d644f764b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Farm Trailer">
+                        </div>
+                        <div class="agri-product-info">
+                            <h3 class="agri-product-title">Farm Trailer</h3>
+                            <div class="agri-product-price">$2,499</div>
+                            <div class="agri-product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Banner -->
+    <section class="agri-offer-section">
+        <div class="container">
+            <div class="agri-offer-banner">
+                <h2 class="agri-offer-title">30% OFF</h2>
+                <p class="agri-offer-desc">On all Irrigation Tools and Systems. Limited time offer!</p>
+                <button class="agri-offer-btn">Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="agri-testimonials py-5">
+        <div class="container">
+            <h2 class="agri-section-title">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="agri-testimonial-card">
+                        <p class="agri-testimonial-text">The tractor I purchased from AgriMart has completely transformed my farming operations. The efficiency and power are unmatched.</p>
+                        <div class="agri-testimonial-author">
+                            <div class="agri-testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Farmer">
+                            </div>
+                            <div>
+                                <h4 class="agri-testimonial-name">John Farmer</h4>
+                                <p class="agri-testimonial-role">Large-scale Farmer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="agri-testimonial-card">
+                        <p class="agri-testimonial-text">Their irrigation systems helped me reduce water usage by 40% while improving crop yield. Excellent products and service!</p>
+                        <div class="agri-testimonial-author">
+                            <div class="agri-testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div>
+                                <h4 class="agri-testimonial-name">Sarah Johnson</h4>
+                                <p class="agri-testimonial-role">Organic Farm Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="agri-testimonial-card">
+                        <p class="agri-testimonial-text">The quality of seeds and fertilizers from AgriMart has significantly improved my harvest. I recommend them to all fellow farmers.</p>
+                        <div class="agri-testimonial-author">
+                            <div class="agri-testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Robert Chen">
+                            </div>
+                            <div>
+                                <h4 class="agri-testimonial-name">Robert Chen</h4>
+                                <p class="agri-testimonial-role">Agricultural Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="agri-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">About AgriMart</h5>
+                    <p>We provide high-quality agricultural equipment to farmers and agricultural businesses worldwide. Our mission is to support sustainable farming practices.</p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Quick Links</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Support Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Customer Support</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Icons Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Follow Us</h5>
+                    <div class="agri-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <p><i class="fas fa-envelope me-2"></i> info@agrimart.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="agri-copyright">
+                <div class="container">
+                    <p>&copy; 2023 AgriMart. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

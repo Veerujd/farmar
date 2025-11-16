@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success - AgriMart</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="agri-header">
+        <nav class="navbar navbar-expand-lg agri-navbar sticky-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">AgriMart</a>
+                
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#agriNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="agriNavbar">
+                    <!-- Navigation Links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Bar -->
+                    <form class="d-flex mx-auto my-2 my-lg-0">
+                        <input class="form-control agri-search-box" type="search" placeholder="Search for equipment..." aria-label="Search">
+                    </form>
+                    
+                    <!-- Icons -->
+                    <div class="d-flex">
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="agri-cart-count">0</span>
+                        </button>
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="agri-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="agri-page-title">Order Confirmation</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb agri-breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Checkout</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Order Success</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Success Content -->
+    <main class="agri-main">
+        <div class="container">
+            <!-- Success Message -->
+            <div class="agri-order-success">
+                <div class="agri-success-animation">
+                    <div class="agri-success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+                
+                <h1 class="agri-success-title">Your Order Has Been Successfully Placed!</h1>
+                
+                <p class="agri-success-message">
+                    Thank you for your purchase. Your order is being processed and you will receive a confirmation email shortly.
+                </p>
+                
+                <div class="agri-order-id">
+                    <div class="agri-order-id-label">Order ID</div>
+                    <div class="agri-order-id-value">AGR-2023-78945</div>
+                </div>
+                
+                <div class="agri-success-actions">
+                    <a href="#" class="agri-success-btn agri-success-btn-primary">
+                        <i class="fas fa-list-alt"></i> View Orders
+                    </a>
+                    <a href="#" class="agri-success-btn agri-success-btn-outline">
+                        <i class="fas fa-shopping-bag"></i> Continue Shopping
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Order Details -->
+            <div class="agri-order-details">
+                <h2 class="agri-order-details-title">Order Details</h2>
+                
+                <div class="agri-order-info">
+                    <div class="agri-order-info-item">
+                        <div class="agri-order-info-label">Order Date</div>
+                        <div class="agri-order-info-value">October 15, 2023</div>
+                    </div>
+                    
+                    <div class="agri-order-info-item">
+                        <div class="agri-order-info-label">Estimated Delivery</div>
+                        <div class="agri-order-info-value">October 20-22, 2023</div>
+                    </div>
+                    
+                    <div class="agri-order-info-item">
+                        <div class="agri-order-info-label">Payment Method</div>
+                        <div class="agri-order-info-value">Cash on Delivery</div>
+                    </div>
+                    
+                    <div class="agri-order-info-item">
+                        <div class="agri-order-info-label">Total Amount</div>
+                        <div class="agri-order-info-value">$26,927.33</div>
+                    </div>
+                </div>
+                
+                <div class="agri-order-items">
+                    <h3 class="agri-order-details-title" style="font-size: 1.1rem;">Items Ordered</h3>
+                    
+                    <div class="agri-order-item">
+                        <div class="agri-order-item-img">
+                            <img src="https://images.unsplash.com/photo-1595231776515-9d80b14a2f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Compact Tractor">
+                        </div>
+                        <div class="agri-order-item-details">
+                            <div class="agri-order-item-name">Compact Tractor 45HP</div>
+                            <div class="agri-order-item-qty">Qty: 2</div>
+                        </div>
+                        <div class="agri-order-item-price">$24,998</div>
+                    </div>
+                    
+                    <div class="agri-order-item">
+                        <div class="agri-order-item-img">
+                            <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Drip Irrigation Kit">
+                        </div>
+                        <div class="agri-order-item-details">
+                            <div class="agri-order-item-name">Drip Irrigation Kit</div>
+                            <div class="agri-order-item-qty">Qty: 1</div>
+                        </div>
+                        <div class="agri-order-item-price">$349</div>
+                    </div>
+                    
+                    <div class="agri-order-item">
+                        <div class="agri-order-item-img">
+                            <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Organic Fertilizer">
+                        </div>
+                        <div class="agri-order-item-details">
+                            <div class="agri-order-item-name">Organic Fertilizer 50lb</div>
+                            <div class="agri-order-item-qty">Qty: 2</div>
+                        </div>
+                        <div class="agri-order-item-price">$59.98</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="agri-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">About AgriMart</h5>
+                    <p>We provide high-quality agricultural equipment to farmers and agricultural businesses worldwide. Our mission is to support sustainable farming practices.</p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Quick Links</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Support Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Customer Support</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Icons Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Follow Us</h5>
+                    <div class="agri-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <p><i class="fas fa-envelope me-2"></i> info@agrimart.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="agri-copyright">
+                <div class="container">
+                    <p>&copy; 2023 AgriMart. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Order Success Page Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update cart count to 0 since order was placed
+            const cartCount = document.querySelector('.agri-cart-count');
+            cartCount.textContent = '0';
+            
+            // Add click handlers for buttons
+            const viewOrdersBtn = document.querySelector('.agri-success-btn-primary');
+            const continueShoppingBtn = document.querySelector('.agri-success-btn-outline');
+            
+            viewOrdersBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Redirecting to your orders page...');
+                // In a real application, this would redirect to orders page
+            });
+            
+            continueShoppingBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Continuing to shopping...');
+                // In a real application, this would redirect to home or products page
+            });
+        });
+    </script>
+</body>
+</html>

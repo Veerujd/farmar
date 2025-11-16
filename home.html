@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriMart - Agricultural Equipment</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --agri-primary: #3A8F3F;
+            --agri-secondary: #285C2D;
+            --agri-accent: #FFD65A;
+            --agri-dark: #1A1A1A;
+            --agri-light: #F5F7F2;
+            --agri-font-primary: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--agri-font-primary);
+            background-color: var(--agri-light);
+            color: var(--agri-dark);
+        }
+
+        /* Header Styles */
+        .agri-navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.8rem 0;
+        }
+
+        .agri-navbar .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--agri-primary);
+        }
+
+        .agri-nav-link {
+            font-weight: 500;
+            color: var(--agri-dark);
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .agri-nav-link:hover, .agri-nav-link.active {
+            color: var(--agri-primary);
+        }
+
+        .agri-search-box {
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1.5rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .agri-search-box:focus {
+            border-color: var(--agri-primary);
+            box-shadow: 0 0 0 0.2rem rgba(58, 143, 63, 0.25);
+        }
+
+        .agri-icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--agri-dark);
+            margin-left: 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .agri-icon-btn:hover {
+            color: var(--agri-primary);
+        }
+
+        .agri-cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--agri-primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer Styles */
+        .agri-footer {
+            background-color: var(--agri-dark);
+            color: white;
+            padding: 3rem 0 0;
+        }
+
+        .agri-footer-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .agri-footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .agri-footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .agri-footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .agri-footer-links a:hover {
+            color: var(--agri-accent);
+        }
+
+        .agri-social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .agri-social-icons a:hover {
+            background-color: var(--agri-primary);
+            transform: translateY(-3px);
+        }
+
+        .agri-copyright {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .agri-search-box {
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="agri-header">
+        <nav class="navbar navbar-expand-lg agri-navbar sticky-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">AgriMart</a>
+                
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#agriNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- Navbar Content -->
+                <div class="collapse navbar-collapse" id="agriNavbar">
+                    <!-- Navigation Links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link agri-nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Search Bar -->
+                    <form class="d-flex mx-auto my-2 my-lg-0">
+                        <input class="form-control agri-search-box" type="search" placeholder="Search for equipment..." aria-label="Search">
+                    </form>
+                    
+                    <!-- Icons -->
+                    <div class="d-flex">
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="agri-cart-count">3</span>
+                        </button>
+                        <button class="agri-icon-btn">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content (Placeholder) -->
+    <main class="agri-main">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>Welcome to AgriMart</h1>
+                    <p class="lead">Your one-stop shop for agricultural equipment</p>
+                    <p>This is a placeholder for the main content of the page.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="agri-footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">About AgriMart</h5>
+                    <p>We provide high-quality agricultural equipment to farmers and agricultural businesses worldwide. Our mission is to support sustainable farming practices.</p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Quick Links</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Support Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Customer Support</h5>
+                    <ul class="agri-footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social Icons Column -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="agri-footer-title">Follow Us</h5>
+                    <div class="agri-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <p><i class="fas fa-envelope me-2"></i> info@agrimart.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="agri-copyright">
+                <div class="container">
+                    <p>&copy; 2023 AgriMart. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
