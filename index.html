@@ -3,154 +3,908 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriMart - Agricultural Equipment</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>AgriShop - Premium Agricultural Equipment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-green: #2D5016;
+            --secondary-gold: #F4A460;
+            --brown: #8B4513;
+            --sky-blue: #87CEEB;
+            --light-green: #90C356;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.95), rgba(45, 80, 22, 0.98));
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(135deg, #2D5016, #1a3009);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand i {
+            color: var(--secondary-gold);
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-gold) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--secondary-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .navbar-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar-icons a {
+            color: #fff;
+            font-size: 1.3rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-icons a:hover {
+            color: var(--secondary-gold);
+            transform: scale(1.1);
+        }
+
+        .badge-custom {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.7rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 25px;
+            padding: 10px 45px 10px 20px;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-gold);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.7), rgba(139, 69, 19, 0.7)),
+                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600') center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(244, 164, 96, 0.1) 100%);
+            animation: gradientShift 10s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .btn-hero {
+            background: linear-gradient(135deg, var(--secondary-gold), #d4934f);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(244, 164, 96, 0.3);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 164, 96, 0.5);
+            background: linear-gradient(135deg, #d4934f, var(--secondary-gold));
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-outline:hover {
+            background: white;
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .category-card {
+            position: relative;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.8), rgba(139, 69, 19, 0.6));
+            transition: all 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .category-card:hover::before {
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.6), rgba(244, 164, 96, 0.7));
+        }
+
+        .category-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            transition: all 0.4s ease;
+        }
+
+        .category-card:hover .category-icon {
+            transform: scale(1.2) rotateY(180deg);
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff6b6b, #ff4444);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-badge.new {
+            background: linear-gradient(135deg, #51cf66, #37b24d);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #999;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-rating {
+            margin-bottom: 12px;
+        }
+
+        .product-rating i {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .product-rating span {
+            color: #666;
+            font-size: 0.85rem;
+            margin-left: 5px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-current {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .price-original {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount-percent {
+            background: #ffe0e0;
+            color: #ff4444;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--light-green);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            color: white;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover .feature-icon {
+            background: white;
+            color: var(--primary-green);
+            transform: rotateY(360deg);
+        }
+
+        .feature-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 15px;
+            text-align: center;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--secondary-gold);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-location {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.9), rgba(139, 69, 19, 0.9)),
+                        url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1600') center/cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: var(--secondary-gold);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #d4934f;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h5 {
+            color: var(--secondary-gold);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-gold);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-gold);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .payment-methods i {
+            font-size: 2rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .search-box {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="agri-header">
-        <nav class="navbar navbar-expand-lg agri-navbar sticky-top">
-            <div class="container">
-                <!-- Logo -->
-                <a class="navbar-brand" href="#">AgriMart</a>
-                
-                <!-- Mobile Toggle Button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#agriNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <!-- Navbar Content -->
-                <div class="collapse navbar-collapse" id="agriNavbar">
-                    <!-- Navigation Links -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link agri-nav-link active" href="index.html">Home</a>
-                        </li>
-                      
-                        <li class="nav-item">
-                            <a class="nav-link agri-nav-link" href="product.html">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link agri-nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link agri-nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    
-                    <!-- Search Bar -->
-                    <form class="d-flex mx-auto my-2 my-lg-0">
-                        <input class="form-control agri-search-box" type="search" placeholder="Search for equipment..." aria-label="Search">
-                    </form>
-                    
-                    <!-- Icons -->
-                    <div class="d-flex">
-                        <button class="agri-icon-btn">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="agri-cart-count">3</span>
-                        </button>
-                        <button class="agri-icon-btn">
-                            <i class="fas fa-user"></i>
-                        </button>
-                    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tractor"></i>
+                AgriShop
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <div class="search-box d-none d-lg-block">
+                    <input type="text" class="form-control" placeholder="Search products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="navbar-icons ms-3">
+                    <a href="#"><i class="fas fa-heart"></i><span class="badge-custom">3</span></a>
+                    <a href="#"><i class="fas fa-shopping-cart"></i><span class="badge-custom">5</span></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="agri-hero-section">
+    <section class="hero-section" id="home">
         <div class="container">
-            <h1>Quality Agricultural Equipment</h1>
-            <p>Discover our wide range of farming tools, machinery, and supplies to boost your agricultural productivity and efficiency.</p>
-            <div class="agri-hero-buttons">
-                <button class="agri-hero-btn agri-hero-btn-primary">Shop Now</button>
-                <button class="agri-hero-btn agri-hero-btn-outline">Explore Categories</button>
+            <div class="row">
+                <div class="col-lg-8 hero-content">
+                    <h1>Empowering Modern<br>Farming Excellence</h1>
+                    <p>Premium Agricultural Equipment for Tomorrow's Harvest</p>
+                    <div>
+                        <button class="btn-hero">Shop Now</button>
+                        <button class="btn-hero-outline">Learn More</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Products</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Happy Farmers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Category Section -->
-    <section class="agri-categories py-5">
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
         <div class="container">
-            <h2 class="agri-section-title">Browse Categories</h2>
+            <div class="section-title">
+                <h2>Shop By Category</h2>
+                <p>Discover our comprehensive range of agricultural solutions</p>
+            </div>
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-tractor"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card" style="background: url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800') center/cover;">
+                        <div class="category-content">
+                            <i class="fas fa-tractor category-icon"></i>
+                            <h3>Tractors</h3>
+                            <p>Heavy-duty farming tractors</p>
                         </div>
-                        <h3 class="agri-category-title">Tractors</h3>
-                        <p class="agri-category-desc">Powerful machines for all farming needs</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-flask"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card" style="background: url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800') center/cover;">
+                        <div class="category-content">
+                            <i class="fas fa-seedling category-icon"></i>
+                            <h3>Seeds & Fertilizers</h3>
+                            <p>Quality seeds for better yield</p>
                         </div>
-                        <h3 class="agri-category-title">Fertilizers</h3>
-                        <p class="agri-category-desc">Nutrient-rich solutions for healthy crops</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-seedling"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card" style="background: url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800') center/cover;">
+                        <div class="category-content">
+                            <i class="fas fa-tools category-icon"></i>
+                            <h3>Hand Tools</h3>
+                            <p>Essential farming tools</p>
                         </div>
-                        <h3 class="agri-category-title">Seeds</h3>
-                        <p class="agri-category-desc">High-quality seeds for better yield</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-tint"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card" style="background: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800') center/cover;">
+                        <div class="category-content">
+                            <i class="fas fa-water category-icon"></i>
+                            <h3>Irrigation Systems</h3>
+                            <p>Modern water solutions</p>
                         </div>
-                        <h3 class="agri-category-title">Irrigation Tools</h3>
-                        <p class="agri-category-desc">Efficient water management systems</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-harvest"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card" style="background: url('https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800') center/cover;">
+                        <div class="category-content">
+                            <i class="fas fa-warehouse category-icon"></i>
+                            <h3>Storage Equipment</h3>
+                            <p>Grain & crop storage</p>
                         </div>
-                        <h3 class="agri-category-title">Harvesters</h3>
-                        <p class="agri-category-desc">Modern harvesting equipment</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-spray-can"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card" style="background: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800') center/cover;">
+                        <div class="category-content">
+                            <i class="fas fa-spray-can category-icon"></i>
+                            <h3>Sprayers</h3>
+                            <p>Pesticide & herbicide sprayers</p>
                         </div>
-                        <h3 class="agri-category-title">Sprayers</h3>
-                        <p class="agri-category-desc">Precision application tools</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3 class="agri-category-title">Hand Tools</h3>
-                        <p class="agri-category-desc">Essential tools for daily farming</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="agri-category-card">
-                        <div class="agri-category-icon">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <h3 class="agri-category-title">Transport</h3>
-                        <p class="agri-category-desc">Farm vehicles and trailers</p>
                     </div>
                 </div>
             </div>
@@ -158,159 +912,272 @@
     </section>
 
     <!-- Featured Products -->
-    <section class="agri-products py-5 bg-light">
+    <section class="products-section" id="products">
         <div class="container">
-            <h2 class="agri-section-title">Featured Products</h2>
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Our best-selling agricultural equipment</p>
+            </div>
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1595231776515-9d80b14a2f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Compact Tractor">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=400" alt="Tractor">
+                            <span class="product-badge new">New</span>
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
+                            </div>
                         </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Compact Tractor</h3>
-                            <div class="agri-product-price">$12,499</div>
-                            <div class="agri-product-rating">
+                        <div class="product-info">
+                            <div class="product-category">Tractors</div>
+                            <h3 class="product-title">John Deere 5075E Tractor</h3>
+                            <div class="product-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
+                                <span>(124 reviews)</span>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
+                            <div class="product-price">
+                                <span class="price-current">$45,990</span>
+                                <span class="price-original">$52,000</span>
+                                <span class="discount-percent">12% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1622372738946-62e02505feb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Drip Irrigation Kit">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=400" alt="Sprayer">
+                            <span class="product-badge">Hot Deal</span>
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
+                            </div>
                         </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Drip Irrigation Kit</h3>
-                            <div class="agri-product-price">$349</div>
-                            <div class="agri-product-rating">
+                        <div class="product-info">
+                            <div class="product-category">Sprayers</div>
+                            <h3 class="product-title">Agricultural Boom Sprayer 600L</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(89 reviews)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">$3,299</span>
+                                <span class="price-original">$4,200</span>
+                                <span class="discount-percent">21% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400" alt="Irrigation">
+                            <span class="product-badge new">New</span>
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Irrigation</div>
+                            <h3 class="product-title">Drip Irrigation System Kit</h3>
+                            <div class="product-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
+                                <span>(67 reviews)</span>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
+                            <div class="product-price">
+                                <span class="price-current">$899</span>
+                                <span class="price-original">$1,150</span>
+                                <span class="discount-percent">22% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Organic Fertilizer">
-                        </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Organic Fertilizer</h3>
-                            <div class="agri-product-price">$29.99</div>
-                            <div class="agri-product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=400" alt="Tools">
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Hand Tools</div>
+                            <h3 class="product-title">Professional Farming Tool Set</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(156 reviews)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">$249</span>
+                                <span class="price-original">$320</span>
+                                <span class="discount-percent">22% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Corn Seeds">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=400" alt="Seeds">
+                            <span class="product-badge new">New</span>
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
+                            </div>
                         </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Premium Corn Seeds</h3>
-                            <div class="agri-product-price">$45.50</div>
-                            <div class="agri-product-rating">
+                        <div class="product-info">
+                            <div class="product-category">Seeds</div>
+                            <h3 class="product-title">Hybrid Corn Seeds - Premium</h3>
+                            <div class="product-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
+                                <span>(203 reviews)</span>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
+                            <div class="product-price">
+                                <span class="price-current">$189</span>
+                                <span class="price-original">$230</span>
+                                <span class="discount-percent">18% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1592066575527-8e0a0f0c9b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sprayer">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400" alt="Harvester">
+                            <span class="product-badge">Best Seller</span>
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
+                            </div>
                         </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Agricultural Sprayer</h3>
-                            <div class="agri-product-price">$189</div>
-                            <div class="agri-product-rating">
+                        <div class="product-info">
+                            <div class="product-category">Harvesters</div>
+                            <h3 class="product-title">Combine Harvester Pro Series</h3>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(98 reviews)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current">$89,900</span>
+                                <span class="price-original">$105,000</span>
+                                <span class="discount-percent">14% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400" alt="Plow">
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Plows</div>
+                            <h3 class="product-title">Heavy Duty Disc Plow</h3>
+                            <div class="product-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
+                                <span>(76 reviews)</span>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
+                            <div class="product-price">
+                                <span class="price-current">$2,499</span>
+                                <span class="price-original">$3,100</span>
+                                <span class="discount-percent">19% OFF</span>
+                            </div>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1572984338827-2c6f4b26d1d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Harvester">
-                        </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Combine Harvester</h3>
-                            <div class="agri-product-price">$85,000</div>
-                            <div class="agri-product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=400" alt="Storage">
+                            <span class="product-badge new">New</span>
+                            <div class="product-actions">
+                                <div class="action-btn"><i class="fas fa-heart"></i></div>
+                                <div class="action-btn"><i class="fas fa-eye"></i></div>
+                                <div class="action-btn"><i class="fas fa-share-alt"></i></div>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1589923188651-268a35c9160f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Garden Tools">
-                        </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Garden Tool Set</h3>
-                            <div class="agri-product-price">$79.99</div>
-                            <div class="agri-product-rating">
+                        <div class="product-info">
+                            <div class="product-category">Storage</div>
+                            <h3 class="product-title">Grain Storage Silo 50 Ton</h3>
+                            <div class="product-rating">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
+                                <span>(45 reviews)</span>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="agri-product-card">
-                        <div class="agri-product-img">
-                            <img src="https://images.unsplash.com/photo-1592066376323-84d644f764b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Farm Trailer">
-                        </div>
-                        <div class="agri-product-info">
-                            <h3 class="agri-product-title">Farm Trailer</h3>
-                            <div class="agri-product-price">$2,499</div>
-                            <div class="agri-product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                            <div class="product-price">
+                                <span class="price-current">$12,500</span>
+                                <span class="price-original">$15,000</span>
+                                <span class="discount-percent">17% OFF</span>
                             </div>
-                            <button class="agri-product-btn">Add to Cart</button>
+                            <button class="btn-add-cart">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -318,129 +1185,241 @@
         </div>
     </section>
 
-    <!-- Offer Banner -->
-    <section class="agri-offer-section">
+    <!-- Features Section -->
+    <section class="features-section" id="about">
         <div class="container">
-            <div class="agri-offer-banner">
-                <h2 class="agri-offer-title">30% OFF</h2>
-                <p class="agri-offer-desc">On all Irrigation Tools and Systems. Limited time offer!</p>
-                <button class="agri-offer-btn">Shop Now</button>
+            <div class="section-title">
+                <h2 style="color: white;">Why Choose AgriShop</h2>
+                <p style="color: rgba(255,255,255,0.9);">Your trusted partner in modern agriculture</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4>Free Shipping</h4>
+                        <p>Free delivery on orders over $500 nationwide</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Expert customer service available round the clock</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Quality Guarantee</h4>
+                        <p>100% authentic products with warranty</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Easy Returns</h4>
+                        <p>30-day return policy for your peace of mind</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="agri-testimonials py-5">
+    <section class="testimonials-section">
         <div class="container">
-            <h2 class="agri-section-title">What Our Customers Say</h2>
+            <div class="section-title">
+                <h2>What Farmers Say</h2>
+                <p>Real experiences from our valued customers</p>
+            </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="agri-testimonial-card">
-                        <p class="agri-testimonial-text">The tractor I purchased from AgriMart has completely transformed my farming operations. The efficiency and power are unmatched.</p>
-                        <div class="agri-testimonial-author">
-                            <div class="agri-testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Farmer">
-                            </div>
-                            <div>
-                                <h4 class="agri-testimonial-name">John Farmer</h4>
-                                <p class="agri-testimonial-role">Large-scale Farmer</p>
-                            </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Customer" class="testimonial-img">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
+                        <p class="testimonial-text">"AgriShop has transformed my farming operations. The quality of equipment is exceptional and the customer service is outstanding!"</p>
+                        <div class="testimonial-author">Rajesh Kumar</div>
+                        <div class="testimonial-location">Punjab, India</div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="agri-testimonial-card">
-                        <p class="agri-testimonial-text">Their irrigation systems helped me reduce water usage by 40% while improving crop yield. Excellent products and service!</p>
-                        <div class="agri-testimonial-author">
-                            <div class="agri-testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
-                            </div>
-                            <div>
-                                <h4 class="agri-testimonial-name">Sarah Johnson</h4>
-                                <p class="agri-testimonial-role">Organic Farm Owner</p>
-                            </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Customer" class="testimonial-img">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
+                        <p class="testimonial-text">"Best prices and genuine products. I've been purchasing from AgriShop for 3 years now. Highly recommended for all farmers!"</p>
+                        <div class="testimonial-author">Sunita Patel</div>
+                        <div class="testimonial-location">Gujarat, India</div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="agri-testimonial-card">
-                        <p class="agri-testimonial-text">The quality of seeds and fertilizers from AgriMart has significantly improved my harvest. I recommend them to all fellow farmers.</p>
-                        <div class="agri-testimonial-author">
-                            <div class="agri-testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Robert Chen">
-                            </div>
-                            <div>
-                                <h4 class="agri-testimonial-name">Robert Chen</h4>
-                                <p class="agri-testimonial-role">Agricultural Consultant</p>
-                            </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <img src="https://i.pravatar.cc/150?img=15" alt="Customer" class="testimonial-img">
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
+                        <p class="testimonial-text">"Fast delivery and excellent product quality. The irrigation system I bought has significantly improved my crop yield."</p>
+                        <div class="testimonial-author">Mahesh Reddy</div>
+                        <div class="testimonial-location">Karnataka, India</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates on new products, special offers, and farming tips</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="agri-footer">
+    <footer id="contact">
         <div class="container">
             <div class="row">
-                <!-- About Column -->
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="agri-footer-title">About AgriMart</h5>
-                    <p>We provide high-quality agricultural equipment to farmers and agricultural businesses worldwide. Our mission is to support sustainable farming practices.</p>
-                </div>
-                
-                <!-- Quick Links Column -->
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="agri-footer-title">Quick Links</h5>
-                    <ul class="agri-footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Customer Support Column -->
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="agri-footer-title">Customer Support</h5>
-                    <ul class="agri-footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Social Icons Column -->
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <h5 class="agri-footer-title">Follow Us</h5>
-                    <div class="agri-social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <i class="fas fa-tractor"></i> AgriShop
+                        </div>
+                        <p style="color: rgba(255,255,255,0.7); margin-top: 15px;">Your one-stop destination for premium agricultural equipment and farming solutions. Empowering farmers with quality products since 2008.</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
                     </div>
-                    <div class="mt-3">
-                        <p><i class="fas fa-envelope me-2"></i> info@agrimart.com</p>
-                        <p><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Customer Service</h5>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Shipping Info</a></li>
+                            <li><a href="#">Return Policy</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-section">
+                        <h5>Contact Us</h5>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">
+                                <i class="fas fa-map-marker-alt" style="color: var(--secondary-gold); margin-right: 10px;"></i>
+                                123 Farm Road, Agricultural District
+                            </li>
+                            <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">
+                                <i class="fas fa-phone" style="color: var(--secondary-gold); margin-right: 10px;"></i>
+                                +91 98765 43210
+                            </li>
+                            <li style="margin-bottom: 12px; color: rgba(255,255,255,0.7);">
+                                <i class="fas fa-envelope" style="color: var(--secondary-gold); margin-right: 10px;"></i>
+                                support@agrishop.com
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-            <!-- Copyright -->
-            <div class="agri-copyright">
-                <div class="container">
-                    <p>&copy; 2023 AgriMart. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AgriShop. All rights reserved. | <a href="#" style="color: var(--secondary-gold);">Privacy Policy</a> | <a href="#" style="color: var(--secondary-gold);">Terms & Conditions</a></p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add to cart animation
+        document.querySelectorAll('.btn-add-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                this.style.background = '#51cf66';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+                    this.style.background = '';
+                }, 2000);
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
