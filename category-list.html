@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Fruits - FreshFarm Supermarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --super-color-primary: #1eae61;
+            --super-color-secondary: #ffb300;
+            --super-color-accent: #ff4c75;
+            --super-color-dark: #202020;
+            --super-color-light: #f8f9fa;
+            --super-font-main: 'Poppins', sans-serif;
+            --super-radius: 14px;
+            --super-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            --super-gradient: linear-gradient(135deg, #1eae61, #2cd879);
+            --super-gradient-secondary: linear-gradient(135deg, #ffb300, #ffcc00);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--super-font-main);
+        }
+
+        body {
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .super-header-nav {
+            background-color: white;
+            box-shadow: var(--super-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .super-header-nav.scrolled {
+            padding: 5px 0;
+        }
+
+        .super-logo {
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--super-color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .super-logo i {
+            margin-right: 8px;
+            font-size: 32px;
+        }
+
+        .super-search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .super-search-input {
+            border-radius: 50px;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .super-search-input:focus {
+            border-color: var(--super-color-primary);
+            box-shadow: 0 0 0 0.2rem rgba(30, 174, 97, 0.25);
+        }
+
+        .super-search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--super-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .super-search-btn:hover {
+            background: linear-gradient(135deg, #178f4f, #1eae61);
+            transform: scale(1.05);
+        }
+
+        .super-nav-icons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .super-nav-icon {
+            position: relative;
+            color: var(--super-color-dark);
+            font-size: 22px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .super-nav-icon:hover {
+            color: var(--super-color-primary);
+            transform: translateY(-3px);
+        }
+
+        .super-cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--super-color-accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Category Banner */
+        .super-category-banner {
+            background: var(--super-gradient);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .super-category-banner:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        .super-category-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .super-breadcrumb {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from { transform: translateX(30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .super-breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .super-breadcrumb-item.active {
+            color: white;
+        }
+
+        .super-breadcrumb-item+.super-breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Filter Sidebar */
+        .super-filter-sidebar {
+            background: white;
+            border-radius: var(--super-radius);
+            box-shadow: var(--super-shadow);
+            padding: 25px;
+            margin-bottom: 30px;
+            animation: fadeInLeft 0.6s ease-out;
+        }
+
+        .super-filter-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--super-color-dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .super-filter-box {
+            margin-bottom: 25px;
+        }
+
+        .super-filter-header {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--super-color-dark);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .super-filter-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .super-filter-content.show {
+            max-height: 500px;
+        }
+
+        .super-filter-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .super-filter-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .super-filter-checkbox {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--super-color-primary);
+        }
+
+        .super-filter-label {
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .super-filter-label:hover {
+            color: var(--super-color-primary);
+        }
+
+        .super-filter-count {
+            margin-left: auto;
+            font-size: 12px;
+            color: #999;
+            background: #f5f5f5;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .super-price-range {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .super-price-input {
+            flex: 1;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        .super-price-slider {
+            width: 100%;
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+            margin: 15px 0;
+        }
+
+        .super-filter-btn {
+            background: var(--super-gradient);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .super-filter-btn:hover {
+            background: linear-gradient(135deg, #178f4f, #1eae61);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 174, 97, 0.3);
+        }
+
+        /* Product Grid */
+        .super-product-grid-section {
+            padding: 20px 0 60px;
+        }
+
+        .super-grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .super-grid-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--super-color-dark);
+            margin: 0;
+        }
+
+        .super-grid-sort {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .super-sort-label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .super-sort-select {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .super-product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .super-grid-product-card {
+            background: white;
+            border-radius: var(--super-radius);
+            overflow: hidden;
+            box-shadow: var(--super-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .super-grid-product-card:nth-child(1) { animation-delay: 0.1s; }
+        .super-grid-product-card:nth-child(2) { animation-delay: 0.2s; }
+        .super-grid-product-card:nth-child(3) { animation-delay: 0.3s; }
+        .super-grid-product-card:nth-child(4) { animation-delay: 0.4s; }
+        .super-grid-product-card:nth-child(5) { animation-delay: 0.5s; }
+        .super-grid-product-card:nth-child(6) { animation-delay: 0.6s; }
+        .super-grid-product-card:nth-child(7) { animation-delay: 0.7s; }
+        .super-grid-product-card:nth-child(8) { animation-delay: 0.8s; }
+        .super-grid-product-card:nth-child(9) { animation-delay: 0.9s; }
+        .super-grid-product-card:nth-child(10) { animation-delay: 1.0s; }
+        .super-grid-product-card:nth-child(11) { animation-delay: 1.1s; }
+        .super-grid-product-card:nth-child(12) { animation-delay: 1.2s; }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .super-grid-product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .super-grid-product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--super-color-primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .super-grid-product-badge.discount {
+            background: var(--super-color-accent);
+        }
+
+        .super-grid-product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .super-grid-product-card:hover .super-grid-product-image {
+            transform: scale(1.05);
+        }
+
+        .super-grid-product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            font-size: 12px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .super-grid-product-card:hover .super-grid-product-overlay {
+            transform: translateY(0);
+        }
+
+        .super-grid-product-content {
+            padding: 20px;
+        }
+
+        .super-grid-product-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--super-color-dark);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .super-grid-product-weight {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .super-grid-product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .super-grid-product-current {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--super-color-primary);
+        }
+
+        .super-grid-product-original {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .super-grid-product-discount {
+            font-size: 14px;
+            color: var(--super-color-accent);
+            font-weight: 600;
+        }
+
+        .super-grid-product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .super-grid-product-cart-btn {
+            background: var(--super-gradient);
+            color: white;
+            border: none;
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .super-grid-product-cart-btn:hover {
+            background: linear-gradient(135deg, #178f4f, #1eae61);
+            transform: scale(1.03);
+        }
+
+        .super-grid-product-cart-btn.added {
+            background: var(--super-color-secondary);
+        }
+
+        .super-grid-product-wish-btn {
+            background: transparent;
+            border: 2px solid #e0e0e0;
+            color: #777;
+            width: 45px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .super-grid-product-wish-btn:hover {
+            border-color: var(--super-color-accent);
+            color: var(--super-color-accent);
+            transform: scale(1.05);
+        }
+
+        .super-grid-product-wish-btn.active {
+            border-color: var(--super-color-accent);
+            color: var(--super-color-accent);
+        }
+
+        /* Pagination */
+        .super-pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .super-pagination {
+            display: flex;
+            gap: 10px;
+        }
+
+        .super-page-item {
+            list-style: none;
+        }
+
+        .super-page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            color: #555;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--super-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .super-page-link:hover {
+            background: var(--super-color-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .super-page-link.active {
+            background: var(--super-gradient);
+            color: white;
+        }
+
+        /* Footer */
+        .super-footer-section {
+            background: var(--super-color-dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .super-footer-logo {
+            font-weight: 700;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .super-footer-desc {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .super-footer-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .super-footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .super-footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .super-footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .super-footer-links a:hover {
+            color: var(--super-color-primary);
+            padding-left: 5px;
+        }
+
+        .super-footer-contact {
+            color: #bbb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .super-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .super-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .super-social-icon:hover {
+            background: var(--super-color-primary);
+            transform: translateY(-5px);
+        }
+
+        .super-footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #bbb;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1200px) {
+            .super-product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .super-product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .super-category-title {
+                font-size: 32px;
+            }
+            
+            .super-nav-icons {
+                gap: 15px;
+            }
+            
+            .super-search-container {
+                margin: 15px 0;
+            }
+            
+            .super-grid-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .super-product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .super-category-title {
+                font-size: 28px;
+            }
+            
+            .super-filter-sidebar {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="super-header-nav">
+        <div class="container">
+            <div class="row align-items-center py-2">
+                <div class="col-lg-3 col-md-6 col-6">
+                    <a href="#" class="super-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-12 order-lg-2 order-md-3 order-3 mt-md-2 mt-2">
+                    <div class="super-search-container">
+                        <input type="text" class="form-control super-search-input" placeholder="Search for groceries, farm products, vegetables...">
+                        <button class="btn super-search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 order-lg-3 order-md-2 order-2">
+                    <div class="super-nav-icons">
+                        <a href="#" class="super-nav-icon">
+                            <i class="far fa-user"></i>
+                        </a>
+                        <a href="#" class="super-nav-icon">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <a href="#" class="super-nav-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="super-cart-count">3</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Banner -->
+    <section class="super-category-banner">
+        <div class="container">
+            <h1 class="super-category-title">Fresh Fruits</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb super-breadcrumb">
+                    <li class="breadcrumb-item super-breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item super-breadcrumb-item"><a href="#">Categories</a></li>
+                    <li class="breadcrumb-item super-breadcrumb-item active">Fresh Fruits</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="super-product-grid-section">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3">
+                    <div class="super-filter-sidebar">
+                        <h3 class="super-filter-title">Filter Products</h3>
+                        
+                        <!-- Brand Filter -->
+                        <div class="super-filter-box">
+                            <div class="super-filter-header" data-bs-toggle="collapse" data-bs-target="#brandFilter">
+                                <span>Brand</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="super-filter-content collapse show" id="brandFilter">
+                                <ul class="super-filter-list">
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="brand1">
+                                        <label for="brand1" class="super-filter-label">FreshFarm Organics</label>
+                                        <span class="super-filter-count">24</span>
+                                    </li>
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="brand2">
+                                        <label for="brand2" class="super-filter-label">Green Valley</label>
+                                        <span class="super-filter-count">18</span>
+                                    </li>
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="brand3">
+                                        <label for="brand3" class="super-filter-label">Nature's Best</label>
+                                        <span class="super-filter-count">15</span>
+                                    </li>
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="brand4">
+                                        <label for="brand4" class="super-filter-label">Farm Fresh</label>
+                                        <span class="super-filter-count">12</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Price Filter -->
+                        <div class="super-filter-box">
+                            <div class="super-filter-header" data-bs-toggle="collapse" data-bs-target="#priceFilter">
+                                <span>Price Range</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="super-filter-content collapse show" id="priceFilter">
+                                <div class="super-price-range">
+                                    <input type="number" class="super-price-input" placeholder="Min" value="0">
+                                    <span>to</span>
+                                    <input type="number" class="super-price-input" placeholder="Max" value="50">
+                                </div>
+                                <input type="range" class="super-price-slider" min="0" max="100" value="50">
+                            </div>
+                        </div>
+                        
+                        <!-- Discount Filter -->
+                        <div class="super-filter-box">
+                            <div class="super-filter-header" data-bs-toggle="collapse" data-bs-target="#discountFilter">
+                                <span>Discount</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="super-filter-content collapse show" id="discountFilter">
+                                <ul class="super-filter-list">
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="discount1">
+                                        <label for="discount1" class="super-filter-label">10% or more</label>
+                                        <span class="super-filter-count">8</span>
+                                    </li>
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="discount2">
+                                        <label for="discount2" class="super-filter-label">20% or more</label>
+                                        <span class="super-filter-count">5</span>
+                                    </li>
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="discount3">
+                                        <label for="discount3" class="super-filter-label">30% or more</label>
+                                        <span class="super-filter-count">3</span>
+                                    </li>
+                                    <li class="super-filter-item">
+                                        <input type="checkbox" class="super-filter-checkbox" id="discount4">
+                                        <label for="discount4" class="super-filter-label">40% or more</label>
+                                        <span class="super-filter-count">2</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="super-filter-btn">Apply Filters</button>
+                    </div>
+                </div>
+                
+                <!-- Product Grid -->
+                <div class="col-lg-9">
+                    <div class="super-grid-header">
+                        <h2 class="super-grid-title">Showing 24 Products</h2>
+                        <div class="super-grid-sort">
+                            <span class="super-sort-label">Sort by:</span>
+                            <select class="super-sort-select">
+                                <option>Popularity</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest First</option>
+                                <option>Customer Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="super-product-grid">
+                        <!-- Product 1 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge discount">30% OFF</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Fresh from local orchards</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Organic Bananas</h3>
+                                <p class="super-grid-product-weight">1 lb</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$1.49</span>
+                                    <span class="super-grid-product-original">$2.13</span>
+                                    <span class="super-grid-product-discount">Save 30%</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge">NEW</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Sweet and juicy</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Fresh Strawberries</h3>
+                                <p class="super-grid-product-weight">1 lb</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$3.99</span>
+                                    <span class="super-grid-product-original">$4.99</span>
+                                    <span class="super-grid-product-discount">Save 20%</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge">BESTSELLER</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Rich in vitamin C</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Sweet Oranges</h3>
+                                <p class="super-grid-product-weight">2 lb</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$4.49</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 4 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge discount">25% OFF</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Creamy and nutritious</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Organic Avocados</h3>
+                                <p class="super-grid-product-weight">4 count</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$5.99</span>
+                                    <span class="super-grid-product-original">$7.99</span>
+                                    <span class="super-grid-product-discount">Save 25%</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 5 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1571772996211-2f02c9727629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Sweet and crisp</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Red Apples</h3>
+                                <p class="super-grid-product-weight">3 lb</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$4.99</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 6 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge discount">15% OFF</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Tropical delight</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Fresh Pineapple</h3>
+                                <p class="super-grid-product-weight">1 each</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$3.49</span>
+                                    <span class="super-grid-product-original">$4.11</span>
+                                    <span class="super-grid-product-discount">Save 15%</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 7 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge">ORGANIC</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Seedless variety</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Green Grapes</h3>
+                                <p class="super-grid-product-weight">2 lb</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$6.99</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product 8 -->
+                        <div class="super-grid-product-card">
+                            <div class="super-grid-product-badge discount">40% OFF</div>
+                            <div class="super-grid-product-image" style="background-image: url('https://images.unsplash.com/photo-1594282482151-1c4fae4b6c0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                                <div class="super-grid-product-overlay">Exotic and sweet</div>
+                            </div>
+                            <div class="super-grid-product-content">
+                                <h3 class="super-grid-product-title">Mangoes</h3>
+                                <p class="super-grid-product-weight">2 lb</p>
+                                <div class="super-grid-product-price">
+                                    <span class="super-grid-product-current">$7.99</span>
+                                    <span class="super-grid-product-original">$13.32</span>
+                                    <span class="super-grid-product-discount">Save 40%</span>
+                                </div>
+                                <div class="super-grid-product-actions">
+                                    <button class="super-grid-product-cart-btn">
+                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                    </button>
+                                    <button class="super-grid-product-wish-btn">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="super-pagination-container">
+                        <ul class="super-pagination">
+                            <li class="super-page-item">
+                                <a href="#" class="super-page-link">
+                                    <i class="fas fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="super-page-item">
+                                <a href="#" class="super-page-link">1</a>
+                            </li>
+                            <li class="super-page-item">
+                                <a href="#" class="super-page-link active">2</a>
+                            </li>
+                            <li class="super-page-item">
+                                <a href="#" class="super-page-link">3</a>
+                            </li>
+                            <li class="super-page-item">
+                                <a href="#" class="super-page-link">4</a>
+                            </li>
+                            <li class="super-page-item">
+                                <a href="#" class="super-page-link">
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="super-footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <a href="#" class="super-footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                    <p class="super-footer-desc">Your one-stop destination for fresh farm produce, groceries, and daily essentials. We deliver quality products right from local farms to your doorstep.</p>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (800) 123-4567</span>
+                    </div>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@freshfarm.com</span>
+                    </div>
+                    <div class="super-social-icons">
+                        <a href="#" class="super-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Quick Links</h3>
+                    <ul class="super-footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Farmers</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Categories</h3>
+                    <ul class="super-footer-links">
+                        <li><a href="#">Fruits & Vegetables</a></li>
+                        <li><a href="#">Farm Produce</a></li>
+                        <li><a href="#">Dairy & Eggs</a></li>
+                        <li><a href="#">Meat & Seafood</a></li>
+                        <li><a href="#">Beverages</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Customer Service</h3>
+                    <ul class="super-footer-links">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Farmers Near Me</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="super-footer-bottom">
+                <p>&copy; 2023 FreshFarm. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--super-color-accent);"></i> for fresh farm products</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.super-header-nav');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Add to cart button animation
+            document.querySelectorAll('.super-grid-product-cart-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
+                    this.classList.add('added');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('added');
+                    }, 2000);
+                    
+                    // Update cart count
+                    const cartCount = document.querySelector('.super-cart-count');
+                    let count = parseInt(cartCount.textContent);
+                    cartCount.textContent = count + 1;
+                });
+            });
+
+            // Wishlist button toggle
+            document.querySelectorAll('.super-grid-product-wish-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                    }
+                });
+            });
+
+            // Filter accordion functionality
+            document.querySelectorAll('.super-filter-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const target = this.getAttribute('data-bs-target');
+                    const content = document.querySelector(target);
+                    const icon = this.querySelector('i');
+                    
+                    if (content.classList.contains('show')) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    } else {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                });
+            });
+
+            // Product card click navigation
+            document.querySelectorAll('.super-grid-product-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // In a real application, this would navigate to the product detail page
+                    console.log('Navigating to product:', this.querySelector('h3').textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
