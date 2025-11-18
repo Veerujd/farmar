@@ -41,6 +41,12 @@
             top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .super-header-nav.scrolled {
@@ -54,6 +60,12 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         .super-logo i {
@@ -65,6 +77,12 @@
             position: relative;
             max-width: 600px;
             margin: 0 auto;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .super-search-input {
@@ -101,6 +119,12 @@
             display: flex;
             justify-content: flex-end;
             gap: 20px;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from { transform: translateX(30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         .super-nav-icon {
@@ -139,6 +163,12 @@
             box-shadow: var(--super-shadow);
             position: relative;
             height: 450px;
+            animation: zoomIn 1s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .super-hero-slide {
@@ -211,9 +241,10 @@
             color: white;
         }
 
-        /* Categories Section */
+        /* New Categories Section Design */
         .super-categories-section {
             padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
         }
 
         .super-section-title {
@@ -223,6 +254,7 @@
             margin-bottom: 40px;
             text-align: center;
             position: relative;
+            animation: fadeIn 1s ease-out;
         }
 
         .super-section-title:after {
@@ -237,23 +269,49 @@
             border-radius: 2px;
         }
 
-        .super-category-card {
+        .super-categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .super-category-card-new {
             background: white;
             border-radius: var(--super-radius);
-            padding: 25px 15px;
-            text-align: center;
-            box-shadow: var(--super-shadow);
-            transition: all 0.4s ease;
-            margin-bottom: 25px;
-            position: relative;
             overflow: hidden;
+            box-shadow: var(--super-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
             display: block;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
         }
 
-        .super-category-card:before {
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .super-category-card-new:nth-child(1) { animation-delay: 0.1s; }
+        .super-category-card-new:nth-child(2) { animation-delay: 0.2s; }
+        .super-category-card-new:nth-child(3) { animation-delay: 0.3s; }
+        .super-category-card-new:nth-child(4) { animation-delay: 0.4s; }
+        .super-category-card-new:nth-child(5) { animation-delay: 0.5s; }
+        .super-category-card-new:nth-child(6) { animation-delay: 0.6s; }
+        .super-category-card-new:nth-child(7) { animation-delay: 0.7s; }
+        .super-category-card-new:nth-child(8) { animation-delay: 0.8s; }
+
+        .super-category-card-new:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .super-category-card-new:before {
             content: '';
             position: absolute;
             top: 0;
@@ -263,48 +321,89 @@
             background: var(--super-gradient);
         }
 
-        .super-category-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            color: inherit;
-            text-decoration: none;
+        .super-category-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .super-category-card-new:hover .super-category-image {
+            transform: scale(1.05);
+        }
+
+        .super-category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 15px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .super-category-card-new:hover .super-category-overlay {
+            transform: translateY(0);
+        }
+
+        .super-category-content {
+            padding: 20px;
+            position: relative;
         }
 
         .super-category-icon {
-            width: 80px;
-            height: 80px;
+            position: absolute;
+            top: -25px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
             background: var(--super-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
             color: white;
-            font-size: 30px;
+            font-size: 20px;
+            box-shadow: var(--super-shadow);
             transition: all 0.3s ease;
         }
 
-        .super-category-card:hover .super-category-icon {
-            transform: rotateY(180deg);
+        .super-category-card-new:hover .super-category-icon {
+            transform: rotate(15deg) scale(1.1);
             background: var(--super-gradient-secondary);
         }
 
         .super-category-name {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             color: var(--super-color-dark);
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .super-category-desc {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
 
         .super-category-count {
-            font-size: 14px;
-            color: #777;
+            display: inline-block;
+            background: rgba(30, 174, 97, 0.1);
+            color: var(--super-color-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
         }
 
         /* Deals Section */
         .super-deals-section {
             padding: 60px 0;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: white;
         }
 
         .super-deal-card {
@@ -316,7 +415,16 @@
             margin-bottom: 25px;
             position: relative;
             cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
         }
+
+        .super-deal-card:nth-child(1) { animation-delay: 0.1s; }
+        .super-deal-card:nth-child(2) { animation-delay: 0.2s; }
+        .super-deal-card:nth-child(3) { animation-delay: 0.3s; }
+        .super-deal-card:nth-child(4) { animation-delay: 0.4s; }
+        .super-deal-card:nth-child(5) { animation-delay: 0.5s; }
+        .super-deal-card:nth-child(6) { animation-delay: 0.6s; }
 
         .super-deal-card:hover {
             transform: translateY(-8px) rotate(1deg);
@@ -334,6 +442,13 @@
             font-size: 12px;
             font-weight: 600;
             z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         .super-deal-image {
@@ -407,9 +522,117 @@
             transform: scale(1.03);
         }
 
+        /* Farmer's Corner Section */
+        .super-farmers-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+        }
+
+        .super-farmer-card {
+            background: white;
+            border-radius: var(--super-radius);
+            overflow: hidden;
+            box-shadow: var(--super-shadow);
+            transition: all 0.4s ease;
+            margin-bottom: 25px;
+            position: relative;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .super-farmer-card:nth-child(1) { animation-delay: 0.1s; }
+        .super-farmer-card:nth-child(2) { animation-delay: 0.2s; }
+        .super-farmer-card:nth-child(3) { animation-delay: 0.3s; }
+        .super-farmer-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .super-farmer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .super-farmer-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--super-color-secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .super-farmer-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .super-farmer-content {
+            padding: 20px;
+        }
+
+        .super-farmer-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--super-color-dark);
+            margin-bottom: 10px;
+        }
+
+        .super-farmer-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .super-farmer-desc {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .super-farmer-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .super-farmer-stars {
+            color: var(--super-color-secondary);
+        }
+
+        .super-farmer-review {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .super-farmer-btn {
+            background: var(--super-gradient);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .super-farmer-btn:hover {
+            background: linear-gradient(135deg, #178f4f, #1eae61);
+            transform: scale(1.03);
+        }
+
         /* Recommended Section */
         .super-recommended-section {
             padding: 60px 0;
+            background: white;
         }
 
         .super-product-card {
@@ -421,7 +644,18 @@
             margin-bottom: 25px;
             position: relative;
             cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
         }
+
+        .super-product-card:nth-child(1) { animation-delay: 0.1s; }
+        .super-product-card:nth-child(2) { animation-delay: 0.2s; }
+        .super-product-card:nth-child(3) { animation-delay: 0.3s; }
+        .super-product-card:nth-child(4) { animation-delay: 0.4s; }
+        .super-product-card:nth-child(5) { animation-delay: 0.5s; }
+        .super-product-card:nth-child(6) { animation-delay: 0.6s; }
+        .super-product-card:nth-child(7) { animation-delay: 0.7s; }
+        .super-product-card:nth-child(8) { animation-delay: 0.8s; }
 
         .super-product-card:hover {
             transform: translateY(-8px);
@@ -523,106 +757,6 @@
             border-color: var(--super-color-accent);
             color: var(--super-color-accent);
             transform: scale(1.05);
-        }
-
-        /* Farmer's Corner Section */
-        .super-farmers-section {
-            padding: 60px 0;
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-        }
-
-        .super-farmer-card {
-            background: white;
-            border-radius: var(--super-radius);
-            overflow: hidden;
-            box-shadow: var(--super-shadow);
-            transition: all 0.4s ease;
-            margin-bottom: 25px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .super-farmer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .super-farmer-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--super-color-secondary);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .super-farmer-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .super-farmer-content {
-            padding: 20px;
-        }
-
-        .super-farmer-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--super-color-dark);
-            margin-bottom: 10px;
-        }
-
-        .super-farmer-location {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 10px;
-            color: #777;
-            font-size: 14px;
-        }
-
-        .super-farmer-desc {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 15px;
-        }
-
-        .super-farmer-rating {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 15px;
-        }
-
-        .super-farmer-stars {
-            color: var(--super-color-secondary);
-        }
-
-        .super-farmer-review {
-            font-size: 14px;
-            color: #777;
-        }
-
-        .super-farmer-btn {
-            background: var(--super-gradient);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .super-farmer-btn:hover {
-            background: linear-gradient(135deg, #178f4f, #1eae61);
-            transform: scale(1.03);
         }
 
         /* Footer */
@@ -739,6 +873,10 @@
             .super-search-container {
                 margin: 15px 0;
             }
+            
+            .super-categories-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
         }
 
         @media (max-width: 576px) {
@@ -756,6 +894,10 @@
             
             .super-section-title {
                 font-size: 26px;
+            }
+            
+            .super-categories-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -822,65 +964,122 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
+    <!-- New Categories Section -->
     <section class="super-categories-section">
         <div class="container">
             <h2 class="super-section-title">Shop By Categories</h2>
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-6">
-                    <a href="#" class="super-category-card">
+            <div class="super-categories-container">
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Fresh from local orchards</div>
+                    </div>
+                    <div class="super-category-content">
                         <div class="super-category-icon">
                             <i class="fas fa-apple-alt"></i>
                         </div>
                         <h3 class="super-category-name">Fresh Fruits</h3>
-                        <p class="super-category-count">120+ items</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <a href="#" class="super-category-card">
+                        <p class="super-category-desc">Seasonal fruits picked at peak ripeness for maximum flavor and nutrition.</p>
+                        <span class="super-category-count">120+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Farm-fresh vegetables</div>
+                    </div>
+                    <div class="super-category-content">
                         <div class="super-category-icon">
                             <i class="fas fa-carrot"></i>
                         </div>
                         <h3 class="super-category-name">Vegetables</h3>
-                        <p class="super-category-count">95+ items</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <a href="#" class="super-category-card">
+                        <p class="super-category-desc">Locally grown vegetables harvested daily for maximum freshness.</p>
+                        <span class="super-category-count">95+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Freshly baked daily</div>
+                    </div>
+                    <div class="super-category-content">
                         <div class="super-category-icon">
-                            <i class="fas fa-seedling"></i>
+                            <i class="fas fa-bread-slice"></i>
                         </div>
-                        <h3 class="super-category-name">Farm Produce</h3>
-                        <p class="super-category-count">80+ items</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <a href="#" class="super-category-card">
-                        <div class="super-category-icon">
-                            <i class="fas fa-egg"></i>
-                        </div>
-                        <h3 class="super-category-name">Dairy & Eggs</h3>
-                        <p class="super-category-count">65+ items</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <a href="#" class="super-category-card">
+                        <h3 class="super-category-name">Bakery</h3>
+                        <p class="super-category-desc">Artisan bread, pastries, and baked goods made with premium ingredients.</p>
+                        <span class="super-category-count">75+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Premium quality</div>
+                    </div>
+                    <div class="super-category-content">
                         <div class="super-category-icon">
                             <i class="fas fa-fish"></i>
                         </div>
                         <h3 class="super-category-name">Meat & Seafood</h3>
-                        <p class="super-category-count">50+ items</p>
-                    </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <a href="#" class="super-category-card">
+                        <p class="super-category-desc">High-quality meats and fresh seafood sourced from trusted suppliers.</p>
+                        <span class="super-category-count">80+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603052875180-8cc603243c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Farm-fresh dairy</div>
+                    </div>
+                    <div class="super-category-content">
                         <div class="super-category-icon">
-                            <i class="fas fa-wine-bottle"></i>
+                            <i class="fas fa-egg"></i>
                         </div>
-                        <h3 class="super-category-name">Beverages</h3>
-                        <p class="super-category-count">200+ items</p>
-                    </a>
-                </div>
+                        <h3 class="super-category-name">Dairy & Eggs</h3>
+                        <p class="super-category-desc">Fresh milk, cheese, yogurt, and eggs from local farms.</p>
+                        <span class="super-category-count">65+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Healthy options</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="super-category-name">Organic Products</h3>
+                        <p class="super-category-desc">Certified organic fruits, vegetables, and pantry staples.</p>
+                        <span class="super-category-count">150+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Quick meals</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="super-category-name">Ready-to-Eat</h3>
+                        <p class="super-category-desc">Prepared meals, salads, and snacks for busy lifestyles.</p>
+                        <span class="super-category-count">45+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">International flavors</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="super-category-name">International Foods</h3>
+                        <p class="super-category-desc">Ingredients and products from around the world.</p>
+                        <span class="super-category-count">200+ Products</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1245,7 +1444,7 @@
             });
 
             // Add click event to all cards
-            document.querySelectorAll('.super-category-card, .super-deal-card, .super-product-card, .super-farmer-card').forEach(card => {
+            document.querySelectorAll('.super-category-card-new, .super-deal-card, .super-product-card, .super-farmer-card').forEach(card => {
                 card.addEventListener('click', function() {
                     // In a real application, this would navigate to the product/category page
                     console.log('Navigating to:', this.querySelector('h3').textContent);
