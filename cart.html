@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - FreshFarm Supermarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="super-header-nav">
+        <div class="container">
+            <div class="row align-items-center py-2">
+                <div class="col-lg-3 col-md-6 col-6">
+                    <a href="#" class="super-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-12 order-lg-2 order-md-3 order-3 mt-md-2 mt-2">
+                    <div class="super-search-container">
+                        <input type="text" class="form-control super-search-input" placeholder="Search for groceries, farm products, vegetables...">
+                        <button class="btn super-search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 order-lg-3 order-md-2 order-2">
+                    <div class="super-nav-icons">
+                              <a href="profile.html" class="super-nav-icon">
+                            <i class="far fa-user"></i>
+                        </a>
+                        <a href="#" class="super-nav-icon">
+                            <i class="far fa-heart"></i>
+                        </a>
+      <a href="cart.html" class="super-nav-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="super-cart-count">3</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Page Content -->
+    <section class="super-cart-container">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="super-cart-breadcrumb">
+                <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Shopping Cart</li>
+                </ol>
+            </nav>
+
+            <h1 class="super-cart-title">Shopping Cart</h1>
+
+            <div class="row">
+                <!-- Cart Items Section -->
+                <div class="col-lg-8">
+                    <div class="super-cart-items-section">
+                        <div class="super-cart-box">
+                            <div class="super-cart-header">
+                                <h2 class="super-cart-header-title">Your Items</h2>
+                                <span class="super-cart-item-count">3 items</span>
+                            </div>
+
+                            <!-- Cart Item 1 -->
+                            <div class="super-cart-item">
+                                <div class="super-cart-item-image">
+                                    <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Organic Bananas">
+                                </div>
+                                <div class="super-cart-item-details">
+                                    <h3 class="super-cart-item-title">Organic Bananas</h3>
+                                    <div class="super-cart-item-brand">Green Valley Farms</div>
+                                    <div class="super-cart-item-price">$1.49 / lb</div>
+                                    <div class="super-cart-item-actions">
+                                        <div class="super-cart-quantity-selector">
+                                            <button class="super-cart-quantity-btn minus">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <input type="number" class="super-cart-quantity-input" value="2" min="1" max="10">
+                                            <button class="super-cart-quantity-btn plus">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <button class="super-cart-remove-btn">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="super-cart-item-total">$2.98</div>
+                            </div>
+
+                            <!-- Cart Item 2 -->
+                            <div class="super-cart-item">
+                                <div class="super-cart-item-image">
+                                    <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Fresh Strawberries">
+                                </div>
+                                <div class="super-cart-item-details">
+                                    <h3 class="super-cart-item-title">Fresh Strawberries</h3>
+                                    <div class="super-cart-item-brand">Sunrise Organics</div>
+                                    <div class="super-cart-item-price">$3.99 / lb</div>
+                                    <div class="super-cart-item-actions">
+                                        <div class="super-cart-quantity-selector">
+                                            <button class="super-cart-quantity-btn minus">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <input type="number" class="super-cart-quantity-input" value="1" min="1" max="10">
+                                            <button class="super-cart-quantity-btn plus">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <button class="super-cart-remove-btn">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="super-cart-item-total">$3.99</div>
+                            </div>
+
+                            <!-- Cart Item 3 -->
+                            <div class="super-cart-item">
+                                <div class="super-cart-item-image">
+                                    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Organic Avocados">
+                                </div>
+                                <div class="super-cart-item-details">
+                                    <h3 class="super-cart-item-title">Organic Avocados</h3>
+                                    <div class="super-cart-item-brand">Green Valley Farms</div>
+                                    <div class="super-cart-item-price">$5.99 / pack</div>
+                                    <div class="super-cart-item-actions">
+                                        <div class="super-cart-quantity-selector">
+                                            <button class="super-cart-quantity-btn minus">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <input type="number" class="super-cart-quantity-input" value="1" min="1" max="10">
+                                            <button class="super-cart-quantity-btn plus">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <button class="super-cart-remove-btn">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="super-cart-item-total">$5.99</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary Section -->
+                <div class="col-lg-4">
+                    <div class="super-cart-summary-section">
+                        <div class="super-cart-summary-box">
+                            <h2 class="super-cart-summary-title">Order Summary</h2>
+                            
+                            <div class="super-cart-summary-row">
+                                <span class="super-cart-summary-label">Subtotal (3 items)</span>
+                                <span class="super-cart-summary-value">$12.96</span>
+                            </div>
+                            
+                            <div class="super-cart-summary-row">
+                                <span class="super-cart-summary-label">Delivery Fee</span>
+                                <span class="super-cart-summary-value">$2.99</span>
+                            </div>
+                            
+                            <div class="super-cart-summary-row">
+                                <span class="super-cart-summary-label">Discount</span>
+                                <span class="super-cart-summary-value" style="color: var(--super-color-accent);">-$1.50</span>
+                            </div>
+                            
+                            <div class="super-cart-summary-divider"></div>
+                            
+                            <div class="super-cart-summary-total">
+                                <span class="super-cart-summary-total-label">Total</span>
+                                <span class="super-cart-summary-total-value">$14.45</span>
+                            </div>
+                            
+                            <button class="super-cart-checkout-btn" onclick="location.href='checkout.html'">
+                                <i class="fas fa-lock"></i> Proceed to Checkout
+                            </button>
+                            
+                            <a href="categories.html" class="super-cart-continue-shopping">
+                                <i class="fas fa-arrow-left"></i> Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty Cart State (Hidden by default) -->
+            <div class="super-cart-empty-state" style="display: none;">
+                <div class="super-cart-empty-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2 class="super-cart-empty-title">Your cart is empty</h2>
+                <p class="super-cart-empty-text">
+                    Looks like you haven't added any items to your cart yet. Start shopping to fill it with fresh farm products and groceries.
+                </p>
+                <a href="#" class="super-cart-empty-btn">
+                    <i class="fas fa-store"></i> Start Shopping
+                </a>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer Section -->
+    <footer class="super-footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <a href="#" class="super-footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                    <p class="super-footer-desc">Your one-stop destination for fresh farm produce, groceries, and daily essentials. We deliver quality products right from local farms to your doorstep.</p>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (800) 123-4567</span>
+                    </div>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@freshfarm.com</span>
+                    </div>
+                    <div class="super-social-icons">
+                        <a href="#" class="super-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Quick Links</h3>
+                  <ul class="super-footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="categories.html">Shop</a></li>
+    <li><a href="about.html">Farmers</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>   
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Categories</h3>
+<ul class="super-footer-links">
+    <li><a href="categories.html">Fruits & Vegetables</a></li>
+    <li><a href="categories.html">Farm Produce</a></li>
+    <li><a href="categories.html">Dairy & Eggs</a></li>
+    <li><a href="categories.html">Meat & Seafood</a></li>
+    <li><a href="categories.html">Beverages</a></li>
+</ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Customer Service</h3>
+                 <ul class="super-footer-links">
+    <li><a href="profile.html">My Account</a></li>
+    <li><a href="profile.html">Order Tracking</a></li>
+    <li><a href="about.html">Farmers Near Me</a></li>
+    <li><a href="contact.html">Delivery Information</a></li>
+    <li><a href="contact.html">Return Policy</a></li>
+</ul>
+                </div>
+            </div>
+            <div class="super-footer-bottom">
+                <p>&copy; 2023 FreshFarm. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--super-color-accent);"></i> for fresh farm products</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.super-header-nav');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Quantity selector functionality
+            document.querySelectorAll('.super-cart-quantity-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const isPlus = this.classList.contains('plus');
+                    const input = this.parentElement.querySelector('.super-cart-quantity-input');
+                    let value = parseInt(input.value);
+                    
+                    if (isPlus && value < 10) {
+                        input.value = value + 1;
+                    } else if (!isPlus && value > 1) {
+                        input.value = value - 1;
+                    }
+                    
+                    updateCartItemTotal(this.closest('.super-cart-item'));
+                    updateOrderSummary();
+                });
+            });
+
+            // Remove item functionality
+            document.querySelectorAll('.super-cart-remove-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const cartItem = this.closest('.super-cart-item');
+                    
+                    // Add fade out animation
+                    cartItem.style.opacity = '0';
+                    cartItem.style.transform = 'translateX(-20px)';
+                    
+                    setTimeout(() => {
+                        cartItem.remove();
+                        updateOrderSummary();
+                        updateCartCount();
+                        
+                        // Show empty state if no items left
+                        const cartItems = document.querySelectorAll('.super-cart-item');
+                        if (cartItems.length === 0) {
+                            document.querySelector('.super-cart-items-section').style.display = 'none';
+                            document.querySelector('.super-cart-summary-section').style.display = 'none';
+                            document.querySelector('.super-cart-empty-state').style.display = 'block';
+                        }
+                    }, 300);
+                });
+            });
+
+            // Update cart item total
+            function updateCartItemTotal(cartItem) {
+                const priceText = cartItem.querySelector('.super-cart-item-price').textContent;
+                const price = parseFloat(priceText.replace('$', '').replace(' / lb', '').replace(' / pack', ''));
+                const quantity = parseInt(cartItem.querySelector('.super-cart-quantity-input').value);
+                const total = (price * quantity).toFixed(2);
+                
+                cartItem.querySelector('.super-cart-item-total').textContent = `$${total}`;
+            }
+
+            // Update order summary
+            function updateOrderSummary() {
+                let subtotal = 0;
+                let itemCount = 0;
+                
+                document.querySelectorAll('.super-cart-item').forEach(item => {
+                    const totalText = item.querySelector('.super-cart-item-total').textContent;
+                    const total = parseFloat(totalText.replace('$', ''));
+                    subtotal += total;
+                    
+                    const quantity = parseInt(item.querySelector('.super-cart-quantity-input').value);
+                    itemCount += quantity;
+                });
+                
+                // Update subtotal and item count
+                document.querySelector('.super-cart-item-count').textContent = `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`;
+                document.querySelector('.super-cart-summary-row .super-cart-summary-value').textContent = `$${subtotal.toFixed(2)}`;
+                document.querySelector('.super-cart-summary-row .super-cart-summary-label').textContent = `Subtotal (${itemCount} ${itemCount === 1 ? 'item' : 'items'})`;
+                
+                // Calculate discount (10% off for orders over $10)
+                let discount = 0;
+                if (subtotal > 10) {
+                    discount = subtotal * 0.1;
+                }
+                
+                // Update discount
+                document.querySelectorAll('.super-cart-summary-row .super-cart-summary-value')[2].textContent = `-$${discount.toFixed(2)}`;
+                
+                // Calculate total
+                const deliveryFee = 2.99;
+                const total = (subtotal + deliveryFee - discount).toFixed(2);
+                
+                // Update total
+                document.querySelector('.super-cart-summary-total-value').textContent = `$${total}`;
+            }
+
+            // Update cart count in header
+            function updateCartCount() {
+                let totalCount = 0;
+                
+                document.querySelectorAll('.super-cart-item').forEach(item => {
+                    const quantity = parseInt(item.querySelector('.super-cart-quantity-input').value);
+                    totalCount += quantity;
+                });
+                
+                document.querySelector('.super-cart-count').textContent = totalCount;
+            }
+
+            // Initialize order summary
+            updateOrderSummary();
+        });
+    </script>
+</body>
+</html>

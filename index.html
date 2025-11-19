@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshFarm Supermarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="super-header-nav">
+        <div class="container">
+            <div class="row align-items-center py-2">
+                <div class="col-lg-3 col-md-6 col-6">
+                    <a href="#" class="super-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-12 order-lg-2 order-md-3 order-3 mt-md-2 mt-2">
+                    <div class="super-search-container">
+                        <input type="text" class="form-control super-search-input" placeholder="Search for groceries, farm products, vegetables...">
+                        <button class="btn super-search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 order-lg-3 order-md-2 order-2">
+                    <div class="super-nav-icons">
+                              <a href="profile.html" class="super-nav-icon">
+                            <i class="far fa-user"></i>
+                        </a>
+                        <a href="#" class="super-nav-icon">
+                            <i class="far fa-heart"></i>
+                        </a>
+      <a href="cart.html" class="super-nav-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="super-cart-count">3</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+                      
+
+    <!-- Hero Banner Section -->
+    <section class="container mt-4">
+        <div class="super-hero-banner">
+            <div class="super-hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+                <div class="super-hero-content">
+                    <h1 class="super-hero-title">Farm Fresh Products Delivered</h1>
+                    <p class="super-hero-subtitle">Get the freshest farm produce, groceries, and dairy products with free delivery on orders over $50.</p>
+                    <a href="categories.html" class="super-hero-btn">Shop Now <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="super-hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+                <div class="super-hero-content">
+                    <h1 class="super-hero-title">Direct from Local Farmers</h1>
+                    <p class="super-hero-subtitle">Support local farmers and get the freshest produce straight from the farm to your table.</p>
+                    <a href="#" class="super-hero-btn">Meet Our Farmers <i class="fas fa-tractor ms-2"></i></a>
+                </div>
+            </div>
+            <div class="super-hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');">
+                <div class="super-hero-content">
+                    <h1 class="super-hero-title">Organic & Healthy Choices</h1>
+                    <p class="super-hero-subtitle">Discover our wide range of organic products for a healthier lifestyle.</p>
+                    <a href="#" class="super-hero-btn">Go Organic <i class="fas fa-leaf ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Categories Section -->
+    <section class="super-categories-section">
+        <div class="container">
+            <h2 class="super-section-title">Shop By Categories</h2>
+            <div class="super-categories-container">
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Fresh from local orchards</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3 class="super-category-name">Fresh Fruits</h3>
+                        <p class="super-category-desc">Seasonal fruits picked at peak ripeness for maximum flavor and nutrition.</p>
+                        <span class="super-category-count">120+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Farm-fresh vegetables</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-carrot"></i>
+                        </div>
+                        <h3 class="super-category-name">Vegetables</h3>
+                        <p class="super-category-desc">Locally grown vegetables harvested daily for maximum freshness.</p>
+                        <span class="super-category-count">95+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Freshly baked daily</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <h3 class="super-category-name">Bakery</h3>
+                        <p class="super-category-desc">Artisan bread, pastries, and baked goods made with premium ingredients.</p>
+                        <span class="super-category-count">75+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Premium quality</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3 class="super-category-name">Meat & Seafood</h3>
+                        <p class="super-category-desc">High-quality meats and fresh seafood sourced from trusted suppliers.</p>
+                        <span class="super-category-count">80+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603052875180-8cc603243c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Farm-fresh dairy</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-egg"></i>
+                        </div>
+                        <h3 class="super-category-name">Dairy & Eggs</h3>
+                        <p class="super-category-desc">Fresh milk, cheese, yogurt, and eggs from local farms.</p>
+                        <span class="super-category-count">65+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Healthy options</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="super-category-name">Organic Products</h3>
+                        <p class="super-category-desc">Certified organic fruits, vegetables, and pantry staples.</p>
+                        <span class="super-category-count">150+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">Quick meals</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="super-category-name">Ready-to-Eat</h3>
+                        <p class="super-category-desc">Prepared meals, salads, and snacks for busy lifestyles.</p>
+                        <span class="super-category-count">45+ Products</span>
+                    </div>
+                </a>
+                
+                <a href="categories.html" class="super-category-card-new">
+                    <div class="super-category-image" style="background-image: url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                        <div class="super-category-overlay">International flavors</div>
+                    </div>
+                    <div class="super-category-content">
+                        <div class="super-category-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="super-category-name">International Foods</h3>
+                        <p class="super-category-desc">Ingredients and products from around the world.</p>
+                        <span class="super-category-count">200+ Products</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="super-deals-section">
+        <div class="container">
+            <h2 class="super-section-title">Today's Hot Deals</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                   <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-deal-badge">40% OFF</div>
+                        <div class="super-deal-image" style="background-image: url('https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                            <div class="super-deal-overlay">Limited Time Offer</div>
+                        </div>
+                        <div class="super-deal-content">
+                            <h3 class="super-deal-title">Fresh Strawberries</h3>
+                            <div class="super-deal-price">
+                                <span class="super-deal-current">$3.99</span>
+                                <span class="super-deal-original">$6.65</span>
+                                <span class="super-deal-save">Save 40%</span>
+                            </div>
+                            <button class="btn super-deal-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                   <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-deal-badge">25% OFF</div>
+                        <div class="super-deal-image" style="background-image: url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                            <div class="super-deal-overlay">Best Seller</div>
+                        </div>
+                        <div class="super-deal-content">
+                            <h3 class="super-deal-title">Organic Avocados</h3>
+                            <div class="super-deal-price">
+                                <span class="super-deal-current">$2.49</span>
+                                <span class="super-deal-original">$3.32</span>
+                                <span class="super-deal-save">Save 25%</span>
+                            </div>
+                            <button class="btn super-deal-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                   <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-deal-badge">30% OFF</div>
+                        <div class="super-deal-image" style="background-image: url('https://images.unsplash.com/photo-1603052875180-8cc603243c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                            <div class="super-deal-overlay">Fresh Arrival</div>
+                        </div>
+                        <div class="super-deal-content">
+                            <h3 class="super-deal-title">Greek Yogurt Pack</h3>
+                            <div class="super-deal-price">
+                                <span class="super-deal-current">$5.99</span>
+                                <span class="super-deal-original">$8.55</span>
+                                <span class="super-deal-save">Save 30%</span>
+                            </div>
+                            <button class="btn super-deal-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                   <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-deal-badge">20% OFF</div>
+                        <div class="super-deal-image" style="background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7ff58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+                            <div class="super-deal-overlay">Family Pack</div>
+                        </div>
+                        <div class="super-deal-content">
+                            <h3 class="super-deal-title">Fresh Chicken Breast</h3>
+                            <div class="super-deal-price">
+                                <span class="super-deal-current">$8.99</span>
+                                <span class="super-deal-original">$11.24</span>
+                                <span class="super-deal-save">Save 20%</span>
+                            </div>
+                            <button class="btn super-deal-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Farmer's Corner Section -->
+    <section class="super-farmers-section">
+        <div class="container">
+            <h2 class="super-section-title">Farmer's Corner</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="super-farmer-card" onclick="location.href='product-details.html'">
+                        <div class="super-farmer-badge">LOCAL</div>
+                        <div class="super-farmer-image" style="background-image: url('https://images.unsplash.com/photo-1621841957884-0a7a0fef6b2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-farmer-content">
+                            <h3 class="super-farmer-title">Green Valley Farms</h3>
+                            <div class="super-farmer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Springfield, 50 miles away</span>
+                            </div>
+                            <p class="super-farmer-desc">Family-owned farm specializing in organic vegetables and free-range eggs.</p>
+                            <div class="super-farmer-rating">
+                                <div class="super-farmer-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="super-farmer-review">(128 reviews)</span>
+                            </div>
+                            <button class="btn super-farmer-btn">View Products</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="super-farmer-card" onclick="location.href='product-details.html'">
+                        <div class="super-farmer-badge">ORGANIC</div>
+                        <div class="super-farmer-image" style="background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-farmer-content">
+                            <h3 class="super-farmer-title">Sunrise Organics</h3>
+                            <div class="super-farmer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Riverdale, 30 miles away</span>
+                            </div>
+                            <p class="super-farmer-desc">Certified organic farm with a wide variety of seasonal fruits and vegetables.</p>
+                            <div class="super-farmer-rating">
+                                <div class="super-farmer-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="super-farmer-review">(95 reviews)</span>
+                            </div>
+                            <button class="btn super-farmer-btn">View Products</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="super-farmer-card" onclick="location.href='product-details.html'">
+                        <div class="super-farmer-badge">PREMIUM</div>
+                        <div class="super-farmer-image" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-farmer-content">
+                            <h3 class="super-farmer-title">Heritage Meats</h3>
+                            <div class="super-farmer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Oakwood, 75 miles away</span>
+                            </div>
+                            <p class="super-farmer-desc">Specializing in grass-fed beef, free-range poultry, and artisan sausages.</p>
+                            <div class="super-farmer-rating">
+                                <div class="super-farmer-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="super-farmer-review">(203 reviews)</span>
+                            </div>
+                            <button class="btn super-farmer-btn">View Products</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Section -->
+    <section class="super-recommended-section">
+        <div class="container">
+            <h2 class="super-section-title">Recommended For You</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-product-badge">BESTSELLER</div>
+                        <div class="super-product-image" style="background-image: url('https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-product-content">
+                            <h3 class="super-product-title">Organic Bananas</h3>
+                            <p class="super-product-desc">Fresh organic bananas, perfect for smoothies and snacks.</p>
+                            <div class="super-product-rating">
+                                <div class="super-product-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="super-product-review">(128 reviews)</span>
+                            </div>
+                            <div class="super-product-price">$1.49/lb</div>
+                            <div class="super-product-actions">
+                                <button class="btn super-product-cart-btn">Add to Cart</button>
+                                <button class="btn super-product-wish-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-product-badge">NEW</div>
+                        <div class="super-product-image" style="background-image: url('https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-product-content">
+                            <h3 class="super-product-title">Mixed Bell Peppers</h3>
+                            <p class="super-product-desc">Colorful bell peppers pack, great for salads and cooking.</p>
+                            <div class="super-product-rating">
+                                <div class="super-product-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="super-product-review">(64 reviews)</span>
+                            </div>
+                            <div class="super-product-price">$4.99/pack</div>
+                            <div class="super-product-actions">
+                                <button class="btn super-product-cart-btn">Add to Cart</button>
+                                <button class="btn super-product-wish-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-product-image" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-product-content">
+                            <h3 class="super-product-title">Artisan Bread</h3>
+                            <p class="super-product-desc">Freshly baked artisan bread, perfect for your breakfast.</p>
+                            <div class="super-product-rating">
+                                <div class="super-product-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="super-product-review">(203 reviews)</span>
+                            </div>
+                            <div class="super-product-price">$3.49</div>
+                            <div class="super-product-actions">
+                                <button class="btn super-product-cart-btn">Add to Cart</button>
+                                <button class="btn super-product-wish-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="super-product-card" onclick="location.href='product-details.html'">
+                        <div class="super-product-badge">POPULAR</div>
+                        <div class="super-product-image" style="background-image: url('https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="super-product-content">
+                            <h3 class="super-product-title">Fresh Salmon Fillet</h3>
+                            <p class="super-product-desc">Premium salmon fillet, rich in omega-3 fatty acids.</p>
+                            <div class="super-product-rating">
+                                <div class="super-product-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="super-product-review">(156 reviews)</span>
+                            </div>
+                            <div class="super-product-price">$12.99/lb</div>
+                            <div class="super-product-actions">
+                                <button class="btn super-product-cart-btn">Add to Cart</button>
+                                <button class="btn super-product-wish-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer Section -->
+    <footer class="super-footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <a href="#" class="super-footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                    <p class="super-footer-desc">Your one-stop destination for fresh farm produce, groceries, and daily essentials. We deliver quality products right from local farms to your doorstep.</p>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (800) 123-4567</span>
+                    </div>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@freshfarm.com</span>
+                    </div>
+                    <div class="super-social-icons">
+                        <a href="#" class="super-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Quick Links</h3>
+                  <ul class="super-footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="categories.html">Shop</a></li>
+    <li><a href="about.html">Farmers</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>   
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Categories</h3>
+<ul class="super-footer-links">
+    <li><a href="categories.html">Fruits & Vegetables</a></li>
+    <li><a href="categories.html">Farm Produce</a></li>
+    <li><a href="categories.html">Dairy & Eggs</a></li>
+    <li><a href="categories.html">Meat & Seafood</a></li>
+    <li><a href="categories.html">Beverages</a></li>
+</ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Customer Service</h3>
+                 <ul class="super-footer-links">
+    <li><a href="profile.html">My Account</a></li>
+    <li><a href="profile.html">Order Tracking</a></li>
+    <li><a href="about.html">Farmers Near Me</a></li>
+    <li><a href="contact.html">Delivery Information</a></li>
+    <li><a href="contact.html">Return Policy</a></li>
+</ul>
+                </div>
+            </div>
+            <div class="super-footer-bottom">
+                <p>&copy; 2023 FreshFarm. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--super-color-accent);"></i> for fresh farm products</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Hero Banner Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.super-hero-slide');
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+            
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.super-header-nav');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Add click event to all cards
+            document.querySelectorAll('.super-category-card-new, .super-deal-card, .super-product-card, .super-farmer-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    // In a real application, this would navigate to the product/category page
+                    console.log('Navigating to:', this.querySelector('h3').textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FreshFarm Supermarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="super-header-nav">
+        <div class="container">
+            <div class="row align-items-center py-2">
+                <div class="col-lg-3 col-md-6 col-6">
+                    <a href="#" class="super-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-12 order-lg-2 order-md-3 order-3 mt-md-2 mt-2">
+                    <div class="super-search-container">
+                        <input type="text" class="form-control super-search-input" placeholder="Search for groceries, farm products, vegetables...">
+                        <button class="btn super-search-btn">Search</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-6 order-lg-3 order-md-2 order-2">
+                    <div class="super-nav-icons">
+                              <a href="profile.html" class="super-nav-icon">
+                            <i class="far fa-user"></i>
+                        </a>
+                        <a href="#" class="super-nav-icon">
+                            <i class="far fa-heart"></i>
+                        </a>
+      <a href="cart.html" class="super-nav-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="super-cart-count">3</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Page Content -->
+    <section class="super-checkout-container">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="super-checkout-breadcrumb">
+                <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
+        <li class="breadcrumb-item active">Checkout</li>
+                </ol>
+            </nav>
+
+            <h1 class="super-checkout-title">Checkout</h1>
+
+            <!-- Step Indicator -->
+            <div class="super-checkout-steps">
+                <div class="super-checkout-step-indicator">
+                    <div class="super-checkout-step active">
+                        <div class="super-checkout-step-number">1</div>
+                        <div class="super-checkout-step-label">Address</div>
+                    </div>
+                    <div class="super-checkout-step">
+                        <div class="super-checkout-step-number">2</div>
+                        <div class="super-checkout-step-label">Delivery Slot</div>
+                    </div>
+                    <div class="super-checkout-step">
+                        <div class="super-checkout-step-number">3</div>
+                        <div class="super-checkout-step-label">Payment</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Checkout Sections -->
+                <div class="col-lg-8">
+                    <div class="super-checkout-sections">
+                        <!-- Address Form Section -->
+                        <div class="super-checkout-section">
+                            <div class="super-checkout-section-header">
+                                <div class="super-checkout-section-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h2 class="super-checkout-section-title">Delivery Address</h2>
+                            </div>
+                            
+                            <div class="super-checkout-address-form">
+                                <div class="super-checkout-form-row">
+                                    <div class="super-checkout-form-group">
+                                        <label class="super-checkout-form-label">First Name</label>
+                                        <input type="text" class="form-control super-checkout-form-control" placeholder="Enter your first name">
+                                    </div>
+                                    <div class="super-checkout-form-group">
+                                        <label class="super-checkout-form-label">Last Name</label>
+                                        <input type="text" class="form-control super-checkout-form-control" placeholder="Enter your last name">
+                                    </div>
+                                </div>
+                                
+                                <div class="super-checkout-form-group">
+                                    <label class="super-checkout-form-label">Address Line 1</label>
+                                    <input type="text" class="form-control super-checkout-form-control" placeholder="Street address, P.O. box, company name">
+                                </div>
+                                
+                                <div class="super-checkout-form-group">
+                                    <label class="super-checkout-form-label">Address Line 2</label>
+                                    <input type="text" class="form-control super-checkout-form-control" placeholder="Apartment, suite, unit, building, floor, etc.">
+                                </div>
+                                
+                                <div class="super-checkout-form-row">
+                                    <div class="super-checkout-form-group">
+                                        <label class="super-checkout-form-label">City</label>
+                                        <input type="text" class="form-control super-checkout-form-control" placeholder="Enter your city">
+                                    </div>
+                                    <div class="super-checkout-form-group">
+                                        <label class="super-checkout-form-label">State</label>
+                                        <input type="text" class="form-control super-checkout-form-control" placeholder="Enter your state">
+                                    </div>
+                                </div>
+                                
+                                <div class="super-checkout-form-row">
+                                    <div class="super-checkout-form-group">
+                                        <label class="super-checkout-form-label">ZIP Code</label>
+                                        <input type="text" class="form-control super-checkout-form-control" placeholder="Enter ZIP code">
+                                    </div>
+                                    <div class="super-checkout-form-group">
+                                        <label class="super-checkout-form-label">Phone Number</label>
+                                        <input type="tel" class="form-control super-checkout-form-control" placeholder="Enter your phone number">
+                                    </div>
+                                </div>
+                                
+                                <div class="super-checkout-form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input super-checkout-form-control" type="checkbox" id="save-address">
+                                        <label class="form-check-label super-checkout-form-label" for="save-address">
+                                            Save this address for future orders
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Slot Section -->
+                        <div class="super-checkout-section">
+                            <div class="super-checkout-section-header">
+                                <div class="super-checkout-section-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <h2 class="super-checkout-section-title">Delivery Time Slot</h2>
+                            </div>
+                            
+                            <div class="super-checkout-delivery-slots">
+                                <h4 class="mb-3">Select a delivery slot:</h4>
+                                
+                                <div class="super-checkout-delivery-options">
+                                    <!-- Slot 1 -->
+                                    <div class="super-checkout-delivery-slot active">
+                                        <div class="super-checkout-slot-date">Today</div>
+                                        <div class="super-checkout-slot-time">10:00 AM - 12:00 PM</div>
+                                        <div class="super-checkout-slot-price">FREE</div>
+                                    </div>
+                                    
+                                    <!-- Slot 2 -->
+                                    <div class="super-checkout-delivery-slot">
+                                        <div class="super-checkout-slot-date">Today</div>
+                                        <div class="super-checkout-slot-time">2:00 PM - 4:00 PM</div>
+                                        <div class="super-checkout-slot-price">FREE</div>
+                                    </div>
+                                    
+                                    <!-- Slot 3 -->
+                                    <div class="super-checkout-delivery-slot">
+                                        <div class="super-checkout-slot-date">Today</div>
+                                        <div class="super-checkout-slot-time">6:00 PM - 8:00 PM</div>
+                                        <div class="super-checkout-slot-price">FREE</div>
+                                    </div>
+                                    
+                                    <!-- Slot 4 -->
+                                    <div class="super-checkout-delivery-slot">
+                                        <div class="super-checkout-slot-date">Tomorrow</div>
+                                        <div class="super-checkout-slot-time">9:00 AM - 11:00 AM</div>
+                                        <div class="super-checkout-slot-price">FREE</div>
+                                    </div>
+                                    
+                                    <!-- Slot 5 -->
+                                    <div class="super-checkout-delivery-slot">
+                                        <div class="super-checkout-slot-date">Tomorrow</div>
+                                        <div class="super-checkout-slot-time">1:00 PM - 3:00 PM</div>
+                                        <div class="super-checkout-slot-price">FREE</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Section -->
+                        <div class="super-checkout-section">
+                            <div class="super-checkout-section-header">
+                                <div class="super-checkout-section-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <h2 class="super-checkout-section-title">Payment Method</h2>
+                            </div>
+                            
+                            <div class="super-checkout-payment-options">
+                                <!-- Credit/Debit Card -->
+                                <div class="super-checkout-payment-option active">
+                                    <input type="radio" class="super-checkout-payment-radio" name="payment-method" checked>
+                                    <div class="super-checkout-payment-icon">
+                                        <i class="far fa-credit-card"></i>
+                                    </div>
+                                    <div class="super-checkout-payment-details">
+                                        <div class="super-checkout-payment-title">Credit/Debit Card</div>
+                                        <div class="super-checkout-payment-desc">Pay securely with your card</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- UPI -->
+                                <div class="super-checkout-payment-option">
+                                    <input type="radio" class="super-checkout-payment-radio" name="payment-method">
+                                    <div class="super-checkout-payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="super-checkout-payment-details">
+                                        <div class="super-checkout-payment-title">UPI Payment</div>
+                                        <div class="super-checkout-payment-desc">Pay using UPI apps</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Net Banking -->
+                                <div class="super-checkout-payment-option">
+                                    <input type="radio" class="super-checkout-payment-radio" name="payment-method">
+                                    <div class="super-checkout-payment-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="super-checkout-payment-details">
+                                        <div class="super-checkout-payment-title">Net Banking</div>
+                                        <div class="super-checkout-payment-desc">Transfer from your bank</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Cash on Delivery -->
+                                <div class="super-checkout-payment-option">
+                                    <input type="radio" class="super-checkout-payment-radio" name="payment-method">
+                                    <div class="super-checkout-payment-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="super-checkout-payment-details">
+                                        <div class="super-checkout-payment-title">Cash on Delivery</div>
+                                        <div class="super-checkout-payment-desc">Pay when you receive</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary Section -->
+                <div class="col-lg-4">
+                    <div class="super-checkout-summary-section">
+                        <div class="super-checkout-summary-box">
+                            <h2 class="super-checkout-summary-title">Order Summary</h2>
+                            
+                            <div class="super-checkout-summary-items">
+                                <!-- Item 1 -->
+                                <div class="super-checkout-summary-item">
+                                    <div class="super-checkout-summary-image">
+                                        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Organic Bananas">
+                                    </div>
+                                    <div class="super-checkout-summary-details">
+                                        <div class="super-checkout-summary-name">Organic Bananas</div>
+                                        <div class="super-checkout-summary-quantity">2 lb × $1.49</div>
+                                    </div>
+                                    <div class="super-checkout-summary-price">$2.98</div>
+                                </div>
+                                
+                                <!-- Item 2 -->
+                                <div class="super-checkout-summary-item">
+                                    <div class="super-checkout-summary-image">
+                                        <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Fresh Strawberries">
+                                    </div>
+                                    <div class="super-checkout-summary-details">
+                                        <div class="super-checkout-summary-name">Fresh Strawberries</div>
+                                        <div class="super-checkout-summary-quantity">1 lb × $3.99</div>
+                                    </div>
+                                    <div class="super-checkout-summary-price">$3.99</div>
+                                </div>
+                                
+                                <!-- Item 3 -->
+                                <div class="super-checkout-summary-item">
+                                    <div class="super-checkout-summary-image">
+                                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Organic Avocados">
+                                    </div>
+                                    <div class="super-checkout-summary-details">
+                                        <div class="super-checkout-summary-name">Organic Avocados</div>
+                                        <div class="super-checkout-summary-quantity">1 pack × $5.99</div>
+                                    </div>
+                                    <div class="super-checkout-summary-price">$5.99</div>
+                                </div>
+                            </div>
+                            
+                            <div class="super-checkout-summary-divider"></div>
+                            
+                            <div class="super-checkout-summary-row">
+                                <span class="super-checkout-summary-label">Subtotal</span>
+                                <span class="super-checkout-summary-value">$12.96</span>
+                            </div>
+                            
+                            <div class="super-checkout-summary-row">
+                                <span class="super-checkout-summary-label">Delivery Fee</span>
+                                <span class="super-checkout-summary-value">$2.99</span>
+                            </div>
+                            
+                            <div class="super-checkout-summary-row">
+                                <span class="super-checkout-summary-label">Discount</span>
+                                <span class="super-checkout-summary-value" style="color: var(--super-color-accent);">-$1.50</span>
+                            </div>
+                            
+                            <div class="super-checkout-summary-divider"></div>
+                            
+                            <div class="super-checkout-summary-total">
+                                <span class="super-checkout-summary-total-label">Total</span>
+                                <span class="super-checkout-summary-total-value">$14.45</span>
+                            </div>
+                            
+                            <button class="super-checkout-place-order-btn">
+                                <i class="fas fa-lock"></i> Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer Section -->
+    <footer class="super-footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <a href="#" class="super-footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        FreshFarm
+                    </a>
+                    <p class="super-footer-desc">Your one-stop destination for fresh farm produce, groceries, and daily essentials. We deliver quality products right from local farms to your doorstep.</p>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (800) 123-4567</span>
+                    </div>
+                    <div class="super-footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@freshfarm.com</span>
+                    </div>
+                    <div class="super-social-icons">
+                        <a href="#" class="super-social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="super-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Quick Links</h3>
+                  <ul class="super-footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="categories.html">Shop</a></li>
+    <li><a href="about.html">Farmers</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>   
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Categories</h3>
+<ul class="super-footer-links">
+    <li><a href="categories.html">Fruits & Vegetables</a></li>
+    <li><a href="categories.html">Farm Produce</a></li>
+    <li><a href="categories.html">Dairy & Eggs</a></li>
+    <li><a href="categories.html">Meat & Seafood</a></li>
+    <li><a href="categories.html">Beverages</a></li>
+</ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h3 class="super-footer-title">Customer Service</h3>
+                 <ul class="super-footer-links">
+    <li><a href="profile.html">My Account</a></li>
+    <li><a href="profile.html">Order Tracking</a></li>
+    <li><a href="about.html">Farmers Near Me</a></li>
+    <li><a href="contact.html">Delivery Information</a></li>
+    <li><a href="contact.html">Return Policy</a></li>
+</ul>
+                </div>
+            </div>
+            <div class="super-footer-bottom">
+                <p>&copy; 2023 FreshFarm. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--super-color-accent);"></i> for fresh farm products</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.super-header-nav');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Step indicator functionality
+            const steps = document.querySelectorAll('.super-checkout-step');
+            steps.forEach((step, index) => {
+                step.addEventListener('click', function() {
+                    // Update active step
+                    steps.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Mark previous steps as completed
+                    for (let i = 0; i < index; i++) {
+                        steps[i].classList.add('completed');
+                    }
+                    
+                    // Remove completed from later steps
+                    for (let i = index + 1; i < steps.length; i++) {
+                        steps[i].classList.remove('completed');
+                    }
+                });
+            });
+
+            // Delivery slot selection
+            const deliverySlots = document.querySelectorAll('.super-checkout-delivery-slot');
+            deliverySlots.forEach(slot => {
+                slot.addEventListener('click', function() {
+                    deliverySlots.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Payment method selection
+            const paymentOptions = document.querySelectorAll('.super-checkout-payment-option');
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const radio = this.querySelector('.super-checkout-payment-radio');
+                    radio.checked = true;
+                    
+                    paymentOptions.forEach(o => o.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Place order button animation
+            const placeOrderBtn = document.querySelector('.super-checkout-place-order-btn');
+            placeOrderBtn.addEventListener('click', function() {
+                // Add loading state
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                this.disabled = true;
+                
+                // Simulate order processing
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check"></i> Order Placed!';
+                    this.style.background = 'var(--super-color-secondary)';
+                    
+                    // Redirect after success (in a real application)
+                    setTimeout(() => {
+                        alert('Order placed successfully! Thank you for your purchase.');
+                        // window.location.href = 'order-confirmation.html';
+                    }, 1000);
+                }, 2000);
+            });
+
+            // Form validation
+            const formControls = document.querySelectorAll('.super-checkout-form-control');
+            formControls.forEach(control => {
+                control.addEventListener('blur', function() {
+                    if (this.value.trim() === '') {
+                        this.style.borderColor = 'var(--super-color-accent)';
+                    } else {
+                        this.style.borderColor = 'var(--super-color-primary)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
