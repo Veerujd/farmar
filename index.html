@@ -3,2402 +3,2602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SukhiMart | Online Shopping</title>
-    <meta name="description" content="SukhiMart - Your premium destination for electronics, fashion, home goods and more. Enjoy fast delivery, exclusive deals, and premium quality products.">
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    
+    <title>ShopHub - Premium E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-purple: #6f42c1;
-            --primary-purple-light: #8c68d1;
-            --success-green: #198754;
-            --success-green-light: #20c374;
-            --accent-red: #dc3545;
-            --accent-red-light: #e4606d;
-            --accent-pink: #e83e8c;
-            --warning-yellow: #ffc107;
-            --muted-gray: #6c757d;
-            --light-gray: #f8f9fa;
-            --dark-bg: #111;
-            --card-radius: 12px;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --dark-gradient: linear-gradient(135deg, #434343 0%, #000000 100%);
+            --green-gradient: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+            
+            --primary-color: #667eea;
+            --secondary-color: #f5576c;
+            --success-color: #00f2fe;
+            --warning-color: #fee140;
+            --dark-color: #2d3436;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --red-accent: #D50000;
+            --green-accent: #56ab2f;
+            
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* Global Styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #f9f9fb;
+            font-family: var(--font-primary);
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark-color);
+            overflow-x: hidden;
+            line-height: 1.6;
         }
-
-        /* Header Styles */
+        
+        /* Custom Bootstrap Overrides */
+        .btn-primary {
+            background: var(--primary-gradient);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-success {
+            background: var(--green-gradient);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .btn-warning {
+            background: var(--warning-gradient);
+            border: none;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .btn-danger {
+            background: var(--secondary-gradient);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .badge {
+            font-weight: 600;
+            padding: 6px 10px;
+        }
+        
+        .badge.bg-danger {
+            background: var(--secondary-gradient) !important;
+        }
+        
+        .badge.bg-success {
+            background: var(--green-gradient) !important;
+        }
+        
+        .badge.bg-warning {
+            background: var(--warning-gradient) !important;
+            color: #333;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-md);
+        }
+        
+        .dropdown-item:hover {
+            background: var(--primary-gradient);
+            color: white;
+        }
+        
+        /* ========== SECTION 1: HEADER ========== */
         .brandZone_nx1 {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-purple);
-            transition: transform 0.3s ease;
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 12px 0;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.6s ease;
         }
-
-        .brandZone_nx1:hover {
-            transform: scale(1.05);
-        }
-
-        .locationPicker_nx1 {
-            cursor: pointer;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-
-        .locationPicker_nx1:hover {
-            color: var(--primary-purple);
-        }
-
-        .searchBarWrap_nx1 {
-            position: relative;
-            max-width: 500px;
-            transition: all 0.3s ease;
-        }
-
-        .searchBarWrap_nx1:focus-within {
-            transform: scale(1.02);
-            box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.2);
-        }
-
-        .searchBarWrap_nx1 input {
-            border-radius: 50px;
-            padding-left: 45px;
-            transition: all 0.3s ease;
-        }
-
-        .searchBarWrap_nx1 i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--muted-gray);
-            z-index: 10;
-        }
-
-        .loginArea_nx1, .cartArea_nx1 {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: 500;
-        }
-
-        .loginArea_nx1:hover, .cartArea_nx1:hover {
-            background-color: rgba(111, 66, 193, 0.1);
-            transform: scale(1.05);
-        }
-
-        .headerEntrance_nx1 {
-            animation: fadeDown 0.8s ease forwards;
-        }
-
-        @keyframes fadeDown {
+        
+        @keyframes slideDown {
             from {
+                transform: translateY(-100%);
                 opacity: 0;
-                transform: translateY(-20px);
             }
             to {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
-
-        /* Category Navbar */
+        
+        .brandZone_nx1 .logo {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            transition: var(--transition-base);
+        }
+        
+        .brandZone_nx1 .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .locationPicker_nx1 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-base);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .locationPicker_nx1:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .searchBarWrap_nx1 {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .searchBarWrap_nx1 input {
+            width: 100%;
+            padding: 14px 50px 14px 20px;
+            border: none;
+            border-radius: var(--radius-xl);
+            font-size: 15px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            background: var(--white);
+        }
+        
+        .searchBarWrap_nx1 input:focus {
+            outline: none;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .searchBarWrap_nx1 button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: var(--white);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+        
+        .searchBarWrap_nx1 button:hover {
+            transform: translateY(-50%) scale(1.1) rotate(90deg);
+        }
+        
+        .loginArea_nx1, .cartArea_nx1 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            transition: var(--transition-base);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .loginArea_nx1:hover, .cartArea_nx1:hover {
+            background: rgba(255,255,255,0.35);
+            transform: scale(1.05);
+        }
+        
+        .cartArea_nx1 .badge {
+            background: var(--secondary-gradient);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        /* Category Navigation */
         .categoryNav_nx1 {
+            background: var(--white);
+            padding: 16px 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 70px;
+            z-index: 999;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding: 10px 0;
         }
-
+        
         .categoryNav_nx1::-webkit-scrollbar {
             display: none;
         }
-
+        
+        .categoryNav_nx1 .container {
+            display: flex;
+            gap: 20px;
+        }
+        
         .categoryItem_nx1 {
-            display: inline-block;
-            padding: 10px 16px;
-            margin: 0 5px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            transition: var(--transition-base);
             cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
             position: relative;
-            font-weight: 500;
         }
-
+        
         .categoryItem_nx1:hover {
-            background-color: rgba(111, 66, 193, 0.1);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            transform: translateY(-4px);
         }
-
+        
+        .categoryItem_nx1 i {
+            font-size: 24px;
+            transition: var(--transition-base);
+        }
+        
+        .categoryItem_nx1:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
         .categoryActive_nx1 {
-            color: var(--primary-purple);
-            font-weight: 600;
+            background: var(--primary-gradient);
+            color: var(--white);
         }
-
+        
         .categoryActive_nx1::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 20%;
+            left: 50%;
+            transform: translateX(-50%);
             width: 60%;
             height: 3px;
-            background-color: var(--primary-purple);
-            border-radius: 3px;
-            animation: underlineGrow 0.3s ease forwards;
+            background: var(--white);
+            border-radius: 2px;
         }
-
-        @keyframes underlineGrow {
-            from {
-                width: 0;
-            }
-            to {
-                width: 60%;
-            }
-        }
-
-        /* Hero Banner */
-        .heroBanner_nx1 {
-            background: linear-gradient(135deg, var(--primary-purple), #8c68d1);
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            margin: 1.5rem 0;
-            color: white;
-            animation: fadeInUp 0.8s ease 0.2s both;
-            opacity: 0;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Smart Basket Section */
-        .smartBasketSection_px1 {
-            padding: 3rem 0;
-        }
-
-        .smartBasketHeader_px1 {
-            margin-bottom: 2rem;
-            animation: fadeSlideDown_px1 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeSlideDown_px1 {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .smartBasketTitle_px1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 0;
-        }
-
-        .basketNavControls_px1 {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .viewAllLink_px1 {
-            color: var(--primary-purple);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-normal);
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .viewAllLink_px1:hover {
-            color: var(--primary-purple-light);
-            transform: translateX(4px);
-        }
-
-        .navArrowBtn_px1 {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid #dee2e6;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-normal);
-            color: var(--muted-gray);
-        }
-
-        .navArrowBtn_px1:hover {
-            border-color: var(--primary-purple);
-            color: var(--primary-purple);
-            transform: scale(1.05);
-        }
-
+        
+        /* ========== SECTION 2: SMART BASKET ========== */
         .smartBasketWrap_px1 {
-            animation: fadeInUp_px1 0.8s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeInUp_px1 {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Product Card */
-        .productCard_px1 {
-            background: white;
-            border-radius: var(--card-radius);
-            box-shadow: var(--shadow-sm);
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            position: relative;
             overflow: hidden;
-            transition: var(--transition-normal);
-            margin-bottom: 1.5rem;
-            animation: cardEntrance_px1 0.6s ease-out forwards;
-            opacity: 0;
-            transform: scale(0.98);
+        }
+        
+        .smartBasketWrap_px1::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .smartBasketTitle_px1 {
+            font-size: 36px;
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            background: var(--dark-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+        
+        .productCard_px1 {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-
-        .productCard_px1:nth-child(1) { animation-delay: 0.1s; }
-        .productCard_px1:nth-child(2) { animation-delay: 0.2s; }
-        .productCard_px1:nth-child(3) { animation-delay: 0.3s; }
-        .productCard_px1:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes cardEntrance_px1 {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
+        
         .productCard_px1:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
-
+        
         .offerBadge_px1 {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            background-color: var(--success-green);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+            top: 15px;
+            left: 15px;
+            background: var(--red-accent);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
             font-weight: 700;
-            z-index: 2;
-            transform: translateY(-10px);
-            opacity: 0;
-            transition: var(--transition-normal);
+            z-index: 10;
+            animation: bounce 2s infinite;
         }
-
-        .productCard_px1:hover .offerBadge_px1 {
-            transform: translateY(0);
-            opacity: 1;
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
-
+        
         .productImageBox_px1 {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
             position: relative;
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .productImageBox_px1 img {
+            width: 100%;
             height: 200px;
-            overflow: hidden;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .productImage_px1 {
-            max-height: 100%;
-            max-width: 100%;
             object-fit: contain;
-            transition: var(--transition-slow);
+            transition: var(--transition-base);
         }
-
-        .productCard_px1:hover .productImage_px1 {
-            transform: scale(1.08);
+        
+        .productCard_px1:hover .productImageBox_px1 img {
+            transform: scale(1.1) rotate(3deg);
         }
-
-        .productPackBadge_px1 {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background-color: rgba(0,0,0,0.7);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-        }
-
+        
         .deliveryTime_px1 {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background-color: var(--warning-yellow);
-            color: #000;
-            padding: 4px 8px;
-            border-radius: 50px;
-            font-size: 0.75rem;
+            display: inline-block;
+            background: var(--success-gradient);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: var(--radius-xl);
+            font-size: 11px;
             font-weight: 600;
-            animation: popIn_px1 0.5s ease-out 0.8s forwards;
-            opacity: 0;
-            transform: scale(0.8);
+            margin-bottom: 10px;
         }
-
-        @keyframes popIn_px1 {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        
+        .productInfo_px1 h6 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
         }
-
-        .productInfo_px1 {
-            padding: 1.25rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        
+        .productInfo_px1 h5 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-color);
         }
-
-        .productBrand_px1 {
-            font-size: 0.8rem;
-            color: var(--muted-gray);
-            margin-bottom: 0.25rem;
-        }
-
-        .productTitle_px1 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .variantSelectWrapper_px1 {
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
+        
         .variantSelect_px1 {
             width: 100%;
-            border-radius: 6px;
             padding: 8px 12px;
-            border: 1px solid #dee2e6;
-            background-color: white;
-            font-size: 0.9rem;
-            appearance: none;
-            transition: var(--transition-normal);
-            cursor: pointer;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            transition: var(--transition-base);
         }
-
+        
         .variantSelect_px1:focus {
-            border-color: var(--primary-purple);
-            box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.15);
             outline: none;
+            border-color: var(--primary-color);
         }
-
-        .selectChevron_px1 {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            transition: var(--transition-normal);
-            color: var(--muted-gray);
-        }
-
-        .variantSelect_px1:focus + .selectChevron_px1 {
-            color: var(--primary-purple);
-            transform: translateY(-50%) rotate(180deg);
-        }
-
+        
         .productPrice_px1 {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            gap: 10px;
+            margin-bottom: 10px;
         }
-
-        .currentPrice_px1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1a1a1a;
+        
+        .productPrice_px1 .current {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark-color);
         }
-
-        .originalPrice_px1 {
-            font-size: 0.9rem;
-            color: var(--muted-gray);
+        
+        .productPrice_px1 .original {
+            font-size: 16px;
             text-decoration: line-through;
+            color: #999;
         }
-
+        
+        .productPrice_px1 .discount {
+            background: var(--warning-gradient);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
         .productRating_px1 {
             display: flex;
             align-items: center;
-            gap: 0.25rem;
-            margin-bottom: 1rem;
+            gap: 5px;
+            margin-bottom: 10px;
         }
-
-        .ratingStars_px1 {
-            color: var(--success-green);
-            font-size: 0.8rem;
+        
+        .productRating_px1 i {
+            color: #ffc107;
         }
-
-        .ratingValue_px1 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .ratingCount_px1 {
-            font-size: 0.8rem;
-            color: var(--muted-gray);
-        }
-
+        
         .offerRibbon_px1 {
-            background-color: var(--success-green-light);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: var(--transition-normal);
+            background: var(--secondary-gradient);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            margin-bottom: 15px;
+            display: inline-block;
         }
-
-        .offerRibbon_px1:hover {
-            background-color: var(--success-green);
-        }
-
-        .ribbonChevron_px1 {
-            transition: var(--transition-normal);
-        }
-
-        .offerRibbon_px1.active .ribbonChevron_px1 {
-            transform: rotate(180deg);
-        }
-
+        
         .actionRow_px1 {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            gap: 10px;
             margin-top: auto;
         }
-
-        .bookmarkBtn_px1 {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            border: 1px solid #dee2e6;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted-gray);
-            transition: var(--transition-normal);
-            flex-shrink: 0;
-        }
-
-        .bookmarkBtn_px1:hover, .bookmarkBtn_px1.active {
-            border-color: var(--primary-purple);
-            color: var(--primary-purple);
-            transform: scale(1.05);
-        }
-
-        .addButton_px1 {
-            flex-grow: 1;
-            background-color: var(--accent-red);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 16px;
-            font-weight: 600;
-            transition: var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .addButton_px1:hover {
-            background-color: var(--accent-red-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
-        }
-
-        .addButton_px1:active {
-            transform: translateY(0);
-        }
-
-        .addButton_px1:active::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .addButton_px1:active::after {
-            animation: ripple_px1 0.6s ease-out;
-        }
-
-        @keyframes ripple_px1 {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
-        }
-
-        /* Advanced Category Section */
+        
+        /* ========== SECTION 3: CATEGORY STRIP ========== */
         .ds-category-strip-unique {
-            padding: 15px 0;
-            animation: fadeInUp 0.8s ease 0.5s both;
+            padding: 50px 0;
+            background: var(--white);
             overflow-x: auto;
-            white-space: nowrap;
             scrollbar-width: none;
         }
-
+        
         .ds-category-strip-unique::-webkit-scrollbar {
             display: none;
         }
-
+        
+        .ds-category-strip-unique .container > div {
+            display: flex;
+            gap: 15px;
+        }
+        
         .ds-category-item-unique {
-            display: inline-block;
-            width: 120px;
-            text-align: center;
-            padding: 15px 10px;
-            margin: 0 8px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.5s ease both;
-            opacity: 0;
-            white-space: normal;
-        }
-
-        .ds-category-item-unique:nth-child(1) { animation-delay: 0.1s; }
-        .ds-category-item-unique:nth-child(2) { animation-delay: 0.2s; }
-        .ds-category-item-unique:nth-child(3) { animation-delay: 0.3s; }
-        .ds-category-item-unique:nth-child(4) { animation-delay: 0.4s; }
-        .ds-category-item-unique:nth-child(5) { animation-delay: 0.5s; }
-        .ds-category-item-unique:nth-child(6) { animation-delay: 0.6s; }
-
-        .ds-category-item-unique:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-md);
-        }
-
-        .ds-category-item-unique i {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            color: var(--primary-purple);
-        }
-
-        .ds-section-title-laundry, .ds-section-title-household {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #333;
-            animation: fadeInUp 0.8s ease 0.6s both;
-        }
-
-        .ds-seeall-link-unique {
-            color: var(--primary-purple);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease 0.7s both;
-        }
-
-        .ds-seeall-link-unique:hover {
-            color: var(--primary-purple-light);
-            transform: translateX(5px);
-        }
-
-        .ds-product-grid-unique {
-            animation: fadeInUp 0.8s ease 0.8s both;
-        }
-
-        .ds-product-card-unique {
-            border-radius: var(--card-radius);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.4s ease;
-            overflow: hidden;
-            animation: fadeInUp 0.5s ease both;
-            opacity: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .ds-product-card-unique:nth-child(1) { animation-delay: 0.1s; }
-        .ds-product-card-unique:nth-child(2) { animation-delay: 0.2s; }
-        .ds-product-card-unique:nth-child(3) { animation-delay: 0.3s; }
-        .ds-product-card-unique:nth-child(4) { animation-delay: 0.4s; }
-        .ds-product-card-unique:nth-child(5) { animation-delay: 0.5s; }
-
-        .ds-product-card-unique:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .ds-product-img-box-unique {
-            height: 140px;
-            overflow: hidden;
-            position: relative;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .ds-product-img-box-unique img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .ds-product-card-unique:hover .ds-product-img-box-unique img {
-            transform: scale(1.1);
-        }
-
-        .ds-product-discount-badge-unique {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            background-color: var(--success-green);
-            color: white;
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .ds-product-title-unique {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-            color: #333;
-            line-height: 1.3;
-        }
-
-        .ds-product-qty-unique {
-            font-size: 0.8rem;
-            color: var(--muted-gray);
-            margin-bottom: 8px;
-        }
-
-        .ds-product-price-unique {
-            font-weight: 700;
-            color: #333;
-            font-size: 1rem;
-        }
-
-        .ds-product-tag-unique {
-            font-size: 0.75rem;
-            color: var(--muted-gray);
-            margin-top: 4px;
-        }
-
-        .ds-product-rating-unique {
-            color: #ffc107;
-            font-size: 0.8rem;
-        }
-
-        .ds-product-add-btn-unique {
-            background-color: var(--accent-pink);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 6px 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: auto;
-        }
-
-        .ds-product-add-btn-unique:hover {
-            background-color: #d91a72;
-            box-shadow: 0 0 10px rgba(232, 62, 140, 0.5);
-        }
-
-        /* Top Offers Section */
-        .ds-topoffers-title-unique {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #333;
-            animation: fadeInUp 0.8s ease 0.9s both;
-        }
-
-        .ds-topoffers-grid-unique {
-            animation: fadeInUp 0.8s ease 1s both;
-        }
-
-        .ds-offer-card-unique {
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.4s ease;
-            animation: fadeInUp 0.5s ease both;
-            opacity: 0;
-            height: 100%;
-        }
-
-        .ds-offer-card-unique:nth-child(1) { animation-delay: 0.1s; }
-        .ds-offer-card-unique:nth-child(2) { animation-delay: 0.2s; }
-        .ds-offer-card-unique:nth-child(3) { animation-delay: 0.3s; }
-        .ds-offer-card-unique:nth-child(4) { animation-delay: 0.4s; }
-
-        .ds-offer-card-unique:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .ds-offer-card-banner-unique {
-            background-color: var(--accent-red);
-            color: white;
-            padding: 12px 15px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .ds-offer-card-unique:hover .ds-offer-card-banner-unique {
-            transform: translateX(5px);
-        }
-
-        .ds-offer-card-title-unique {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .ds-offer-card-body-unique {
-            padding: 15px;
-            background-color: white;
-            height: 100%;
-        }
-
-        .ds-offer-card-link-unique {
-            color: var(--primary-purple);
-            text-decoration: none;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .ds-offer-card-link-unique:hover {
-            color: var(--primary-purple-light);
-            transform: translateX(5px);
-        }
-
-        /* Fruits & Vegetables Section */
-        .ds-fruitsveg-title-unique {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #333;
-            animation: fadeInUp 0.8s ease 1.1s both;
-        }
-
-        .ds-fruitsveg-grid-unique {
-            animation: fadeInUp 0.8s ease 1.2s both;
-        }
-
-        .ds-fruitveg-card-unique {
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.4s ease;
-            animation: fadeInUp 0.5s ease both;
-            opacity: 0;
-            height: 100%;
-        }
-
-        .ds-fruitveg-card-unique:nth-child(1) { animation-delay: 0.1s; }
-        .ds-fruitveg-card-unique:nth-child(2) { animation-delay: 0.2s; }
-        .ds-fruitveg-card-unique:nth-child(3) { animation-delay: 0.3s; }
-        .ds-fruitveg-card-unique:nth-child(4) { animation-delay: 0.4s; }
-
-        .ds-fruitveg-card-unique:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .ds-fruitveg-imgbox-unique {
-            height: 140px;
-            overflow: hidden;
-            position: relative;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .ds-fruitveg-img-unique {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .ds-fruitveg-card-unique:hover .ds-fruitveg-img-unique {
-            transform: scale(1.1);
-        }
-
-        .ds-fruitveg-info-unique {
-            padding: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .ds-fruitveg-accent-unique {
-            width: 4px;
-            height: 40px;
-            background-color: var(--accent-red);
-            border-radius: 2px;
-            margin-right: 10px;
-        }
-
-        .ds-fruitveg-title-unique {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .ds-fruitveg-discount-unique {
-            color: var(--success-green);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Farming Products Section */
-        .farmingSection_fp1 {
-            padding: 3rem 0;
-            background: linear-gradient(to bottom, #f8fff8, #ffffff);
-        }
-
-        .farmingTitleBanner_fp1 {
-            background: linear-gradient(135deg, var(--success-green), #20c374);
-            border-radius: var(--card-radius);
-            padding: 2rem;
-            color: white;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 1.3s both;
-            opacity: 0;
-        }
-
-        .farmingTitle_fp1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .farmingSubtitle_fp1 {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .farmingIcon_fp1 {
-            font-size: 3rem;
-            opacity: 0.8;
-        }
-
-        .farmFilterBar_fp1 {
-            display: flex;
-            overflow-x: auto;
-            gap: 0.5rem;
-            padding: 1rem 0;
-            margin-bottom: 2rem;
-            scrollbar-width: none;
-        }
-
-        .farmFilterBar_fp1::-webkit-scrollbar {
-            display: none;
-        }
-
-        .farmFilterBtn_fp1 {
+            gap: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: var(--radius-xl);
             white-space: nowrap;
-            padding: 0.5rem 1.25rem;
-            border: 1px solid #dee2e6;
-            border-radius: 50px;
-            background: white;
-            color: var(--muted-gray);
-            transition: var(--transition-normal);
-            font-weight: 500;
+            transition: var(--transition-base);
+            cursor: pointer;
+            border: 2px solid transparent;
         }
-
-        .farmFilterBtn_fp1:hover, .farmFilterBtn_fp1.active {
-            background-color: var(--success-green);
-            color: white;
-            border-color: var(--success-green);
-            transform: translateY(-2px);
+        
+        .ds-category-item-unique:hover {
+            background: var(--primary-gradient);
+            color: var(--white);
+            transform: scale(1.05);
+            border-color: var(--primary-color);
         }
-
-        .farmingProductsGrid_fp1 {
-            animation: fadeInUp 0.8s ease 1.4s both;
-            opacity: 0;
+        
+        .ds-category-item-unique i {
+            font-size: 20px;
         }
-
-        .farmProdCard_fp1 {
-            background: white;
-            border-radius: var(--card-radius);
-            box-shadow: var(--shadow-sm);
+        
+        /* Product Grid */
+        .ds-product-grid-unique {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+        
+        .ds-product-card-unique {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-slow);
+            position: relative;
             overflow: hidden;
-            transition: var(--transition-normal);
-            margin-bottom: 1.5rem;
             height: 100%;
             display: flex;
             flex-direction: column;
-            animation: fadeInUp 0.6s ease both;
-            opacity: 0;
         }
-
-        .farmProdCard_fp1:nth-child(1) { animation-delay: 0.1s; }
-        .farmProdCard_fp1:nth-child(2) { animation-delay: 0.2s; }
-        .farmProdCard_fp1:nth-child(3) { animation-delay: 0.3s; }
-        .farmProdCard_fp1:nth-child(4) { animation-delay: 0.4s; }
-        .farmProdCard_fp1:nth-child(5) { animation-delay: 0.5s; }
-        .farmProdCard_fp1:nth-child(6) { animation-delay: 0.6s; }
-
-        .farmProdCard_fp1:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .farmItemImgBox_fp1 {
-            height: 180px;
-            overflow: hidden;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .farmItemImg_fp1 {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
+        
+        .ds-product-card-unique::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: var(--transition-slow);
         }
-
-        .farmProdCard_fp1:hover .farmItemImg_fp1 {
-            transform: scale(1.08);
+        
+        .ds-product-card-unique:hover::before {
+            left: 100%;
         }
-
-        .farmItemInfo_fp1 {
-            padding: 1.25rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+        
+        .ds-product-card-unique:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl);
         }
-
-        .farmItemTitle_fp1 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
+        
+        .ds-product-img-box-unique {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            flex: 1;
         }
-
-        .farmItemDesc_fp1 {
-            font-size: 0.85rem;
-            color: var(--muted-gray);
-            margin-bottom: 1rem;
-            line-height: 1.4;
-            flex-grow: 1;
+        
+        .ds-product-img-box-unique img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            transition: var(--transition-base);
         }
-
-        .farmItemPrice_fp1 {
-            font-size: 1.25rem;
+        
+        .ds-product-card-unique:hover .ds-product-img-box-unique img {
+            transform: scale(1.15) rotate(-5deg);
+        }
+        
+        .ds-product-discount-badge-unique {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--red-accent);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
             font-weight: 700;
-            color: var(--success-green);
-            margin-bottom: 1rem;
         }
-
-        .farmItemActions_fp1 {
+        
+        .ds-product-title-unique {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        .ds-product-qty-unique {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        
+        .ds-product-price-unique {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .ds-product-price-unique .current {
+            font-size: 20px;
+            font-weight: 800;
+        }
+        
+        .ds-product-price-unique .original {
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .ds-product-tag-unique {
+            background: var(--success-gradient);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .ds-product-rating-unique {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .ds-product-rating-unique i {
+            color: #ffc107;
+            font-size: 14px;
+        }
+        
+        /* ========== SECTION 4: TOP OFFERS ========== */
+        .ds-topoffers-title-unique {
+            font-size: 36px;
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+        
+        .ds-topoffers-grid-unique {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .ds-offer-card-unique {
+            background: var(--white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            transition: var(--transition-slow);
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        .ds-offer-card-unique:hover {
+            transform: translateY(-12px) rotate(1deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .ds-offer-card-banner-unique {
+            height: 200px;
+            background: var(--warning-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ds-offer-card-banner-unique::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .ds-offer-card-banner-unique h2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .ds-offer-card-body-unique {
+            padding: 20px;
+        }
+        
+        .ds-offer-card-title-unique {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        /* Fruits & Vegetables */
+        .ds-fruitsveg-title-unique {
+            font-size: 36px;
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            background: var(--green-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+        
+        .ds-fruitsveg-grid-unique {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+        
+        .ds-fruitveg-card-unique {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        .ds-fruitveg-card-unique:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .ds-fruitveg-imgbox-unique {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        .ds-fruitveg-img-unique {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            transition: var(--transition-base);
+        }
+        
+        .ds-fruitveg-card-unique:hover .ds-fruitveg-img-unique {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .ds-fruitveg-accent-unique {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--red-accent);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .ds-fruitveg-info-unique {
+            padding: 10px 0;
+        }
+        
+        .ds-fruitveg-title-unique {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .ds-fruitveg-discount-unique {
+            color: var(--green-accent);
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        /* ========== SECTION 5: FARMER ESSENTIALS ========== */
+        .farmerSection_fxAg1 {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .farmerSection_fxAg1::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .farmerHeader_fxAg1 {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 0.75rem;
+            margin-bottom: 30px;
         }
-
-        .farmAddCartBtn_fp1 {
-            background-color: var(--success-green);
-            color: white;
+        
+        .farmerTitle_fxAg1 {
+            font-size: 40px;
+            font-weight: 900;
+            font-family: var(--font-secondary);
+            color: var(--green-accent);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .farmerHeaderNav_fxAg1 {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .farmerHeaderNav_fxAg1 button {
+            background: var(--white);
             border: none;
-            border-radius: 6px;
-            padding: 8px 16px;
-            font-weight: 600;
-            transition: var(--transition-normal);
-            flex-grow: 1;
-        }
-
-        .farmAddCartBtn_fp1:hover {
-            background-color: var(--success-green-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(25, 135, 84, 0.3);
-        }
-
-        .farmDetailsLink_fp1 {
-            color: var(--primary-purple);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition-normal);
-            white-space: nowrap;
-        }
-
-        .farmDetailsLink_fp1:hover {
-            color: var(--primary-purple-light);
-            transform: translateX(3px);
-        }
-
-        /* Footer Section */
-        .footerWrap_fx1 {
-            background-color: var(--dark-bg);
-            color: #fff;
-            padding: 50px 0 0;
-            margin-top: 50px;
-            animation: fadeInUp 0.8s ease 1.5s both;
-        }
-
-        .footerBrand_fx1 h5 {
-            color: white;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .footerBrand_fx1 p {
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        .footerLinks_fx1 h6, .footerSupport_fx1 h6, .footerSocial_fx1 h6 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .footerLinks_fx1 ul, .footerSupport_fx1 ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footerLinks_fx1 li, .footerSupport_fx1 li {
-            margin-bottom: 8px;
-        }
-
-        .footerLinks_fx1 a, .footerSupport_fx1 a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footerLinks_fx1 a:hover, .footerSupport_fx1 a:hover {
-            color: white;
-        }
-
-        .footerSocial_fx1 a {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background-color: #333;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            text-align: center;
-            line-height: 36px;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-            color: white;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            transition: var(--transition-base);
         }
-
-        .footerSocial_fx1 a:hover {
-            background-color: var(--primary-purple);
-            transform: scale(1.1);
+        
+        .farmerHeaderNav_fxAg1 button:hover {
+            background: var(--green-gradient);
+            color: var(--white);
+            transform: scale(1.15);
         }
-
-        .footerBottom_fx1 {
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding: 20px 0;
-            margin-top: 30px;
-            text-align: center;
-            color: #aaa;
+        
+        .farmerCategoryStrip_fxAg1 {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            margin-bottom: 30px;
+            scrollbar-width: none;
         }
-
-        .footerBottom_fx1 a {
-            color: #aaa;
+        
+        .farmerCategoryStrip_fxAg1::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .farmerCategoryItem_fxAg1 {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            white-space: nowrap;
+            border: 2px solid transparent;
+            transition: var(--transition-base);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .farmerCategoryItem_fxAg1:hover {
+            background: var(--green-gradient);
+            color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .farmerCategoryActive_fxAg1 {
+            background: var(--green-gradient);
+            color: var(--white);
+            border-color: var(--green-accent);
+        }
+        
+        .farmerGrid_fxAg1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .farmerCard_fxAg1 {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .farmerCard_fxAg1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--green-gradient);
+            transform: scaleX(0);
+            transition: var(--transition-base);
+        }
+        
+        .farmerCard_fxAg1:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .farmerCard_fxAg1:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--green-accent);
+        }
+        
+        .farmerImgBox_fxAg1 {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .farmerImgBox_fxAg1 img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            transition: var(--transition-slow);
+        }
+        
+        .farmerCard_fxAg1:hover .farmerImgBox_fxAg1 img {
+            transform: scale(1.15) rotate(-3deg);
+        }
+        
+        .farmerOfferBadge_fxAg1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--red-accent);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+        
+        .farmerInfo_fxAg1 h6 {
+            font-size: 13px;
+            color: var(--green-accent);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .farmerInfo_fxAg1 h5 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .farmerVariantSelect_fxAg1 {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            transition: var(--transition-base);
+            background: var(--white);
+        }
+        
+        .farmerVariantSelect_fxAg1:focus {
+            outline: none;
+            border-color: var(--green-accent);
+        }
+        
+        .farmerPrice_fxAg1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .farmerPrice_fxAg1 .current {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--green-accent);
+        }
+        
+        .farmerPrice_fxAg1 .original {
+            font-size: 16px;
+            text-decoration: line-through;
+            color: #999;
+        }
+        
+        .farmerPrice_fxAg1 .discount {
+            background: var(--warning-gradient);
+            color: var(--white);
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        .farmerRating_fxAg1 {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .farmerRating_fxAg1 i {
+            color: #ffc107;
+        }
+        
+        .farmerOfferRibbon_fxAg1 {
+            background: var(--green-gradient);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            margin-bottom: 15px;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .farmerActionRow_fxAg1 {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        /* ========== SECTION 6: FOOTER ========== */
+        .footerWrap_unique {
+            background: var(--dark-gradient);
+            color: var(--white);
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footerWrap_unique::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+        
+        .footerColumn_unique {
+            margin-bottom: 30px;
+        }
+        
+        .footerColumn_unique h5 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footerColumn_unique h5::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .footerLink_unique {
+            display: block;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+            margin-bottom: 10px;
+            transition: var(--transition-base);
+            padding: 5px 0;
         }
-
-        .footerBottom_fx1 a:hover {
-            color: white;
+        
+        .footerLink_unique:hover {
+            color: var(--white);
+            padding-left: 10px;
         }
-
-        /* Reduced Motion Support */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+        
+        .footerSocial_unique {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footerSocial_unique a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition-base);
+            text-decoration: none;
+        }
+        
+        .footerSocial_unique a:hover {
+            background: var(--primary-gradient);
+            transform: translateY(-5px) rotate(360deg);
+        }
+        
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .app-buttons img {
+            height: 45px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-base);
+            cursor: pointer;
+        }
+        
+        .app-buttons img:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* ========== ANIMATIONS & RESPONSIVE ========== */
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            font-family: var(--font-secondary);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        /* Responsive Breakpoints */
-        /* Mobile: < 768px - 1 card per row (default in Bootstrap col-12) */
-        /* Tablet: 768px - 1199px - 2 cards per row */
-        /* Desktop: ≥ 1200px - 4 cards per row */
-
-        /* Tablet adjustments */
-        @media (max-width: 1199px) and (min-width: 768px) {
-            .productImageBox_px1 {
-                height: 180px;
-            }
-            
-            .productTitle_px1 {
-                font-size: 0.95rem;
-            }
-            
-            .ds-product-img-box-unique {
-                height: 120px;
-            }
-            
-            .farmItemImgBox_fp1 {
-                height: 160px;
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        /* Stagger animation */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .smartBasketTitle_px1,
+            .ds-topoffers-title-unique,
+            .ds-fruitsveg-title-unique,
+            .farmerTitle_fxAg1 {
+                font-size: 32px;
             }
         }
-
-        /* Mobile adjustments */
-        @media (max-width: 767px) {
-            .smartBasketSection_px1 {
-                padding: 2rem 0;
+        
+        @media (max-width: 992px) {
+            .smartBasketTitle_px1,
+            .ds-topoffers-title-unique,
+            .ds-fruitsveg-title-unique,
+            .farmerTitle_fxAg1 {
+                font-size: 28px;
             }
             
-            .smartBasketTitle_px1 {
-                font-size: 1.5rem;
-            }
-            
-            .basketNavControls_px1 {
-                margin-top: 1rem;
-                justify-content: space-between;
-            }
-            
-            .productImageBox_px1 {
-                height: 220px;
-            }
-            
-            .ds-section-title-laundry, .ds-section-title-household {
-                font-size: 1.3rem;
-            }
-            
-            .ds-topoffers-title-unique, .ds-fruitsveg-title-unique {
-                font-size: 1.3rem;
-            }
-            
-            .farmingTitle_fp1 {
-                font-size: 1.5rem;
-            }
-            
-            .farmingSubtitle_fp1 {
-                font-size: 0.9rem;
-            }
-            
-            .farmItemImgBox_fp1 {
-                height: 180px;
+            .farmerGrid_fxAg1 {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
-
-        /* Extra small mobile */
-        @media (max-width: 575px) {
-            .productImageBox_px1 {
-                height: 200px;
+        
+        @media (max-width: 768px) {
+            .brandZone_nx1 .logo {
+                font-size: 22px;
             }
             
-            .actionRow_px1 {
+            .locationPicker_nx1,
+            .loginArea_nx1,
+            .cartArea_nx1 {
+                padding: 8px 12px;
+            }
+            
+            .searchBarWrap_nx1 {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .smartBasketTitle_px1,
+            .ds-topoffers-title-unique,
+            .ds-fruitsveg-title-unique,
+            .farmerTitle_fxAg1 {
+                font-size: 24px;
+            }
+            
+            .farmerGrid_fxAg1 {
+                grid-template-columns: 1fr;
+            }
+            
+            .farmerHeader_fxAg1 {
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
             
-            .bookmarkBtn_px1 {
+            .farmerHeaderNav_fxAg1 {
                 align-self: flex-end;
             }
             
-            .footerWrap_fx1 {
-                padding: 30px 0 0;
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .brandZone_nx1 .logo {
+                font-size: 20px;
             }
             
-            .farmItemActions_fp1 {
-                flex-direction: column;
-                align-items: stretch;
+            .locationPicker_nx1 span,
+            .loginArea_nx1 span {
+                display: none;
             }
             
-            .farmDetailsLink_fp1 {
-                text-align: center;
-                margin-top: 0.5rem;
+            .categoryItem_nx1 {
+                padding: 10px 15px;
             }
+            
+            .smartBasketTitle_px1,
+            .ds-topoffers-title-unique,
+            .ds-fruitsveg-title-unique,
+            .farmerTitle_fxAg1 {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+        
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-base);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Bootstrap Carousel Customization */
+        .carousel-control-prev, .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+        }
+        
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            opacity: 1;
+        }
+        
+        .carousel-control-prev {
+            left: 15px;
+        }
+        
+        .carousel-control-next {
+            right: 15px;
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+        }
+        
+        .carousel-indicators button.active {
+            background-color: white;
+        }
+        
+        /* Toast Notifications */
+        .toast {
+            border: none;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-md);
+        }
+        
+        .toast-header {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+        }
+        
+        /* Modal Customization */
+        .modal-content {
+            border: none;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .modal-header {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        
+        /* Tooltip Customization */
+        .tooltip-inner {
+            background: var(--dark-color);
+            border-radius: var(--radius-sm);
+        }
+        
+        .bs-tooltip-top .tooltip-arrow::before {
+            border-top-color: var(--dark-color);
+        }
+        
+        /* Progress Bar Customization */
+        .progress {
+            height: 8px;
+            border-radius: var(--radius-sm);
+        }
+        
+        .progress-bar {
+            background: var(--primary-gradient);
+        }
+        
+        /* Alert Customization */
+        .alert {
+            border: none;
+            border-radius: var(--radius-md);
+        }
+        
+        .alert-success {
+            background: var(--green-gradient);
+            color: white;
+        }
+        
+        .alert-warning {
+            background: var(--warning-gradient);
+            color: #333;
+        }
+        
+        .alert-danger {
+            background: var(--secondary-gradient);
+            color: white;
+        }
+        
+        .alert-info {
+            background: var(--success-gradient);
+            color: white;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="sticky-top bg-white shadow-sm py-2 headerEntrance_nx1">
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-shopping-cart me-2"></i>
+                <strong class="me-auto">ShopHub</strong>
+                <small>Just now</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Product added to cart successfully!
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 1: HEADER -->
+    <nav class="navbar navbar-expand-lg brandZone_nx1">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-between">
-                <!-- Left Section -->
-                <div class="d-flex align-items-center">
-                    <div class="brandZone_nx1 me-3">SukhiMart</div>
-                    <div class="locationPicker_nx1 d-flex align-items-center">
-                        <i class="bi bi-geo-alt me-1"></i>
-                        <span>Select Location</span>
-                        <i class="bi bi-chevron-down ms-1"></i>
-                    </div>
+            <a class="navbar-brand logo" href="#">🛒 ShopHub</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars text-white"></i></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="locationPicker_nx1 ms-3">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Chennai, TN</span>
                 </div>
                 
-                <!-- Center Section -->
-                <div class="searchBarWrap_nx1 flex-grow-1 mx-3">
-                    <i class="bi bi-search"></i>
-                    <input type="text" class="form-control" placeholder="Search for products, brands and more">
+                <div class="searchBarWrap_nx1 mx-3">
+                    <input type="text" class="form-control" placeholder="Search for products, brands and more...">
+                    <button class="btn"><i class="fas fa-search"></i></button>
                 </div>
                 
-                <!-- Right Section -->
-                <div class="d-flex align-items-center">
-                    <div class="loginArea_nx1 d-flex align-items-center me-3">
-                        <i class="bi bi-person me-1"></i>
-                        <span>Login</span>
+                <div class="d-flex gap-2 ms-auto">
+                    <div class="loginArea_nx1" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fas fa-user"></i>
+                        <span class="d-none d-md-inline">Login</span>
                     </div>
-                    <div class="cartArea_nx1 d-flex align-items-center">
-                        <i class="bi bi-cart3 me-1"></i>
-                        <span>Cart</span>
+                    <div class="cartArea_nx1" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge bg-danger">3</span>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Category Navbar -->
-        <div class="container mt-2">
-            <div class="categoryNav_nx1">
-                <div class="categoryItem_nx1 categoryActive_nx1">All</div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-cup-hot me-1"></i>
-                    Cafe
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-house-door me-1"></i>
-                    Home
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-joystick me-1"></i>
-                    Toys
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-flower1 me-1"></i>
-                    Fresh
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-laptop me-1"></i>
-                    Electronics
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-phone me-1"></i>
-                    Mobiles
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-brush me-1"></i>
-                    Beauty
-                </div>
-                <div class="categoryItem_nx1">
-                    <i class="bi bi-bag me-1"></i>
-                    Fashion
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Banner -->
-    <section class="container">
-        <div class="heroBanner_nx1 p-4 p-md-5">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1 class="display-5 fw-bold">Biggest Sale of the Year!</h1>
-                    <p class="lead">Up to 70% off on premium brands. Limited time offer.</p>
-                    <button class="btn btn-light btn-lg mt-3">Shop Now</button>
-                </div>
-                <div class="col-md-6 text-center">
-                    <img src="https://via.placeholder.com/400x250/ffffff/6f42c1?text=Special+Offer" alt="Special Offer" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Smart Basket Section -->
-    <section class="smartBasketSection_px1" aria-labelledby="smartBasketHeading">
+    </nav>
+    
+    <!-- CATEGORY NAVBAR -->
+    <div class="categoryNav_nx1">
         <div class="container">
-            <!-- Section Header -->
-            <div class="smartBasketHeader_px1">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h2 id="smartBasketHeading" class="smartBasketTitle_px1">My Smart Basket</h2>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="basketNavControls_px1 justify-content-md-end">
-                            <a href="#" class="viewAllLink_px1">
-                                View All
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-                            <div class="d-flex gap-2">
-                                <button class="navArrowBtn_px1" aria-label="Previous products">
-                                    <i class="bi bi-chevron-left"></i>
-                                </button>
-                                <button class="navArrowBtn_px1" aria-label="Next products">
-                                    <i class="bi bi-chevron-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="categoryItem_nx1 categoryActive_nx1">
+                <i class="fas fa-th"></i>
+                <span>All</span>
             </div>
-
-            <!-- Product Grid -->
-            <div class="smartBasketWrap_px1">
-                <div class="row">
-                    <!-- Product Card 1 -->
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="productCard_px1" role="article" aria-labelledby="product1-title">
-                            <div class="position-relative">
-                                <div class="offerBadge_px1">24% OFF</div>
-                                <div class="productImageBox_px1">
-                                    <img src="https://via.placeholder.com/200x150/6f42c1/ffffff?text=Premium+Product" 
-                                         alt="Premium Wireless Headphones" 
-                                         class="productImage_px1"
-                                         loading="lazy">
-                                    <div class="productPackBadge_px1">2 Packs</div>
-                                </div>
-                                <div class="deliveryTime_px1">5 MINS</div>
-                            </div>
-                            
-                            <div class="productInfo_px1">
-                                <div class="productBrand_px1">SoundMax</div>
-                                <h3 id="product1-title" class="productTitle_px1" tabindex="0">
-                                    Premium Wireless Headphones with Noise Cancellation
-                                </h3>
-                                
-                                <div class="variantSelectWrapper_px1">
-                                    <select class="variantSelect_px1" aria-label="Select product variant">
-                                        <option>1 kg</option>
-                                        <option>10 kg</option>
-                                        <option>1 L pouch</option>
-                                        <option>2 × multipack</option>
-                                    </select>
-                                    <i class="bi bi-chevron-down selectChevron_px1"></i>
-                                </div>
-                                
-                                <div class="productPrice_px1">
-                                    <span class="currentPrice_px1" aria-label="Current price $129.99">$129.99</span>
-                                    <span class="originalPrice_px1" aria-label="Original price $169.99">$169.99</span>
-                                </div>
-                                
-                                <div class="productRating_px1">
-                                    <div class="ratingStars_px1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-half"></i>
-                                    </div>
-                                    <span class="ratingValue_px1">4.1</span>
-                                    <span class="ratingCount_px1">(128)</span>
-                                </div>
-                                
-                                <div class="offerRibbon_px1" role="button" aria-expanded="false">
-                                    <span>Har Din Sasta!</span>
-                                    <i class="bi bi-chevron-down ribbonChevron_px1"></i>
-                                </div>
-                                
-                                <div class="actionRow_px1">
-                                    <button class="bookmarkBtn_px1" aria-label="Add to favorites">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                    <button class="addButton_px1">ADD</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Product Card 2 -->
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="productCard_px1" role="article" aria-labelledby="product2-title">
-                            <div class="position-relative">
-                                <div class="offerBadge_px1">18% OFF</div>
-                                <div class="productImageBox_px1">
-                                    <img src="https://via.placeholder.com/200x150/198754/ffffff?text=Smart+Watch" 
-                                         alt="Fitness Smart Watch" 
-                                         class="productImage_px1"
-                                         loading="lazy">
-                                    <div class="productPackBadge_px1">1 Pack</div>
-                                </div>
-                                <div class="deliveryTime_px1">10 MINS</div>
-                            </div>
-                            
-                            <div class="productInfo_px1">
-                                <div class="productBrand_px1">FitTech</div>
-                                <h3 id="product2-title" class="productTitle_px1" tabindex="0">
-                                    Fitness Smart Watch with Heart Rate Monitor
-                                </h3>
-                                
-                                <div class="variantSelectWrapper_px1">
-                                    <select class="variantSelect_px1" aria-label="Select product variant">
-                                        <option>Medium - Black</option>
-                                        <option>Large - Black</option>
-                                        <option>Medium - Blue</option>
-                                    </select>
-                                    <i class="bi bi-chevron-down selectChevron_px1"></i>
-                                </div>
-                                
-                                <div class="productPrice_px1">
-                                    <span class="currentPrice_px1" aria-label="Current price $89.99">$89.99</span>
-                                    <span class="originalPrice_px1" aria-label="Original price $109.99">$109.99</span>
-                                </div>
-                                
-                                <div class="productRating_px1">
-                                    <div class="ratingStars_px1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
-                                    <span class="ratingValue_px1">4.0</span>
-                                    <span class="ratingCount_px1">(64)</span>
-                                </div>
-                                
-                                <div class="offerRibbon_px1" role="button" aria-expanded="false">
-                                    <span>Har Din Sasta!</span>
-                                    <i class="bi bi-chevron-down ribbonChevron_px1"></i>
-                                </div>
-                                
-                                <div class="actionRow_px1">
-                                    <button class="bookmarkBtn_px1" aria-label="Add to favorites">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                    <button class="addButton_px1">ADD</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Product Card 3 -->
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="productCard_px1" role="article" aria-labelledby="product3-title">
-                            <div class="position-relative">
-                                <div class="offerBadge_px1">30% OFF</div>
-                                <div class="productImageBox_px1">
-                                    <img src="https://via.placeholder.com/200x150/e83e8c/ffffff?text=Kitchen+Blender" 
-                                         alt="Multipurpose Kitchen Blender" 
-                                         class="productImage_px1"
-                                         loading="lazy">
-                                    <div class="productPackBadge_px1">3 Packs</div>
-                                </div>
-                                <div class="deliveryTime_px1">15 MINS</div>
-                            </div>
-                            
-                            <div class="productInfo_px1">
-                                <div class="productBrand_px1">KitchenPro</div>
-                                <h3 id="product3-title" class="productTitle_px1" tabindex="0">
-                                    Multipurpose Kitchen Blender with 5 Speed Settings
-                                </h3>
-                                
-                                <div class="variantSelectWrapper_px1">
-                                    <select class="variantSelect_px1" aria-label="Select product variant">
-                                        <option>1.5L - Red</option>
-                                        <option>1.5L - Black</option>
-                                        <option>2.0L - Silver</option>
-                                    </select>
-                                    <i class="bi bi-chevron-down selectChevron_px1"></i>
-                                </div>
-                                
-                                <div class="productPrice_px1">
-                                    <span class="currentPrice_px1" aria-label="Current price $59.99">$59.99</span>
-                                    <span class="originalPrice_px1" aria-label="Original price $85.99">$85.99</span>
-                                </div>
-                                
-                                <div class="productRating_px1">
-                                    <div class="ratingStars_px1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                    <span class="ratingValue_px1">4.8</span>
-                                    <span class="ratingCount_px1">(42)</span>
-                                </div>
-                                
-                                <div class="offerRibbon_px1" role="button" aria-expanded="false">
-                                    <span>Har Din Sasta!</span>
-                                    <i class="bi bi-chevron-down ribbonChevron_px1"></i>
-                                </div>
-                                
-                                <div class="actionRow_px1">
-                                    <button class="bookmarkBtn_px1" aria-label="Add to favorites">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                    <button class="addButton_px1">ADD</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Product Card 4 -->
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="productCard_px1" role="article" aria-labelledby="product4-title">
-                            <div class="position-relative">
-                                <div class="offerBadge_px1">22% OFF</div>
-                                <div class="productImageBox_px1">
-                                    <img src="https://via.placeholder.com/200x150/6c757d/ffffff?text=Laptop+Backpack" 
-                                         alt="Laptop Backpack" 
-                                         class="productImage_px1"
-                                         loading="lazy">
-                                    <div class="productPackBadge_px1">2 Packs</div>
-                                </div>
-                                <div class="deliveryTime_px1">25 MINS</div>
-                            </div>
-                            
-                            <div class="productInfo_px1">
-                                <div class="productBrand_px1">UrbanGear</div>
-                                <h3 id="product4-title" class="productTitle_px1" tabindex="0">
-                                    Waterproof Laptop Backpack with USB Charging Port
-                                </h3>
-                                
-                                <div class="variantSelectWrapper_px1">
-                                    <select class="variantSelect_px1" aria-label="Select product variant">
-                                        <option>15" - Gray</option>
-                                        <option>15" - Black</option>
-                                        <option>17" - Blue</option>
-                                    </select>
-                                    <i class="bi bi-chevron-down selectChevron_px1"></i>
-                                </div>
-                                
-                                <div class="productPrice_px1">
-                                    <span class="currentPrice_px1" aria-label="Current price $45.99">$45.99</span>
-                                    <span class="originalPrice_px1" aria-label="Original price $58.99">$58.99</span>
-                                </div>
-                                
-                                <div class="productRating_px1">
-                                    <div class="ratingStars_px1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-half"></i>
-                                    </div>
-                                    <span class="ratingValue_px1">4.3</span>
-                                    <span class="ratingCount_px1">(89)</span>
-                                </div>
-                                
-                                <div class="offerRibbon_px1" role="button" aria-expanded="false">
-                                    <span>Har Din Sasta!</span>
-                                    <i class="bi bi-chevron-down ribbonChevron_px1"></i>
-                                </div>
-                                
-                                <div class="actionRow_px1">
-                                    <button class="bookmarkBtn_px1" aria-label="Add to favorites">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                    <button class="addButton_px1">ADD</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-coffee"></i>
+                <span>Café</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-gamepad"></i>
+                <span>Toys</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-leaf"></i>
+                <span>Fresh</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-tv"></i>
+                <span>Electronics</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Mobiles</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-spa"></i>
+                <span>Beauty</span>
+            </div>
+            <div class="categoryItem_nx1">
+                <i class="fas fa-tshirt"></i>
+                <span>Fashion</span>
             </div>
         </div>
-    </section>
-
-    <!-- Advanced Category Section -->
-    <section class="container my-5">
-        <!-- Category Strip -->
-        <div class="ds-category-strip-unique">
-            <div class="ds-category-item-unique">
-                <i class="bi bi-phone"></i>
-                <div>Mobiles</div>
-            </div>
-            <div class="ds-category-item-unique">
-                <i class="bi bi-laptop"></i>
-                <div>Laptops</div>
-            </div>
-            <div class="ds-category-item-unique">
-                <i class="bi bi-tv"></i>
-                <div>TVs</div>
-            </div>
-            <div class="ds-category-item-unique">
-                <i class="bi bi-earbuds"></i>
-                <div>Audio</div>
-            </div>
-            <div class="ds-category-item-unique">
-                <i class="bi bi-watch"></i>
-                <div>Wearables</div>
-            </div>
-            <div class="ds-category-item-unique">
-                <i class="bi bi-camera"></i>
-                <div>Cameras</div>
-            </div>
-        </div>
-        
-        <!-- Laundry Section -->
-        <div class="mt-5">
+    </div>
+    
+    <!-- SECTION 2: SMART BASKET -->
+    <div class="smartBasketWrap_px1">
+        <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="ds-section-title-laundry">Laundry & Home Needs</h3>
-                <a href="#" class="ds-seeall-link-unique">See All <i class="bi bi-chevron-right"></i></a>
+                <h2 class="smartBasketTitle_px1">My Smart Basket</h2>
+                <div class="basketNavControls_px1">
+                    <button class="btn btn-primary view-all">View All</button>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-light"><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn btn-light"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
             </div>
             
-            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 ds-product-grid-unique">
-                <!-- Product 1 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/6f42c1/ffffff?text=Detergent" alt="Laundry Detergent">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card productCard_px1">
+                        <div class="offerBadge_px1">15% OFF</div>
+                        <div class="productImageBox_px1">
+                            <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=300" alt="Product" loading="lazy">
+                        </div>
+                        <div class="deliveryTime_px1">⚡ 10 mins</div>
+                        <div class="productInfo_px1">
+                            <h6>Organic Valley</h6>
+                            <h5>Fresh Milk - Full Cream</h5>
+                        </div>
+                        <select class="form-select variantSelect_px1">
+                            <option>500 ml</option>
+                            <option>1 L</option>
+                            <option>2 L</option>
+                        </select>
+                        <div class="productPrice_px1">
+                            <span class="current">₹45</span>
+                            <span class="original">₹53</span>
+                            <span class="badge bg-warning discount">15%</span>
+                        </div>
+                        <div class="productRating_px1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(234)</span>
+                        </div>
+                        <div class="offerRibbon_px1">💎 Premium Quality</div>
+                        <div class="actionRow_px1">
+                            <button class="btn btn-primary addButton_px1 w-75">ADD</button>
+                            <button class="btn btn-outline-primary bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card productCard_px1">
+                        <div class="offerBadge_px1">20% OFF</div>
+                        <div class="productImageBox_px1">
+                            <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=300" alt="Product" loading="lazy">
+                        </div>
+                        <div class="deliveryTime_px1">⚡ 15 mins</div>
+                        <div class="productInfo_px1">
+                            <h6>Farm Fresh</h6>
+                            <h5>Organic Bread - Whole Wheat</h5>
+                        </div>
+                        <select class="form-select variantSelect_px1">
+                            <option>400 g</option>
+                            <option>800 g</option>
+                        </select>
+                        <div class="productPrice_px1">
+                            <span class="current">₹40</span>
+                            <span class="original">₹50</span>
+                            <span class="badge bg-warning discount">20%</span>
+                        </div>
+                        <div class="productRating_px1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(156)</span>
+                        </div>
+                        <div class="offerRibbon_px1">🌾 Freshly Baked</div>
+                        <div class="actionRow_px1">
+                            <button class="btn btn-primary addButton_px1 w-75">ADD</button>
+                            <button class="btn btn-outline-primary bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card productCard_px1">
+                        <div class="offerBadge_px1">10% OFF</div>
+                        <div class="productImageBox_px1">
+                            <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=300" alt="Product" loading="lazy">
+                        </div>
+                        <div class="deliveryTime_px1">⚡ 8 mins</div>
+                        <div class="productInfo_px1">
+                            <h6>Nature's Basket</h6>
+                            <h5>Fresh Orange Juice</h5>
+                        </div>
+                        <select class="form-select variantSelect_px1">
+                            <option>250 ml</option>
+                            <option>500 ml</option>
+                            <option>1 L</option>
+                        </select>
+                        <div class="productPrice_px1">
+                            <span class="current">₹90</span>
+                            <span class="original">₹100</span>
+                            <span class="badge bg-warning discount">10%</span>
+                        </div>
+                        <div class="productRating_px1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(423)</span>
+                        </div>
+                        <div class="offerRibbon_px1">🍊 100% Pure</div>
+                        <div class="actionRow_px1">
+                            <button class="btn btn-primary addButton_px1 w-75">ADD</button>
+                            <button class="btn btn-outline-primary bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card productCard_px1">
+                        <div class="offerBadge_px1">25% OFF</div>
+                        <div class="productImageBox_px1">
+                            <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?w=300" alt="Product" loading="lazy">
+                        </div>
+                        <div class="deliveryTime_px1">⚡ 12 mins</div>
+                        <div class="productInfo_px1">
+                            <h6>Gourmet Delight</h6>
+                            <h5>Artisan Cheese Selection</h5>
+                        </div>
+                        <select class="form-select variantSelect_px1">
+                            <option>200 g</option>
+                            <option>500 g</option>
+                        </select>
+                        <div class="productPrice_px1">
+                            <span class="current">₹150</span>
+                            <span class="original">₹200</span>
+                            <span class="badge bg-warning discount">25%</span>
+                        </div>
+                        <div class="productRating_px1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(189)</span>
+                        </div>
+                        <div class="offerRibbon_px1">🧀 Imported Quality</div>
+                        <div class="actionRow_px1">
+                            <button class="btn btn-primary addButton_px1 w-75">ADD</button>
+                            <button class="btn btn-outline-primary bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 3: CATEGORY STRIP -->
+    <div class="ds-category-strip-unique">
+        <div class="container">
+            <div>
+                <div class="ds-category-item-unique"><i class="fas fa-soap"></i> Laundry</div>
+                <div class="ds-category-item-unique"><i class="fas fa-home"></i> Household</div>
+                <div class="ds-category-item-unique"><i class="fas fa-broom"></i> Cleaning</div>
+                <div class="ds-category-item-unique"><i class="fas fa-spray-can"></i> Air Care</div>
+                <div class="ds-category-item-unique"><i class="fas fa-toilet"></i> Bathroom</div>
+                <div class="ds-category-item-unique"><i class="fas fa-blender"></i> Kitchen</div>
+                <div class="ds-category-item-unique"><i class="fas fa-lightbulb"></i> Lighting</div>
+                <div class="ds-category-item-unique"><i class="fas fa-tools"></i> Tools</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PRODUCT GRID -->
+    <div class="ds-product-grid-unique">
+        <div class="container">
+            <h2 class="ds-topoffers-title-unique mb-4">Household Essentials</h2>
+            <div class="row g-4">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-product-card-unique">
+                        <div class="ds-product-img-box-unique">
                             <div class="ds-product-discount-badge-unique">18% OFF</div>
+                            <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=200" alt="Detergent" loading="lazy">
                         </div>
-                        <div class="ds-product-title-unique">Ultra Clean Detergent</div>
-                        <div class="ds-product-qty-unique">1 kg</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$12.99</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
+                        <h5 class="ds-product-title-unique">Premium Detergent</h5>
+                        <p class="ds-product-qty-unique">2 kg</p>
+                        <div class="ds-product-price-unique">
+                            <span class="current">₹299</span>
+                            <span class="original">₹365</span>
                         </div>
-                        <div class="ds-product-tag-unique">Popular</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
+                        <div class="badge bg-success ds-product-tag-unique">ECO-FRIENDLY</div>
+                        <div class="ds-product-rating-unique">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="btn btn-primary ds-product-add-btn-unique">ADD TO CART</button>
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/198754/ffffff?text=Fabric+Softener" alt="Fabric Softener">
-                            <div class="ds-product-discount-badge-unique">12% OFF</div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-product-card-unique">
+                        <div class="ds-product-img-box-unique">
+                            <div class="ds-product-discount-badge-unique">22% OFF</div>
+                            <img src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=200" alt="Soap" loading="lazy">
                         </div>
-                        <div class="ds-product-title-unique">Fresh Scent Softener</div>
-                        <div class="ds-product-qty-unique">500 ml</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$8.49</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
+                        <h5 class="ds-product-title-unique">Luxury Hand Soap</h5>
+                        <p class="ds-product-qty-unique">500 ml</p>
+                        <div class="ds-product-price-unique">
+                            <span class="current">₹145</span>
+                            <span class="original">₹186</span>
                         </div>
-                        <div class="ds-product-tag-unique">Best Seller</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
+                        <div class="badge bg-success ds-product-tag-unique">MOISTURIZING</div>
+                        <div class="ds-product-rating-unique">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <button class="btn btn-primary ds-product-add-btn-unique">ADD TO CART</button>
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/e83e8c/ffffff?text=Stain+Remover" alt="Stain Remover">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-product-card-unique">
+                        <div class="ds-product-img-box-unique">
+                            <div class="ds-product-discount-badge-unique">15% OFF</div>
+                            <img src="https://images.unsplash.com/photo-1585421514738-01798e348b17?w=200" alt="Cleaner" loading="lazy">
+                        </div>
+                        <h5 class="ds-product-title-unique">Floor Cleaner</h5>
+                        <p class="ds-product-qty-unique">1 L</p>
+                        <div class="ds-product-price-unique">
+                            <span class="current">₹127</span>
+                            <span class="original">₹149</span>
+                        </div>
+                        <div class="badge bg-success ds-product-tag-unique">PINE FRESH</div>
+                        <div class="ds-product-rating-unique">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <button class="btn btn-primary ds-product-add-btn-unique">ADD TO CART</button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-product-card-unique">
+                        <div class="ds-product-img-box-unique">
+                            <div class="ds-product-discount-badge-unique">30% OFF</div>
+                            <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=200" alt="Spray" loading="lazy">
+                        </div>
+                        <h5 class="ds-product-title-unique">All-Purpose Spray</h5>
+                        <p class="ds-product-qty-unique">750 ml</p>
+                        <div class="ds-product-price-unique">
+                            <span class="current">₹189</span>
+                            <span class="original">₹270</span>
+                        </div>
+                        <div class="badge bg-success ds-product-tag-unique">ANTIBACTERIAL</div>
+                        <div class="ds-product-rating-unique">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <button class="btn btn-primary ds-product-add-btn-unique">ADD TO CART</button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-product-card-unique">
+                        <div class="ds-product-img-box-unique">
                             <div class="ds-product-discount-badge-unique">25% OFF</div>
+                            <img src="https://images.unsplash.com/photo-1563299796-17596ed6b017?w=200" alt="Tissue" loading="lazy">
                         </div>
-                        <div class="ds-product-title-unique">Power Stain Remover</div>
-                        <div class="ds-product-qty-unique">400 ml</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$6.99</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
+                        <h5 class="ds-product-title-unique">Soft Tissue Box</h5>
+                        <p class="ds-product-qty-unique">200 pulls</p>
+                        <div class="ds-product-price-unique">
+                            <span class="current">₹75</span>
+                            <span class="original">₹100</span>
                         </div>
-                        <div class="ds-product-tag-unique">New</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/6c757d/ffffff?text=Cleaner" alt="Surface Cleaner">
-                            <div class="ds-product-discount-badge-unique">15% OFF</div>
+                        <div class="badge bg-success ds-product-tag-unique">ULTRA SOFT</div>
+                        <div class="ds-product-rating-unique">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <div class="ds-product-title-unique">Multi-Surface Cleaner</div>
-                        <div class="ds-product-qty-unique">750 ml</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$5.49</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Eco-friendly</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/0dcaf0/ffffff?text=Air+Freshener" alt="Air Freshener">
-                            <div class="ds-product-discount-badge-unique">10% OFF</div>
-                        </div>
-                        <div class="ds-product-title-unique">Lavender Air Freshener</div>
-                        <div class="ds-product-qty-unique">300 ml</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$4.99</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Long lasting</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
+                        <button class="btn btn-primary ds-product-add-btn-unique">ADD TO CART</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Household Section -->
-        <div class="mt-5">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="ds-section-title-household">Household Essentials</h3>
-                <a href="#" class="ds-seeall-link-unique">See All <i class="bi bi-chevron-right"></i></a>
-            </div>
-            
-            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
-                <!-- Product 1 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/6f42c1/ffffff?text=Toilet+Paper" alt="Toilet Paper">
-                            <div class="ds-product-discount-badge-unique">20% OFF</div>
-                        </div>
-                        <div class="ds-product-title-unique">Premium Toilet Paper</div>
-                        <div class="ds-product-qty-unique">12 rolls</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$9.99</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Soft</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/198754/ffffff?text=Hand+Soap" alt="Hand Soap">
-                            <div class="ds-product-discount-badge-unique">15% OFF</div>
-                        </div>
-                        <div class="ds-product-title-unique">Antibacterial Hand Soap</div>
-                        <div class="ds-product-qty-unique">500 ml</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$3.49</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Germ protection</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/e83e8c/ffffff?text=Trash+Bags" alt="Trash Bags">
-                            <div class="ds-product-discount-badge-unique">10% OFF</div>
-                        </div>
-                        <div class="ds-product-title-unique">Heavy Duty Trash Bags</div>
-                        <div class="ds-product-qty-unique">30 count</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$7.99</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Leak proof</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-                
-                <!-- Product 4 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/6c757d/ffffff?text=Paper+Towel" alt="Paper Towels">
-                            <div class="ds-product-discount-badge-unique">18% OFF</div>
-                        </div>
-                        <div class="ds-product-title-unique">Absorbent Paper Towels</div>
-                        <div class="ds-product-qty-unique">6 rolls</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$8.49</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Highly absorbent</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-                
-                <!-- Product 5 -->
-                <div class="col">
-                    <div class="ds-product-card-unique h-100 p-3">
-                        <div class="ds-product-img-box-unique position-relative mb-3">
-                            <img src="https://via.placeholder.com/150x100/0dcaf0/ffffff?text=Dish+Soap" alt="Dish Soap">
-                            <div class="ds-product-discount-badge-unique">12% OFF</div>
-                        </div>
-                        <div class="ds-product-title-unique">Lemon Dish Soap</div>
-                        <div class="ds-product-qty-unique">750 ml</div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <div class="ds-product-price-unique">$2.99</div>
-                            <div class="ds-product-rating-unique">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                        </div>
-                        <div class="ds-product-tag-unique">Grease cutting</div>
-                        <button class="ds-product-add-btn-unique w-100 mt-2">ADD</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Top Offers Section -->
-    <section class="container my-5">
-        <h3 class="ds-topoffers-title-unique">Top Offers</h3>
-        
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 ds-topoffers-grid-unique mt-3">
-            <!-- Offer 1 -->
-            <div class="col">
-                <div class="ds-offer-card-unique h-100">
-                    <div class="ds-offer-card-banner-unique">
-                        <h4 class="ds-offer-card-title-unique">Weekend Special</h4>
-                    </div>
-                    <div class="ds-offer-card-body-unique">
-                        <p>Get flat 30% off on all electronics. Limited time offer. Hurry up!</p>
-                        <a href="#" class="ds-offer-card-link-unique">
-                            Shop Now <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Offer 2 -->
-            <div class="col">
-                <div class="ds-offer-card-unique h-100">
-                    <div class="ds-offer-card-banner-unique">
-                        <h4 class="ds-offer-card-title-unique">Buy 1 Get 1</h4>
-                    </div>
-                    <div class="ds-offer-card-body-unique">
-                        <p>Selected fashion items. Buy one and get another absolutely free.</p>
-                        <a href="#" class="ds-offer-card-link-unique">
-                            Explore <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Offer 3 -->
-            <div class="col">
-                <div class="ds-offer-card-unique h-100">
-                    <div class="ds-offer-card-banner-unique">
-                        <h4 class="ds-offer-card-title-unique">Free Delivery</h4>
-                    </div>
-                    <div class="ds-offer-card-body-unique">
-                        <p>On orders above $50. No code required. Applies to all products.</p>
-                        <a href="#" class="ds-offer-card-link-unique">
-                            Shop More <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Offer 4 -->
-            <div class="col">
-                <div class="ds-offer-card-unique h-100">
-                    <div class="ds-offer-card-banner-unique">
-                        <h4 class="ds-offer-card-title-unique">Cashback 10%</h4>
-                    </div>
-                    <div class="ds-offer-card-body-unique">
-                        <p>On all mobile payments. Valid till month end. Terms apply.</p>
-                        <a href="#" class="ds-offer-card-link-unique">
-                            Know More <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fruits & Vegetables Section -->
-    <section class="container my-5">
-        <h3 class="ds-fruitsveg-title-unique">Fruits & Vegetables</h3>
-        
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 ds-fruitsveg-grid-unique mt-3">
-            <!-- Fruit 1 -->
-            <div class="col">
-                <div class="ds-fruitveg-card-unique h-100">
-                    <div class="ds-fruitveg-imgbox-unique">
-                        <img src="https://via.placeholder.com/300x200/198754/ffffff?text=Fresh+Apples" alt="Fresh Apples" class="ds-fruitveg-img-unique">
-                    </div>
-                    <div class="ds-fruitveg-info-unique">
-                        <div class="ds-fruitveg-accent-unique"></div>
-                        <div>
-                            <div class="ds-fruitveg-title-unique">Fresh Apples</div>
-                            <div class="ds-fruitveg-discount-unique">20% OFF</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Fruit 2 -->
-            <div class="col">
-                <div class="ds-fruitveg-card-unique h-100">
-                    <div class="ds-fruitveg-imgbox-unique">
-                        <img src="https://via.placeholder.com/300x200/198754/ffffff?text=Organic+Bananas" alt="Organic Bananas" class="ds-fruitveg-img-unique">
-                    </div>
-                    <div class="ds-fruitveg-info-unique">
-                        <div class="ds-fruitveg-accent-unique"></div>
-                        <div>
-                            <div class="ds-fruitveg-title-unique">Organic Bananas</div>
-                            <div class="ds-fruitveg-discount-unique">15% OFF</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Vegetable 1 -->
-            <div class="col">
-                <div class="ds-fruitveg-card-unique h-100">
-                    <div class="ds-fruitveg-imgbox-unique">
-                        <img src="https://via.placeholder.com/300x200/198754/ffffff?text=Fresh+Tomatoes" alt="Fresh Tomatoes" class="ds-fruitveg-img-unique">
-                    </div>
-                    <div class="ds-fruitveg-info-unique">
-                        <div class="ds-fruitveg-accent-unique"></div>
-                        <div>
-                            <div class="ds-fruitveg-title-unique">Fresh Tomatoes</div>
-                            <div class="ds-fruitveg-discount-unique">10% OFF</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Vegetable 2 -->
-            <div class="col">
-                <div class="ds-fruitveg-card-unique h-100">
-                    <div class="ds-fruitveg-imgbox-unique">
-                        <img src="https://via.placeholder.com/300x200/198754/ffffff?text=Leafy+Greens" alt="Leafy Greens" class="ds-fruitveg-img-unique">
-                    </div>
-                    <div class="ds-fruitveg-info-unique">
-                        <div class="ds-fruitveg-accent-unique"></div>
-                        <div>
-                            <div class="ds-fruitveg-title-unique">Leafy Greens</div>
-                            <div class="ds-fruitveg-discount-unique">25% OFF</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Farming Products Section -->
-    <section class="farmingSection_fp1" aria-labelledby="farmingHeading">
+    </div>
+    
+    <!-- SECTION 4: TOP OFFERS -->
+    <div class="ds-topoffers-grid-unique">
         <div class="container">
-            <!-- Farming Title Banner -->
-            <div class="farmingTitleBanner_fp1">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <h2 id="farmingHeading" class="farmingTitle_fp1">Farming Essentials</h2>
-                        <p class="farmingSubtitle_fp1">Everything you need for successful farming - from seeds to tools and equipment</p>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <i class="bi bi-flower1 farmingIcon_fp1"></i>
+            <h2 class="ds-topoffers-title-unique">🔥 Top Offers</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card ds-offer-card-unique">
+                        <div class="ds-offer-card-banner-unique">
+                            <h2>50%</h2>
+                        </div>
+                        <div class="ds-offer-card-body-unique">
+                            <h4 class="ds-offer-card-title-unique">Mega Sale on Electronics</h4>
+                            <p>Get up to 50% off on all electronics. Limited time offer!</p>
+                            <button class="btn btn-primary mt-2">Shop Now</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Category Filters -->
-            <div class="farmFilterBar_fp1">
-                <button class="farmFilterBtn_fp1 active">All</button>
-                <button class="farmFilterBtn_fp1">Seeds</button>
-                <button class="farmFilterBtn_fp1">Fertilizers</button>
-                <button class="farmFilterBtn_fp1">Pesticides</button>
-                <button class="farmFilterBtn_fp1">Irrigation</button>
-                <button class="farmFilterBtn_fp1">Tools</button>
-                <button class="farmFilterBtn_fp1">Soil Enhancers</button>
-                <button class="farmFilterBtn_fp1">Animal Products</button>
-            </div>
-
-            <!-- Farming Products Grid -->
-            <div class="farmingProductsGrid_fp1">
-                <div class="row">
-                    <!-- Product 1 - Seeds -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="farmProdCard_fp1" role="article" aria-labelledby="farmProduct1">
-                            <div class="farmItemImgBox_fp1">
-                                <img src="https://via.placeholder.com/250x180/198754/ffffff?text=Paddy+Seeds" 
-                                     alt="Premium Paddy Seeds" 
-                                     class="farmItemImg_fp1"
-                                     loading="lazy">
-                            </div>
-                            <div class="farmItemInfo_fp1">
-                                <h3 id="farmProduct1" class="farmItemTitle_fp1">Premium Paddy Seeds</h3>
-                                <p class="farmItemDesc_fp1">High-yield paddy seeds with 95% germination rate. Suitable for all soil types.</p>
-                                <div class="farmItemPrice_fp1">$24.99</div>
-                                <div class="farmItemActions_fp1">
-                                    <button class="farmAddCartBtn_fp1">Add to Cart</button>
-                                    <a href="#" class="farmDetailsLink_fp1">More Details</a>
-                                </div>
-                            </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card ds-offer-card-unique">
+                        <div class="ds-offer-card-banner-unique" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <h2>BUY 1<br>GET 1</h2>
+                        </div>
+                        <div class="ds-offer-card-body-unique">
+                            <h4 class="ds-offer-card-title-unique">Fashion Fiesta</h4>
+                            <p>Buy one get one free on all fashion items this weekend!</p>
+                            <button class="btn btn-primary mt-2">Explore</button>
                         </div>
                     </div>
-
-                    <!-- Product 2 - Fertilizers -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="farmProdCard_fp1" role="article" aria-labelledby="farmProduct2">
-                            <div class="farmItemImgBox_fp1">
-                                <img src="https://via.placeholder.com/250x180/20c997/ffffff?text=Organic+Manure" 
-                                     alt="Organic Manure Fertilizer" 
-                                     class="farmItemImg_fp1"
-                                     loading="lazy">
-                            </div>
-                            <div class="farmItemInfo_fp1">
-                                <h3 id="farmProduct2" class="farmItemTitle_fp1">Organic Manure Fertilizer</h3>
-                                <p class="farmItemDesc_fp1">100% natural organic manure. Improves soil fertility and plant growth.</p>
-                                <div class="farmItemPrice_fp1">$18.50</div>
-                                <div class="farmItemActions_fp1">
-                                    <button class="farmAddCartBtn_fp1">Add to Cart</button>
-                                    <a href="#" class="farmDetailsLink_fp1">More Details</a>
-                                </div>
-                            </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card ds-offer-card-unique">
+                        <div class="ds-offer-card-banner-unique" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <h2>₹199</h2>
+                        </div>
+                        <div class="ds-offer-card-body-unique">
+                            <h4 class="ds-offer-card-title-unique">Beauty Bonanza</h4>
+                            <p>Premium beauty products starting at just ₹199!</p>
+                            <button class="btn btn-primary mt-2">View Deals</button>
                         </div>
                     </div>
-
-                    <!-- Product 3 - Pesticides -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="farmProdCard_fp1" role="article" aria-labelledby="farmProduct3">
-                            <div class="farmItemImgBox_fp1">
-                                <img src="https://via.placeholder.com/250x180/dc3545/ffffff?text=Insecticide" 
-                                     alt="Natural Insecticide Spray" 
-                                     class="farmItemImg_fp1"
-                                     loading="lazy">
-                            </div>
-                            <div class="farmItemInfo_fp1">
-                                <h3 id="farmProduct3" class="farmItemTitle_fp1">Natural Insecticide Spray</h3>
-                                <p class="farmItemDesc_fp1">Eco-friendly insecticide that protects crops without harmful chemicals.</p>
-                                <div class="farmItemPrice_fp1">$32.75</div>
-                                <div class="farmItemActions_fp1">
-                                    <button class="farmAddCartBtn_fp1">Add to Cart</button>
-                                    <a href="#" class="farmDetailsLink_fp1">More Details</a>
-                                </div>
-                            </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card ds-offer-card-unique">
+                        <div class="ds-offer-card-banner-unique" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <h2>FREE<br>SHIP</h2>
                         </div>
-                    </div>
-
-                    <!-- Product 4 - Irrigation -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="farmProdCard_fp1" role="article" aria-labelledby="farmProduct4">
-                            <div class="farmItemImgBox_fp1">
-                                <img src="https://via.placeholder.com/250x180/0dcaf0/ffffff?text=Drip+Kit" 
-                                     alt="Drip Irrigation Kit" 
-                                     class="farmItemImg_fp1"
-                                     loading="lazy">
-                            </div>
-                            <div class="farmItemInfo_fp1">
-                                <h3 id="farmProduct4" class="farmItemTitle_fp1">Drip Irrigation Kit</h3>
-                                <p class="farmItemDesc_fp1">Complete drip irrigation system for efficient water usage in farming.</p>
-                                <div class="farmItemPrice_fp1">$89.99</div>
-                                <div class="farmItemActions_fp1">
-                                    <button class="farmAddCartBtn_fp1">Add to Cart</button>
-                                    <a href="#" class="farmDetailsLink_fp1">More Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 - Tools -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="farmProdCard_fp1" role="article" aria-labelledby="farmProduct5">
-                            <div class="farmItemImgBox_fp1">
-                                <img src="https://via.placeholder.com/250x180/6f42c1/ffffff?text=Sprayer" 
-                                     alt="Agricultural Sprayer" 
-                                     class="farmItemImg_fp1"
-                                     loading="lazy">
-                            </div>
-                            <div class="farmItemInfo_fp1">
-                                <h3 id="farmProduct5" class="farmItemTitle_fp1">Agricultural Sprayer</h3>
-                                <p class="farmItemDesc_fp1">High-capacity sprayer for pesticides and fertilizers with adjustable nozzle.</p>
-                                <div class="farmItemPrice_fp1">$45.25</div>
-                                <div class="farmItemActions_fp1">
-                                    <button class="farmAddCartBtn_fp1">Add to Cart</button>
-                                    <a href="#" class="farmDetailsLink_fp1">More Details</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 - Soil Enhancers -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="farmProdCard_fp1" role="article" aria-labelledby="farmProduct6">
-                            <div class="farmItemImgBox_fp1">
-                                <img src="https://via.placeholder.com/250x180/fd7e14/ffffff?text=Vermicompost" 
-                                     alt="Premium Vermicompost" 
-                                     class="farmItemImg_fp1"
-                                     loading="lazy">
-                            </div>
-                            <div class="farmItemInfo_fp1">
-                                <h3 id="farmProduct6" class="farmItemTitle_fp1">Premium Vermicompost</h3>
-                                <p class="farmItemDesc_fp1">Organic vermicompost rich in nutrients for healthy plant growth.</p>
-                                <div class="farmItemPrice_fp1">$15.99</div>
-                                <div class="farmItemActions_fp1">
-                                    <button class="farmAddCartBtn_fp1">Add to Cart</button>
-                                    <a href="#" class="farmDetailsLink_fp1">More Details</a>
-                                </div>
-                            </div>
+                        <div class="ds-offer-card-body-unique">
+                            <h4 class="ds-offer-card-title-unique">Free Delivery</h4>
+                            <p>Free shipping on all orders above ₹499. No code needed!</p>
+                            <button class="btn btn-primary mt-2">Order Now</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="footerWrap_fx1">
+    </div>
+    
+    <!-- FRUITS & VEGETABLES -->
+    <div class="ds-fruitsveg-grid-unique">
+        <div class="container">
+            <h2 class="ds-fruitsveg-title-unique">🍎 Fresh Fruits & Vegetables</h2>
+            <div class="row g-4">
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-fruitveg-card-unique">
+                        <div class="ds-fruitveg-imgbox-unique">
+                            <div class="ds-fruitveg-accent-unique">FRESH</div>
+                            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=200" alt="Apple" class="ds-fruitveg-img-unique" loading="lazy">
+                        </div>
+                        <div class="ds-fruitveg-info-unique">
+                            <h5 class="ds-fruitveg-title-unique">Red Apples</h5>
+                            <p class="ds-fruitveg-discount-unique">Up to 20% off</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-fruitveg-card-unique">
+                        <div class="ds-fruitveg-imgbox-unique">
+                            <div class="ds-fruitveg-accent-unique">ORGANIC</div>
+                            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784l67?w=200" alt="Tomato" class="ds-fruitveg-img-unique" loading="lazy">
+                        </div>
+                        <div class="ds-fruitveg-info-unique">
+                            <h5 class="ds-fruitveg-title-unique">Fresh Tomatoes</h5>
+                            <p class="ds-fruitveg-discount-unique">Up to 15% off</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-fruitveg-card-unique">
+                        <div class="ds-fruitveg-imgbox-unique">
+                            <div class="ds-fruitveg-accent-unique">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=200" alt="Banana" class="ds-fruitveg-img-unique" loading="lazy">
+                        </div>
+                        <div class="ds-fruitveg-info-unique">
+                            <h5 class="ds-fruitveg-title-unique">Ripe Bananas</h5>
+                            <p class="ds-fruitveg-discount-unique">Up to 10% off</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-fruitveg-card-unique">
+                        <div class="ds-fruitveg-imgbox-unique">
+                            <div class="ds-fruitveg-accent-unique">FRESH</div>
+                            <img src="https://images.unsplash.com/photo-1600003014755-ba76d6a9f64d?w=200" alt="Carrot" class="ds-fruitveg-img-unique" loading="lazy">
+                        </div>
+                        <div class="ds-fruitveg-info-unique">
+                            <h5 class="ds-fruitveg-title-unique">Crunchy Carrots</h5>
+                            <p class="ds-fruitveg-discount-unique">Up to 18% off</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-fruitveg-card-unique">
+                        <div class="ds-fruitveg-imgbox-unique">
+                            <div class="ds-fruitveg-accent-unique">ORGANIC</div>
+                            <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=200" alt="Broccoli" class="ds-fruitveg-img-unique" loading="lazy">
+                        </div>
+                        <div class="ds-fruitveg-info-unique">
+                            <h5 class="ds-fruitveg-title-unique">Green Broccoli</h5>
+                            <p class="ds-fruitveg-discount-unique">Up to 12% off</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="card ds-fruitveg-card-unique">
+                        <div class="ds-fruitveg-imgbox-unique">
+                            <div class="ds-fruitveg-accent-unique">PREMIUM</div>
+                            <img src="https://images.unsplash.com/photo-1587132105727-f292997c3b42?w=200" alt="Mango" class="ds-fruitveg-img-unique" loading="lazy">
+                        </div>
+                        <div class="ds-fruitveg-info-unique">
+                            <h5 class="ds-fruitveg-title-unique">Alphonso Mango</h5>
+                            <p class="ds-fruitveg-discount-unique">Up to 25% off</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 5: FARMER ESSENTIALS -->
+    <div class="farmerSection_fxAg1">
+        <div class="container">
+            <div class="farmerHeader_fxAg1">
+                <h2 class="farmerTitle_fxAg1">🌾 Farmer Essentials</h2>
+                <div class="farmerHeaderNav_fxAg1">
+                    <button class="btn btn-light"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn btn-light"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="farmerCategoryStrip_fxAg1">
+                <div class="farmerCategoryItem_fxAg1 farmerCategoryActive_fxAg1">
+                    <i class="fas fa-seedling"></i> Seeds
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-leaf"></i> Fertilizers
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-spray-can"></i> Pesticides
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-tint"></i> Irrigation
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-tools"></i> Tools
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-mountain"></i> Soil
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-drumstick-bite"></i> Feed
+                </div>
+                <div class="farmerCategoryItem_fxAg1">
+                    <i class="fas fa-spa"></i> Organic
+                </div>
+            </div>
+            
+            <div class="farmerGrid_fxAg1">
+                <div class="card farmerCard_fxAg1">
+                    <div class="farmerImgBox_fxAg1">
+                        <div class="farmerOfferBadge_fxAg1">20% OFF</div>
+                        <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=300" alt="Seeds" loading="lazy">
+                    </div>
+                    <div class="farmerInfo_fxAg1">
+                        <h6>Premium Quality</h6>
+                        <h5>Hybrid Paddy Seeds</h5>
+                    </div>
+                    <select class="form-select farmerVariantSelect_fxAg1">
+                        <option>5 kg</option>
+                        <option>10 kg</option>
+                        <option>25 kg</option>
+                    </select>
+                    <div class="farmerPrice_fxAg1">
+                        <span class="current">₹480</span>
+                        <span class="original">₹600</span>
+                        <span class="badge bg-warning discount">20%</span>
+                    </div>
+                    <div class="farmerRating_fxAg1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(342)</span>
+                    </div>
+                    <div class="farmerOfferRibbon_fxAg1">🌱 High Yield Variety</div>
+                    <div class="farmerActionRow_fxAg1">
+                        <button class="btn btn-success farmerAddBtn_fxAg1 w-75">ADD TO CART</button>
+                        <button class="btn btn-outline-success bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card farmerCard_fxAg1">
+                    <div class="farmerImgBox_fxAg1">
+                        <div class="farmerOfferBadge_fxAg1">15% OFF</div>
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=300" alt="Fertilizer" loading="lazy">
+                    </div>
+                    <div class="farmerInfo_fxAg1">
+                        <h6>Organic Solution</h6>
+                        <h5>Vermicompost Premium</h5>
+                    </div>
+                    <select class="form-select farmerVariantSelect_fxAg1">
+                        <option>10 kg</option>
+                        <option>25 kg</option>
+                        <option>50 kg</option>
+                    </select>
+                    <div class="farmerPrice_fxAg1">
+                        <span class="current">₹340</span>
+                        <span class="original">₹400</span>
+                        <span class="badge bg-warning discount">15%</span>
+                    </div>
+                    <div class="farmerRating_fxAg1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(567)</span>
+                    </div>
+                    <div class="farmerOfferRibbon_fxAg1">🌿 100% Natural</div>
+                    <div class="farmerActionRow_fxAg1">
+                        <button class="btn btn-success farmerAddBtn_fxAg1 w-75">ADD TO CART</button>
+                        <button class="btn btn-outline-success bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card farmerCard_fxAg1">
+                    <div class="farmerImgBox_fxAg1">
+                        <div class="farmerOfferBadge_fxAg1">25% OFF</div>
+                        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=300" alt="Drip Irrigation" loading="lazy">
+                    </div>
+                    <div class="farmerInfo_fxAg1">
+                        <h6>Water Saving</h6>
+                        <h5>Drip Irrigation Kit</h5>
+                    </div>
+                    <select class="form-select farmerVariantSelect_fxAg1">
+                        <option>1 Acre</option>
+                        <option>2 Acre</option>
+                        <option>5 Acre</option>
+                    </select>
+                    <div class="farmerPrice_fxAg1">
+                        <span class="current">₹4,500</span>
+                        <span class="original">₹6,000</span>
+                        <span class="badge bg-warning discount">25%</span>
+                    </div>
+                    <div class="farmerRating_fxAg1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(234)</span>
+                    </div>
+                    <div class="farmerOfferRibbon_fxAg1">💧 Save 60% Water</div>
+                    <div class="farmerActionRow_fxAg1">
+                        <button class="btn btn-success farmerAddBtn_fxAg1 w-75">ADD TO CART</button>
+                        <button class="btn btn-outline-success bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card farmerCard_fxAg1">
+                    <div class="farmerImgBox_fxAg1">
+                        <div class="farmerOfferBadge_fxAg1">18% OFF</div>
+                        <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=300" alt="NPK" loading="lazy">
+                    </div>
+                    <div class="farmerInfo_fxAg1">
+                        <h6>Complete Nutrition</h6>
+                        <h5>NPK Fertilizer 19:19:19</h5>
+                    </div>
+                    <select class="form-select farmerVariantSelect_fxAg1">
+                        <option>25 kg</option>
+                        <option>50 kg</option>
+                    </select>
+                    <div class="farmerPrice_fxAg1">
+                        <span class="current">₹820</span>
+                        <span class="original">₹1,000</span>
+                        <span class="badge bg-warning discount">18%</span>
+                    </div>
+                    <div class="farmerRating_fxAg1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(423)</span>
+                    </div>
+                    <div class="farmerOfferRibbon_fxAg1">🌾 Balanced Formula</div>
+                    <div class="farmerActionRow_fxAg1">
+                        <button class="btn btn-success farmerAddBtn_fxAg1 w-75">ADD TO CART</button>
+                        <button class="btn btn-outline-success bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card farmerCard_fxAg1">
+                    <div class="farmerImgBox_fxAg1">
+                        <div class="farmerOfferBadge_fxAg1">30% OFF</div>
+                        <img src="https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?w=300" alt="Sprayer" loading="lazy">
+                    </div>
+                    <div class="farmerInfo_fxAg1">
+                        <h6>Professional Grade</h6>
+                        <h5>Battery Sprayer 16L</h5>
+                    </div>
+                    <select class="form-select farmerVariantSelect_fxAg1">
+                        <option>12V Battery</option>
+                        <option>18V Battery</option>
+                    </select>
+                    <div class="farmerPrice_fxAg1">
+                        <span class="current">₹3,150</span>
+                        <span class="original">₹4,500</span>
+                        <span class="badge bg-warning discount">30%</span>
+                    </div>
+                    <div class="farmerRating_fxAg1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(189)</span>
+                    </div>
+                    <div class="farmerOfferRibbon_fxAg1">⚡ Long Battery Life</div>
+                    <div class="farmerActionRow_fxAg1">
+                        <button class="btn btn-success farmerAddBtn_fxAg1 w-75">ADD TO CART</button>
+                        <button class="btn btn-outline-success bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="card farmerCard_fxAg1">
+                    <div class="farmerImgBox_fxAg1">
+                        <div class="farmerOfferBadge_fxAg1">22% OFF</div>
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=300" alt="Bio Fertilizer" loading="lazy">
+                    </div>
+                    <div class="farmerInfo_fxAg1">
+                        <h6>Eco-Friendly</h6>
+                        <h5>Bio Fertilizer Liquid</h5>
+                    </div>
+                    <select class="form-select farmerVariantSelect_fxAg1">
+                        <option>1 L</option>
+                        <option>5 L</option>
+                        <option>10 L</option>
+                    </select>
+                    <div class="farmerPrice_fxAg1">
+                        <span class="current">₹390</span>
+                        <span class="original">₹500</span>
+                        <span class="badge bg-warning discount">22%</span>
+                    </div>
+                    <div class="farmerRating_fxAg1">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(298)</span>
+                    </div>
+                    <div class="farmerOfferRibbon_fxAg1">🍃 Organic Certified</div>
+                    <div class="farmerActionRow_fxAg1">
+                        <button class="btn btn-success farmerAddBtn_fxAg1 w-75">ADD TO CART</button>
+                        <button class="btn btn-outline-success bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SECTION 6: FOOTER -->
+    <footer class="footerWrap_unique">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="footerBrand_fx1">
-                        <h5>SukhiMart</h5>
-                        <p>Your one-stop destination for all your shopping needs. We offer a wide range of products with premium quality and fast delivery.</p>
+                <div class="col-lg-3 col-md-6 footerColumn_unique">
+                    <h5>About ShopHub</h5>
+                    <p style="color: rgba(255,255,255,0.7);">Your one-stop destination for all shopping needs. Quality products, best prices, and fastest delivery guaranteed.</p>
+                    <div class="footerSocial_unique">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="footerLinks_fx1">
-                        <h6>Quick Links</h6>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="#">Categories</a></li>
-                            <li><a href="#">Deals</a></li>
-                            <li><a href="#">New Arrivals</a></li>
-                        </ul>
-                    </div>
+                
+                <div class="col-lg-3 col-md-6 footerColumn_unique">
+                    <h5>Quick Links</h5>
+                    <a href="#" class="footerLink_unique">About Us</a>
+                    <a href="#" class="footerLink_unique">Contact Us</a>
+                    <a href="#" class="footerLink_unique">Careers</a>
+                    <a href="#" class="footerLink_unique">Press</a>
+                    <a href="#" class="footerLink_unique">Blog</a>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footerSupport_fx1">
-                        <h6>Customer Support</h6>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="#">Shipping Policy</a></li>
-                            <li><a href="#">Returns & Refunds</a></li>
-                            <li><a href="#">Track Your Order</a></li>
-                        </ul>
-                    </div>
+                
+                <div class="col-lg-3 col-md-6 footerColumn_unique">
+                    <h5>Help & Support</h5>
+                    <a href="#" class="footerLink_unique">FAQ</a>
+                    <a href="#" class="footerLink_unique">Shipping Info</a>
+                    <a href="#" class="footerLink_unique">Returns</a>
+                    <a href="#" class="footerLink_unique">Order Status</a>
+                    <a href="#" class="footerLink_unique">Payment Options</a>
                 </div>
-                <div class="col-lg-3 mb-4">
-                    <div class="footerSocial_fx1">
-                        <h6>Connect With Us</h6>
-                        <div class="mt-3">
-                            <a href="#"><i class="bi bi-facebook"></i></a>
-                            <a href="#"><i class="bi bi-twitter"></i></a>
-                            <a href="#"><i class="bi bi-instagram"></i></a>
-                            <a href="#"><i class="bi bi-linkedin"></i></a>
-                            <a href="#"><i class="bi bi-youtube"></i></a>
-                        </div>
-                        <div class="mt-4">
-                            <h6>Download Our App</h6>
-                            <div class="d-flex mt-2">
-                                <a href="#" class="me-2">
-                                    <img src="https://via.placeholder.com/120x40/333333/ffffff?text=App+Store" alt="App Store" class="img-fluid" style="max-height: 40px;">
-                                </a>
-                                <a href="#">
-                                    <img src="https://via.placeholder.com/120x40/333333/ffffff?text=Google+Play" alt="Google Play" class="img-fluid" style="max-height: 40px;">
-                                </a>
-                            </div>
-                        </div>
+                
+                <div class="col-lg-3 col-md-6 footerColumn_unique">
+                    <h5>Download App</h5>
+                    <p style="color: rgba(255,255,255,0.7);">Get exclusive app-only offers and discounts</p>
+                    <div class="app-buttons">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Play Store">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/512px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footerBottom_fx1">
-            <div class="container">
-                <div class="d-md-flex justify-content-between align-items-center">
-                    <div>© 2023 SukhiMart. All rights reserved.</div>
-                    <div class="mt-2 mt-md-0">
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Cookie Policy</a>
-                    </div>
-                </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 ShopHub. All rights reserved. | Privacy Policy | Terms & Conditions</p>
             </div>
         </div>
     </footer>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- JavaScript for Interactions -->
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login to ShopHub</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                        <div class="text-center mt-3">
+                            <a href="#" class="text-decoration-none">Forgot password?</a>
+                        </div>
+                        <div class="text-center mt-3">
+                            <p>Don't have an account? <a href="#" class="text-decoration-none">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel">Your Shopping Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column h-100">
+                <div class="flex-grow-1">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=80" alt="Product" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0">Fresh Milk - Full Cream</h6>
+                                        <small class="text-muted">500 ml</small>
+                                        <div class="mt-1">
+                                            <span class="fw-bold">₹45</span>
+                                            <span class="text-decoration-line-through text-muted ms-2">₹53</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary">-</button>
+                                    <span class="mx-2">1</span>
+                                    <button class="btn btn-sm btn-outline-secondary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=80" alt="Product" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div>
+                                        <h6 class="mb-0">Organic Bread - Whole Wheat</h6>
+                                        <small class="text-muted">400 g</small>
+                                        <div class="mt-1">
+                                            <span class="fw-bold">₹40</span>
+                                            <span class="text-decoration-line-through text-muted ms-2">₹50</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary">-</button>
+                                    <span class="mx-2">2</span>
+                                    <button class="btn btn-sm btn-outline-secondary">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-top pt-3">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <span>₹125</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping</span>
+                        <span>₹40</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="fw-bold">Total</span>
+                        <span class="fw-bold">₹165</span>
+                    </div>
+                    <button class="btn btn-primary w-100">Proceed to Checkout</button>
+                    <button class="btn btn-outline-primary w-100 mt-2">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Toggle offer ribbon chevron
-            const offerRibbons = document.querySelectorAll('.offerRibbon_px1');
-            offerRibbons.forEach(ribbon => {
-                ribbon.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const expanded = this.classList.contains('active');
-                    this.setAttribute('aria-expanded', expanded);
-                });
-            });
-            
-            // Toggle bookmark button
-            const bookmarkBtns = document.querySelectorAll('.bookmarkBtn_px1');
-            bookmarkBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    const icon = this.querySelector('i');
-                    if (this.classList.contains('active')) {
-                        icon.classList.remove('bi-bookmark');
-                        icon.classList.add('bi-bookmark-fill');
-                    } else {
-                        icon.classList.remove('bi-bookmark-fill');
-                        icon.classList.add('bi-bookmark');
-                    }
-                });
-            });
-            
-            // Add to cart button animation
-            const addButtons = document.querySelectorAll('.addButton_px1, .ds-product-add-btn-unique, .farmAddCartBtn_fp1');
-            addButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // In a real application, you would add cart logic here
-                    console.log('Product added to cart');
-                });
-            });
-            
-            // Navigation arrows (placeholder functionality)
-            const navArrows = document.querySelectorAll('.navArrowBtn_px1');
-            navArrows.forEach(arrow => {
-                arrow.addEventListener('click', function() {
-                    // In a real application, you would implement carousel navigation
-                    console.log('Navigation arrow clicked');
-                });
-            });
-            
-            // Category items interaction
-            const categoryItems = document.querySelectorAll('.categoryItem_nx1');
-            categoryItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    categoryItems.forEach(i => i.classList.remove('categoryActive_nx1'));
-                    this.classList.add('categoryActive_nx1');
-                });
-            });
-            
-            // Farming filter buttons interaction
-            const farmFilterBtns = document.querySelectorAll('.farmFilterBtn_fp1');
-            farmFilterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    farmFilterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    // In a real application, you would filter products here
-                    console.log('Filter changed to: ' + this.textContent);
-                });
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.querySelector('.loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Toast notifications
+        const cartToast = document.getElementById('cartToast');
+        const toast = new bootstrap.Toast(cartToast);
+        
+        // Add to cart functionality
+        document.querySelectorAll('.addButton_px1, .ds-product-add-btn-unique, .farmerAddBtn_fxAg1').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const originalText = this.textContent;
+                this.textContent = '✓ Added!';
+                this.classList.remove('btn-primary', 'btn-success');
+                this.classList.add('btn-success');
+                
+                // Show toast notification
+                toast.show();
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.classList.remove('btn-success');
+                    this.classList.add(originalText.includes('ADD TO CART') ? 'btn-success' : 'btn-primary');
+                }, 1500);
             });
         });
+        
+        // Bookmark toggle
+        document.querySelectorAll('.bookmark').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                }
+            });
+        });
+        
+        // Category hover effects
+        document.querySelectorAll('.categoryItem_nx1').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.categoryItem_nx1').forEach(i => {
+                    i.classList.remove('categoryActive_nx1');
+                });
+                this.classList.add('categoryActive_nx1');
+            });
+        });
+        
+        // Farmer category filter
+        document.querySelectorAll('.farmerCategoryItem_fxAg1').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.farmerCategoryItem_fxAg1').forEach(i => {
+                    i.classList.remove('farmerCategoryActive_fxAg1');
+                });
+                this.classList.add('farmerCategoryActive_fxAg1');
+            });
+        });
+        
+        // Back to top functionality
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search bar animation
+        const searchInput = document.querySelector('.searchBarWrap_nx1 input');
+        if (searchInput) {
+            searchInput.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            searchInput.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        }
+        
+        // Add floating animation to offer badges
+        const offerBadges = document.querySelectorAll('.offerBadge_px1, .farmerOfferBadge_fxAg1, .ds-product-discount-badge-unique');
+        offerBadges.forEach(badge => {
+            setInterval(() => {
+                badge.style.animation = 'none';
+                setTimeout(() => {
+                    badge.style.animation = 'bounce 2s infinite';
+                }, 10);
+            }, 2000);
+        });
+        
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Add dynamic gradient backgrounds
+        const gradientSections = [
+            { selector: '.smartBasketWrap_px1', colors: ['#ffecd2', '#fcb69f', '#fad0c4'] },
+            { selector: '.ds-product-grid-unique', colors: ['#e0c3fc', '#8ec5fc', '#a8edea'] },
+            { selector: '.farmerSection_fxAg1', colors: ['#d4fc79', '#96e6a1', '#a8e063'] }
+        ];
+        
+        let colorIndex = 0;
+        setInterval(() => {
+            gradientSections.forEach(section => {
+                const element = document.querySelector(section.selector);
+                if (element) {
+                    colorIndex = (colorIndex + 1) % section.colors.length;
+                    const nextIndex = (colorIndex + 1) % section.colors.length;
+                    element.style.background = `linear-gradient(135deg, ${section.colors[colorIndex]} 0%, ${section.colors[nextIndex]} 100%)`;
+                    element.style.transition = 'background 2s ease';
+                }
+            });
+        }, 8000);
     </script>
 </body>
 </html>
