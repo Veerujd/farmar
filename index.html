@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkuhiMart - Premium Grocery Delivery</title>
+  <title>SkuhiMart - Premium Grocery Delivery | Fresh Produce & Organic Foods</title>
+  <meta name="description" content="SkuhiMart offers premium grocery delivery with 15,000+ fresh products, 90-minute delivery guarantee, and farm-fresh organic produce. Order online for fast delivery.">
+  <meta name="keywords" content="grocery delivery, online supermarket, fresh produce, organic food, premium groceries, fast delivery">
+  <meta name="author" content="SkuhiMart">
+  <meta property="og:title" content="SkuhiMart - Premium Grocery Delivery">
+  <meta property="og:description" content="Get fresh groceries delivered in 90 minutes. Premium quality, farm-fresh produce, and organic foods.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://skuhimart.com">
+  
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -797,6 +805,402 @@
       font-size: 1.1rem;
     }
 
+    /* PREMIUM FOOTER */
+    .skuhi-footer-premium {
+      background: linear-gradient(135deg, var(--skuhi-dark), #111827);
+      color: white;
+      padding: 80px 0 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skuhi-footer-premium::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-gold));
+    }
+
+    .skuhi-footer-premium-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .skuhi-footer-premium-wave svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 50px;
+    }
+
+    .skuhi-footer-premium-wave .shape-fill {
+      fill: rgba(255, 255, 255, 0.02);
+    }
+
+    .skuhi-footer-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .skuhi-footer-logo-img {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+    }
+
+    .skuhi-footer-logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .skuhi-footer-logo-text span {
+      color: var(--skuhi-gold);
+    }
+
+    .skuhi-footer-about {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    .skuhi-footer-premium-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: white;
+      position: relative;
+      display: inline-block;
+    }
+
+    .skuhi-footer-premium-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-gold));
+      border-radius: 2px;
+    }
+
+    .skuhi-footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skuhi-footer-links-item {
+      margin-bottom: 15px;
+    }
+
+    .skuhi-footer-links-link {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+    }
+
+    .skuhi-footer-links-link:hover {
+      color: var(--skuhi-gold);
+      transform: translateX(8px);
+    }
+
+    .skuhi-footer-links-link i {
+      color: var(--skuhi-purple-light);
+      font-size: 0.9rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .skuhi-footer-contact-info {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skuhi-footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .skuhi-footer-contact-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: rgba(124, 58, 237, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--skuhi-purple-light);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .skuhi-footer-contact-details {
+      flex: 1;
+    }
+
+    .skuhi-footer-contact-label {
+      font-weight: 600;
+      color: white;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .skuhi-footer-contact-value {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+    }
+
+    .skuhi-footer-newsletter-container {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+    }
+
+    .skuhi-footer-newsletter-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .skuhi-footer-newsletter-desc {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .skuhi-footer-newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .skuhi-footer-newsletter-input {
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .skuhi-footer-newsletter-input:focus {
+      outline: none;
+      border-color: var(--skuhi-purple);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .skuhi-footer-newsletter-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .skuhi-footer-newsletter-btn {
+      padding: 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      color: white;
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .skuhi-footer-newsletter-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    }
+
+    .skuhi-footer-social-container {
+      margin-top: 40px;
+    }
+
+    .skuhi-footer-social-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .skuhi-footer-social-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .skuhi-footer-social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skuhi-footer-social-link:hover {
+      background: var(--skuhi-purple);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    }
+
+    .skuhi-footer-bottom-bar {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skuhi-footer-copyright {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .skuhi-footer-payment-methods {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .skuhi-footer-payment-method {
+      width: 60px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .skuhi-footer-payment-method:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .skuhi-footer-extra-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .skuhi-footer-extra-link {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .skuhi-footer-extra-link:hover {
+      color: var(--skuhi-gold);
+    }
+
+    /* SKELETON LOADING */
+    .skuhi-skeleton-loading {
+      display: none;
+    }
+
+    .skuhi-skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: skuhiSkeletonLoading 1.5s infinite;
+      border-radius: 8px;
+    }
+
+    @keyframes skuhiSkeletonLoading {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .skuhi-skeleton-text {
+      height: 20px;
+      margin-bottom: 10px;
+    }
+
+    .skuhi-skeleton-title {
+      height: 40px;
+      width: 70%;
+      margin-bottom: 20px;
+    }
+
+    .skuhi-skeleton-image {
+      height: 200px;
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .skuhi-skeleton-button {
+      height: 50px;
+      width: 150px;
+      border-radius: 30px;
+    }
+
+    .skuhi-skeleton-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--skuhi-shadow-sm);
+      margin-bottom: 30px;
+    }
+
+    .skuhi-skeleton-footer-section {
+      margin-bottom: 40px;
+    }
+
     /* SCROLL TO TOP */
     .skuhi-scroll-top {
       position: fixed;
@@ -842,6 +1246,10 @@
       .skuhi-hero-title {
         font-size: 3rem;
       }
+      
+      .skuhi-footer-logo-text {
+        font-size: 2rem;
+      }
     }
 
     @media (max-width: 991.98px) {
@@ -864,6 +1272,14 @@
       .skuhi-search-container {
         max-width: 100%;
       }
+      
+      .skuhi-footer-premium {
+        padding: 60px 0 20px;
+      }
+      
+      .skuhi-footer-newsletter-container {
+        padding: 25px;
+      }
     }
 
     @media (max-width: 767.98px) {
@@ -884,6 +1300,18 @@
         padding: 12px 25px;
         font-size: 0.9rem;
       }
+      
+      .skuhi-footer-premium-title {
+        font-size: 1.2rem;
+      }
+      
+      .skuhi-footer-logo-text {
+        font-size: 1.8rem;
+      }
+      
+      .skuhi-footer-extra-links {
+        gap: 20px;
+      }
     }
 
     @media (max-width: 575.98px) {
@@ -901,31 +1329,80 @@
         flex: 1;
         min-width: calc(50% - 20px);
       }
+      
+      .skuhi-footer-newsletter-form {
+        flex-direction: column;
+      }
+      
+      .skuhi-footer-social-links {
+        justify-content: center;
+      }
+      
+      .skuhi-footer-extra-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+
+    /* ACCESSIBILITY */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      .skuhi-topbar,
+      .skuhi-header,
+      .skuhi-mobile-topbar,
+      .skuhi-mobile-header,
+      .skuhi-scroll-top,
+      .skuhi-btn-primary,
+      .skuhi-btn-outline {
+        display: none !important;
+      }
+      
+      body {
+        padding-top: 0;
+      }
+      
+      .skuhi-footer-premium {
+        background: white !important;
+        color: black !important;
+      }
     }
   </style>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/WebSite">
 
   <!-- DESKTOP TOPBAR -->
   <div class="skuhi-topbar d-none d-lg-block" id="skuhiTopbar">
     <div class="container-xl">
       <div class="d-flex justify-content-between align-items-center">
         <!-- Left: Phone Number -->
-        <div class="skuhi-topbar-phone">
-          <i class="fas fa-phone-alt"></i>
+        <div class="skuhi-topbar-phone" itemprop="telephone">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
           <span>Hotline: <strong>+91 98765 43210</strong></span>
         </div>
         
         <!-- Right: Links -->
         <div class="skuhi-topbar-links">
-          <a href="#" class="skuhi-topbar-link">
-            <i class="fas fa-truck"></i>Track Order
+          <a href="#" class="skuhi-topbar-link" aria-label="Track your order">
+            <i class="fas fa-truck" aria-hidden="true"></i>Track Order
           </a>
-          <a href="#" class="skuhi-topbar-link">
-            <i class="fas fa-user"></i>Login / Register
+          <a href="#" class="skuhi-topbar-link" aria-label="Login or register account">
+            <i class="fas fa-user" aria-hidden="true"></i>Login / Register
           </a>
-          <a href="#" class="skuhi-topbar-link">
-            <i class="fas fa-question-circle"></i>Help Center
+          <a href="#" class="skuhi-topbar-link" aria-label="Visit help center">
+            <i class="fas fa-question-circle" aria-hidden="true"></i>Help Center
           </a>
         </div>
       </div>
@@ -933,13 +1410,13 @@
   </div>
 
   <!-- DESKTOP HEADER -->
-  <header class="skuhi-header d-none d-lg-block" id="skuhiHeader">
+  <header class="skuhi-header d-none d-lg-block" id="skuhiHeader" role="banner">
     <div class="container-xl">
       <div class="row align-items-center">
         <!-- Logo -->
         <div class="col-lg-2">
           <div class="skuhi-logo-container">
-            <div class="skuhi-logo-img">S</div>
+            <div class="skuhi-logo-img" aria-hidden="true">S</div>
             <div class="skuhi-logo-text">Skuhi<span>Mart</span></div>
           </div>
         </div>
@@ -948,15 +1425,15 @@
         <div class="col-lg-7">
           <div class="skuhi-nav-slider-container">
             <div class="skuhi-nav-slider-wrapper">
-              <div class="skuhi-nav-slider-track" id="skuhiNavSliderTrack">
+              <div class="skuhi-nav-slider-track" id="skuhiNavSliderTrack" role="navigation" aria-label="Main categories">
                 <!-- Navigation items will be added dynamically -->
               </div>
             </div>
-            <button class="skuhi-nav-slider-control skuhi-nav-slider-prev" id="skuhiNavSliderPrev">
-              <i class="fas fa-chevron-left"></i>
+            <button class="skuhi-nav-slider-control skuhi-nav-slider-prev" id="skuhiNavSliderPrev" aria-label="Previous categories">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="skuhi-nav-slider-control skuhi-nav-slider-next" id="skuhiNavSliderNext">
-              <i class="fas fa-chevron-right"></i>
+            <button class="skuhi-nav-slider-control skuhi-nav-slider-next" id="skuhiNavSliderNext" aria-label="Next categories">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -966,23 +1443,23 @@
           <div class="d-flex align-items-center">
             <div class="skuhi-search-container">
               <div class="skuhi-search-wrapper">
-                <input type="text" class="skuhi-search-input" placeholder="Search products...">
-                <button class="skuhi-search-btn">
-                  <i class="fas fa-search"></i>
+                <input type="text" class="skuhi-search-input" placeholder="Search products..." aria-label="Search products">
+                <button class="skuhi-search-btn" aria-label="Search">
+                  <i class="fas fa-search" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
             
             <div class="skuhi-header-actions">
-              <a href="#" class="skuhi-action-btn" title="Profile">
-                <i class="far fa-user"></i>
+              <a href="#" class="skuhi-action-btn" title="Profile" aria-label="Your profile">
+                <i class="far fa-user" aria-hidden="true"></i>
               </a>
-              <a href="#" class="skuhi-action-btn" title="Wishlist">
-                <i class="far fa-heart"></i>
+              <a href="#" class="skuhi-action-btn" title="Wishlist" aria-label="Your wishlist">
+                <i class="far fa-heart" aria-hidden="true"></i>
               </a>
-              <a href="#" class="skuhi-action-btn" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#skuhiCartOffcanvas">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="skuhi-cart-badge">5</span>
+              <a href="#" class="skuhi-action-btn" title="Cart" aria-label="Shopping cart" data-bs-toggle="offcanvas" data-bs-target="#skuhiCartOffcanvas">
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                <span class="skuhi-cart-badge" aria-live="polite">5</span>
               </a>
             </div>
           </div>
@@ -996,19 +1473,19 @@
   <div class="skuhi-mobile-topbar d-lg-none" id="skuhiMobileTopbar">
     <div class="container-xl">
       <div class="d-flex justify-content-between align-items-center">
-        <div class="skuhi-topbar-phone">
-          <i class="fas fa-phone-alt"></i>
+        <div class="skuhi-topbar-phone" itemprop="telephone">
+          <i class="fas fa-phone-alt" aria-hidden="true"></i>
           <span>+91 98765 43210</span>
         </div>
         <div class="skuhi-topbar-links">
-          <a href="#" class="skuhi-topbar-link" title="Track Order">
-            <i class="fas fa-truck"></i>
+          <a href="#" class="skuhi-topbar-link" title="Track Order" aria-label="Track your order">
+            <i class="fas fa-truck" aria-hidden="true"></i>
           </a>
-          <a href="#" class="skuhi-topbar-link" title="Login">
-            <i class="fas fa-user"></i>
+          <a href="#" class="skuhi-topbar-link" title="Login" aria-label="Login or register">
+            <i class="fas fa-user" aria-hidden="true"></i>
           </a>
-          <a href="#" class="skuhi-topbar-link" title="Help">
-            <i class="fas fa-question-circle"></i>
+          <a href="#" class="skuhi-topbar-link" title="Help" aria-label="Help center">
+            <i class="fas fa-question-circle" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -1016,24 +1493,24 @@
   </div>
 
   <!-- Mobile Header - POSITIONED BELOW TOPBAR -->
-  <div class="skuhi-mobile-header d-lg-none" id="skuhiMobileHeader">
+  <div class="skuhi-mobile-header d-lg-none" id="skuhiMobileHeader" role="banner">
     <!-- Mobile Header Top -->
     <div class="skuhi-mobile-top">
       <div class="skuhi-mobile-logo">
-        <div class="skuhi-mobile-logo-img">S</div>
+        <div class="skuhi-mobile-logo-img" aria-hidden="true">S</div>
         <div class="skuhi-mobile-logo-text">Skuhi<span>Mart</span></div>
       </div>
       
       <div class="skuhi-mobile-actions">
-        <a href="#" class="skuhi-action-btn" title="Profile">
-          <i class="far fa-user"></i>
+        <a href="#" class="skuhi-action-btn" title="Profile" aria-label="Your profile">
+          <i class="far fa-user" aria-hidden="true"></i>
         </a>
-        <a href="#" class="skuhi-action-btn" title="Wishlist">
-          <i class="far fa-heart"></i>
+        <a href="#" class="skuhi-action-btn" title="Wishlist" aria-label="Your wishlist">
+          <i class="far fa-heart" aria-hidden="true"></i>
         </a>
-        <a href="#" class="skuhi-action-btn" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#skuhiCartOffcanvas">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="skuhi-cart-badge">5</span>
+        <a href="#" class="skuhi-action-btn" title="Cart" aria-label="Shopping cart" data-bs-toggle="offcanvas" data-bs-target="#skuhiCartOffcanvas">
+          <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+          <span class="skuhi-cart-badge" aria-live="polite">5</span>
         </a>
       </div>
     </div>
@@ -1041,9 +1518,9 @@
     <!-- Mobile Search -->
     <div class="skuhi-mobile-search-container">
       <div class="skuhi-search-wrapper">
-        <input type="text" class="skuhi-search-input" placeholder="Search 15K+ products...">
-        <button class="skuhi-search-btn">
-          <i class="fas fa-search"></i>
+        <input type="text" class="skuhi-search-input" placeholder="Search 15K+ products..." aria-label="Search products">
+        <button class="skuhi-search-btn" aria-label="Search">
+          <i class="fas fa-search" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -1051,86 +1528,451 @@
     <!-- Mobile Navigation Slider -->
     <div class="skuhi-mobile-nav-slider-container">
       <div class="skuhi-mobile-nav-slider-wrapper">
-        <div class="skuhi-mobile-nav-slider-track" id="skuhiMobileNavSliderTrack">
+        <div class="skuhi-mobile-nav-slider-track" id="skuhiMobileNavSliderTrack" role="navigation" aria-label="Main categories">
           <!-- Mobile navigation items will be added dynamically -->
         </div>
       </div>
-      <button class="skuhi-mobile-nav-slider-control skuhi-mobile-nav-slider-prev" id="skuhiMobileNavSliderPrev">
-        <i class="fas fa-chevron-left"></i>
+      <button class="skuhi-mobile-nav-slider-control skuhi-mobile-nav-slider-prev" id="skuhiMobileNavSliderPrev" aria-label="Previous categories">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
       </button>
-      <button class="skuhi-mobile-nav-slider-control skuhi-mobile-nav-slider-next" id="skuhiMobileNavSliderNext">
-        <i class="fas fa-chevron-right"></i>
+      <button class="skuhi-mobile-nav-slider-control skuhi-mobile-nav-slider-next" id="skuhiMobileNavSliderNext" aria-label="Next categories">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
       </button>
     </div>
   </div>
 
+  <!-- SKELETON LOADING CONTAINER -->
+  <div class="skuhi-skeleton-loading" id="skuhiSkeletonLoading">
+    <div class="container-xl">
+      <!-- Hero Section Skeleton -->
+      <section class="skuhi-hero-section">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 200px; height: 40px; margin-bottom: 20px;"></div>
+            <div class="skuhi-skeleton skuhi-skeleton-title"></div>
+            <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 90%;"></div>
+            <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 80%;"></div>
+            <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 70%; margin-bottom: 30px;"></div>
+            <div class="d-flex gap-3">
+              <div class="skuhi-skeleton skuhi-skeleton-button"></div>
+              <div class="skuhi-skeleton skuhi-skeleton-button"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="skuhi-skeleton skuhi-skeleton-image"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section Skeleton -->
+      <section class="skuhi-categories-section">
+        <div class="text-center mb-5">
+          <div class="skuhi-skeleton skuhi-skeleton-title" style="width: 300px; margin: 0 auto 15px;"></div>
+          <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 400px; margin: 0 auto 30px;"></div>
+        </div>
+        <div class="row">
+          {Array.from({length: 8}).map((_, i) => (
+            <div class="col-md-3 col-sm-6 mb-4" key={i}>
+              <div class="skuhi-skeleton-card">
+                <div class="skuhi-skeleton skuhi-skeleton-image" style="height: 150px;"></div>
+                <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 80%;"></div>
+                <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 60%; height: 15px;"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Footer Skeleton -->
+      <footer class="skuhi-footer-premium">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5">
+              <div class="skuhi-skeleton-footer-section">
+                <div class="skuhi-skeleton skuhi-skeleton-title" style="width: 150px; height: 30px;"></div>
+                <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 100%;"></div>
+                <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 90%;"></div>
+              </div>
+            </div>
+            {Array.from({length: 3}).map((_, i) => (
+              <div class="col-lg-3 col-md-6 mb-5" key={i}>
+                <div class="skuhi-skeleton-footer-section">
+                  <div class="skuhi-skeleton skuhi-skeleton-title" style="width: 120px; height: 30px;"></div>
+                  {Array.from({length: 5}).map((_, j) => (
+                    <div class="skuhi-skeleton skuhi-skeleton-text" style="width: 80%; margin-bottom: 10px;" key={j}></div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
   <!-- MAIN CONTENT -->
-  <main>
+  <main class="skuhi-main-content" id="skuhiMainContent" style="display: none;">
     <!-- HERO SECTION -->
-    <section class="skuhi-hero-section">
+    <section class="skuhi-hero-section" itemscope itemtype="https://schema.org/WebPage">
       <div class="container-xl">
         <div class="row align-items-center">
           <div class="col-lg-6" data-aos="fade-right">
-            <span class="skuhi-hero-badge">
-              <i class="fas fa-bolt"></i> 90-Minute Delivery Guaranteed
+            <span class="skuhi-hero-badge" aria-label="90-minute delivery guarantee">
+              <i class="fas fa-bolt" aria-hidden="true"></i> 90-Minute Delivery Guaranteed
             </span>
-            <h1 class="skuhi-hero-title">
+            <h1 class="skuhi-hero-title" itemprop="headline">
               Premium Groceries <br>
               Delivered to <span>Your Doorstep</span>
             </h1>
-            <p class="skuhi-hero-description">
+            <p class="skuhi-hero-description" itemprop="description">
               Experience the future of grocery shopping with 15,000+ fresh products across 25+ premium categories. Farm-fresh organic produce, artisanal dairy, and gourmet essentials.
             </p>
             
             <div class="skuhi-hero-stats">
-              <div class="skuhi-stat-item">
+              <div class="skuhi-stat-item" itemprop="reviewCount" content="50000">
                 <span class="skuhi-stat-number">50K+</span>
                 <span class="skuhi-stat-label">Happy Customers</span>
               </div>
-              <div class="skuhi-stat-item">
+              <div class="skuhi-stat-item" itemprop="numberOfItems" content="15000">
                 <span class="skuhi-stat-number">15K+</span>
                 <span class="skuhi-stat-label">Premium Products</span>
               </div>
-              <div class="skuhi-stat-item">
+              <div class="skuhi-stat-item" itemprop="deliveryTime" content="90 minutes">
                 <span class="skuhi-stat-number">90</span>
                 <span class="skuhi-stat-label">Min Delivery</span>
               </div>
             </div>
             
             <div class="d-flex flex-wrap gap-3">
-              <a href="#" class="skuhi-btn-primary">
-                <i class="fas fa-shopping-cart me-2"></i> Start Shopping Now
+              <a href="#" class="skuhi-btn-primary" aria-label="Start shopping now" itemprop="url">
+                <i class="fas fa-shopping-cart me-2" aria-hidden="true"></i> Start Shopping Now
               </a>
-              <a href="#" class="skuhi-btn-outline">
-                <i class="fas fa-play-circle me-2"></i> How It Works
+              <a href="#" class="skuhi-btn-outline" aria-label="Learn how it works">
+                <i class="fas fa-play-circle me-2" aria-hidden="true"></i> How It Works
               </a>
             </div>
           </div>
           
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
             <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop" 
-                 alt="Premium Groceries" class="img-fluid rounded-4 shadow-lg">
+                 alt="Fresh groceries including fruits, vegetables, and dairy products on a table" 
+                 class="img-fluid rounded-4 shadow-lg"
+                 itemprop="image"
+                 loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SCROLL TO TOP -->
-    <button class="skuhi-scroll-top" id="skuhiScrollTop">
-      <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- CATEGORIES SECTION -->
+    <section class="skuhi-categories-section" data-aos="fade-up" itemscope itemtype="https://schema.org/ItemList">
+      <div class="container-xl">
+        <div class="text-center mb-5">
+          <h2 class="skuhi-section-title" itemprop="name">Shop by Categories</h2>
+          <p class="skuhi-section-subtitle">Browse through our premium selection of grocery categories</p>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/ProductCategory">
+            <div class="skuhi-category-card">
+              <div class="skuhi-category-icon">
+                <i class="fas fa-apple-alt" aria-hidden="true"></i>
+              </div>
+              <h3 class="skuhi-category-name" itemprop="name">Fresh Fruits</h3>
+              <p class="skuhi-category-count">150+ Items</p>
+              <a href="#" class="skuhi-category-link" itemprop="url" aria-label="Shop fresh fruits">
+                Shop Now <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-6 mb-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/ProductCategory">
+            <div class="skuhi-category-card">
+              <div class="skuhi-category-icon">
+                <i class="fas fa-carrot" aria-hidden="true"></i>
+              </div>
+              <h3 class="skuhi-category-name" itemprop="name">Vegetables</h3>
+              <p class="skuhi-category-count">200+ Items</p>
+              <a href="#" class="skuhi-category-link" itemprop="url" aria-label="Shop fresh vegetables">
+                Shop Now <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-6 mb-4" itemprop="itemListElement" itemscope itemtype="https://schema.org/ProductCategory">
+            <div class="skuhi-category-card">
+              <div class="skuhi-category-icon">
+                <i class="fas fa-egg" aria-hidden="true"></i>
+              </div>
+              <h3 class="skuhi-category-name" itemprop="name">Dairy & Eggs</h3>
+              <p class="skuhi-category-count">120+ Items</p>
+              <a href="#" class="skuhi-category-link" itemprop="url" aria-label="Shop dairy and eggs">
+                Shop Now <i class="fas fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM FOOTER -->
+    <footer class="skuhi-footer-premium" role="contentinfo" itemscope itemtype="https://schema.org/Organization">
+      <div class="skuhi-footer-premium-wave">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+      </div>
+      
+      <div class="container-xl">
+        <div class="row g-5">
+          <!-- Logo and About Section -->
+          <div class="col-lg-4 col-md-6">
+            <div class="skuhi-footer-logo-container">
+              <div class="skuhi-footer-logo-img" aria-hidden="true">S</div>
+              <div class="skuhi-footer-logo-text">Skuhi<span>Mart</span></div>
+            </div>
+            <p class="skuhi-footer-about" itemprop="description">
+              SkuhiMart is India's premium online grocery delivery service, offering 15,000+ fresh products across 25+ categories. 
+              We deliver farm-fresh organic produce, artisanal dairy, gourmet essentials, and household items right to your doorstep 
+              with our 90-minute delivery guarantee.
+            </p>
+            
+            <div class="skuhi-footer-social-container">
+              <h4 class="skuhi-footer-social-title">Follow Us</h4>
+              <div class="skuhi-footer-social-links">
+                <a href="https://facebook.com/skuhimart" class="skuhi-footer-social-link" aria-label="Follow us on Facebook" itemprop="sameAs">
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                  <span class="sr-only">Facebook</span>
+                </a>
+                <a href="https://twitter.com/skuhimart" class="skuhi-footer-social-link" aria-label="Follow us on Twitter" itemprop="sameAs">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                  <span class="sr-only">Twitter</span>
+                </a>
+                <a href="https://instagram.com/skuhimart" class="skuhi-footer-social-link" aria-label="Follow us on Instagram" itemprop="sameAs">
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+                  <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://linkedin.com/company/skuhimart" class="skuhi-footer-social-link" aria-label="Follow us on LinkedIn" itemprop="sameAs">
+                  <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                  <span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="https://youtube.com/skuhimart" class="skuhi-footer-social-link" aria-label="Follow us on YouTube" itemprop="sameAs">
+                  <i class="fab fa-youtube" aria-hidden="true"></i>
+                  <span class="sr-only">YouTube</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <h3 class="skuhi-footer-premium-title">Quick Links</h3>
+            <ul class="skuhi-footer-links-list">
+              <li class="skuhi-footer-links-item">
+                <a href="/" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                  Home
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/about" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-info-circle" aria-hidden="true"></i>
+                  About Us
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/shop" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                  Shop All
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/categories" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-list" aria-hidden="true"></i>
+                  Categories
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/offers" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-tag" aria-hidden="true"></i>
+                  Offers & Deals
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/blog" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-blog" aria-hidden="true"></i>
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Categories -->
+          <div class="col-lg-2 col-md-6">
+            <h3 class="skuhi-footer-premium-title">Categories</h3>
+            <ul class="skuhi-footer-links-list">
+              <li class="skuhi-footer-links-item">
+                <a href="/category/fruits" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-apple-alt" aria-hidden="true"></i>
+                  Fresh Fruits
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/category/vegetables" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-carrot" aria-hidden="true"></i>
+                  Vegetables
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/category/dairy" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-egg" aria-hidden="true"></i>
+                  Dairy & Eggs
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/category/meat" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-drumstick-bite" aria-hidden="true"></i>
+                  Meat & Seafood
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/category/bakery" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-bread-slice" aria-hidden="true"></i>
+                  Bakery
+                </a>
+              </li>
+              <li class="skuhi-footer-links-item">
+                <a href="/category/beverages" class="skuhi-footer-links-link" itemprop="url">
+                  <i class="fas fa-wine-bottle" aria-hidden="true"></i>
+                  Beverages
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Contact & Newsletter -->
+          <div class="col-lg-4 col-md-6">
+            <h3 class="skuhi-footer-premium-title">Contact Info</h3>
+            <ul class="skuhi-footer-contact-info">
+              <li class="skuhi-footer-contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <div class="skuhi-footer-contact-icon">
+                  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                </div>
+                <div class="skuhi-footer-contact-details">
+                  <span class="skuhi-footer-contact-label">Address</span>
+                  <span class="skuhi-footer-contact-value">
+                    <span itemprop="streetAddress">123 Premium Street</span>, <br>
+                    <span itemprop="addressLocality">Mumbai</span>, 
+                    <span itemprop="addressRegion">Maharashtra</span> 
+                    <span itemprop="postalCode">400001</span>
+                  </span>
+                </div>
+              </li>
+              
+              <li class="skuhi-footer-contact-item" itemprop="telephone">
+                <div class="skuhi-footer-contact-icon">
+                  <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                </div>
+                <div class="skuhi-footer-contact-details">
+                  <span class="skuhi-footer-contact-label">Phone</span>
+                  <span class="skuhi-footer-contact-value">
+                    <a href="tel:+919876543210" itemprop="telephone">+91 98765 43210</a>
+                  </span>
+                </div>
+              </li>
+              
+              <li class="skuhi-footer-contact-item" itemprop="email">
+                <div class="skuhi-footer-contact-icon">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                </div>
+                <div class="skuhi-footer-contact-details">
+                  <span class="skuhi-footer-contact-label">Email</span>
+                  <span class="skuhi-footer-contact-value">
+                    <a href="mailto:support@skuhimart.com" itemprop="email">support@skuhimart.com</a>
+                  </span>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="skuhi-footer-newsletter-container">
+              <h4 class="skuhi-footer-newsletter-title">Subscribe to Newsletter</h4>
+              <p class="skuhi-footer-newsletter-desc">
+                Get exclusive offers, new product updates, and fresh recipes delivered to your inbox.
+              </p>
+              <form class="skuhi-footer-newsletter-form" id="skuhiNewsletterForm">
+                <input type="email" 
+                       class="skuhi-footer-newsletter-input" 
+                       placeholder="Your email address" 
+                       aria-label="Email address for newsletter"
+                       required>
+                <button type="submit" class="skuhi-footer-newsletter-btn" aria-label="Subscribe to newsletter">
+                  <i class="fas fa-paper-plane" aria-hidden="true"></i> Subscribe Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skuhi-footer-bottom-bar">
+          <p class="skuhi-footer-copyright" itemprop="copyrightNotice">
+            &copy; <span itemprop="copyrightYear">2024</span> SkuhiMart. All rights reserved.
+          </p>
+          
+          <div class="skuhi-footer-payment-methods">
+            <div class="skuhi-footer-payment-method" aria-label="Visa payment method">
+              <i class="fab fa-cc-visa" aria-hidden="true"></i>
+              <span class="sr-only">Visa</span>
+            </div>
+            <div class="skuhi-footer-payment-method" aria-label="Mastercard payment method">
+              <i class="fab fa-cc-mastercard" aria-hidden="true"></i>
+              <span class="sr-only">Mastercard</span>
+            </div>
+            <div class="skuhi-footer-payment-method" aria-label="PayPal payment method">
+              <i class="fab fa-cc-paypal" aria-hidden="true"></i>
+              <span class="sr-only">PayPal</span>
+            </div>
+            <div class="skuhi-footer-payment-method" aria-label="Apple Pay payment method">
+              <i class="fab fa-cc-apple-pay" aria-hidden="true"></i>
+              <span class="sr-only">Apple Pay</span>
+            </div>
+            <div class="skuhi-footer-payment-method" aria-label="Google Pay payment method">
+              <i class="fab fa-google-pay" aria-hidden="true"></i>
+              <span class="sr-only">Google Pay</span>
+            </div>
+            <div class="skuhi-footer-payment-method" aria-label="UPI payment method">
+              <i class="fas fa-university" aria-hidden="true"></i>
+              <span class="sr-only">UPI</span>
+            </div>
+          </div>
+          
+          <div class="skuhi-footer-extra-links">
+            <a href="/privacy-policy" class="skuhi-footer-extra-link" itemprop="url">Privacy Policy</a>
+            <a href="/terms-of-service" class="skuhi-footer-extra-link" itemprop="url">Terms of Service</a>
+            <a href="/shipping-policy" class="skuhi-footer-extra-link" itemprop="url">Shipping Policy</a>
+            <a href="/return-policy" class="skuhi-footer-extra-link" itemprop="url">Return Policy</a>
+            <a href="/sitemap" class="skuhi-footer-extra-link" itemprop="url">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SCROLL TO TOP -->
+  <button class="skuhi-scroll-top" id="skuhiScrollTop" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
 
   <!-- CART OFFCANVAS -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="skuhiCartOffcanvas">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="skuhiCartOffcanvas" aria-labelledby="skuhiCartOffcanvasLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Your Shopping Cart</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      <h5 class="offcanvas-title" id="skuhiCartOffcanvasLabel">Your Shopping Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div class="text-center py-5">
-        <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+        <i class="fas fa-shopping-cart fa-3x text-muted mb-3" aria-hidden="true"></i>
         <p class="text-muted">Your cart is empty</p>
-        <a href="#" class="skuhi-btn-primary">Start Shopping</a>
+        <a href="#" class="skuhi-btn-primary" aria-label="Start shopping">Start Shopping</a>
       </div>
     </div>
   </div>
@@ -1148,9 +1990,225 @@
       offset: 80
     });
 
-    // DYNAMIC NAVIGATION MANAGER
+    // SKELETON LOADING MANAGER
+    const skuhiSkeletonManager = {
+      elements: {
+        skeleton: null,
+        mainContent: null
+      },
+      
+      init: function() {
+        this.elements.skeleton = document.getElementById('skuhiSkeletonLoading');
+        this.elements.mainContent = document.getElementById('skuhiMainContent');
+        
+        if (this.elements.skeleton && this.elements.mainContent) {
+          // Show skeleton immediately
+          this.elements.skeleton.style.display = 'block';
+          
+          // Simulate loading time (can be replaced with actual API calls)
+          setTimeout(() => {
+            this.hideSkeleton();
+          }, 1500);
+        }
+      },
+      
+      showSkeleton: function() {
+        if (this.elements.skeleton && this.elements.mainContent) {
+          this.elements.skeleton.style.display = 'block';
+          this.elements.mainContent.style.display = 'none';
+        }
+      },
+      
+      hideSkeleton: function() {
+        if (this.elements.skeleton && this.elements.mainContent) {
+          this.elements.skeleton.style.display = 'none';
+          this.elements.mainContent.style.display = 'block';
+        }
+      }
+    };
+
+    // FOOTER MANAGER
+    const skuhiFooterManager = {
+      elements: {
+        newsletterForm: null,
+        currentYear: null
+      },
+      
+      init: function() {
+        this.elements.newsletterForm = document.getElementById('skuhiNewsletterForm');
+        this.elements.currentYear = document.querySelector('[itemprop="copyrightYear"]');
+        
+        this.updateYear();
+        this.bindEvents();
+      },
+      
+      updateYear: function() {
+        if (this.elements.currentYear) {
+          this.elements.currentYear.textContent = new Date().getFullYear();
+        }
+      },
+      
+      bindEvents: function() {
+        // Newsletter form submission
+        if (this.elements.newsletterForm) {
+          this.elements.newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.handleNewsletterSubmit();
+          });
+        }
+      },
+      
+      handleNewsletterSubmit: function() {
+        const emailInput = this.elements.newsletterForm.querySelector('input[type="email"]');
+        const submitBtn = this.elements.newsletterForm.querySelector('button[type="submit"]');
+        
+        if (!emailInput.value.trim()) {
+          this.showNotification('Please enter your email address', 'error');
+          return;
+        }
+        
+        if (!this.validateEmail(emailInput.value)) {
+          this.showNotification('Please enter a valid email address', 'error');
+          return;
+        }
+        
+        // Save original button text
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call (replace with actual API call)
+        setTimeout(() => {
+          // Success
+          this.showNotification('Successfully subscribed to newsletter!', 'success');
+          emailInput.value = '';
+          
+          // Reset button
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 1500);
+      },
+      
+      validateEmail: function(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      },
+      
+      showNotification: function(message, type) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `skuhi-notification skuhi-notification-${type}`;
+        notification.setAttribute('role', 'alert');
+        notification.innerHTML = `
+          <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+          <span>${message}</span>
+          <button class="skuhi-notification-close" aria-label="Close notification">
+            <i class="fas fa-times"></i>
+          </button>
+        `;
+        
+        // Add styles if not already present
+        if (!document.querySelector('#skuhi-notification-styles')) {
+          const style = document.createElement('style');
+          style.id = 'skuhi-notification-styles';
+          style.textContent = `
+            .skuhi-notification {
+              position: fixed;
+              bottom: 100px;
+              right: 30px;
+              background: white;
+              padding: 15px 25px;
+              border-radius: 12px;
+              box-shadow: var(--skuhi-shadow-lg);
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              z-index: 9999;
+              animation: skuhiSlideIn 0.3s ease forwards;
+              max-width: 400px;
+              border-left: 4px solid var(--skuhi-purple);
+            }
+            
+            .skuhi-notification-success {
+              border-left-color: #10b981;
+            }
+            
+            .skuhi-notification-error {
+              border-left-color: #ef4444;
+            }
+            
+            .skuhi-notification i {
+              font-size: 1.2rem;
+            }
+            
+            .skuhi-notification-success i {
+              color: #10b981;
+            }
+            
+            .skuhi-notification-error i {
+              color: #ef4444;
+            }
+            
+            .skuhi-notification-close {
+              background: none;
+              border: none;
+              color: var(--skuhi-gray);
+              cursor: pointer;
+              margin-left: auto;
+              padding: 0;
+              font-size: 1rem;
+            }
+            
+            @keyframes skuhiSlideIn {
+              from {
+                transform: translateX(100%);
+                opacity: 0;
+              }
+              to {
+                transform: translateX(0);
+                opacity: 1;
+              }
+            }
+            
+            @keyframes skuhiSlideOut {
+              from {
+                transform: translateX(0);
+                opacity: 1;
+              }
+              to {
+                transform: translateX(100%);
+                opacity: 0;
+              }
+            }
+          `;
+          document.head.appendChild(style);
+        }
+        
+        document.body.appendChild(notification);
+        
+        // Add close button functionality
+        const closeBtn = notification.querySelector('.skuhi-notification-close');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            notification.style.animation = 'skuhiSlideOut 0.3s ease forwards';
+            setTimeout(() => notification.remove(), 300);
+          });
+        }
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.style.animation = 'skuhiSlideOut 0.3s ease forwards';
+            setTimeout(() => notification.remove(), 300);
+          }
+        }, 5000);
+      }
+    };
+
+    // DYNAMIC NAVIGATION MANAGER (Existing - kept as is)
     const skuhiNavManager = {
-      // Navigation items data - Can be dynamically updated
       navItems: [
         { id: 1, name: 'Fresh Fruits', slug: 'fruits', active: true },
         { id: 2, name: 'Vegetables', slug: 'vegetables', active: false },
@@ -1166,7 +2224,6 @@
         { id: 12, name: 'Pet Supplies', slug: 'pet-supplies', active: false }
       ],
       
-      // DOM Elements
       elements: {
         desktopTrack: null,
         mobileTrack: null,
@@ -1176,14 +2233,12 @@
         mobileNext: null
       },
       
-      // State variables
       desktopCurrentPos: 0,
       mobileCurrentPos: 0,
       desktopItemWidth: 0,
       mobileItemWidth: 0,
       isInitialized: false,
       
-      // Initialize the navigation
       init: function() {
         this.elements = {
           desktopTrack: document.getElementById('skuhiNavSliderTrack'),
@@ -1201,19 +2256,15 @@
         this.isInitialized = true;
       },
       
-      // Render navigation items
       renderNavigation: function() {
-        // Clear existing items
         this.elements.desktopTrack.innerHTML = '';
         this.elements.mobileTrack.innerHTML = '';
         
-        // Add items to desktop
         this.navItems.forEach((item, index) => {
           const desktopItem = this.createNavItem(item, 'desktop', index === 0);
           this.elements.desktopTrack.appendChild(desktopItem);
         });
         
-        // Add items to mobile
         this.navItems.forEach((item, index) => {
           const mobileItem = this.createNavItem(item, 'mobile', index === 0);
           this.elements.mobileTrack.appendChild(mobileItem);
@@ -1222,7 +2273,6 @@
         this.calculateItemWidths();
       },
       
-      // Create a navigation item element
       createNavItem: function(item, type, isActive) {
         const element = document.createElement('a');
         const className = type === 'desktop' ? 'skuhi-nav-slider-item' : 'skuhi-mobile-nav-slider-item';
@@ -1232,6 +2282,7 @@
         element.textContent = item.name;
         element.dataset.id = item.id;
         element.dataset.slug = item.slug;
+        element.setAttribute('aria-label', `Browse ${item.name}`);
         
         element.addEventListener('click', (e) => {
           e.preventDefault();
@@ -1241,23 +2292,18 @@
         return element;
       },
       
-      // Handle navigation item click
       handleNavClick: function(itemId, type) {
-        // Update active state
         this.navItems.forEach(item => {
           item.active = item.id === itemId;
         });
         
-        // Update UI
         this.updateActiveStates();
         
-        // You can add additional logic here, like loading category content
+        // Dynamic content loading would go here
         console.log(`Navigated to: ${this.navItems.find(item => item.id === itemId).name}`);
       },
       
-      // Update active states in UI
       updateActiveStates: function() {
-        // Update desktop items
         document.querySelectorAll('.skuhi-nav-slider-item').forEach(item => {
           const itemId = parseInt(item.dataset.id);
           const navItem = this.navItems.find(n => n.id === itemId);
@@ -1266,7 +2312,6 @@
           }
         });
         
-        // Update mobile items
         document.querySelectorAll('.skuhi-mobile-nav-slider-item').forEach(item => {
           const itemId = parseInt(item.dataset.id);
           const navItem = this.navItems.find(n => n.id === itemId);
@@ -1276,7 +2321,6 @@
         });
       },
       
-      // Calculate item widths
       calculateItemWidths: function() {
         if (this.elements.desktopTrack.children.length > 0) {
           const firstItem = this.elements.desktopTrack.children[0];
@@ -1295,9 +2339,7 @@
         }
       },
       
-      // Update slider controls state
       updateControls: function() {
-        // Desktop controls
         if (this.elements.desktopTrack) {
           const desktopContainerWidth = this.elements.desktopTrack.parentElement.clientWidth;
           const desktopTrackWidth = this.elements.desktopTrack.scrollWidth;
@@ -1307,7 +2349,6 @@
           this.elements.desktopNext.classList.toggle('disabled', this.desktopCurrentPos >= desktopMaxPos);
         }
         
-        // Mobile controls
         if (this.elements.mobileTrack) {
           const mobileContainerWidth = this.elements.mobileTrack.parentElement.clientWidth;
           const mobileTrackWidth = this.elements.mobileTrack.scrollWidth;
@@ -1318,7 +2359,6 @@
         }
       },
       
-      // Move desktop slider
       moveDesktopSlider: function(direction) {
         const containerWidth = this.elements.desktopTrack.parentElement.clientWidth;
         const trackWidth = this.elements.desktopTrack.scrollWidth;
@@ -1334,7 +2374,6 @@
         this.updateControls();
       },
       
-      // Move mobile slider
       moveMobileSlider: function(direction) {
         const containerWidth = this.elements.mobileTrack.parentElement.clientWidth;
         const trackWidth = this.elements.mobileTrack.scrollWidth;
@@ -1350,9 +2389,7 @@
         this.updateControls();
       },
       
-      // Bind event listeners
       bindEvents: function() {
-        // Desktop slider controls
         if (this.elements.desktopPrev) {
           this.elements.desktopPrev.addEventListener('click', () => {
             if (!this.elements.desktopPrev.classList.contains('disabled')) {
@@ -1369,7 +2406,6 @@
           });
         }
         
-        // Mobile slider controls
         if (this.elements.mobilePrev) {
           this.elements.mobilePrev.addEventListener('click', () => {
             if (!this.elements.mobilePrev.classList.contains('disabled')) {
@@ -1386,14 +2422,12 @@
           });
         }
         
-        // Window resize
         window.addEventListener('resize', () => {
           this.calculateItemWidths();
           this.updateControls();
         });
       },
       
-      // Public method to update navigation items
       updateNavItems: function(newItems) {
         this.navItems = newItems;
         if (this.isInitialized) {
@@ -1401,7 +2435,6 @@
         }
       },
       
-      // Public method to add a navigation item
       addNavItem: function(item) {
         this.navItems.push(item);
         if (this.isInitialized) {
@@ -1409,7 +2442,6 @@
         }
       },
       
-      // Public method to remove a navigation item
       removeNavItem: function(itemId) {
         this.navItems = this.navItems.filter(item => item.id !== itemId);
         if (this.isInitialized) {
@@ -1418,10 +2450,12 @@
       }
     };
 
-    // SCROLL MANAGEMENT - FIXED FOR BETTER VISIBILITY
+    // SCROLL MANAGEMENT (Existing - kept as is)
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize navigation
+      // Initialize managers
       skuhiNavManager.init();
+      skuhiSkeletonManager.init();
+      skuhiFooterManager.init();
       
       // Get elements
       const desktopTopbar = document.getElementById('skuhiTopbar');
@@ -1590,11 +2624,6 @@
       // Initial setup
       updateMobileHeaderPosition();
       handleScroll();
-      
-      // Debug: Log z-index values
-      console.log('Desktop Topbar z-index:', window.getComputedStyle(desktopTopbar).zIndex);
-      console.log('Mobile Topbar z-index:', window.getComputedStyle(mobileTopbar).zIndex);
-      console.log('Mobile Header z-index:', window.getComputedStyle(mobileHeader).zIndex);
     });
   </script>
 </body>
