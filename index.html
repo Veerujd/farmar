@@ -2444,9 +2444,7 @@
       
       // Variables for scroll handling
       let lastScrollTop = 0;
-      let scrollTimeout;
-      const SCROLL_THRESHOLD = 100; // Minimum scroll amount before hiding
-      const SCROLL_DELAY = 150; // Delay for showing header again
+      const SCROLL_THRESHOLD = 50;
       
       // Scroll event handler
       function handleScroll() {
@@ -2460,46 +2458,27 @@
           scrollTopBtn.classList.remove('visible');
         }
         
-        // Handle header visibility based on scroll direction
-        if (scrollTop > SCROLL_THRESHOLD) {
-          if (scrollDirection === 'down') {
-            // Scrolling down - hide topbar and header
-            topbar.classList.add('hide');
-            header.classList.add('hide');
-            body.classList.add('scrolling');
-          } else {
-            // Scrolling up - show header (topbar remains hidden for more space)
-            header.classList.remove('hide');
-            header.classList.add('sticky');
-            body.classList.remove('scrolling');
-            
-            // Show topbar only when at the very top
-            if (scrollTop < 50) {
-              topbar.classList.remove('hide');
-              header.classList.remove('sticky');
-            }
-          }
-        } else {
-          // Near top of page - show both
-          topbar.classList.remove('hide');
+        // SIMPLE LOGIC: Hide topbar when scrolling down, show when scrolling up
+        if (scrollDirection === 'down' && scrollTop > SCROLL_THRESHOLD) {
+          // Scrolling DOWN - hide topbar immediately
+          topbar.classList.add('hide');
+          header.classList.add('sticky');
+          body.classList.add('scrolling');
+        } else if (scrollDirection === 'up') {
+          // Scrolling UP - show topbar if at top, otherwise keep it hidden
           header.classList.remove('hide');
-          header.classList.remove('sticky');
-          body.classList.remove('scrolling');
+          header.classList.add('sticky');
+          
+          // Only show topbar when at the very top
+          if (scrollTop < SCROLL_THRESHOLD) {
+            topbar.classList.remove('hide');
+            header.classList.remove('sticky');
+            body.classList.remove('scrolling');
+          }
         }
         
+        // Always update last scroll position
         lastScrollTop = scrollTop;
-        
-        // Clear previous timeout
-        clearTimeout(scrollTimeout);
-        
-        // Set timeout to handle scroll end
-        scrollTimeout = setTimeout(() => {
-          // After scrolling stops, ensure header is visible if not at top
-          if (scrollTop > SCROLL_THRESHOLD && scrollDirection === 'up') {
-            header.classList.remove('hide');
-            header.classList.add('sticky');
-          }
-        }, SCROLL_DELAY);
       }
       
       // Scroll to top functionality
@@ -2510,8 +2489,17 @@
         });
       });
       
-      // Add scroll event listener
-      window.addEventListener('scroll', handleScroll);
+      // Add scroll event listener with throttling
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
       
       // Navigation Carousel Functionality
       const supermartNavTrack = document.getElementById('supermartNavTrack');
