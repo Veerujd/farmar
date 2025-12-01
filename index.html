@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SuperMart Pro - Premium Online Supermarket</title>
+  <title>SkuhiMart - Premium Grocery Delivery</title>
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -11,221 +11,231 @@
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --supermart-primary: #8b5cf6;
-      --supermart-primary-dark: #7c3aed;
-      --supermart-accent: #f59e0b;
-      --supermart-accent-dark: #d97706;
-      --supermart-text-dark: #1a1a1a;
-      --supermart-text-light: #666;
-      --supermart-bg-light: #f8f9fa;
-      --supermart-shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
-      --supermart-shadow-md: 0 8px 30px rgba(0,0,0,0.08);
-      --supermart-shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
-      --topbar-height: 45px;
-      --header-height: 90px;
-      --mobile-topbar-height: 40px;
-      --mobile-header-height: 170px; /* Increased for navbar below search */
+      --skuhi-purple: #7c3aed;
+      --skuhi-purple-dark: #5b21b6;
+      --skuhi-purple-light: #8b5cf6;
+      --skuhi-gold: #f59e0b;
+      --skuhi-gold-dark: #d97706;
+      --skuhi-gold-light: #fbbf24;
+      --skuhi-dark: #1f2937;
+      --skuhi-light: #f8fafc;
+      --skuhi-gray: #6b7280;
+      --skuhi-shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+      --skuhi-shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+      --skuhi-shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #fafbfc;
-      color: var(--supermart-text-dark);
-      line-height: 1.6;
-      padding-top: calc(var(--topbar-height) + var(--header-height));
-      transition: padding-top 0.3s ease;
+      background: #ffffff;
+      color: var(--skuhi-dark);
+      overflow-x: hidden;
+      padding-top: 140px; /* For desktop */
     }
 
-    /* Scrolling state for body */
-    body.scrolling {
-      padding-top: var(--header-height) !important;
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
     }
 
-    .supermart-container {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 0 15px;
-      width: 100%;
+    .container-xl {
+      max-width: 1400px;
     }
 
-    /* Topbar - ENHANCED HEIGHT & AUTO-HIDE */
-    .supermart-topbar {
-      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-      color: #fff;
-      font-size: .85rem;
-      padding: 12px 0;
+    /* SKUHI TOPBAR */
+    .skuhi-topbar {
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      color: white;
+      font-size: 0.85rem;
+      padding: 8px 0;
       width: 100%;
       position: fixed;
       top: 0;
-      z-index: 1100;
-      height: var(--topbar-height);
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
-      transform: translateY(0);
-      opacity: 1;
+      z-index: 1120; /* Increased z-index */
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Topbar hide state */
-    .supermart-topbar.hide {
+    .skuhi-topbar.hide {
       transform: translateY(-100%);
-      opacity: 0;
     }
 
-    .supermart-topbar a {
-      color: #ccc;
+    .skuhi-topbar-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
       text-decoration: none;
-      margin: 0 8px;
-      transition: .3s;
-      white-space: nowrap;
+      transition: all 0.3s;
     }
 
-    .supermart-topbar a:hover {
-      color: var(--supermart-accent);
+    .skuhi-topbar-phone:hover {
+      color: var(--skuhi-gold);
+      transform: translateY(-1px);
     }
 
-    /* Header - ENHANCED HEIGHT & AUTO-HIDE */
-    .supermart-header {
+    .skuhi-topbar-phone i {
+      color: var(--skuhi-gold);
+      font-size: 0.9rem;
+    }
+
+    .skuhi-topbar-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: flex-end;
+    }
+
+    .skuhi-topbar-link {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skuhi-topbar-link:hover {
+      color: var(--skuhi-gold);
+      transform: translateY(-1px);
+    }
+
+    .skuhi-topbar-link i {
+      font-size: 0.8rem;
+    }
+
+    /* SKUHI HEADER */
+    .skuhi-header {
       position: fixed;
-      top: var(--topbar-height);
+      top: 38px;
       left: 0;
       right: 0;
-      z-index: 1090;
+      z-index: 1110;
       background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(16px);
-      box-shadow: var(--supermart-shadow-sm);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--skuhi-shadow-sm);
       padding: 15px 0;
       width: 100%;
-      max-width: 100vw;
-      overflow: hidden;
-      height: var(--header-height);
       transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                   top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      transform: translateY(0);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
     }
 
-    /* Header hide state */
-    .supermart-header.hide {
+    .skuhi-header.hide {
       transform: translateY(-100%);
     }
 
-    /* Sticky header when scrolling */
-    .supermart-header.sticky {
+    .skuhi-header.sticky {
       top: 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .supermart-header .supermart-container {
-      width: 100%;
+    .skuhi-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .supermart-logo {
-      max-height: 55px;
-      transition: 0.3s;
+    .skuhi-logo-img {
+      height: 45px;
+      width: 45px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
     }
 
-    .supermart-logo:hover {
-      transform: scale(1.05);
+    .skuhi-logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--skuhi-purple);
+      letter-spacing: -0.5px;
     }
 
-    /* Desktop Navigation Carousel */
-    .supermart-nav-container {
+    .skuhi-logo-text span {
+      color: var(--skuhi-gold);
+    }
+
+    /* NAVIGATION SLIDER CAROUSEL */
+    .skuhi-nav-slider-container {
       position: relative;
-      max-width: 600px;
+      max-width: 650px;
       margin: 0 auto;
-      width: 100%;
     }
 
-    .supermart-nav-carousel {
+    .skuhi-nav-slider-wrapper {
       overflow: hidden;
       position: relative;
-      width: 100%;
+      padding: 0 40px;
     }
 
-    .supermart-nav-track {
+    .skuhi-nav-slider-track {
       display: flex;
-      transition: transform 0.4s ease;
-      gap: 0;
-      padding: 0 10px;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      gap: 8px;
+      padding: 10px 0;
       width: max-content;
     }
 
-    .supermart-nav-item {
+    .skuhi-nav-slider-item {
       flex: 0 0 auto;
-      padding: 12px 18px;
-      border-radius: 10px;
+      padding: 12px 22px;
+      border-radius: 30px;
       font-weight: 600;
       font-size: 0.95rem;
-      color: var(--supermart-text-dark);
+      color: var(--skuhi-dark);
       text-decoration: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       white-space: nowrap;
-      margin: 0 2px;
-    }
-
-    .supermart-nav-item:hover,
-    .supermart-nav-item.active {
-      color: var(--supermart-primary) !important;
-      background: rgba(139, 92, 246, 0.08);
-      transform: translateY(-2px);
-    }
-
-    /* Mobile Navigation - BELOW SEARCH BAR */
-    .supermart-mobile-nav {
-      display: none;
+      border: 2px solid transparent;
+      background: rgba(124, 58, 237, 0.05);
       position: relative;
-      background: white;
-      border-radius: 12px;
-      box-shadow: var(--supermart-shadow-sm);
-      padding: 10px 40px;
-      width: 100%;
-      margin: 12px 0 0 0;
+      overflow: hidden;
     }
 
-    .supermart-mobile-nav-track {
-      display: flex;
-      transition: transform 0.4s ease;
-      gap: 8px;
-      width: max-content;
-      padding: 0 5px;
+    .skuhi-nav-slider-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
     }
 
-    .supermart-mobile-nav-item {
-      flex: 0 0 auto;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--supermart-text-dark);
-      text-decoration: none;
-      transition: 0.3s;
-      white-space: nowrap;
-      background: var(--supermart-bg-light);
-      border: 1px solid #e9ecef;
+    .skuhi-nav-slider-item:hover,
+    .skuhi-nav-slider-item.active {
+      color: white;
+      border-color: var(--skuhi-purple);
+      transform: translateY(-2px);
+      box-shadow: var(--skuhi-shadow-sm);
     }
 
-    .supermart-mobile-nav-item.active {
-      color: var(--supermart-primary) !important;
-      background: rgba(139, 92, 246, 0.08);
-      border-color: var(--supermart-primary);
+    .skuhi-nav-slider-item:hover::before,
+    .skuhi-nav-slider-item.active::before {
+      opacity: 1;
     }
 
-    /* Carousel Controls */
-    .supermart-nav-control {
+    /* NAV SLIDER CONTROLS */
+    .skuhi-nav-slider-control {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -237,40 +247,270 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--supermart-text-dark);
+      color: var(--skuhi-dark);
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       z-index: 10;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--skuhi-shadow-sm);
     }
 
-    .supermart-nav-control:hover {
-      background: var(--supermart-primary);
+    .skuhi-nav-slider-control:hover {
+      background: var(--skuhi-purple);
       color: white;
-      border-color: var(--supermart-primary);
+      border-color: var(--skuhi-purple);
+      transform: translateY(-50%) scale(1.1);
     }
 
-    .supermart-nav-prev {
-      left: -18px;
+    .skuhi-nav-slider-prev {
+      left: 0;
     }
 
-    .supermart-nav-next {
-      right: -18px;
+    .skuhi-nav-slider-next {
+      right: 0;
     }
 
-    .supermart-nav-control.disabled {
+    .skuhi-nav-slider-control.disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
 
-    .supermart-nav-control.disabled:hover {
+    .skuhi-nav-slider-control.disabled:hover {
       background: white;
-      color: var(--supermart-text-dark);
+      color: var(--skuhi-dark);
       border-color: #e0e0e0;
+      transform: translateY(-50%);
     }
 
-    /* Mobile Controls */
-    .supermart-mobile-control {
+    /* HEADER SEARCH */
+    .skuhi-search-container {
+      max-width: 300px;
+      margin-left: auto;
+    }
+
+    .skuhi-search-wrapper {
+      position: relative;
+    }
+
+    .skuhi-search-input {
+      padding: 12px 48px 12px 20px;
+      border-radius: 30px;
+      border: 2px solid #e9ecef;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      width: 100%;
+      background: white;
+    }
+
+    .skuhi-search-input:focus {
+      border-color: var(--skuhi-purple);
+      box-shadow: 0 0 0 0.2rem rgba(124, 58, 237, 0.15);
+      outline: none;
+    }
+
+    .skuhi-search-btn {
+      position: absolute;
+      right: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: var(--skuhi-purple);
+      color: white;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skuhi-search-btn:hover {
+      background: var(--skuhi-purple-dark);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    /* HEADER ACTIONS */
+    .skuhi-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: 20px;
+    }
+
+    .skuhi-action-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--skuhi-dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      background: rgba(124, 58, 237, 0.05);
+    }
+
+    .skuhi-action-btn:hover {
+      background: var(--skuhi-purple);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+    }
+
+    .skuhi-cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--skuhi-gold);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+    }
+
+    /* MOBILE LAYOUT - FIXED Z-INDEX */
+    /* Mobile topbar - should be on top */
+    .skuhi-mobile-topbar {
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      color: white;
+      font-size: 0.8rem;
+      padding: 6px 0;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1120; /* Same as desktop topbar */
+      transition: transform 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skuhi-mobile-topbar.hide {
+      transform: translateY(-100%);
+    }
+
+    /* Mobile header - should be below topbar */
+    .skuhi-mobile-header {
+      position: fixed;
+      top: 32px; /* Height of mobile topbar */
+      left: 0;
+      right: 0;
+      z-index: 1110; /* Below topbar, above content */
+      background: white;
+      box-shadow: var(--skuhi-shadow-sm);
+      transition: transform 0.3s ease;
+    }
+
+    .skuhi-mobile-header.hide {
+      transform: translateY(-100%);
+    }
+
+    .skuhi-mobile-header.sticky {
+      top: 0;
+    }
+
+    .skuhi-mobile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 15px;
+      background: white;
+    }
+
+    .skuhi-mobile-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skuhi-mobile-logo-img {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .skuhi-mobile-logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--skuhi-purple);
+    }
+
+    .skuhi-mobile-logo-text span {
+      color: var(--skuhi-gold);
+    }
+
+    .skuhi-mobile-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* MOBILE SEARCH */
+    .skuhi-mobile-search-container {
+      padding: 12px 15px;
+      background: var(--skuhi-light);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    /* MOBILE NAV SLIDER */
+    .skuhi-mobile-nav-slider-container {
+      padding: 12px 15px;
+      background: white;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+
+    .skuhi-mobile-nav-slider-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 0 35px;
+    }
+
+    .skuhi-mobile-nav-slider-track {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      gap: 8px;
+      padding: 5px 0;
+      width: max-content;
+    }
+
+    .skuhi-mobile-nav-slider-item {
+      flex: 0 0 auto;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--skuhi-dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 2px solid transparent;
+      background: rgba(124, 58, 237, 0.05);
+    }
+
+    .skuhi-mobile-nav-slider-item.active,
+    .skuhi-mobile-nav-slider-item:hover {
+      background: var(--skuhi-purple);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .skuhi-mobile-nav-slider-control {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -282,155 +522,290 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--supermart-text-dark);
+      color: var(--skuhi-dark);
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
       z-index: 10;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.8rem;
+      box-shadow: var(--skuhi-shadow-sm);
     }
 
-    .supermart-mobile-prev {
+    .skuhi-mobile-nav-slider-prev {
       left: 5px;
     }
 
-    .supermart-mobile-next {
+    .skuhi-mobile-nav-slider-next {
       right: 5px;
     }
 
-    /* Search - Optimized for Responsive */
-    .supermart-search {
+    /* RESPONSIVE BODY PADDING */
+    @media (max-width: 991.98px) {
+      body {
+        padding-top: 200px; /* Adjusted for mobile header height */
+      }
+      
+      .skuhi-header {
+        display: none;
+      }
+      
+      .skuhi-mobile-topbar {
+        display: block;
+      }
+      
+      .skuhi-mobile-header {
+        display: block;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      body {
+        padding-top: 190px;
+      }
+      
+      .skuhi-mobile-logo-text {
+        font-size: 1.2rem;
+      }
+      
+      .skuhi-action-btn {
+        width: 38px;
+        height: 38px;
+      }
+      
+      .skuhi-mobile-topbar {
+        padding: 5px 0;
+        font-size: 0.75rem;
+      }
+      
+      .skuhi-mobile-header {
+        top: 30px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      body {
+        padding-top: 180px;
+      }
+      
+      .skuhi-mobile-nav-slider-item {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+      }
+      
+      .skuhi-mobile-logo-text {
+        font-size: 1.1rem;
+      }
+      
+      .skuhi-mobile-topbar {
+        font-size: 0.7rem;
+      }
+      
+      .skuhi-mobile-header {
+        top: 28px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding-top: 170px;
+      }
+      
+      .skuhi-mobile-logo-text {
+        font-size: 1rem;
+      }
+      
+      .skuhi-mobile-logo-img {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+    }
+
+    /* HERO SECTION */
+    .skuhi-hero-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #f3f4f6 100%);
+      padding: 100px 0 80px;
       position: relative;
-      width: 100%;
+      overflow: hidden;
     }
 
-    /* Desktop Search */
-    .supermart-search.desktop {
-      max-width: 340px;
+    .skuhi-hero-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(245, 158, 11, 0.1));
+      border-radius: 50%;
+      z-index: 1;
     }
 
-    /* Mobile Search - Full width */
-    .supermart-search.mobile {
-      max-width: 100%;
-      margin: 0;
-    }
-
-    .supermart-search input {
-      padding: 12px 48px 12px 18px;
+    .skuhi-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--skuhi-gold), var(--skuhi-gold-dark));
+      color: white;
+      padding: 12px 25px;
       border-radius: 30px;
-      border: 2px solid #e9ecef;
-      font-size: 0.95rem;
-      transition: 0.3s;
-      width: 100%;
-    }
-
-    .supermart-search input:focus {
-      border-color: var(--supermart-primary);
-      box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.15);
-      outline: none;
-    }
-
-    .supermart-search button {
-      position: absolute;
-      right: 3px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: none;
-      background: var(--supermart-primary);
-      color: #fff;
-      font-size: 0.95rem;
-      transition: 0.3s;
-    }
-
-    .supermart-search button:hover {
-      background: var(--supermart-primary-dark);
-      transform: translateY(-50%) scale(1.05);
-    }
-
-    /* Mobile Search */
-    .supermart-mobile-search {
-      display: none;
-      position: relative;
-      width: 100%;
-      margin: 0;
-    }
-
-    /* Header Icons */
-    .supermart-header-icons {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-    }
-
-    .supermart-header-icons a {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--supermart-text-dark);
-      margin-left: 10px;
-      position: relative;
-      text-decoration: none;
-      transition: 0.3s;
-      flex-shrink: 0;
-    }
-
-    .supermart-header-icons a:hover {
-      background: rgba(139, 92, 246, 0.08);
-      color: var(--supermart-primary);
-      transform: translateY(-2px);
-    }
-
-    .supermart-cart-count {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--supermart-accent);
-      color: #fff;
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      animation: skuhiPulse 2s infinite;
     }
 
-    /* Header Row Layout - FIXED */
-    .supermart-header .row {
+    @keyframes skuhiPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .skuhi-hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--skuhi-dark);
+      margin-bottom: 20px;
+    }
+
+    .skuhi-hero-title span {
+      color: var(--skuhi-purple);
+      position: relative;
+    }
+
+    .skuhi-hero-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
       width: 100%;
-      margin: 0;
+      height: 8px;
+      background: rgba(124, 58, 237, 0.2);
+      z-index: -1;
+    }
+
+    .skuhi-hero-description {
+      font-size: 1.1rem;
+      color: var(--skuhi-gray);
+      line-height: 1.6;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .skuhi-hero-stats {
       display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .skuhi-stat-item {
+      text-align: center;
+    }
+
+    .skuhi-stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--skuhi-purple);
+      display: block;
+    }
+
+    .skuhi-stat-label {
+      font-size: 0.9rem;
+      color: var(--skuhi-gray);
+      font-weight: 500;
+    }
+
+    .skuhi-btn-primary {
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
       align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
     }
 
-    .supermart-header .col-auto {
-      flex-shrink: 0;
+    .skuhi-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+      color: white;
     }
 
-    .supermart-header .col {
-      min-width: 0; /* Important for flexbox constraints */
+    .skuhi-btn-outline {
+      border: 2px solid var(--skuhi-purple);
+      color: var(--skuhi-purple);
+      background: transparent;
+      padding: 13px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .supermart-header .ms-auto {
-      margin-left: auto !important;
-      flex-shrink: 0;
+    .skuhi-btn-outline:hover {
+      background: var(--skuhi-purple);
+      color: white;
+      transform: translateY(-3px);
     }
 
-    /* Scroll to top button */
-    .supermart-scroll-top {
+    /* CATEGORIES SECTION */
+    .skuhi-categories-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .skuhi-section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 15px;
+      color: var(--skuhi-dark);
+      position: relative;
+    }
+
+    .skuhi-section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -10px;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-gold));
+      border-radius: 2px;
+    }
+
+    .skuhi-section-subtitle {
+      text-align: center;
+      color: var(--skuhi-gray);
+      max-width: 600px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+    }
+
+    /* SCROLL TO TOP */
+    .skuhi-scroll-top {
       position: fixed;
       bottom: 30px;
       right: 30px;
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: var(--supermart-primary);
+      background: linear-gradient(135deg, var(--skuhi-purple), var(--skuhi-purple-dark));
       color: white;
       display: flex;
       align-items: center;
@@ -442,1988 +817,327 @@
       visibility: hidden;
       transform: translateY(20px);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
       border: none;
     }
 
-    .supermart-scroll-top.visible {
+    .skuhi-scroll-top.visible {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
 
-    .supermart-scroll-top:hover {
-      background: var(--supermart-primary-dark);
+    .skuhi-scroll-top:hover {
+      background: linear-gradient(135deg, var(--skuhi-purple-dark), #4c1d95);
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5);
     }
 
-    /* PREMIUM HERO SECTION - FIXED OVERLAP ISSUE */
-    .supermart-hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 120px 0 90px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      margin-top: -50px; /* Compensate for header overlap */
-    }
-
-    .supermart-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
-      background-size: cover;
-    }
-
-    .supermart-hero-badge {
-      background: linear-gradient(45deg, var(--supermart-accent), var(--supermart-accent-dark));
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 25px;
-      font-size: .9rem;
-      font-weight: 700;
-      display: inline-block;
-      animation: supermartPulse 2s infinite;
-      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-      position: relative;
-      z-index: 2;
-    }
-
-    @keyframes supermartPulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-    }
-
-    .supermart-hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin: 20px 0 25px;
-      background: linear-gradient(135deg, #ffffff, #e0e7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      position: relative;
-      z-index: 2;
-    }
-
-    .supermart-hero-text {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 520px;
-      margin-bottom: 30px;
-      line-height: 1.7;
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .supermart-hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin: 30px 0 35px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .supermart-stat-item {
-      text-align: center;
-      padding: 15px 20px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease;
-    }
-
-    .supermart-stat-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .supermart-stat-num {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #fff;
-      display: block;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .supermart-stat-label {
-      font-size: .9rem;
-      color: rgba(255, 255, 255, 0.8);
-      font-weight: 500;
-    }
-
-    .supermart-btn-main {
-      border: none;
-      border-radius: 30px;
-      padding: 15px 35px;
-      font-weight: 700;
-      font-size: 1rem;
-      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-primary-dark));
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(139, 92, 246, .5);
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-    }
-
-    .supermart-btn-main::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .supermart-btn-main:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(139, 92, 246, .6);
-    }
-
-    .supermart-btn-main:hover::before {
-      left: 100%;
-    }
-
-    .supermart-btn-outline {
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 30px;
-      padding: 13px 30px;
-      font-weight: 600;
-      font-size: 1rem;
-      background: transparent;
-      color: #fff;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 2;
-    }
-
-    .supermart-btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .supermart-hero-visual {
-      position: relative;
-      z-index: 2;
-    }
-
-    .supermart-hero-image {
-      border-radius: 20px;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
-      transition: transform 0.5s ease;
-      border: 8px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .supermart-hero-image:hover {
-      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-    }
-
-    .supermart-floating-elements {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .supermart-floating-element {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: supermartFloat 6s ease-in-out infinite;
-    }
-
-    .supermart-floating-element:nth-child(1) {
-      width: 80px;
-      height: 80px;
-      top: 10%;
-      left: 5%;
-      animation-delay: 0s;
-    }
-
-    .supermart-floating-element:nth-child(2) {
-      width: 60px;
-      height: 60px;
-      top: 70%;
-      left: 10%;
-      animation-delay: 2s;
-    }
-
-    .supermart-floating-element:nth-child(3) {
-      width: 100px;
-      height: 100px;
-      top: 20%;
-      right: 5%;
-      animation-delay: 4s;
-    }
-
-    .supermart-floating-element:nth-child(4) {
-      width: 40px;
-      height: 40px;
-      top: 80%;
-      right: 15%;
-      animation-delay: 1s;
-    }
-
-    @keyframes supermartFloat {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(180deg);
-      }
-    }
-
-    /* Section head */
-    .supermart-section {
-      padding: 90px 0;
-      width: 100%;
-    }
-
-    .supermart-section-head {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .supermart-section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .supermart-section-title::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: -8px;
-      width: 60px;
-      height: 4px;
-      transform: translateX(-50%);
-      border-radius: 2px;
-      background: var(--supermart-primary);
-    }
-
-    .supermart-section-sub {
-      font-size: 1.1rem;
-      color: var(--supermart-text-light);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* PREMIUM CATEGORIES CAROUSEL */
-    .supermart-categories-section {
-      padding: 90px 0;
-      width: 100%;
-      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .supermart-categories-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="%238b5cf6" points="0,1000 1000,0 1000,1000"/></svg>');
-      background-size: cover;
-    }
-
-    .supermart-categories-container {
-      position: relative;
-      overflow: hidden;
-      padding: 0 60px;
-    }
-
-    .supermart-categories-track {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .supermart-categories-slide {
-      flex: 0 0 calc(16.666% - 17px); /* 6 items per row on desktop */
-      display: flex;
-      justify-content: center;
-    }
-
-    .supermart-cat-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: var(--supermart-shadow-md);
-      height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: var(--supermart-text-dark);
-      transition: .35s;
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      border: 1px solid rgba(139, 92, 246, 0.1);
-    }
-
-    .supermart-cat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-accent));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .supermart-cat-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--supermart-shadow-lg);
-    }
-
-    .supermart-cat-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .supermart-cat-icon {
-      width: 70px;
-      height: 70px;
-      margin-bottom: 12px;
-      transition: transform 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-accent));
-      border-radius: 50%;
-      color: white;
-    }
-
-    .supermart-cat-card:hover .supermart-cat-icon {
-      transform: scale(1.1) rotate(5deg);
-    }
-
-    .supermart-cat-name {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .supermart-cat-count {
-      font-size: .85rem;
-      color: var(--supermart-text-light);
-      background: rgba(139, 92, 246, 0.08);
-      padding: 4px 10px;
-      border-radius: 12px;
-    }
-
-    .supermart-categories-control {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: white;
-      border: 1px solid #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--supermart-text-dark);
-      cursor: pointer;
-      transition: 0.3s;
-      z-index: 10;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .supermart-categories-control:hover {
-      background: var(--supermart-primary);
-      color: white;
-      border-color: var(--supermart-primary);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .supermart-categories-prev {
-      left: 0;
-    }
-
-    .supermart-categories-next {
-      right: 0;
-    }
-
-    .supermart-categories-control.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .supermart-categories-control.disabled:hover {
-      background: white;
-      color: var(--supermart-text-dark);
-      border-color: #e0e0e0;
-      transform: translateY(-50%);
-    }
-
-    .supermart-categories-indicators {
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-      gap: 8px;
-    }
-
-    .supermart-categories-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #e0e0e0;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .supermart-categories-indicator.active {
-      background: var(--supermart-primary);
-      transform: scale(1.2);
-    }
-
-    /* Products */
-    .supermart-prod-card {
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--supermart-shadow-md);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      transition: .4s;
-      position: relative;
-    }
-
-    .supermart-prod-card:hover {
-      transform: translateY(-12px);
-      box-shadow: var(--supermart-shadow-lg);
-    }
-
-    .supermart-prod-img-wrap {
-      position: relative;
-      height: 220px;
-      overflow: hidden;
-    }
-
-    .supermart-prod-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: .6s;
-    }
-
-    .supermart-prod-card:hover .supermart-prod-img-wrap img {
-      transform: scale(1.07);
-    }
-
-    .supermart-prod-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: var(--supermart-accent);
-      color: #fff;
-      font-size: .8rem;
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-    }
-
-    .supermart-prod-body {
-      padding: 18px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      flex: 1;
-    }
-
-    .supermart-prod-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    .supermart-prod-meta {
-      font-size: .85rem;
-      color: var(--supermart-text-light);
-    }
-
-    .supermart-prod-price {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--supermart-primary-dark);
-      margin-top: 5px;
-    }
-
-    .supermart-prod-old {
-      text-decoration: line-through;
-      color: #999;
-      font-size: .9rem;
-      margin-left: 8px;
-    }
-
-    .supermart-prod-actions {
-      margin-top: 12px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .supermart-btn-cart {
-      flex: 1;
-      border-radius: 18px;
-      border: none;
-      padding: 10px 12px;
-      font-size: .9rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-primary-dark));
-      color: #fff;
-      transition: .3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-    }
-
-    .supermart-btn-cart:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(139, 92, 246, .4);
-    }
-
-    .supermart-btn-heart {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      border: 1px solid #e0e0e0;
-      background: #fff;
-      color: #999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: .3s;
-    }
-
-    .supermart-btn-heart:hover {
-      border-color: var(--supermart-accent);
-      color: var(--supermart-accent);
-      transform: scale(1.1);
-    }
-
-    /* Category Navigation - NEW SLIDER STYLES */
-    .supermart-cat-nav-container {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 25px;
-    }
-
-    .supermart-cat-nav {
-      display: flex;
-      transition: transform 0.4s ease;
-      gap: 12px;
-      padding: 12px 0;
-      width: max-content;
-    }
-
-    .supermart-cat-nav-btn {
-      white-space: nowrap;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      color: var(--supermart-text-dark);
-      font-weight: 600;
-      transition: all 0.3s;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
-    .supermart-cat-nav-btn.active,
-    .supermart-cat-nav-btn:hover {
-      background: var(--supermart-primary);
-      color: #fff;
-      border-color: var(--supermart-primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-    }
-
-    .supermart-cat-nav-control {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: white;
-      border: 1px solid #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--supermart-text-dark);
-      cursor: pointer;
-      transition: 0.3s;
-      z-index: 10;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .supermart-cat-nav-control:hover {
-      background: var(--supermart-primary);
-      color: white;
-      border-color: var(--supermart-primary);
-    }
-
-    .supermart-cat-nav-prev {
-      left: 0;
-    }
-
-    .supermart-cat-nav-next {
-      right: 0;
-    }
-
-    .supermart-cat-nav-control.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .supermart-cat-nav-control.disabled:hover {
-      background: white;
-      color: var(--supermart-text-dark);
-      border-color: #e0e0e0;
-    }
-
-    /* Newsletter */
-    .supermart-newsletter {
-      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-      color: #fff;
-      padding: 90px 0;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .supermart-newsletter::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="white" points="500,0 1000,500 500,1000 0,500"/></svg>');
-      background-size: cover;
-    }
-
-    .supermart-news-box {
-      background: rgba(255, 255, 255, .08);
-      border-radius: 25px;
-      padding: 40px 35px;
-      border: 1px solid rgba(255, 255, 255, .15);
-      backdrop-filter: blur(10px);
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Footer */
-    .supermart-footer {
-      background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
-      color: #b3b3b3;
-      padding: 80px 0 30px;
-      width: 100%;
-    }
-
-    .supermart-footer h6 {
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 18px;
-      font-size: 1.1rem;
-    }
-
-    .supermart-footer a {
-      color: #b3b3b3;
-      text-decoration: none;
-      font-size: .95rem;
-      display: block;
-      margin-bottom: 8px;
-      transition: .3s;
-    }
-
-    .supermart-footer a:hover {
-      color: var(--supermart-accent);
-      transform: translateX(5px);
-    }
-
-    /* Offcanvas cart - FIXED OVERLAP ISSUE */
-    .supermart-offcanvas-cart {
-      z-index: 1110 !important; /* Higher than header and topbar */
-    }
-
-    .supermart-cart-item {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    /* RESPONSIVE STYLES */
+    /* RESPONSIVE ADJUSTMENTS */
     @media (max-width: 1199.98px) {
-      .supermart-nav-container {
-        max-width: 500px;
+      .skuhi-nav-slider-container {
+        max-width: 550px;
       }
       
-      .supermart-categories-slide {
-        flex: 0 0 calc(20% - 16px); /* 5 items per row */
+      .skuhi-hero-title {
+        font-size: 3rem;
       }
     }
 
     @media (max-width: 991.98px) {
-      .supermart-nav-container {
-        max-width: 400px;
+      .skuhi-hero-section {
+        padding: 80px 0 60px;
       }
       
-      .supermart-hero {
-        padding: 100px 0 70px;
+      .skuhi-hero-title {
+        font-size: 2.5rem;
       }
       
-      /* Desktop search - slightly smaller on tablet */
-      .supermart-search.desktop {
-        max-width: 300px;
+      .skuhi-hero-description {
+        font-size: 1rem;
       }
       
-      .supermart-categories-slide {
-        flex: 0 0 calc(25% - 15px); /* 4 items per row */
+      .skuhi-section-title {
+        font-size: 2rem;
       }
       
-      .supermart-categories-container {
-        padding: 0 50px;
+      .skuhi-search-container {
+        max-width: 100%;
       }
     }
 
     @media (max-width: 767.98px) {
-      body {
-        padding-top: calc(var(--mobile-topbar-height) + var(--mobile-header-height));
-      }
-
-      .supermart-topbar {
-        height: var(--mobile-topbar-height);
-        padding: 10px 0;
-        font-size: .85rem;
-      }
-
-      /* Mobile Topbar */
-      .supermart-topbar .row {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      .supermart-topbar .row::-webkit-scrollbar {
-        display: none;
-      }
-
-      .supermart-topbar .col-md-6 {
-        flex: 0 0 auto;
-        width: auto;
-        display: flex;
-        align-items: center;
-        margin-top: 0 !important;
-      }
-
-      .supermart-topbar .col-md-6:first-child {
-        margin-right: 20px;
-      }
-
-      .supermart-topbar .col-md-6.text-md-end {
-        margin-left: 20px;
-      }
-
-      .supermart-topbar a {
-        margin: 0 6px;
-        font-size: 0.85rem;
-      }
-
-      /* Mobile Header */
-      .supermart-header {
-        top: var(--mobile-topbar-height);
-        height: var(--mobile-header-height);
-        padding: 12px 0;
-      }
-
-      .supermart-section {
-        padding: 70px 0;
-      }
-
-      /* Hide desktop navigation */
-      .supermart-nav-container {
-        display: none;
-      }
-
-      /* Show mobile elements */
-      .supermart-mobile-nav {
-        display: block;
-      }
-
-      .supermart-mobile-search {
-        display: block;
-      }
-
-      /* Adjust search for mobile */
-      .supermart-search.desktop {
-        display: none !important;
-      }
-
-      .supermart-header-icons .d-md-none {
-        display: none !important;
-      }
-
-      /* Stack layout for mobile - FIXED WIDTH ISSUE */
-      .supermart-header .row {
-        flex-wrap: nowrap;
-        width: 100%;
-        margin: 0;
-      }
-
-      .supermart-header .col-auto:first-child {
-        flex-shrink: 0;
-        min-width: auto;
-      }
-
-      .supermart-header .col-auto:last-child {
-        flex-shrink: 0;
-        margin-left: auto;
-        min-width: auto;
-      }
-
-      /* Fix for mobile navigation width */
-      .supermart-mobile-nav {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-      }
-
-      .supermart-mobile-nav-track {
-        width: max-content;
+      .skuhi-hero-title {
+        font-size: 2rem;
       }
       
-      /* Mobile search - full width */
-      .supermart-search.mobile {
-        max-width: 100%;
-      }
-
-      /* Hero adjustments for mobile */
-      .supermart-hero-title {
-        font-size: clamp(2rem, 5vw, 3rem);
-      }
-
-      .supermart-hero-text {
-        font-size: 1.1rem;
-      }
-
-      .supermart-stat-item {
-        padding: 12px 15px;
-      }
-
-      .supermart-stat-num {
-        font-size: 1.6rem;
+      .skuhi-hero-stats {
+        gap: 20px;
       }
       
-      .supermart-categories-slide {
-        flex: 0 0 calc(33.333% - 14px); /* 3 items per row */
+      .skuhi-stat-number {
+        font-size: 1.5rem;
       }
       
-      .supermart-categories-container {
-        padding: 0 40px;
-      }
-
-      /* Category navigation controls on mobile */
-      .supermart-cat-nav-control {
-        display: none; /* Hide on mobile for simplicity */
-      }
-
-      /* Scroll to top button - mobile */
-      .supermart-scroll-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
+      .skuhi-btn-primary,
+      .skuhi-btn-outline {
+        padding: 12px 25px;
+        font-size: 0.9rem;
       }
     }
 
     @media (max-width: 575.98px) {
-      .supermart-logo {
-        max-height: 45px;
-      }
-
-      .supermart-mobile-nav-item {
-        padding: 8px 14px;
+      .skuhi-hero-badge {
         font-size: 0.85rem;
+        padding: 10px 20px;
       }
-
-      .supermart-search input {
-        font-size: 0.9rem;
-        padding: 10px 44px 10px 16px;
+      
+      .skuhi-hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
       }
-
-      .supermart-search.mobile button {
-        width: 38px;
-        height: 38px;
-      }
-
-      .supermart-header-icons a {
-        width: 40px;
-        height: 40px;
-        margin-left: 8px;
-      }
-
-      .supermart-hero-stats {
-        gap: 15px;
-      }
-
-      .supermart-stat-item {
+      
+      .skuhi-stat-item {
         flex: 1;
-        min-width: calc(50% - 15px);
-      }
-      
-      .supermart-categories-slide {
-        flex: 0 0 calc(50% - 10px); /* 2 items per row */
-      }
-      
-      .supermart-categories-container {
-        padding: 0 30px;
-      }
-      
-      .supermart-cat-card {
-        height: 160px;
-        padding: 20px 15px;
-      }
-      
-      .supermart-cat-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.6rem;
-      }
-
-      /* Mobile Topbar adjustments */
-      .supermart-topbar a {
-        font-size: 0.8rem;
-        margin: 0 4px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .supermart-container {
-        padding: 0 12px;
-      }
-      
-      .supermart-header .row {
-        flex-wrap: nowrap;
-      }
-      
-      .supermart-header-icons a {
-        width: 38px;
-        height: 38px;
-        margin-left: 6px;
-      }
-      
-      .supermart-logo {
-        max-height: 40px;
-      }
-      
-      /* Mobile search - full width with adjusted padding */
-      .supermart-search.mobile input {
-        padding: 10px 44px 10px 16px;
-      }
-      
-      .supermart-search.mobile button {
-        width: 38px;
-        height: 38px;
-      }
-
-      .supermart-hero {
-        padding: 80px 0 50px;
-      }
-
-      .supermart-btn-main, .supermart-btn-outline {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-      }
-
-      .supermart-stat-item {
-        min-width: 100%;
-      }
-      
-      .supermart-categories-slide {
-        flex: 0 0 100%; /* 1 item per row */
-      }
-      
-      .supermart-categories-container {
-        padding: 0 20px;
-      }
-
-      /* Topbar and header mobile adjustments */
-      .supermart-topbar {
-        font-size: .8rem;
-        padding: 8px 0;
-      }
-
-      .supermart-topbar a {
-        font-size: 0.75rem;
-        margin: 0 3px;
-      }
-
-      .supermart-header {
-        padding: 10px 0;
-      }
-
-      .supermart-mobile-nav {
-        padding: 10px 35px;
-      }
-
-      .supermart-mobile-nav-item {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-      }
-
-      .supermart-mobile-control {
-        width: 28px;
-        height: 28px;
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .supermart-topbar a {
-        font-size: 0.7rem;
-        margin: 0 2px;
-      }
-
-      .supermart-logo {
-        max-height: 35px;
-      }
-
-      .supermart-header-icons a {
-        width: 34px;
-        height: 34px;
-        margin-left: 4px;
-      }
-
-      .supermart-search.mobile input {
-        font-size: 0.85rem;
-        padding: 9px 40px 9px 12px;
-      }
-
-      .supermart-search.mobile button {
-        width: 36px;
-        height: 36px;
+        min-width: calc(50% - 20px);
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOPBAR - ENHANCED HEIGHT -->
-  <div class="supermart-topbar" data-aos="fade-down">
-    <div class="supermart-container">
-      <div class="row align-items-center g-2">
-        <div class="col-md-6">
-          <div class="d-flex flex-wrap align-items-center gap-2">
-            <span>Hotline: <strong>+91 98765 43210</strong></span>
-          </div>
+  <!-- DESKTOP TOPBAR -->
+  <div class="skuhi-topbar d-none d-lg-block" id="skuhiTopbar">
+    <div class="container-xl">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Left: Phone Number -->
+        <div class="skuhi-topbar-phone">
+          <i class="fas fa-phone-alt"></i>
+          <span>Hotline: <strong>+91 98765 43210</strong></span>
         </div>
-        <div class="col-md-6 text-md-end mt-1 mt-md-0">
-          <a href="#"><i class="fas fa-truck me-1"></i>Track Order</a>
-          <a href="#" class="ms-2"><i class="fas fa-user me-1"></i>Login</a>
-          <a href="#" class="ms-2"><i class="fas fa-question-circle me-1"></i>Help</a>
+        
+        <!-- Right: Links -->
+        <div class="skuhi-topbar-links">
+          <a href="#" class="skuhi-topbar-link">
+            <i class="fas fa-truck"></i>Track Order
+          </a>
+          <a href="#" class="skuhi-topbar-link">
+            <i class="fas fa-user"></i>Login / Register
+          </a>
+          <a href="#" class="skuhi-topbar-link">
+            <i class="fas fa-question-circle"></i>Help Center
+          </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HEADER - ENHANCED HEIGHT & AUTO-HIDE -->
-  <header class="supermart-header" data-aos="fade-down" data-aos-delay="80">
-    <div class="supermart-container">
-      <!-- First Row: Logo, Search, Icons -->
-      <div class="row align-items-center g-3">
+  <!-- DESKTOP HEADER -->
+  <header class="skuhi-header d-none d-lg-block" id="skuhiHeader">
+    <div class="container-xl">
+      <div class="row align-items-center">
         <!-- Logo -->
-        <div class="col-auto">
-          <a href="#">
-            <img src="logo.jpg" alt="SuperMart Pro" class="supermart-logo">
-          </a>
+        <div class="col-lg-2">
+          <div class="skuhi-logo-container">
+            <div class="skuhi-logo-img">S</div>
+            <div class="skuhi-logo-text">Skuhi<span>Mart</span></div>
+          </div>
         </div>
         
-        <!-- Desktop Navigation with One-by-One Carousel -->
-        <div class="col d-none d-lg-block">
-          <div class="supermart-nav-container">
-            <div class="supermart-nav-carousel">
-              <div class="supermart-nav-track" id="supermartNavTrack">
+        <!-- Navigation Slider -->
+        <div class="col-lg-7">
+          <div class="skuhi-nav-slider-container">
+            <div class="skuhi-nav-slider-wrapper">
+              <div class="skuhi-nav-slider-track" id="skuhiNavSliderTrack">
                 <!-- Navigation items will be added dynamically -->
               </div>
             </div>
-            <button class="supermart-nav-control supermart-nav-prev" id="supermartNavPrev">
+            <button class="skuhi-nav-slider-control skuhi-nav-slider-prev" id="skuhiNavSliderPrev">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="supermart-nav-control supermart-nav-next" id="supermartNavNext">
+            <button class="skuhi-nav-slider-control skuhi-nav-slider-next" id="skuhiNavSliderNext">
               <i class="fas fa-chevron-right"></i>
             </button>
           </div>
         </div>
         
-        <!-- Search and Icons -->
-        <div class="col-auto ms-auto">
+        <!-- Search and Actions -->
+        <div class="col-lg-3">
           <div class="d-flex align-items-center">
-            <!-- Desktop Search -->
-            <div class="supermart-search desktop me-2 d-none d-md-block">
-              <input type="text" class="form-control" placeholder="Search 15K+ products...">
-              <button><i class="fas fa-search"></i></button>
+            <div class="skuhi-search-container">
+              <div class="skuhi-search-wrapper">
+                <input type="text" class="skuhi-search-input" placeholder="Search products...">
+                <button class="skuhi-search-btn">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
             </div>
-            <div class="supermart-header-icons d-flex align-items-center">
-              <a href="#" title="Search" class="d-md-none"><i class="fas fa-search"></i></a>
-              <a href="#" title="Account"><i class="far fa-user"></i></a>
-              <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-              <a href="#" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#supermartCartOffcanvas">
+            
+            <div class="skuhi-header-actions">
+              <a href="#" class="skuhi-action-btn" title="Profile">
+                <i class="far fa-user"></i>
+              </a>
+              <a href="#" class="skuhi-action-btn" title="Wishlist">
+                <i class="far fa-heart"></i>
+              </a>
+              <a href="#" class="skuhi-action-btn" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#skuhiCartOffcanvas">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="supermart-cart-count">3</span>
+                <span class="skuhi-cart-badge">5</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Second Row: Mobile Search and Navigation -->
-      <div class="d-lg-none">
-        <!-- Mobile Search - Full Width -->
-        <div class="supermart-mobile-search">
-          <div class="supermart-search mobile">
-            <input type="text" class="form-control" placeholder="Search 15K+ products...">
-            <button><i class="fas fa-search"></i></button>
-          </div>
-        </div>
-
-        <!-- Mobile Navigation - BELOW SEARCH BAR -->
-        <div class="supermart-mobile-nav">
-          <div class="supermart-mobile-nav-track" id="supermartMobileNavTrack">
-            <!-- Mobile navigation items will be added dynamically -->
-          </div>
-          <button class="supermart-mobile-control supermart-mobile-prev" id="supermartMobilePrev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="supermart-mobile-control supermart-mobile-next" id="supermartMobileNext">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
     </div>
   </header>
 
-  <!-- Scroll to top button -->
-  <button class="supermart-scroll-top" id="supermartScrollTop">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- PREMIUM HERO SECTION -->
-  <section class="supermart-hero">
-    <div class="supermart-floating-elements">
-      <div class="supermart-floating-element"></div>
-      <div class="supermart-floating-element"></div>
-      <div class="supermart-floating-element"></div>
-      <div class="supermart-floating-element"></div>
-    </div>
-    <div class="supermart-container">
-      <div class="row align-items-center gy-5">
-        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-          <span class="supermart-hero-badge">🔥 TRENDING NOW - Up to 50% OFF + Free Delivery</span>
-          <h1 class="supermart-hero-title">
-            Premium Groceries<br>Delivered in <span style="background:linear-gradient(135deg, #f59e0b, #d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">90 Minutes</span>
-          </h1>
-          <p class="supermart-hero-text">
-            Experience the future of grocery shopping with 15,000+ fresh products across 25+ premium categories. Farm-fresh organic produce, artisanal dairy, and gourmet essentials delivered to your doorstep with lightning speed.
-          </p>
-          <div class="supermart-hero-stats">
-            <div class="supermart-stat-item" data-aos="zoom-in" data-aos-delay="200">
-              <span class="supermart-stat-num">50K+</span>
-              <span class="supermart-stat-label">Happy Customers</span>
-            </div>
-            <div class="supermart-stat-item" data-aos="zoom-in" data-aos-delay="300">
-              <span class="supermart-stat-num">15K+</span>
-              <span class="supermart-stat-label">Premium Products</span>
-            </div>
-            <div class="supermart-stat-item" data-aos="zoom-in" data-aos-delay="400">
-              <span class="supermart-stat-num">90</span>
-              <span class="supermart-stat-label">Min Delivery</span>
-            </div>
-          </div>
-          <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="500">
-            <button class="supermart-btn-main">
-              <i class="fas fa-bolt me-2"></i>Start Shopping Now
-            </button>
-            <button class="supermart-btn-outline">
-              <i class="fas fa-gift me-2"></i>View Premium Offers
-            </button>
-          </div>
+  <!-- MOBILE LAYOUT -->
+  <!-- Mobile Topbar - FIXED POSITION & Z-INDEX -->
+  <div class="skuhi-mobile-topbar d-lg-none" id="skuhiMobileTopbar">
+    <div class="container-xl">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="skuhi-topbar-phone">
+          <i class="fas fa-phone-alt"></i>
+          <span>+91 98765 43210</span>
         </div>
-        <div class="col-lg-6 text-center" data-aos="zoom-in" data-aos-delay="300">
-          <div class="supermart-hero-visual">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&fit=crop"
-                 alt="Premium Grocery Delivery" class="img-fluid supermart-hero-image"
-                 style="max-height:500px;object-fit:cover;">
-          </div>
+        <div class="skuhi-topbar-links">
+          <a href="#" class="skuhi-topbar-link" title="Track Order">
+            <i class="fas fa-truck"></i>
+          </a>
+          <a href="#" class="skuhi-topbar-link" title="Login">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="#" class="skuhi-topbar-link" title="Help">
+            <i class="fas fa-question-circle"></i>
+          </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREMIUM CATEGORIES CAROUSEL -->
-  <section class="supermart-categories-section">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Shop by Category</h2>
-        <p class="supermart-section-sub">Browse all essentials neatly organised into easy-to-explore premium sections.</p>
-      </div>
-      
-      <div class="supermart-categories-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="supermart-categories-track" id="supermartCategoriesTrack">
-          <!-- Categories will be added dynamically -->
-        </div>
-        <button class="supermart-categories-control supermart-categories-prev" id="supermartCategoriesPrev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="supermart-categories-control supermart-categories-next" id="supermartCategoriesNext">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      
-      <div class="supermart-categories-indicators" id="supermartCategoriesIndicators">
-        <!-- Indicators will be added dynamically -->
-      </div>
-    </div>
-  </section>
-
-  <!-- DEALS -->
-  <section class="supermart-section" style="background:#fefce8;">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Today's Hot Deals</h2>
-        <p class="supermart-section-sub">Grab these limited-time premium offers before they are sold out.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4" data-aos="flip-left" data-aos-delay="50">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1542838132-b439b1d5de00?w=500&fit=crop" alt="">
-              <span class="supermart-prod-badge">35% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Organic Sunflower Cooking Oil</p>
-              <span class="supermart-prod-meta">5L • Premium Family Pack</span>
-              <div class="supermart-prod-price">₹749 <span class="supermart-prod-old">₹1,149</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1597946658698-baa8c5069efc?w=500&fit=crop" alt="">
-              <span class="supermart-prod-badge">28% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Premium Basmati Rice</p>
-              <span class="supermart-prod-meta">10kg • Aged Grains</span>
-              <div class="supermart-prod-price">₹999 <span class="supermart-prod-old">₹1,399</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="flip-left" data-aos-delay="150">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1574651351436-395d16a9bcce?w=500&fit=crop" alt="">
-              <span class="supermart-prod-badge">B1G1 FREE</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Gourmet Masala Chips Combo</p>
-              <span class="supermart-prod-meta">6 packs • Assorted Flavours</span>
-              <div class="supermart-prod-price">₹199 <span class="supermart-prod-old">₹398</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BEST SELLERS -->
-  <section class="supermart-section bg-white">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Best Sellers</h2>
-        <p class="supermart-section-sub">Most-loved premium items that customers reorder every week.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1569625346610-98748f371d85?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">22% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Organic Tomatoes</p>
-              <span class="supermart-prod-meta">1kg • Farm Fresh</span>
-              <div class="supermart-prod-price">₹79 <span class="supermart-prod-old">₹99</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1571877227019-e2fb3d32228b?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">15% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Amul Toned Milk</p>
-              <span class="supermart-prod-meta">1L • Pouch</span>
-              <div class="supermart-prod-price">₹52 <span class="supermart-prod-old">₹62</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1542838132-b439b1d5de00?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">18% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Fresh Red Onions</p>
-              <span class="supermart-prod-meta">1kg • Premium Quality</span>
-              <div class="supermart-prod-price">₹45 <span class="supermart-prod-old">₹55</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1601001734310-7b591b6fef3d?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">12% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Farm Fresh Eggs</p>
-              <span class="supermart-prod-meta">Tray of 30</span>
-              <div class="supermart-prod-price">₹135 <span class="supermart-prod-old">₹155</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FRUITS & VEGETABLES -->
-  <section class="supermart-section bg-white">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Fresh Fruits & Vegetables</h2>
-        <p class="supermart-section-sub">Farm-fresh organic produce delivered directly to your doorstep.</p>
-      </div>
-      
-      <!-- Category Navigation Slider -->
-      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
-        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="supermart-cat-nav" id="fruitsVegCatNav">
-          <button class="supermart-cat-nav-btn active">All Fruits & Veg</button>
-          <button class="supermart-cat-nav-btn">Seasonal Fruits</button>
-          <button class="supermart-cat-nav-btn">Leafy Greens</button>
-          <button class="supermart-cat-nav-btn">Exotic Fruits</button>
-          <button class="supermart-cat-nav-btn">Organic Produce</button>
-          <button class="supermart-cat-nav-btn">Root Vegetables</button>
-          <button class="supermart-cat-nav-btn">Berries</button>
-          <button class="supermart-cat-nav-btn">Tropical Fruits</button>
-          <button class="supermart-cat-nav-btn">Citrus Fruits</button>
-        </div>
-        <button class="supermart-cat-nav-control supermart-cat-nav-next">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      
-      <div class="row g-4" id="supermart-fruits-veg-container">
-        <!-- Product 1 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">17% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Fresh Apples</p>
-              <span class="supermart-prod-meta">1kg • Shimla</span>
-              <div class="supermart-prod-price">₹149 <span class="supermart-prod-old">₹179</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">14% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Organic Bananas</p>
-              <span class="supermart-prod-meta">1 dozen • Premium</span>
-              <div class="supermart-prod-price">₹59 <span class="supermart-prod-old">₹69</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">22% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Fresh Carrots</p>
-              <span class="supermart-prod-meta">500g • Farm Fresh</span>
-              <div class="supermart-prod-price">₹35 <span class="supermart-prod-old">₹45</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">24% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Broccoli</p>
-              <span class="supermart-prod-meta">1 piece • Imported</span>
-              <div class="supermart-prod-price">₹65 <span class="supermart-prod-old">₹85</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DAIRY & EGGS -->
-  <section class="supermart-section" style="background:#faf5ff;">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Dairy & Eggs</h2>
-        <p class="supermart-section-sub">Fresh dairy products, milk, cheese, and eggs from trusted farms.</p>
-      </div>
-      
-      <!-- Category Navigation Slider -->
-      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
-        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="supermart-cat-nav" id="dairyCatNav">
-          <button class="supermart-cat-nav-btn active">All Dairy</button>
-          <button class="supermart-cat-nav-btn">Milk & Cream</button>
-          <button class="supermart-cat-nav-btn">Cheese</button>
-          <button class="supermart-cat-nav-btn">Yogurt & Curd</button>
-          <button class="supermart-cat-nav-btn">Butter & Ghee</button>
-          <button class="supermart-cat-nav-btn">Eggs</button>
-          <button class="supermart-cat-nav-btn">Paneer & Tofu</button>
-          <button class="supermart-cat-nav-btn">Condensed Milk</button>
-          <button class="supermart-cat-nav-btn">Dairy Drinks</button>
-        </div>
-        <button class="supermart-cat-nav-control supermart-cat-nav-next">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      
-      <div class="row g-4" id="supermart-dairy-container">
-        <!-- Product 1 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1559585782-9759d0052e7b?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">11% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Amul Butter</p>
-              <span class="supermart-prod-meta">500g • Salted</span>
-              <div class="supermart-prod-price">₹245 <span class="supermart-prod-old">₹275</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1567336273898-ebbe52f1f78e?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">18% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Mother Dairy Curd</p>
-              <span class="supermart-prod-meta">400g • Fresh</span>
-              <div class="supermart-prod-price">₹45 <span class="supermart-prod-old">₹55</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">14% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Britannia Cheese</p>
-              <span class="supermart-prod-meta">200g • Slices</span>
-              <div class="supermart-prod-price">₹125 <span class="supermart-prod-old">₹145</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">11% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Nestle Milkmaid</p>
-              <span class="supermart-prod-meta">400g • Condensed Milk</span>
-              <div class="supermart-prod-price">₹165 <span class="supermart-prod-old">₹185</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STAPLES -->
-  <section class="supermart-section bg-white">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Kitchen Staples</h2>
-        <p class="supermart-section-sub">Essential ingredients for your everyday cooking needs.</p>
-      </div>
-      
-      <!-- Category Navigation Slider -->
-      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
-        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="supermart-cat-nav" id="staplesCatNav">
-          <button class="supermart-cat-nav-btn active">All Staples</button>
-          <button class="supermart-cat-nav-btn">Rice & Grains</button>
-          <button class="supermart-cat-nav-btn">Pulses & Lentils</button>
-          <button class="supermart-cat-nav-btn">Flour & Atta</button>
-          <button class="supermart-cat-nav-btn">Oils & Ghee</button>
-          <button class="supermart-cat-nav-btn">Spices & Masalas</button>
-          <button class="supermart-cat-nav-btn">Sugar & Jaggery</button>
-          <button class="supermart-cat-nav-btn">Salt & Seasoning</button>
-          <button class="supermart-cat-nav-btn">Dry Fruits</button>
-        </div>
-        <button class="supermart-cat-nav-control supermart-cat-nav-next">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      
-      <div class="row g-4" id="supermart-staples-container">
-        <!-- Product 1 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">14% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Fortune Chakki Atta</p>
-              <span class="supermart-prod-meta">5kg • Whole Wheat</span>
-              <div class="supermart-prod-price">₹245 <span class="supermart-prod-old">₹285</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">12% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Tata Sona Masoori</p>
-              <span class="supermart-prod-meta">5kg • Premium Rice</span>
-              <div class="supermart-prod-price">₹395 <span class="supermart-prod-old">₹450</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1594663653925-8931effb2935?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">17% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Tata Salt</p>
-              <span class="supermart-prod-meta">1kg • Iodized</span>
-              <div class="supermart-prod-price">₹25 <span class="supermart-prod-old">₹30</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1611854778585-e8e59e6e73c9?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">13% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Fortune Sunflower Oil</p>
-              <span class="supermart-prod-meta">1L • Refined</span>
-              <div class="supermart-prod-price">₹165 <span class="supermart-prod-old">₹190</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SNACKS & BEVERAGES -->
-  <section class="supermart-section" style="background:#fefce8;">
-    <div class="supermart-container">
-      <div class="supermart-section-head" data-aos="fade-up">
-        <h2 class="supermart-section-title">Snacks & Beverages</h2>
-        <p class="supermart-section-sub">Delicious treats and refreshing drinks for every occasion.</p>
-      </div>
-      
-      <!-- Category Navigation Slider -->
-      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
-        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="supermart-cat-nav" id="snacksCatNav">
-          <button class="supermart-cat-nav-btn active">All Snacks & Drinks</button>
-          <button class="supermart-cat-nav-btn">Chips & Crisps</button>
-          <button class="supermart-cat-nav-btn">Biscuits & Cookies</button>
-          <button class="supermart-cat-nav-btn">Soft Drinks</button>
-          <button class="supermart-cat-nav-btn">Juices</button>
-          <button class="supermart-cat-nav-btn">Tea & Coffee</button>
-          <button class="supermart-cat-nav-btn">Noodles & Pasta</button>
-          <button class="supermart-cat-nav-btn">Chocolates</button>
-          <button class="supermart-cat-nav-btn">Energy Drinks</button>
-        </div>
-        <button class="supermart-cat-nav-control supermart-cat-nav-next">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-      
-      <div class="row g-4" id="supermart-snacks-container">
-        <!-- Product 1 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1566474986508-0e6c2831e9cf?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">25% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Lays Potato Chips</p>
-              <span class="supermart-prod-meta">3 packs • Assorted</span>
-              <div class="supermart-prod-price">₹90 <span class="supermart-prod-old">₹120</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 2 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">15% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Coca Cola</p>
-              <span class="supermart-prod-meta">1.5L • Soft Drink</span>
-              <div class="supermart-prod-price">₹85 <span class="supermart-prod-old">₹100</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 3 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">20% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Parle-G Biscuits</p>
-              <span class="supermart-prod-meta">2 packs • 200g each</span>
-              <div class="supermart-prod-price">₹40 <span class="supermart-prod-old">₹50</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Product 4 -->
-        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="supermart-prod-card">
-            <div class="supermart-prod-img-wrap">
-              <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&fit=crop" alt="">
-              <span class="supermart-prod-badge">17% OFF</span>
-            </div>
-            <div class="supermart-prod-body">
-              <p class="supermart-prod-title">Tropicana Juice</p>
-              <span class="supermart-prod-meta">1L • Orange</span>
-              <div class="supermart-prod-price">₹145 <span class="supermart-prod-old">₹175</span></div>
-              <div class="supermart-prod-actions">
-                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section class="supermart-newsletter">
-    <div class="supermart-container">
-      <div class="row gy-4 align-items-center">
-        <div class="col-lg-6" data-aos="fade-right">
-          <h2 class="supermart-section-title text-white">Never miss a price drop</h2>
-          <p class="mt-3" style="max-width:420px;">
-            Subscribe to get flash sales, festival offers and new premium product alerts directly in your inbox.
-          </p>
-          <p class="small text-muted mb-0">Trusted by 250K+ premium subscribers.</p>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="supermart-news-box">
-            <form class="row g-2">
-              <div class="col-md-8">
-                <input type="email" class="form-control form-control-lg"
-                       placeholder="Enter your email address">
-              </div>
-              <div class="col-md-4 d-grid">
-                <button class="btn btn-primary btn-lg">Get Premium Deals</button>
-              </div>
-            </form>
-            <p class="small text-muted mt-2 mb-0">No spam. Unsubscribe anytime.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="supermart-footer">
-    <div class="supermart-container">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <h6>About SuperMart Pro</h6>
-          <p>
-            Your premium online supermarket for fresh fruits, vegetables, dairy, and daily-use essentials with 90‑minute delivery promise.
-          </p>
-          <p class="mb-1"><i class="fas fa-award text-warning me-1"></i>50K+ happy customers</p>
-          <p class="mb-0"><i class="fas fa-shipping-fast text-primary me-1"></i>Serving across Mumbai & nearby regions</p>
-        </div>
-        <div class="col-md-4">
-          <h6>Customer Care</h6>
-          <a href="#"><i class="fas fa-angle-right"></i> Help Center</a>
-          <a href="#"><i class="fas fa-angle-right"></i> Shipping & Delivery</a>
-          <a href="#"><i class="fas fa-angle-right"></i> Returns & Refunds</a>
-          <a href="#"><i class="fas fa-angle-right"></i> Contact Us</a>
-        </div>
-        <div class="col-md-4">
-          <h6>We Accept</h6>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <span class="badge bg-light text-dark">Visa</span>
-            <span class="badge bg-light text-dark">Mastercard</span>
-            <span class="badge bg-light text-dark">UPI</span>
-            <span class="badge bg-light text-dark">Razorpay</span>
-          </div>
-          <h6>Download App</h6>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge bg-dark text-white px-3 py-2">Google Play</span>
-            <span class="badge bg-dark text-white px-3 py-2">App Store</span>
-          </div>
-        </div>
-      </div>
-      <hr class="border-secondary mt-4">
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
-        <span>© 2025 SuperMart Pro. All rights reserved.</span>
-        <span>
-          <a href="#" class="text-decoration-none text-muted me-2">Terms</a>
-          <a href="#" class="text-decoration-none text-muted me-2">Privacy</a>
-          <a href="#" class="text-decoration-none text-muted">Cookies</a>
-        </span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- OFFCANVAS CART -->
-  <div class="offcanvas offcanvas-end supermart-offcanvas-cart" tabindex="-1" id="supermartCartOffcanvas">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">My Cart (3 items)</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body d-flex flex-column">
-      <div class="supermart-cart-item">
-        <img src="https://via.placeholder.com/60x60" class="rounded" alt="">
-        <div class="flex-grow-1">
-          <div>Organic Tomatoes 1kg</div>
-          <small class="text-muted">Qty: 2</small>
-        </div>
-        <strong>₹158</strong>
-      </div>
-      <div class="supermart-cart-item">
-        <img src="https://via.placeholder.com/60x60" class="rounded" alt="">
-        <div class="flex-grow-1">
-          <div>Amul Toned Milk 1L</div>
-          <small class="text-muted">Qty: 1</small>
-        </div>
-        <strong>₹52</strong>
-      </div>
-      <div class="supermart-cart-item">
-        <img src="https://via.placeholder.com/60x60" class="rounded" alt="">
-        <div class="flex-grow-1">
-          <div>Fresh Apples 1kg</div>
-          <small class="text-muted">Qty: 1</small>
-        </div>
-        <strong>₹149</strong>
-      </div>
-      <div class="mt-3 border-top pt-3">
-        <div class="d-flex justify-content-between mb-1">
-          <span>Subtotal</span><strong>₹359</strong>
-        </div>
-        <div class="d-flex justify-content-between mb-1">
-          <span>Delivery</span><strong>₹40</strong>
-        </div>
-        <div class="d-flex justify-content-between fw-bold">
-          <span>Total</span><strong>₹399</strong>
-        </div>
-      </div>
-      <div class="mt-3 d-grid gap-2">
-        <button class="btn btn-primary">Proceed to Checkout</button>
-        <button class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Continue Shopping</button>
       </div>
     </div>
   </div>
 
-  <!-- SCRIPTS -->
+  <!-- Mobile Header - POSITIONED BELOW TOPBAR -->
+  <div class="skuhi-mobile-header d-lg-none" id="skuhiMobileHeader">
+    <!-- Mobile Header Top -->
+    <div class="skuhi-mobile-top">
+      <div class="skuhi-mobile-logo">
+        <div class="skuhi-mobile-logo-img">S</div>
+        <div class="skuhi-mobile-logo-text">Skuhi<span>Mart</span></div>
+      </div>
+      
+      <div class="skuhi-mobile-actions">
+        <a href="#" class="skuhi-action-btn" title="Profile">
+          <i class="far fa-user"></i>
+        </a>
+        <a href="#" class="skuhi-action-btn" title="Wishlist">
+          <i class="far fa-heart"></i>
+        </a>
+        <a href="#" class="skuhi-action-btn" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#skuhiCartOffcanvas">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="skuhi-cart-badge">5</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Mobile Search -->
+    <div class="skuhi-mobile-search-container">
+      <div class="skuhi-search-wrapper">
+        <input type="text" class="skuhi-search-input" placeholder="Search 15K+ products...">
+        <button class="skuhi-search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Navigation Slider -->
+    <div class="skuhi-mobile-nav-slider-container">
+      <div class="skuhi-mobile-nav-slider-wrapper">
+        <div class="skuhi-mobile-nav-slider-track" id="skuhiMobileNavSliderTrack">
+          <!-- Mobile navigation items will be added dynamically -->
+        </div>
+      </div>
+      <button class="skuhi-mobile-nav-slider-control skuhi-mobile-nav-slider-prev" id="skuhiMobileNavSliderPrev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="skuhi-mobile-nav-slider-control skuhi-mobile-nav-slider-next" id="skuhiMobileNavSliderNext">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="skuhi-hero-section">
+      <div class="container-xl">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="skuhi-hero-badge">
+              <i class="fas fa-bolt"></i> 90-Minute Delivery Guaranteed
+            </span>
+            <h1 class="skuhi-hero-title">
+              Premium Groceries <br>
+              Delivered to <span>Your Doorstep</span>
+            </h1>
+            <p class="skuhi-hero-description">
+              Experience the future of grocery shopping with 15,000+ fresh products across 25+ premium categories. Farm-fresh organic produce, artisanal dairy, and gourmet essentials.
+            </p>
+            
+            <div class="skuhi-hero-stats">
+              <div class="skuhi-stat-item">
+                <span class="skuhi-stat-number">50K+</span>
+                <span class="skuhi-stat-label">Happy Customers</span>
+              </div>
+              <div class="skuhi-stat-item">
+                <span class="skuhi-stat-number">15K+</span>
+                <span class="skuhi-stat-label">Premium Products</span>
+              </div>
+              <div class="skuhi-stat-item">
+                <span class="skuhi-stat-number">90</span>
+                <span class="skuhi-stat-label">Min Delivery</span>
+              </div>
+            </div>
+            
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#" class="skuhi-btn-primary">
+                <i class="fas fa-shopping-cart me-2"></i> Start Shopping Now
+              </a>
+              <a href="#" class="skuhi-btn-outline">
+                <i class="fas fa-play-circle me-2"></i> How It Works
+              </a>
+            </div>
+          </div>
+          
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop" 
+                 alt="Premium Groceries" class="img-fluid rounded-4 shadow-lg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCROLL TO TOP -->
+    <button class="skuhi-scroll-top" id="skuhiScrollTop">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+  <!-- CART OFFCANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="skuhiCartOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Your Shopping Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="text-center py-5">
+        <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+        <p class="text-muted">Your cart is empty</p>
+        <a href="#" class="skuhi-btn-primary">Start Shopping</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     // Initialize AOS
@@ -2433,20 +1147,305 @@
       once: false,
       offset: 80
     });
-    
-    // Auto-hide header on scroll functionality
+
+    // DYNAMIC NAVIGATION MANAGER
+    const skuhiNavManager = {
+      // Navigation items data - Can be dynamically updated
+      navItems: [
+        { id: 1, name: 'Fresh Fruits', slug: 'fruits', active: true },
+        { id: 2, name: 'Vegetables', slug: 'vegetables', active: false },
+        { id: 3, name: 'Dairy & Eggs', slug: 'dairy', active: false },
+        { id: 4, name: 'Meat & Seafood', slug: 'meat', active: false },
+        { id: 5, name: 'Bakery', slug: 'bakery', active: false },
+        { id: 6, name: 'Beverages', slug: 'beverages', active: false },
+        { id: 7, name: 'Snacks', slug: 'snacks', active: false },
+        { id: 8, name: 'Organic', slug: 'organic', active: false },
+        { id: 9, name: 'Household', slug: 'household', active: false },
+        { id: 10, name: 'Personal Care', slug: 'personal-care', active: false },
+        { id: 11, name: 'Baby Care', slug: 'baby-care', active: false },
+        { id: 12, name: 'Pet Supplies', slug: 'pet-supplies', active: false }
+      ],
+      
+      // DOM Elements
+      elements: {
+        desktopTrack: null,
+        mobileTrack: null,
+        desktopPrev: null,
+        desktopNext: null,
+        mobilePrev: null,
+        mobileNext: null
+      },
+      
+      // State variables
+      desktopCurrentPos: 0,
+      mobileCurrentPos: 0,
+      desktopItemWidth: 0,
+      mobileItemWidth: 0,
+      isInitialized: false,
+      
+      // Initialize the navigation
+      init: function() {
+        this.elements = {
+          desktopTrack: document.getElementById('skuhiNavSliderTrack'),
+          mobileTrack: document.getElementById('skuhiMobileNavSliderTrack'),
+          desktopPrev: document.getElementById('skuhiNavSliderPrev'),
+          desktopNext: document.getElementById('skuhiNavSliderNext'),
+          mobilePrev: document.getElementById('skuhiMobileNavSliderPrev'),
+          mobileNext: document.getElementById('skuhiMobileNavSliderNext')
+        };
+        
+        this.renderNavigation();
+        this.calculateItemWidths();
+        this.updateControls();
+        this.bindEvents();
+        this.isInitialized = true;
+      },
+      
+      // Render navigation items
+      renderNavigation: function() {
+        // Clear existing items
+        this.elements.desktopTrack.innerHTML = '';
+        this.elements.mobileTrack.innerHTML = '';
+        
+        // Add items to desktop
+        this.navItems.forEach((item, index) => {
+          const desktopItem = this.createNavItem(item, 'desktop', index === 0);
+          this.elements.desktopTrack.appendChild(desktopItem);
+        });
+        
+        // Add items to mobile
+        this.navItems.forEach((item, index) => {
+          const mobileItem = this.createNavItem(item, 'mobile', index === 0);
+          this.elements.mobileTrack.appendChild(mobileItem);
+        });
+        
+        this.calculateItemWidths();
+      },
+      
+      // Create a navigation item element
+      createNavItem: function(item, type, isActive) {
+        const element = document.createElement('a');
+        const className = type === 'desktop' ? 'skuhi-nav-slider-item' : 'skuhi-mobile-nav-slider-item';
+        
+        element.className = `${className} ${isActive ? 'active' : ''}`;
+        element.href = `#${item.slug}`;
+        element.textContent = item.name;
+        element.dataset.id = item.id;
+        element.dataset.slug = item.slug;
+        
+        element.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.handleNavClick(item.id, type);
+        });
+        
+        return element;
+      },
+      
+      // Handle navigation item click
+      handleNavClick: function(itemId, type) {
+        // Update active state
+        this.navItems.forEach(item => {
+          item.active = item.id === itemId;
+        });
+        
+        // Update UI
+        this.updateActiveStates();
+        
+        // You can add additional logic here, like loading category content
+        console.log(`Navigated to: ${this.navItems.find(item => item.id === itemId).name}`);
+      },
+      
+      // Update active states in UI
+      updateActiveStates: function() {
+        // Update desktop items
+        document.querySelectorAll('.skuhi-nav-slider-item').forEach(item => {
+          const itemId = parseInt(item.dataset.id);
+          const navItem = this.navItems.find(n => n.id === itemId);
+          if (navItem) {
+            item.classList.toggle('active', navItem.active);
+          }
+        });
+        
+        // Update mobile items
+        document.querySelectorAll('.skuhi-mobile-nav-slider-item').forEach(item => {
+          const itemId = parseInt(item.dataset.id);
+          const navItem = this.navItems.find(n => n.id === itemId);
+          if (navItem) {
+            item.classList.toggle('active', navItem.active);
+          }
+        });
+      },
+      
+      // Calculate item widths
+      calculateItemWidths: function() {
+        if (this.elements.desktopTrack.children.length > 0) {
+          const firstItem = this.elements.desktopTrack.children[0];
+          const styles = window.getComputedStyle(firstItem);
+          this.desktopItemWidth = firstItem.offsetWidth + 
+                                 parseInt(styles.marginLeft) + 
+                                 parseInt(styles.marginRight) + 8;
+        }
+        
+        if (this.elements.mobileTrack.children.length > 0) {
+          const firstItem = this.elements.mobileTrack.children[0];
+          const styles = window.getComputedStyle(firstItem);
+          this.mobileItemWidth = firstItem.offsetWidth + 
+                                parseInt(styles.marginLeft) + 
+                                parseInt(styles.marginRight) + 8;
+        }
+      },
+      
+      // Update slider controls state
+      updateControls: function() {
+        // Desktop controls
+        if (this.elements.desktopTrack) {
+          const desktopContainerWidth = this.elements.desktopTrack.parentElement.clientWidth;
+          const desktopTrackWidth = this.elements.desktopTrack.scrollWidth;
+          const desktopMaxPos = Math.max(0, desktopTrackWidth - desktopContainerWidth);
+          
+          this.elements.desktopPrev.classList.toggle('disabled', this.desktopCurrentPos === 0);
+          this.elements.desktopNext.classList.toggle('disabled', this.desktopCurrentPos >= desktopMaxPos);
+        }
+        
+        // Mobile controls
+        if (this.elements.mobileTrack) {
+          const mobileContainerWidth = this.elements.mobileTrack.parentElement.clientWidth;
+          const mobileTrackWidth = this.elements.mobileTrack.scrollWidth;
+          const mobileMaxPos = Math.max(0, mobileTrackWidth - mobileContainerWidth);
+          
+          this.elements.mobilePrev.classList.toggle('disabled', this.mobileCurrentPos === 0);
+          this.elements.mobileNext.classList.toggle('disabled', this.mobileCurrentPos >= mobileMaxPos);
+        }
+      },
+      
+      // Move desktop slider
+      moveDesktopSlider: function(direction) {
+        const containerWidth = this.elements.desktopTrack.parentElement.clientWidth;
+        const trackWidth = this.elements.desktopTrack.scrollWidth;
+        const maxPos = Math.max(0, trackWidth - containerWidth);
+        
+        if (direction === 'prev') {
+          this.desktopCurrentPos = Math.max(0, this.desktopCurrentPos - this.desktopItemWidth);
+        } else {
+          this.desktopCurrentPos = Math.min(maxPos, this.desktopCurrentPos + this.desktopItemWidth);
+        }
+        
+        this.elements.desktopTrack.style.transform = `translateX(-${this.desktopCurrentPos}px)`;
+        this.updateControls();
+      },
+      
+      // Move mobile slider
+      moveMobileSlider: function(direction) {
+        const containerWidth = this.elements.mobileTrack.parentElement.clientWidth;
+        const trackWidth = this.elements.mobileTrack.scrollWidth;
+        const maxPos = Math.max(0, trackWidth - containerWidth);
+        
+        if (direction === 'prev') {
+          this.mobileCurrentPos = Math.max(0, this.mobileCurrentPos - this.mobileItemWidth);
+        } else {
+          this.mobileCurrentPos = Math.min(maxPos, this.mobileCurrentPos + this.mobileItemWidth);
+        }
+        
+        this.elements.mobileTrack.style.transform = `translateX(-${this.mobileCurrentPos}px)`;
+        this.updateControls();
+      },
+      
+      // Bind event listeners
+      bindEvents: function() {
+        // Desktop slider controls
+        if (this.elements.desktopPrev) {
+          this.elements.desktopPrev.addEventListener('click', () => {
+            if (!this.elements.desktopPrev.classList.contains('disabled')) {
+              this.moveDesktopSlider('prev');
+            }
+          });
+        }
+        
+        if (this.elements.desktopNext) {
+          this.elements.desktopNext.addEventListener('click', () => {
+            if (!this.elements.desktopNext.classList.contains('disabled')) {
+              this.moveDesktopSlider('next');
+            }
+          });
+        }
+        
+        // Mobile slider controls
+        if (this.elements.mobilePrev) {
+          this.elements.mobilePrev.addEventListener('click', () => {
+            if (!this.elements.mobilePrev.classList.contains('disabled')) {
+              this.moveMobileSlider('prev');
+            }
+          });
+        }
+        
+        if (this.elements.mobileNext) {
+          this.elements.mobileNext.addEventListener('click', () => {
+            if (!this.elements.mobileNext.classList.contains('disabled')) {
+              this.moveMobileSlider('next');
+            }
+          });
+        }
+        
+        // Window resize
+        window.addEventListener('resize', () => {
+          this.calculateItemWidths();
+          this.updateControls();
+        });
+      },
+      
+      // Public method to update navigation items
+      updateNavItems: function(newItems) {
+        this.navItems = newItems;
+        if (this.isInitialized) {
+          this.renderNavigation();
+        }
+      },
+      
+      // Public method to add a navigation item
+      addNavItem: function(item) {
+        this.navItems.push(item);
+        if (this.isInitialized) {
+          this.renderNavigation();
+        }
+      },
+      
+      // Public method to remove a navigation item
+      removeNavItem: function(itemId) {
+        this.navItems = this.navItems.filter(item => item.id !== itemId);
+        if (this.isInitialized) {
+          this.renderNavigation();
+        }
+      }
+    };
+
+    // SCROLL MANAGEMENT - FIXED FOR BETTER VISIBILITY
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize navigation
+      skuhiNavManager.init();
+      
       // Get elements
-      const topbar = document.querySelector('.supermart-topbar');
-      const header = document.querySelector('.supermart-header');
-      const scrollTopBtn = document.getElementById('supermartScrollTop');
-      const body = document.body;
+      const desktopTopbar = document.getElementById('skuhiTopbar');
+      const desktopHeader = document.getElementById('skuhiHeader');
+      const mobileTopbar = document.getElementById('skuhiMobileTopbar');
+      const mobileHeader = document.getElementById('skuhiMobileHeader');
+      const scrollTopBtn = document.getElementById('skuhiScrollTop');
       
-      // Variables for scroll handling
       let lastScrollTop = 0;
-      const SCROLL_THRESHOLD = 50;
+      const SCROLL_THRESHOLD = 100;
       
-      // Scroll event handler
+      // Calculate mobile header position based on topbar height
+      function updateMobileHeaderPosition() {
+        if (window.innerWidth < 992 && mobileTopbar && mobileHeader) {
+          const topbarHeight = mobileTopbar.offsetHeight;
+          mobileHeader.style.top = `${topbarHeight}px`;
+          
+          // Update body padding
+          const headerHeight = mobileHeader.offsetHeight;
+          document.body.style.paddingTop = `${topbarHeight + headerHeight}px`;
+        }
+      }
+      
+      // Scroll handler
       function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
@@ -2458,26 +1457,65 @@
           scrollTopBtn.classList.remove('visible');
         }
         
-        // SIMPLE LOGIC: Hide topbar when scrolling down, show when scrolling up
-        if (scrollDirection === 'down' && scrollTop > SCROLL_THRESHOLD) {
-          // Scrolling DOWN - hide topbar immediately
-          topbar.classList.add('hide');
-          header.classList.add('sticky');
-          body.classList.add('scrolling');
-        } else if (scrollDirection === 'up') {
-          // Scrolling UP - show topbar if at top, otherwise keep it hidden
-          header.classList.remove('hide');
-          header.classList.add('sticky');
-          
-          // Only show topbar when at the very top
-          if (scrollTop < SCROLL_THRESHOLD) {
-            topbar.classList.remove('hide');
-            header.classList.remove('sticky');
-            body.classList.remove('scrolling');
+        // Handle desktop view (large screens)
+        if (window.innerWidth >= 992) {
+          if (scrollDirection === 'down' && scrollTop > SCROLL_THRESHOLD) {
+            // Scrolling down - hide topbar, make header sticky
+            if (desktopTopbar) desktopTopbar.classList.add('hide');
+            if (desktopHeader) {
+              desktopHeader.classList.add('hide');
+              desktopHeader.classList.add('sticky');
+            }
+          } else if (scrollDirection === 'up') {
+            // Scrolling up - show header
+            if (desktopHeader) {
+              desktopHeader.classList.remove('hide');
+              desktopHeader.classList.add('sticky');
+            }
+            
+            // Show topbar only at the very top
+            if (scrollTop < SCROLL_THRESHOLD) {
+              if (desktopTopbar) desktopTopbar.classList.remove('hide');
+              if (desktopHeader) {
+                desktopHeader.classList.remove('hide');
+                desktopHeader.classList.remove('sticky');
+              }
+            }
+          }
+        }
+        // Handle mobile view (small screens)
+        else {
+          if (scrollDirection === 'down' && scrollTop > SCROLL_THRESHOLD) {
+            // Scrolling down - hide topbar, make header sticky
+            if (mobileTopbar) mobileTopbar.classList.add('hide');
+            if (mobileHeader) {
+              mobileHeader.classList.add('hide');
+              mobileHeader.classList.add('sticky');
+              mobileHeader.style.top = '0'; // When sticky, top should be 0
+            }
+          } else if (scrollDirection === 'up') {
+            // Scrolling up - show header
+            if (mobileHeader) {
+              mobileHeader.classList.remove('hide');
+              mobileHeader.classList.add('sticky');
+              mobileHeader.style.top = '0'; // When sticky, top should be 0
+            }
+            
+            // Show topbar only at the very top
+            if (scrollTop < SCROLL_THRESHOLD) {
+              if (mobileTopbar) {
+                mobileTopbar.classList.remove('hide');
+                updateMobileHeaderPosition(); // Reset position
+              }
+              if (mobileHeader) {
+                mobileHeader.classList.remove('hide');
+                mobileHeader.classList.remove('sticky');
+                updateMobileHeaderPosition(); // Reset position
+              }
+            }
           }
         }
         
-        // Always update last scroll position
         lastScrollTop = scrollTop;
       }
       
@@ -2489,7 +1527,50 @@
         });
       });
       
-      // Add scroll event listener with throttling
+      // Add to cart functionality
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('.skuhi-btn-add-cart')) {
+          const badges = document.querySelectorAll('.skuhi-cart-badge');
+          badges.forEach(badge => {
+            let count = parseInt(badge.textContent);
+            badge.textContent = count + 1;
+          });
+          
+          // Show success feedback
+          const btn = e.target.closest('.skuhi-btn-add-cart');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check"></i> Added';
+          btn.style.background = 'var(--skuhi-gold)';
+          
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+          }, 1500);
+        }
+      });
+      
+      // Search functionality
+      document.querySelectorAll('.skuhi-search-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const input = this.parentElement.querySelector('.skuhi-search-input');
+          if (input.value.trim()) {
+            console.log('Searching for:', input.value);
+            // Implement search functionality here
+          }
+        });
+      });
+      
+      // Allow Enter key in search inputs
+      document.querySelectorAll('.skuhi-search-input').forEach(input => {
+        input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            const searchBtn = this.parentElement.querySelector('.skuhi-search-btn');
+            if (searchBtn) searchBtn.click();
+          }
+        });
+      });
+      
+      // Add scroll event listener
       let ticking = false;
       window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -2501,398 +1582,19 @@
         }
       });
       
-      // Navigation Carousel Functionality
-      const supermartNavTrack = document.getElementById('supermartNavTrack');
-      const supermartNavPrev = document.getElementById('supermartNavPrev');
-      const supermartNavNext = document.getElementById('supermartNavNext');
-      
-      const supermartMobileNavTrack = document.getElementById('supermartMobileNavTrack');
-      const supermartMobilePrev = document.getElementById('supermartMobilePrev');
-      const supermartMobileNext = document.getElementById('supermartMobileNext');
-      
-      const supermartCategoriesTrack = document.getElementById('supermartCategoriesTrack');
-      const supermartCategoriesPrev = document.getElementById('supermartCategoriesPrev');
-      const supermartCategoriesNext = document.getElementById('supermartCategoriesNext');
-      const supermartCategoriesIndicators = document.getElementById('supermartCategoriesIndicators');
-      
-      // Navigation items data
-      const initialItems = [
-        'Fruits & Veg',
-        'Dairy & Eggs',
-        'Staples',
-        'Snacks',
-        'Beverages',
-        'Household',
-        'Personal Care',
-        'Baby Care',
-        'Frozen Foods',
-        'Bakery',
-        'Meat & Fish',
-        'Organic'
-      ];
-      
-      // Categories data
-      const categories = [
-        { name: 'Fresh Vegetables', icon: '🥬', count: '2,847 items' },
-        { name: 'Premium Fruits', icon: '🍎', count: '1,932 items' },
-        { name: 'Dairy & Eggs', icon: '🥛', count: '1,456 items' },
-        { name: 'Kitchen Staples', icon: '🍚', count: '3,112 items' },
-        { name: 'Gourmet Snacks', icon: '🍪', count: '1,205 items' },
-        { name: 'Beverages', icon: '🥤', count: '980 items' },
-        { name: 'Personal Care', icon: '🧴', count: '1,875 items' },
-        { name: 'Household Items', icon: '🏠', count: '2,340 items' },
-        { name: 'Baby Care', icon: '👶', count: '890 items' },
-        { name: 'Frozen Foods', icon: '🧊', count: '1,120 items' },
-        { name: 'Bakery', icon: '🥖', count: '760 items' },
-        { name: 'Meat & Fish', icon: '🐟', count: '650 items' },
-        { name: 'Organic', icon: '🌿', count: '1,430 items' },
-        { name: 'Pet Supplies', icon: '🐕', count: '540 items' },
-        { name: 'Health Foods', icon: '🥗', count: '890 items' },
-        { name: 'International Cuisine', icon: '🌍', count: '1,210 items' }
-      ];
-      
-      let supermartDesktopCurrentPosition = 0;
-      let supermartMobileCurrentPosition = 0;
-      let supermartDesktopItemWidth = 0;
-      let supermartMobileItemWidth = 0;
-      
-      let supermartCategoriesCurrentPosition = 0;
-      let supermartCategoriesItemWidth = 0;
-      let supermartVisibleItems = 6;
-      let supermartCurrentSlide = 0;
-      let supermartTotalSlides = 0;
-      
-      // Initialize navigation with items
-      function initializeSupermartNav() {
-        // Clear existing items
-        supermartNavTrack.innerHTML = '';
-        supermartMobileNavTrack.innerHTML = '';
-        
-        // Add items to both desktop and mobile
-        initialItems.forEach((item, index) => {
-          addSupermartNavItem(item, index === 0);
-        });
-        
-        calculateSupermartItemWidths();
-        updateSupermartNavControls();
-      }
-      
-      // Add navigation item to both desktop and mobile
-      function addSupermartNavItem(text, isActive = false) {
-        if (!text.trim()) return;
-        
-        // Desktop item
-        const desktopItem = document.createElement('a');
-        desktopItem.className = `supermart-nav-item ${isActive ? 'active' : ''}`;
-        desktopItem.href = '#';
-        desktopItem.textContent = text;
-        supermartNavTrack.appendChild(desktopItem);
-        
-        // Mobile item
-        const mobileItem = document.createElement('a');
-        mobileItem.className = `supermart-mobile-nav-item ${isActive ? 'active' : ''}`;
-        mobileItem.href = '#';
-        mobileItem.textContent = text;
-        supermartMobileNavTrack.appendChild(mobileItem);
-        
-        calculateSupermartItemWidths();
-        updateSupermartNavControls();
-      }
-      
-      // Calculate item widths for both desktop and mobile
-      function calculateSupermartItemWidths() {
-        // Desktop item width
-        if (supermartNavTrack.children.length > 0) {
-          const firstItem = supermartNavTrack.children[0];
-          const styles = window.getComputedStyle(firstItem);
-          supermartDesktopItemWidth = firstItem.offsetWidth + 
-                           parseInt(styles.marginLeft) + 
-                           parseInt(styles.marginRight) + 4;
-        }
-        
-        // Mobile item width
-        if (supermartMobileNavTrack.children.length > 0) {
-          const firstItem = supermartMobileNavTrack.children[0];
-          const styles = window.getComputedStyle(firstItem);
-          supermartMobileItemWidth = firstItem.offsetWidth + 
-                           parseInt(styles.marginLeft) + 
-                           parseInt(styles.marginRight) + 8;
-        }
-      }
-      
-      // Update navigation controls state for both desktop and mobile
-      function updateSupermartNavControls() {
-        // Desktop controls
-        const desktopContainerWidth = supermartNavTrack.parentElement.clientWidth;
-        const desktopTrackWidth = supermartNavTrack.scrollWidth;
-        const desktopMaxPosition = Math.max(0, desktopTrackWidth - desktopContainerWidth);
-        
-        supermartNavPrev.classList.toggle('disabled', supermartDesktopCurrentPosition === 0);
-        supermartNavNext.classList.toggle('disabled', supermartDesktopCurrentPosition >= desktopMaxPosition);
-        
-        // Mobile controls
-        const mobileContainerWidth = supermartMobileNavTrack.parentElement.clientWidth;
-        const mobileTrackWidth = supermartMobileNavTrack.scrollWidth;
-        const mobileMaxPosition = Math.max(0, mobileTrackWidth - mobileContainerWidth);
-        
-        supermartMobilePrev.classList.toggle('disabled', supermartMobileCurrentPosition === 0);
-        supermartMobileNext.classList.toggle('disabled', supermartMobileCurrentPosition >= mobileMaxPosition);
-      }
-      
-      // Move desktop navigation by one item
-      function moveSupermartDesktopNav(direction) {
-        const containerWidth = supermartNavTrack.parentElement.clientWidth;
-        const trackWidth = supermartNavTrack.scrollWidth;
-        const maxPosition = Math.max(0, trackWidth - containerWidth);
-        
-        if (direction === 'prev') {
-          supermartDesktopCurrentPosition = Math.max(0, supermartDesktopCurrentPosition - supermartDesktopItemWidth);
-        } else {
-          supermartDesktopCurrentPosition = Math.min(maxPosition, supermartDesktopCurrentPosition + supermartDesktopItemWidth);
-        }
-        
-        supermartNavTrack.style.transform = `translateX(-${supermartDesktopCurrentPosition}px)`;
-        updateSupermartNavControls();
-      }
-      
-      // Move mobile navigation by one item
-      function moveSupermartMobileNav(direction) {
-        const containerWidth = supermartMobileNavTrack.parentElement.clientWidth;
-        const trackWidth = supermartMobileNavTrack.scrollWidth;
-        const maxPosition = Math.max(0, trackWidth - containerWidth);
-        
-        if (direction === 'prev') {
-          supermartMobileCurrentPosition = Math.max(0, supermartMobileCurrentPosition - supermartMobileItemWidth);
-        } else {
-          supermartMobileCurrentPosition = Math.min(maxPosition, supermartMobileCurrentPosition + supermartMobileItemWidth);
-        }
-        
-        supermartMobileNavTrack.style.transform = `translateX(-${supermartMobileCurrentPosition}px)`;
-        updateSupermartNavControls();
-      }
-      
-      // Initialize categories with items
-      function initializeSupermartCategories() {
-        // Clear existing items
-        supermartCategoriesTrack.innerHTML = '';
-        supermartCategoriesIndicators.innerHTML = '';
-        
-        // Add categories
-        categories.forEach((category, index) => {
-          const categorySlide = document.createElement('div');
-          categorySlide.className = 'supermart-categories-slide';
-          
-          categorySlide.innerHTML = `
-            <a href="#" class="supermart-cat-card">
-              <div class="supermart-cat-icon">${category.icon}</div>
-              <span class="supermart-cat-name">${category.name}</span>
-              <span class="supermart-cat-count">${category.count}</span>
-            </a>
-          `;
-          
-          supermartCategoriesTrack.appendChild(categorySlide);
-        });
-        
-        calculateSupermartCategoriesItemWidth();
-        updateSupermartCategoriesControls();
-        
-        // Create indicators
-        supermartTotalSlides = Math.ceil(categories.length / supermartVisibleItems);
-        for (let i = 0; i < supermartTotalSlides; i++) {
-          const indicator = document.createElement('div');
-          indicator.className = `supermart-categories-indicator ${i === 0 ? 'active' : ''}`;
-          indicator.addEventListener('click', () => {
-            supermartGoToSlide(i);
-          });
-          supermartCategoriesIndicators.appendChild(indicator);
-        }
-      }
-      
-      // Calculate item widths for categories
-      function calculateSupermartCategoriesItemWidth() {
-        if (supermartCategoriesTrack.children.length > 0) {
-          const firstItem = supermartCategoriesTrack.children[0];
-          const styles = window.getComputedStyle(firstItem);
-          supermartCategoriesItemWidth = firstItem.offsetWidth + 
-                              parseInt(styles.marginLeft) + 
-                              parseInt(styles.marginRight) + 20;
-        }
-        
-        // Update visible items count based on screen size
-        if (window.innerWidth >= 1200) {
-          supermartVisibleItems = 6;
-        } else if (window.innerWidth >= 992) {
-          supermartVisibleItems = 5;
-        } else if (window.innerWidth >= 768) {
-          supermartVisibleItems = 4;
-        } else if (window.innerWidth >= 576) {
-          supermartVisibleItems = 3;
-        } else if (window.innerWidth >= 480) {
-          supermartVisibleItems = 2;
-        } else {
-          supermartVisibleItems = 1;
-        }
-        
-        // Recalculate total slides
-        supermartTotalSlides = Math.ceil(categories.length / supermartVisibleItems);
-      }
-      
-      // Update categories controls state
-      function updateSupermartCategoriesControls() {
-        const containerWidth = supermartCategoriesTrack.parentElement.clientWidth;
-        const trackWidth = supermartCategoriesTrack.scrollWidth;
-        const maxPosition = Math.max(0, trackWidth - containerWidth);
-        
-        supermartCategoriesPrev.classList.toggle('disabled', supermartCategoriesCurrentPosition === 0);
-        supermartCategoriesNext.classList.toggle('disabled', supermartCategoriesCurrentPosition >= maxPosition);
-      }
-      
-      // Move categories by one item
-      function moveSupermartCategories(direction) {
-        const containerWidth = supermartCategoriesTrack.parentElement.clientWidth;
-        const trackWidth = supermartCategoriesTrack.scrollWidth;
-        const maxPosition = Math.max(0, trackWidth - containerWidth);
-        
-        if (direction === 'prev') {
-          supermartCategoriesCurrentPosition = Math.max(0, supermartCategoriesCurrentPosition - supermartCategoriesItemWidth);
-          supermartCurrentSlide = Math.max(0, supermartCurrentSlide - 1);
-        } else {
-          supermartCategoriesCurrentPosition = Math.min(maxPosition, supermartCategoriesCurrentPosition + supermartCategoriesItemWidth);
-          supermartCurrentSlide = Math.min(supermartTotalSlides - 1, supermartCurrentSlide + 1);
-        }
-        
-        supermartCategoriesTrack.style.transform = `translateX(-${supermartCategoriesCurrentPosition}px)`;
-        updateSupermartCategoriesControls();
-        supermartUpdateIndicators();
-      }
-      
-      // Go to specific slide
-      function supermartGoToSlide(slideIndex) {
-        const containerWidth = supermartCategoriesTrack.parentElement.clientWidth;
-        const trackWidth = supermartCategoriesTrack.scrollWidth;
-        const maxPosition = Math.max(0, trackWidth - containerWidth);
-        
-        supermartCategoriesCurrentPosition = Math.min(maxPosition, slideIndex * supermartCategoriesItemWidth * supermartVisibleItems);
-        supermartCurrentSlide = slideIndex;
-        
-        supermartCategoriesTrack.style.transform = `translateX(-${supermartCategoriesCurrentPosition}px)`;
-        updateSupermartCategoriesControls();
-        supermartUpdateIndicators();
-      }
-      
-      // Update indicators
-      function supermartUpdateIndicators() {
-        const indicators = document.querySelectorAll('.supermart-categories-indicator');
-        indicators.forEach((indicator, index) => {
-          indicator.classList.toggle('active', index === supermartCurrentSlide);
-        });
-      }
-      
-      // Event listeners for desktop
-      supermartNavPrev.addEventListener('click', () => {
-        if (!supermartNavPrev.classList.contains('disabled')) {
-          moveSupermartDesktopNav('prev');
-        }
-      });
-      
-      supermartNavNext.addEventListener('click', () => {
-        if (!supermartNavNext.classList.contains('disabled')) {
-          moveSupermartDesktopNav('next');
-        }
-      });
-      
-      // Event listeners for mobile
-      supermartMobilePrev.addEventListener('click', () => {
-        if (!supermartMobilePrev.classList.contains('disabled')) {
-          moveSupermartMobileNav('prev');
-        }
-      });
-      
-      supermartMobileNext.addEventListener('click', () => {
-        if (!supermartMobileNext.classList.contains('disabled')) {
-          moveSupermartMobileNav('next');
-        }
-      });
-      
-      // Event listeners for categories
-      supermartCategoriesPrev.addEventListener('click', () => {
-        if (!supermartCategoriesPrev.classList.contains('disabled')) {
-          moveSupermartCategories('prev');
-        }
-      });
-      
-      supermartCategoriesNext.addEventListener('click', () => {
-        if (!supermartCategoriesNext.classList.contains('disabled')) {
-          moveSupermartCategories('next');
-        }
-      });
-      
-      // Navigation item click handler for both desktop and mobile
-      function handleSupermartNavItemClick(e) {
-        if (e.target.classList.contains('supermart-nav-item') || e.target.classList.contains('supermart-mobile-nav-item')) {
-          document.querySelectorAll('.supermart-nav-item, .supermart-mobile-nav-item').forEach(item => {
-            item.classList.remove('active');
-          });
-          e.target.classList.add('active');
-        }
-      }
-      
-      supermartNavTrack.addEventListener('click', handleSupermartNavItemClick);
-      supermartMobileNavTrack.addEventListener('click', handleSupermartNavItemClick);
-      
-      // Category navigation buttons click handler
-      function handleCatNavButtonClick(e) {
-        if (e.target.classList.contains('supermart-cat-nav-btn')) {
-          const container = e.target.closest('.supermart-cat-nav');
-          container.querySelectorAll('.supermart-cat-nav-btn').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          e.target.classList.add('active');
-        }
-      }
-      
-      // Add click handlers to all category navigation containers
-      document.querySelectorAll('.supermart-cat-nav').forEach(catNav => {
-        catNav.addEventListener('click', handleCatNavButtonClick);
-      });
-      
-      // Update controls on window resize
+      // Add resize event listener for mobile header positioning
       window.addEventListener('resize', function() {
-        calculateSupermartItemWidths();
-        
-        // Recalculate positions based on new container widths
-        const desktopContainerWidth = supermartNavTrack.parentElement.clientWidth;
-        const desktopTrackWidth = supermartNavTrack.scrollWidth;
-        const desktopMaxPosition = Math.max(0, desktopTrackWidth - desktopContainerWidth);
-        supermartDesktopCurrentPosition = Math.min(supermartDesktopCurrentPosition, desktopMaxPosition);
-        supermartNavTrack.style.transform = `translateX(-${supermartDesktopCurrentPosition}px)`;
-        
-        const mobileContainerWidth = supermartMobileNavTrack.parentElement.clientWidth;
-        const mobileTrackWidth = supermartMobileNavTrack.scrollWidth;
-        const mobileMaxPosition = Math.max(0, mobileTrackWidth - mobileContainerWidth);
-        supermartMobileCurrentPosition = Math.min(supermartMobileCurrentPosition, mobileMaxPosition);
-        supermartMobileNavTrack.style.transform = `translateX(-${supermartMobileCurrentPosition}px)`;
-        
-        updateSupermartNavControls();
-        
-        // Update categories
-        calculateSupermartCategoriesItemWidth();
-        
-        const categoriesContainerWidth = supermartCategoriesTrack.parentElement.clientWidth;
-        const categoriesTrackWidth = supermartCategoriesTrack.scrollWidth;
-        const categoriesMaxPosition = Math.max(0, categoriesTrackWidth - categoriesContainerWidth);
-        supermartCategoriesCurrentPosition = Math.min(supermartCategoriesCurrentPosition, categoriesMaxPosition);
-        supermartCategoriesTrack.style.transform = `translateX(-${supermartCategoriesCurrentPosition}px)`;
-        
-        updateSupermartCategoriesControls();
+        updateMobileHeaderPosition();
       });
       
-      // Initialize on load
-      initializeSupermartNav();
-      initializeSupermartCategories();
-      
-      // Trigger initial scroll check
+      // Initial setup
+      updateMobileHeaderPosition();
       handleScroll();
+      
+      // Debug: Log z-index values
+      console.log('Desktop Topbar z-index:', window.getComputedStyle(desktopTopbar).zIndex);
+      console.log('Mobile Topbar z-index:', window.getComputedStyle(mobileTopbar).zIndex);
+      console.log('Mobile Header z-index:', window.getComputedStyle(mobileHeader).zIndex);
     });
   </script>
 </body>
