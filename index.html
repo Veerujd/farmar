@@ -24,6 +24,10 @@
       --supermart-shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
       --supermart-shadow-md: 0 8px 30px rgba(0,0,0,0.08);
       --supermart-shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --topbar-height: 45px;
+      --header-height: 90px;
+      --mobile-topbar-height: 40px;
+      --mobile-header-height: 170px; /* Increased for navbar below search */
     }
 
     * {
@@ -35,6 +39,7 @@
     html, body {
       width: 100%;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -42,7 +47,13 @@
       background: #fafbfc;
       color: var(--supermart-text-dark);
       line-height: 1.6;
-      padding-top: 130px; /* Adjusted for fixed header + topbar */
+      padding-top: calc(var(--topbar-height) + var(--header-height));
+      transition: padding-top 0.3s ease;
+    }
+
+    /* Scrolling state for body */
+    body.scrolling {
+      padding-top: var(--header-height) !important;
     }
 
     .supermart-container {
@@ -52,17 +63,27 @@
       width: 100%;
     }
 
-    /* Topbar */
+    /* Topbar - ENHANCED HEIGHT & AUTO-HIDE */
     .supermart-topbar {
       background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
       color: #fff;
-      font-size: .8rem;
-      padding: 10px 0;
+      font-size: .85rem;
+      padding: 12px 0;
       width: 100%;
       position: fixed;
       top: 0;
       z-index: 1100;
-      height: 40px;
+      height: var(--topbar-height);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+      transform: translateY(0);
+      opacity: 1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Topbar hide state */
+    .supermart-topbar.hide {
+      transform: translateY(-100%);
+      opacity: 0;
     }
 
     .supermart-topbar a {
@@ -70,27 +91,42 @@
       text-decoration: none;
       margin: 0 8px;
       transition: .3s;
+      white-space: nowrap;
     }
 
     .supermart-topbar a:hover {
       color: var(--supermart-accent);
     }
 
-    /* Header - FIXED OVERLAP ISSUE */
+    /* Header - ENHANCED HEIGHT & AUTO-HIDE */
     .supermart-header {
       position: fixed;
-      top: 40px; /* Adjusted for topbar */
+      top: var(--topbar-height);
       left: 0;
       right: 0;
       z-index: 1090;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(16px);
       box-shadow: var(--supermart-shadow-sm);
-      padding: 10px 0;
+      padding: 15px 0;
       width: 100%;
       max-width: 100vw;
       overflow: hidden;
-      height: 80px;
+      height: var(--header-height);
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(0);
+    }
+
+    /* Header hide state */
+    .supermart-header.hide {
+      transform: translateY(-100%);
+    }
+
+    /* Sticky header when scrolling */
+    .supermart-header.sticky {
+      top: 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
     }
 
     .supermart-header .supermart-container {
@@ -98,7 +134,7 @@
     }
 
     .supermart-logo {
-      max-height: 50px;
+      max-height: 55px;
       transition: 0.3s;
     }
 
@@ -130,10 +166,10 @@
 
     .supermart-nav-item {
       flex: 0 0 auto;
-      padding: 10px 16px;
+      padding: 12px 18px;
       border-radius: 10px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--supermart-text-dark);
       text-decoration: none;
       transition: 0.3s;
@@ -148,17 +184,16 @@
       transform: translateY(-2px);
     }
 
-    /* Mobile Navigation */
+    /* Mobile Navigation - BELOW SEARCH BAR */
     .supermart-mobile-nav {
       display: none;
       position: relative;
-      margin: 10px 0 0 0;
       background: white;
       border-radius: 12px;
       box-shadow: var(--supermart-shadow-sm);
-      padding: 10px;
+      padding: 10px 40px;
       width: 100%;
-      max-width: 100%;
+      margin: 12px 0 0 0;
     }
 
     .supermart-mobile-nav-track {
@@ -166,14 +201,15 @@
       transition: transform 0.4s ease;
       gap: 8px;
       width: max-content;
+      padding: 0 5px;
     }
 
     .supermart-mobile-nav-item {
       flex: 0 0 auto;
-      padding: 8px 16px;
+      padding: 10px 16px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--supermart-text-dark);
       text-decoration: none;
       transition: 0.3s;
@@ -269,19 +305,20 @@
 
     /* Desktop Search */
     .supermart-search.desktop {
-      max-width: 320px;
+      max-width: 340px;
     }
 
     /* Mobile Search - Full width */
     .supermart-search.mobile {
       max-width: 100%;
+      margin: 0;
     }
 
     .supermart-search input {
-      padding: 10px 44px 10px 16px;
+      padding: 12px 48px 12px 18px;
       border-radius: 30px;
       border: 2px solid #e9ecef;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       transition: 0.3s;
       width: 100%;
     }
@@ -297,13 +334,13 @@
       right: 3px;
       top: 50%;
       transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       border: none;
       background: var(--supermart-primary);
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       transition: 0.3s;
     }
 
@@ -316,8 +353,8 @@
     .supermart-mobile-search {
       display: none;
       position: relative;
-      margin: 0 0 10px 0;
       width: 100%;
+      margin: 0;
     }
 
     /* Header Icons */
@@ -328,14 +365,14 @@
     }
 
     .supermart-header-icons a {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--supermart-text-dark);
-      margin-left: 8px;
+      margin-left: 10px;
       position: relative;
       text-decoration: none;
       transition: 0.3s;
@@ -352,12 +389,12 @@
       position: absolute;
       top: -4px;
       right: -4px;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: var(--supermart-accent);
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -385,10 +422,46 @@
       flex-shrink: 0;
     }
 
+    /* Scroll to top button */
+    .supermart-scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--supermart-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+      border: none;
+    }
+
+    .supermart-scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .supermart-scroll-top:hover {
+      background: var(--supermart-primary-dark);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+    }
+
     /* PREMIUM HERO SECTION - FIXED OVERLAP ISSUE */
     .supermart-hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 100px 0 80px;
+      padding: 120px 0 90px;
       width: 100%;
       position: relative;
       overflow: hidden;
@@ -409,9 +482,9 @@
     .supermart-hero-badge {
       background: linear-gradient(45deg, var(--supermart-accent), var(--supermart-accent-dark));
       color: #fff;
-      padding: 8px 20px;
+      padding: 10px 22px;
       border-radius: 25px;
-      font-size: .85rem;
+      font-size: .9rem;
       font-weight: 700;
       display: inline-block;
       animation: supermartPulse 2s infinite;
@@ -444,7 +517,7 @@
     }
 
     .supermart-hero-text {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.9);
       max-width: 520px;
       margin-bottom: 30px;
@@ -622,7 +695,7 @@
 
     /* Section head */
     .supermart-section {
-      padding: 80px 0;
+      padding: 90px 0;
       width: 100%;
     }
 
@@ -652,7 +725,7 @@
     }
 
     .supermart-section-sub {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--supermart-text-light);
       max-width: 600px;
       margin: 0 auto;
@@ -661,7 +734,7 @@
 
     /* PREMIUM CATEGORIES CAROUSEL */
     .supermart-categories-section {
-      padding: 80px 0;
+      padding: 90px 0;
       width: 100%;
       background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
       position: relative;
@@ -966,18 +1039,19 @@
       transform: scale(1.1);
     }
 
-    /* Category Navigation */
-    .supermart-cat-nav {
-      display: flex;
-      overflow-x: auto;
-      gap: 12px;
-      padding: 12px 0;
+    /* Category Navigation - NEW SLIDER STYLES */
+    .supermart-cat-nav-container {
+      position: relative;
+      overflow: hidden;
       margin-bottom: 25px;
-      scrollbar-width: none;
     }
 
-    .supermart-cat-nav::-webkit-scrollbar {
-      display: none;
+    .supermart-cat-nav {
+      display: flex;
+      transition: transform 0.4s ease;
+      gap: 12px;
+      padding: 12px 0;
+      width: max-content;
     }
 
     .supermart-cat-nav-btn {
@@ -989,6 +1063,8 @@
       color: var(--supermart-text-dark);
       font-weight: 600;
       transition: all 0.3s;
+      flex-shrink: 0;
+      cursor: pointer;
     }
 
     .supermart-cat-nav-btn.active,
@@ -1000,11 +1076,55 @@
       box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
     }
 
+    .supermart-cat-nav-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--supermart-text-dark);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .supermart-cat-nav-control:hover {
+      background: var(--supermart-primary);
+      color: white;
+      border-color: var(--supermart-primary);
+    }
+
+    .supermart-cat-nav-prev {
+      left: 0;
+    }
+
+    .supermart-cat-nav-next {
+      right: 0;
+    }
+
+    .supermart-cat-nav-control.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .supermart-cat-nav-control.disabled:hover {
+      background: white;
+      color: var(--supermart-text-dark);
+      border-color: #e0e0e0;
+    }
+
     /* Newsletter */
     .supermart-newsletter {
       background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
       color: #fff;
-      padding: 80px 0;
+      padding: 90px 0;
       width: 100%;
       position: relative;
       overflow: hidden;
@@ -1035,7 +1155,7 @@
     .supermart-footer {
       background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
       color: #b3b3b3;
-      padding: 70px 0 30px;
+      padding: 80px 0 30px;
       width: 100%;
     }
 
@@ -1073,72 +1193,7 @@
       border-bottom: 1px solid #eee;
     }
 
-    /* Skeleton Loading */
-    .supermart-skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: supermartLoading 1.5s infinite;
-      border-radius: 4px;
-    }
-
-    @keyframes supermartLoading {
-      0% {
-        background-position: 200% 0;
-      }
-      100% {
-        background-position: -200% 0;
-      }
-    }
-
-    .supermart-skeleton-img {
-      width: 100%;
-      height: 200px;
-      border-radius: 20px 20px 0 0;
-    }
-
-    .supermart-skeleton-text {
-      height: 16px;
-      margin-bottom: 8px;
-    }
-
-    .supermart-skeleton-text.short {
-      width: 60%;
-    }
-
-    .supermart-skeleton-text.medium {
-      width: 80%;
-    }
-
-    .supermart-skeleton-price {
-      height: 20px;
-      width: 40%;
-      margin-bottom: 12px;
-    }
-
-    .supermart-skeleton-button {
-      height: 38px;
-      border-radius: 18px;
-    }
-
-    .supermart-skeleton-cat {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      margin-bottom: 8px;
-    }
-
-    .supermart-skeleton-cat-text {
-      height: 16px;
-      width: 70%;
-      margin-bottom: 4px;
-    }
-
-    .supermart-skeleton-cat-count {
-      height: 12px;
-      width: 50%;
-    }
-
-    /* Responsive */
+    /* RESPONSIVE STYLES */
     @media (max-width: 1199.98px) {
       .supermart-nav-container {
         max-width: 500px;
@@ -1155,12 +1210,12 @@
       }
       
       .supermart-hero {
-        padding: 80px 0 60px;
+        padding: 100px 0 70px;
       }
       
       /* Desktop search - slightly smaller on tablet */
       .supermart-search.desktop {
-        max-width: 280px;
+        max-width: 300px;
       }
       
       .supermart-categories-slide {
@@ -1174,16 +1229,60 @@
 
     @media (max-width: 767.98px) {
       body {
-        padding-top: 170px; /* Adjusted for topbar + header on mobile */
+        padding-top: calc(var(--mobile-topbar-height) + var(--mobile-header-height));
       }
 
+      .supermart-topbar {
+        height: var(--mobile-topbar-height);
+        padding: 10px 0;
+        font-size: .85rem;
+      }
+
+      /* Mobile Topbar */
+      .supermart-topbar .row {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .supermart-topbar .row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .supermart-topbar .col-md-6 {
+        flex: 0 0 auto;
+        width: auto;
+        display: flex;
+        align-items: center;
+        margin-top: 0 !important;
+      }
+
+      .supermart-topbar .col-md-6:first-child {
+        margin-right: 20px;
+      }
+
+      .supermart-topbar .col-md-6.text-md-end {
+        margin-left: 20px;
+      }
+
+      .supermart-topbar a {
+        margin: 0 6px;
+        font-size: 0.85rem;
+      }
+
+      /* Mobile Header */
       .supermart-header {
-        padding: 8px 0;
-        height: 90px;
+        top: var(--mobile-topbar-height);
+        height: var(--mobile-header-height);
+        padding: 12px 0;
       }
 
       .supermart-section {
-        padding: 60px 0;
+        padding: 70px 0;
       }
 
       /* Hide desktop navigation */
@@ -1249,7 +1348,7 @@
       }
 
       .supermart-hero-text {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
 
       .supermart-stat-item {
@@ -1267,26 +1366,46 @@
       .supermart-categories-container {
         padding: 0 40px;
       }
+
+      /* Category navigation controls on mobile */
+      .supermart-cat-nav-control {
+        display: none; /* Hide on mobile for simplicity */
+      }
+
+      /* Scroll to top button - mobile */
+      .supermart-scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
     }
 
     @media (max-width: 575.98px) {
       .supermart-logo {
-        max-height: 40px;
+        max-height: 45px;
       }
 
       .supermart-mobile-nav-item {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-      }
-
-      .supermart-search input {
+        padding: 8px 14px;
         font-size: 0.85rem;
       }
 
+      .supermart-search input {
+        font-size: 0.9rem;
+        padding: 10px 44px 10px 16px;
+      }
+
+      .supermart-search.mobile button {
+        width: 38px;
+        height: 38px;
+      }
+
       .supermart-header-icons a {
-        width: 36px;
-        height: 36px;
-        margin-left: 6px;
+        width: 40px;
+        height: 40px;
+        margin-left: 8px;
       }
 
       .supermart-hero-stats {
@@ -1316,11 +1435,17 @@
         height: 60px;
         font-size: 1.6rem;
       }
+
+      /* Mobile Topbar adjustments */
+      .supermart-topbar a {
+        font-size: 0.8rem;
+        margin: 0 4px;
+      }
     }
 
     @media (max-width: 480px) {
       .supermart-container {
-        padding: 0 10px;
+        padding: 0 12px;
       }
       
       .supermart-header .row {
@@ -1328,27 +1453,27 @@
       }
       
       .supermart-header-icons a {
-        width: 34px;
-        height: 34px;
-        margin-left: 4px;
+        width: 38px;
+        height: 38px;
+        margin-left: 6px;
       }
       
       .supermart-logo {
-        max-height: 36px;
+        max-height: 40px;
       }
       
       /* Mobile search - full width with adjusted padding */
       .supermart-search.mobile input {
-        padding: 8px 42px 8px 14px;
+        padding: 10px 44px 10px 16px;
       }
       
       .supermart-search.mobile button {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
       }
 
       .supermart-hero {
-        padding: 60px 0 40px;
+        padding: 80px 0 50px;
       }
 
       .supermart-btn-main, .supermart-btn-outline {
@@ -1367,20 +1492,74 @@
       .supermart-categories-container {
         padding: 0 20px;
       }
+
+      /* Topbar and header mobile adjustments */
+      .supermart-topbar {
+        font-size: .8rem;
+        padding: 8px 0;
+      }
+
+      .supermart-topbar a {
+        font-size: 0.75rem;
+        margin: 0 3px;
+      }
+
+      .supermart-header {
+        padding: 10px 0;
+      }
+
+      .supermart-mobile-nav {
+        padding: 10px 35px;
+      }
+
+      .supermart-mobile-nav-item {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+
+      .supermart-mobile-control {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .supermart-topbar a {
+        font-size: 0.7rem;
+        margin: 0 2px;
+      }
+
+      .supermart-logo {
+        max-height: 35px;
+      }
+
+      .supermart-header-icons a {
+        width: 34px;
+        height: 34px;
+        margin-left: 4px;
+      }
+
+      .supermart-search.mobile input {
+        font-size: 0.85rem;
+        padding: 9px 40px 9px 12px;
+      }
+
+      .supermart-search.mobile button {
+        width: 36px;
+        height: 36px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOPBAR -->
+  <!-- TOPBAR - ENHANCED HEIGHT -->
   <div class="supermart-topbar" data-aos="fade-down">
     <div class="supermart-container">
       <div class="row align-items-center g-2">
         <div class="col-md-6">
           <div class="d-flex flex-wrap align-items-center gap-2">
-            <div style="background:rgba(255,255,255,.1);border-radius:20px;padding:4px 10px;">
-              <i class="fas fa-map-marker-alt me-1"></i>Mumbai, MH • <a href="#">Change</a>
-            </div>
             <span>Hotline: <strong>+91 98765 43210</strong></span>
           </div>
         </div>
@@ -1393,7 +1572,7 @@
     </div>
   </div>
 
-  <!-- HEADER - FIXED OVERLAP ISSUE -->
+  <!-- HEADER - ENHANCED HEIGHT & AUTO-HIDE -->
   <header class="supermart-header" data-aos="fade-down" data-aos-delay="80">
     <div class="supermart-container">
       <!-- First Row: Logo, Search, Icons -->
@@ -1401,7 +1580,7 @@
         <!-- Logo -->
         <div class="col-auto">
           <a href="#">
-            <img src="https://via.placeholder.com/150x50/8b5cf6/ffffff?text=SuperMart" alt="SuperMart Pro" class="supermart-logo">
+            <img src="https://via.placeholder.com/160x55/8b5cf6/ffffff?text=SuperMart" alt="SuperMart Pro" class="supermart-logo">
           </a>
         </div>
         
@@ -1453,7 +1632,7 @@
           </div>
         </div>
 
-        <!-- Mobile Navigation -->
+        <!-- Mobile Navigation - BELOW SEARCH BAR -->
         <div class="supermart-mobile-nav">
           <div class="supermart-mobile-nav-track" id="supermartMobileNavTrack">
             <!-- Mobile navigation items will be added dynamically -->
@@ -1469,7 +1648,12 @@
     </div>
   </header>
 
-  <!-- PREMIUM HERO SECTION - FIXED OVERLAP ISSUE -->
+  <!-- Scroll to top button -->
+  <button class="supermart-scroll-top" id="supermartScrollTop">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- PREMIUM HERO SECTION -->
   <section class="supermart-hero">
     <div class="supermart-floating-elements">
       <div class="supermart-floating-element"></div>
@@ -1698,13 +1882,25 @@
         <p class="supermart-section-sub">Farm-fresh organic produce delivered directly to your doorstep.</p>
       </div>
       
-      <div class="supermart-cat-nav">
-        <button class="supermart-cat-nav-btn active">All Fruits & Veg</button>
-        <button class="supermart-cat-nav-btn">Seasonal Fruits</button>
-        <button class="supermart-cat-nav-btn">Leafy Greens</button>
-        <button class="supermart-cat-nav-btn">Exotic Fruits</button>
-        <button class="supermart-cat-nav-btn">Organic Produce</button>
-        <button class="supermart-cat-nav-btn">Root Vegetables</button>
+      <!-- Category Navigation Slider -->
+      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
+        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="supermart-cat-nav" id="fruitsVegCatNav">
+          <button class="supermart-cat-nav-btn active">All Fruits & Veg</button>
+          <button class="supermart-cat-nav-btn">Seasonal Fruits</button>
+          <button class="supermart-cat-nav-btn">Leafy Greens</button>
+          <button class="supermart-cat-nav-btn">Exotic Fruits</button>
+          <button class="supermart-cat-nav-btn">Organic Produce</button>
+          <button class="supermart-cat-nav-btn">Root Vegetables</button>
+          <button class="supermart-cat-nav-btn">Berries</button>
+          <button class="supermart-cat-nav-btn">Tropical Fruits</button>
+          <button class="supermart-cat-nav-btn">Citrus Fruits</button>
+        </div>
+        <button class="supermart-cat-nav-control supermart-cat-nav-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
       
       <div class="row g-4" id="supermart-fruits-veg-container">
@@ -1792,13 +1988,25 @@
         <p class="supermart-section-sub">Fresh dairy products, milk, cheese, and eggs from trusted farms.</p>
       </div>
       
-      <div class="supermart-cat-nav">
-        <button class="supermart-cat-nav-btn active">All Dairy</button>
-        <button class="supermart-cat-nav-btn">Milk & Cream</button>
-        <button class="supermart-cat-nav-btn">Cheese</button>
-        <button class="supermart-cat-nav-btn">Yogurt & Curd</button>
-        <button class="supermart-cat-nav-btn">Butter & Ghee</button>
-        <button class="supermart-cat-nav-btn">Eggs</button>
+      <!-- Category Navigation Slider -->
+      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
+        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="supermart-cat-nav" id="dairyCatNav">
+          <button class="supermart-cat-nav-btn active">All Dairy</button>
+          <button class="supermart-cat-nav-btn">Milk & Cream</button>
+          <button class="supermart-cat-nav-btn">Cheese</button>
+          <button class="supermart-cat-nav-btn">Yogurt & Curd</button>
+          <button class="supermart-cat-nav-btn">Butter & Ghee</button>
+          <button class="supermart-cat-nav-btn">Eggs</button>
+          <button class="supermart-cat-nav-btn">Paneer & Tofu</button>
+          <button class="supermart-cat-nav-btn">Condensed Milk</button>
+          <button class="supermart-cat-nav-btn">Dairy Drinks</button>
+        </div>
+        <button class="supermart-cat-nav-control supermart-cat-nav-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
       
       <div class="row g-4" id="supermart-dairy-container">
@@ -1886,13 +2094,25 @@
         <p class="supermart-section-sub">Essential ingredients for your everyday cooking needs.</p>
       </div>
       
-      <div class="supermart-cat-nav">
-        <button class="supermart-cat-nav-btn active">All Staples</button>
-        <button class="supermart-cat-nav-btn">Rice & Grains</button>
-        <button class="supermart-cat-nav-btn">Pulses & Lentils</button>
-        <button class="supermart-cat-nav-btn">Flour & Atta</button>
-        <button class="supermart-cat-nav-btn">Oils & Ghee</button>
-        <button class="supermart-cat-nav-btn">Spices & Masalas</button>
+      <!-- Category Navigation Slider -->
+      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
+        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="supermart-cat-nav" id="staplesCatNav">
+          <button class="supermart-cat-nav-btn active">All Staples</button>
+          <button class="supermart-cat-nav-btn">Rice & Grains</button>
+          <button class="supermart-cat-nav-btn">Pulses & Lentils</button>
+          <button class="supermart-cat-nav-btn">Flour & Atta</button>
+          <button class="supermart-cat-nav-btn">Oils & Ghee</button>
+          <button class="supermart-cat-nav-btn">Spices & Masalas</button>
+          <button class="supermart-cat-nav-btn">Sugar & Jaggery</button>
+          <button class="supermart-cat-nav-btn">Salt & Seasoning</button>
+          <button class="supermart-cat-nav-btn">Dry Fruits</button>
+        </div>
+        <button class="supermart-cat-nav-control supermart-cat-nav-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
       
       <div class="row g-4" id="supermart-staples-container">
@@ -1980,13 +2200,25 @@
         <p class="supermart-section-sub">Delicious treats and refreshing drinks for every occasion.</p>
       </div>
       
-      <div class="supermart-cat-nav">
-        <button class="supermart-cat-nav-btn active">All Snacks & Drinks</button>
-        <button class="supermart-cat-nav-btn">Chips & Crisps</button>
-        <button class="supermart-cat-nav-btn">Biscuits & Cookies</button>
-        <button class="supermart-cat-nav-btn">Soft Drinks</button>
-        <button class="supermart-cat-nav-btn">Juices</button>
-        <button class="supermart-cat-nav-btn">Tea & Coffee</button>
+      <!-- Category Navigation Slider -->
+      <div class="supermart-cat-nav-container" data-aos="fade-up" data-aos-delay="100">
+        <button class="supermart-cat-nav-control supermart-cat-nav-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="supermart-cat-nav" id="snacksCatNav">
+          <button class="supermart-cat-nav-btn active">All Snacks & Drinks</button>
+          <button class="supermart-cat-nav-btn">Chips & Crisps</button>
+          <button class="supermart-cat-nav-btn">Biscuits & Cookies</button>
+          <button class="supermart-cat-nav-btn">Soft Drinks</button>
+          <button class="supermart-cat-nav-btn">Juices</button>
+          <button class="supermart-cat-nav-btn">Tea & Coffee</button>
+          <button class="supermart-cat-nav-btn">Noodles & Pasta</button>
+          <button class="supermart-cat-nav-btn">Chocolates</button>
+          <button class="supermart-cat-nav-btn">Energy Drinks</button>
+        </div>
+        <button class="supermart-cat-nav-control supermart-cat-nav-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
       
       <div class="row g-4" id="supermart-snacks-container">
@@ -2141,7 +2373,7 @@
     </div>
   </footer>
 
-  <!-- OFFCANVAS CART - FIXED OVERLAP ISSUE -->
+  <!-- OFFCANVAS CART -->
   <div class="offcanvas offcanvas-end supermart-offcanvas-cart" tabindex="-1" id="supermartCartOffcanvas">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">My Cart (3 items)</h5>
@@ -2202,25 +2434,100 @@
       offset: 80
     });
     
-    // Navigation Carousel Functionality
+    // Auto-hide header on scroll functionality
     document.addEventListener('DOMContentLoaded', function() {
-      // Desktop elements
+      // Get elements
+      const topbar = document.querySelector('.supermart-topbar');
+      const header = document.querySelector('.supermart-header');
+      const scrollTopBtn = document.getElementById('supermartScrollTop');
+      const body = document.body;
+      
+      // Variables for scroll handling
+      let lastScrollTop = 0;
+      let scrollTimeout;
+      const SCROLL_THRESHOLD = 100; // Minimum scroll amount before hiding
+      const SCROLL_DELAY = 150; // Delay for showing header again
+      
+      // Scroll event handler
+      function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
+        
+        // Show/hide scroll to top button
+        if (scrollTop > 500) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+        
+        // Handle header visibility based on scroll direction
+        if (scrollTop > SCROLL_THRESHOLD) {
+          if (scrollDirection === 'down') {
+            // Scrolling down - hide topbar and header
+            topbar.classList.add('hide');
+            header.classList.add('hide');
+            body.classList.add('scrolling');
+          } else {
+            // Scrolling up - show header (topbar remains hidden for more space)
+            header.classList.remove('hide');
+            header.classList.add('sticky');
+            body.classList.remove('scrolling');
+            
+            // Show topbar only when at the very top
+            if (scrollTop < 50) {
+              topbar.classList.remove('hide');
+              header.classList.remove('sticky');
+            }
+          }
+        } else {
+          // Near top of page - show both
+          topbar.classList.remove('hide');
+          header.classList.remove('hide');
+          header.classList.remove('sticky');
+          body.classList.remove('scrolling');
+        }
+        
+        lastScrollTop = scrollTop;
+        
+        // Clear previous timeout
+        clearTimeout(scrollTimeout);
+        
+        // Set timeout to handle scroll end
+        scrollTimeout = setTimeout(() => {
+          // After scrolling stops, ensure header is visible if not at top
+          if (scrollTop > SCROLL_THRESHOLD && scrollDirection === 'up') {
+            header.classList.remove('hide');
+            header.classList.add('sticky');
+          }
+        }, SCROLL_DELAY);
+      }
+      
+      // Scroll to top functionality
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+      
+      // Navigation Carousel Functionality
       const supermartNavTrack = document.getElementById('supermartNavTrack');
       const supermartNavPrev = document.getElementById('supermartNavPrev');
       const supermartNavNext = document.getElementById('supermartNavNext');
       
-      // Mobile elements
       const supermartMobileNavTrack = document.getElementById('supermartMobileNavTrack');
       const supermartMobilePrev = document.getElementById('supermartMobilePrev');
       const supermartMobileNext = document.getElementById('supermartMobileNext');
       
-      // Categories elements
       const supermartCategoriesTrack = document.getElementById('supermartCategoriesTrack');
       const supermartCategoriesPrev = document.getElementById('supermartCategoriesPrev');
       const supermartCategoriesNext = document.getElementById('supermartCategoriesNext');
       const supermartCategoriesIndicators = document.getElementById('supermartCategoriesIndicators');
       
-      // Initial navigation items
+      // Navigation items data
       const initialItems = [
         'Fruits & Veg',
         'Dairy & Eggs',
@@ -2263,7 +2570,7 @@
       
       let supermartCategoriesCurrentPosition = 0;
       let supermartCategoriesItemWidth = 0;
-      let supermartVisibleItems = 6; // Default for desktop
+      let supermartVisibleItems = 6;
       let supermartCurrentSlide = 0;
       let supermartTotalSlides = 0;
       
@@ -2278,7 +2585,6 @@
           addSupermartNavItem(item, index === 0);
         });
         
-        // Calculate item widths after rendering
         calculateSupermartItemWidths();
         updateSupermartNavControls();
       }
@@ -2322,7 +2628,7 @@
           const styles = window.getComputedStyle(firstItem);
           supermartMobileItemWidth = firstItem.offsetWidth + 
                            parseInt(styles.marginLeft) + 
-                           parseInt(styles.marginRight) + 8; // +8 for gap
+                           parseInt(styles.marginRight) + 8;
         }
       }
       
@@ -2399,7 +2705,6 @@
           supermartCategoriesTrack.appendChild(categorySlide);
         });
         
-        // Calculate item widths after rendering
         calculateSupermartCategoriesItemWidth();
         updateSupermartCategoriesControls();
         
@@ -2422,7 +2727,7 @@
           const styles = window.getComputedStyle(firstItem);
           supermartCategoriesItemWidth = firstItem.offsetWidth + 
                               parseInt(styles.marginLeft) + 
-                              parseInt(styles.marginRight) + 20; // +20 for gap
+                              parseInt(styles.marginRight) + 20;
         }
         
         // Update visible items count based on screen size
@@ -2537,12 +2842,9 @@
       // Navigation item click handler for both desktop and mobile
       function handleSupermartNavItemClick(e) {
         if (e.target.classList.contains('supermart-nav-item') || e.target.classList.contains('supermart-mobile-nav-item')) {
-          // Remove active class from all items
           document.querySelectorAll('.supermart-nav-item, .supermart-mobile-nav-item').forEach(item => {
             item.classList.remove('active');
           });
-          
-          // Add active class to clicked item
           e.target.classList.add('active');
         }
       }
@@ -2550,13 +2852,20 @@
       supermartNavTrack.addEventListener('click', handleSupermartNavItemClick);
       supermartMobileNavTrack.addEventListener('click', handleSupermartNavItemClick);
       
-      // Category navigation buttons
-      const supermartCatNavButtons = document.querySelectorAll('.supermart-cat-nav-btn');
-      supermartCatNavButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          supermartCatNavButtons.forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-        });
+      // Category navigation buttons click handler
+      function handleCatNavButtonClick(e) {
+        if (e.target.classList.contains('supermart-cat-nav-btn')) {
+          const container = e.target.closest('.supermart-cat-nav');
+          container.querySelectorAll('.supermart-cat-nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          e.target.classList.add('active');
+        }
+      }
+      
+      // Add click handlers to all category navigation containers
+      document.querySelectorAll('.supermart-cat-nav').forEach(catNav => {
+        catNav.addEventListener('click', handleCatNavButtonClick);
       });
       
       // Update controls on window resize
@@ -2593,6 +2902,9 @@
       // Initialize on load
       initializeSupermartNav();
       initializeSupermartCategories();
+      
+      // Trigger initial scroll check
+      handleScroll();
     });
   </script>
 </body>
