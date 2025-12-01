@@ -1,11 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>SuperMart Pro – Premium Online Supermarket | 15K+ Products</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Premium online supermarket with 15,000+ fresh grocery items. 90-min delivery, 50K+ happy customers. Shop vegetables, fruits, dairy, staples & more.">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperMart Pro - Premium Online Supermarket</title>
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -14,536 +12,1369 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --spm-primary: #2ecc71;
-      --spm-primary-dark: #27ae60;
-      --spm-accent: #ff7f50;
-      --spm-accent-dark: #e67e22;
-      --spm-text-dark: #1a1a1a;
-      --spm-text-light: #666;
-      --spm-bg-light: #f8f9fa;
-      --spm-shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
-      --spm-shadow-md: 0 8px 30px rgba(0,0,0,0.08);
-      --spm-shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+      --supermart-primary: #8b5cf6;
+      --supermart-primary-dark: #7c3aed;
+      --supermart-accent: #f59e0b;
+      --supermart-accent-dark: #d97706;
+      --supermart-text-dark: #1a1a1a;
+      --supermart-text-light: #666;
+      --supermart-bg-light: #f8f9fa;
+      --supermart-shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
+      --supermart-shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+      --supermart-shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
     }
 
-    *{box-sizing:border-box;}
-    body{
-      font-family:'Inter',sans-serif;
-      background:#fafbfc;
-      color:var(--spm-text-dark);
-      line-height:1.6;
-      overflow-x:hidden;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .spm-container{
-      max-width:1320px;
-      margin:0 auto;
-      padding:0 20px;
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafbfc;
+      color: var(--supermart-text-dark);
+      line-height: 1.6;
+      padding-top: 130px; /* Adjusted for fixed header + topbar */
+    }
+
+    .supermart-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 15px;
+      width: 100%;
     }
 
     /* Topbar */
-    .spm-topbar{
-      background:linear-gradient(135deg,#1a1a1a,#2d2d2d);
-      color:#fff;
-      font-size:.8rem;
-      padding:10px 0;
-    }
-    .spm-topbar a{
-      color:#ccc;
-      text-decoration:none;
-      margin:0 8px;
-      transition:.3s;
-    }
-    .spm-topbar a:hover{color:var(--spm-primary);}
-
-    /* Header */
-    .spm-header{
-      position:sticky;
-      top:0;
-      z-index:1050;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(16px);
-      box-shadow:var(--spm-shadow-sm);
-      padding:10px 0;
-    }
-    .spm-logo{
-      max-height:50px;
-      transition:.3s;
-    }
-    .spm-logo:hover{transform:scale(1.05);}
-    .spm-nav .nav-link{
-      color:var(--spm-text-dark);
-      font-weight:600;
-      font-size:.9rem;
-      padding:10px 16px!important;
-      border-radius:10px;
-      transition:.3s;
-    }
-    .spm-nav .nav-link:hover,
-    .spm-nav .nav-link.active{
-      color:var(--spm-primary)!important;
-      background:rgba(46,204,113,.08);
-      transform:translateY(-2px);
-    }
-    .spm-search{
-      position:relative;
-      max-width:320px;
-    }
-    .spm-search input{
-      padding:10px 44px 10px 16px;
-      border-radius:30px;
-      border:2px solid #e9ecef;
-      font-size:.9rem;
-      transition:.3s;
-    }
-    .spm-search input:focus{
-      border-color:var(--spm-primary);
-      box-shadow:0 0 0 .2rem rgba(46,204,113,.15);
-      outline:none;
-    }
-    .spm-search button{
-      position:absolute;
-      right:3px;
-      top:50%;
-      transform:translateY(-50%);
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      border:none;
-      background:var(--spm-primary);
-      color:#fff;
-      font-size:.9rem;
-      transition:.3s;
-    }
-    .spm-search button:hover{
-      background:var(--spm-primary-dark);
-      transform:translateY(-50%) scale(1.05);
-    }
-    .spm-header-icons a{
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--spm-text-dark);
-      margin-left:8px;
-      position:relative;
-      text-decoration:none;
-      transition:.3s;
-    }
-    .spm-header-icons a:hover{
-      background:rgba(46,204,113,.08);
-      color:var(--spm-primary);
-      transform:translateY(-2px);
-    }
-    .spm-cart-count{
-      position:absolute;
-      top:-4px;
-      right:-4px;
-      width:18px;
-      height:18px;
-      border-radius:50%;
-      background:var(--spm-accent);
-      color:#fff;
-      font-size:.7rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
+    .supermart-topbar {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      color: #fff;
+      font-size: .8rem;
+      padding: 10px 0;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1100;
+      height: 40px;
     }
 
-    /* Hero */
-    .spm-hero{
-      background:linear-gradient(135deg,#e8f5e8,#f0fff4);
-      padding:80px 0 70px;
+    .supermart-topbar a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 8px;
+      transition: .3s;
     }
-    .spm-hero-badge{
-      background:linear-gradient(45deg,var(--spm-accent),var(--spm-accent-dark));
-      color:#fff;
-      padding:6px 16px;
-      border-radius:20px;
-      font-size:.8rem;
-      font-weight:700;
-      display:inline-block;
-      animation:spmPulse 2s infinite;
+
+    .supermart-topbar a:hover {
+      color: var(--supermart-accent);
     }
-    @keyframes spmPulse{
-      0%,100%{transform:scale(1);}
-      50%{transform:scale(1.05);}
+
+    /* Header - FIXED OVERLAP ISSUE */
+    .supermart-header {
+      position: fixed;
+      top: 40px; /* Adjusted for topbar */
+      left: 0;
+      right: 0;
+      z-index: 1090;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--supermart-shadow-sm);
+      padding: 10px 0;
+      width: 100%;
+      max-width: 100vw;
+      overflow: hidden;
+      height: 80px;
     }
-    .spm-hero-title{
-      font-size:clamp(2.2rem,5vw,3.6rem);
-      font-weight:800;
-      line-height:1.1;
-      margin:16px 0 18px;
-      background:linear-gradient(135deg,#1a1a1a,var(--spm-primary));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
+
+    .supermart-header .supermart-container {
+      width: 100%;
     }
-    .spm-hero-text{
-      font-size:1.05rem;
-      color:var(--spm-text-light);
-      max-width:480px;
+
+    .supermart-logo {
+      max-height: 50px;
+      transition: 0.3s;
     }
-    .spm-hero-stats{
-      display:flex;
-      flex-wrap:wrap;
-      gap:20px;
-      margin:24px 0 28px;
+
+    .supermart-logo:hover {
+      transform: scale(1.05);
     }
-    .spm-stat-num{
-      font-size:1.6rem;
-      font-weight:800;
-      color:var(--spm-primary);
-      display:block;
+
+    /* Desktop Navigation Carousel */
+    .supermart-nav-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
     }
-    .spm-stat-label{
-      font-size:.85rem;
-      color:var(--spm-text-light);
+
+    .supermart-nav-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
     }
-    .spm-btn-main{
-      border:none;
-      border-radius:30px;
-      padding:12px 28px;
-      font-weight:700;
-      font-size:.95rem;
-      background:linear-gradient(135deg,var(--spm-primary),var(--spm-primary-dark));
-      color:#fff;
-      box-shadow:0 10px 30px rgba(46,204,113,.35);
-      transition:.3s;
+
+    .supermart-nav-track {
+      display: flex;
+      transition: transform 0.4s ease;
+      gap: 0;
+      padding: 0 10px;
+      width: max-content;
     }
-    .spm-btn-main:hover{
-      transform:translateY(-3px);
-      box-shadow:0 16px 40px rgba(46,204,113,.45);
+
+    .supermart-nav-item {
+      flex: 0 0 auto;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--supermart-text-dark);
+      text-decoration: none;
+      transition: 0.3s;
+      white-space: nowrap;
+      margin: 0 2px;
+    }
+
+    .supermart-nav-item:hover,
+    .supermart-nav-item.active {
+      color: var(--supermart-primary) !important;
+      background: rgba(139, 92, 246, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Navigation */
+    .supermart-mobile-nav {
+      display: none;
+      position: relative;
+      margin: 10px 0 0 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--supermart-shadow-sm);
+      padding: 10px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .supermart-mobile-nav-track {
+      display: flex;
+      transition: transform 0.4s ease;
+      gap: 8px;
+      width: max-content;
+    }
+
+    .supermart-mobile-nav-item {
+      flex: 0 0 auto;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--supermart-text-dark);
+      text-decoration: none;
+      transition: 0.3s;
+      white-space: nowrap;
+      background: var(--supermart-bg-light);
+      border: 1px solid #e9ecef;
+    }
+
+    .supermart-mobile-nav-item.active {
+      color: var(--supermart-primary) !important;
+      background: rgba(139, 92, 246, 0.08);
+      border-color: var(--supermart-primary);
+    }
+
+    /* Carousel Controls */
+    .supermart-nav-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--supermart-text-dark);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .supermart-nav-control:hover {
+      background: var(--supermart-primary);
+      color: white;
+      border-color: var(--supermart-primary);
+    }
+
+    .supermart-nav-prev {
+      left: -18px;
+    }
+
+    .supermart-nav-next {
+      right: -18px;
+    }
+
+    .supermart-nav-control.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .supermart-nav-control.disabled:hover {
+      background: white;
+      color: var(--supermart-text-dark);
+      border-color: #e0e0e0;
+    }
+
+    /* Mobile Controls */
+    .supermart-mobile-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--supermart-text-dark);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .supermart-mobile-prev {
+      left: 5px;
+    }
+
+    .supermart-mobile-next {
+      right: 5px;
+    }
+
+    /* Search - Optimized for Responsive */
+    .supermart-search {
+      position: relative;
+      width: 100%;
+    }
+
+    /* Desktop Search */
+    .supermart-search.desktop {
+      max-width: 320px;
+    }
+
+    /* Mobile Search - Full width */
+    .supermart-search.mobile {
+      max-width: 100%;
+    }
+
+    .supermart-search input {
+      padding: 10px 44px 10px 16px;
+      border-radius: 30px;
+      border: 2px solid #e9ecef;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .supermart-search input:focus {
+      border-color: var(--supermart-primary);
+      box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.15);
+      outline: none;
+    }
+
+    .supermart-search button {
+      position: absolute;
+      right: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--supermart-primary);
+      color: #fff;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .supermart-search button:hover {
+      background: var(--supermart-primary-dark);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    /* Mobile Search */
+    .supermart-mobile-search {
+      display: none;
+      position: relative;
+      margin: 0 0 10px 0;
+      width: 100%;
+    }
+
+    /* Header Icons */
+    .supermart-header-icons {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .supermart-header-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--supermart-text-dark);
+      margin-left: 8px;
+      position: relative;
+      text-decoration: none;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+
+    .supermart-header-icons a:hover {
+      background: rgba(139, 92, 246, 0.08);
+      color: var(--supermart-primary);
+      transform: translateY(-2px);
+    }
+
+    .supermart-cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--supermart-accent);
+      color: #fff;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* Header Row Layout - FIXED */
+    .supermart-header .row {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .supermart-header .col-auto {
+      flex-shrink: 0;
+    }
+
+    .supermart-header .col {
+      min-width: 0; /* Important for flexbox constraints */
+    }
+
+    .supermart-header .ms-auto {
+      margin-left: auto !important;
+      flex-shrink: 0;
+    }
+
+    /* PREMIUM HERO SECTION - FIXED OVERLAP ISSUE */
+    .supermart-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 100px 0 80px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-top: -50px; /* Compensate for header overlap */
+    }
+
+    .supermart-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+
+    .supermart-hero-badge {
+      background: linear-gradient(45deg, var(--supermart-accent), var(--supermart-accent-dark));
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: .85rem;
+      font-weight: 700;
+      display: inline-block;
+      animation: supermartPulse 2s infinite;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes supermartPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .supermart-hero-title {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 20px 0 25px;
+      background: linear-gradient(135deg, #ffffff, #e0e7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .supermart-hero-text {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 520px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .supermart-hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin: 30px 0 35px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .supermart-stat-item {
+      text-align: center;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .supermart-stat-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .supermart-stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .supermart-stat-label {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+    }
+
+    .supermart-btn-main {
+      border: none;
+      border-radius: 30px;
+      padding: 15px 35px;
+      font-weight: 700;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-primary-dark));
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, .5);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .supermart-btn-main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .supermart-btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(139, 92, 246, .6);
+    }
+
+    .supermart-btn-main:hover::before {
+      left: 100%;
+    }
+
+    .supermart-btn-outline {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 30px;
+      padding: 13px 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      background: transparent;
+      color: #fff;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .supermart-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .supermart-hero-visual {
+      position: relative;
+      z-index: 2;
+    }
+
+    .supermart-hero-image {
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+      transition: transform 0.5s ease;
+      border: 8px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .supermart-hero-image:hover {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+    }
+
+    .supermart-floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .supermart-floating-element {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      animation: supermartFloat 6s ease-in-out infinite;
+    }
+
+    .supermart-floating-element:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .supermart-floating-element:nth-child(2) {
+      width: 60px;
+      height: 60px;
+      top: 70%;
+      left: 10%;
+      animation-delay: 2s;
+    }
+
+    .supermart-floating-element:nth-child(3) {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      right: 5%;
+      animation-delay: 4s;
+    }
+
+    .supermart-floating-element:nth-child(4) {
+      width: 40px;
+      height: 40px;
+      top: 80%;
+      right: 15%;
+      animation-delay: 1s;
+    }
+
+    @keyframes supermartFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
     }
 
     /* Section head */
-    .spm-section{
-      padding:70px 0;
-    }
-    .spm-section-head{
-      text-align:center;
-      margin-bottom:40px;
-    }
-    .spm-section-title{
-      font-size:clamp(1.7rem,3vw,2.4rem);
-      font-weight:800;
-      margin-bottom:10px;
-      position:relative;
-      display:inline-block;
-    }
-    .spm-section-title::after{
-      content:'';
-      position:absolute;
-      left:50%;
-      bottom:-6px;
-      width:50px;
-      height:3px;
-      transform:translateX(-50%);
-      border-radius:2px;
-      background:var(--spm-primary);
-    }
-    .spm-section-sub{
-      font-size:.95rem;
-      color:var(--spm-text-light);
-      max-width:540px;
-      margin:0 auto;
+    .supermart-section {
+      padding: 80px 0;
+      width: 100%;
     }
 
-    /* Categories */
-    .spm-cat-card{
-      background:#fff;
-      border-radius:18px;
-      padding:22px 16px;
-      text-align:center;
-      box-shadow:var(--spm-shadow-md);
-      height:150px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-decoration:none;
-      color:var(--spm-text-dark);
-      transition:.35s;
+    .supermart-section-head {
+      text-align: center;
+      margin-bottom: 50px;
     }
-    .spm-cat-card:hover{
-      transform:translateY(-10px);
-      box-shadow:var(--spm-shadow-lg);
+
+    .supermart-section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
     }
-    .spm-cat-icon{
-      width:52px;
-      height:52px;
-      margin-bottom:8px;
+
+    .supermart-section-title::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 60px;
+      height: 4px;
+      transform: translateX(-50%);
+      border-radius: 2px;
+      background: var(--supermart-primary);
     }
-    .spm-cat-name{
-      font-size:.95rem;
-      font-weight:700;
+
+    .supermart-section-sub {
+      font-size: 1.05rem;
+      color: var(--supermart-text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
-    .spm-cat-count{
-      font-size:.8rem;
-      color:var(--spm-text-light);
+
+    /* PREMIUM CATEGORIES CAROUSEL */
+    .supermart-categories-section {
+      padding: 80px 0;
+      width: 100%;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .supermart-categories-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="%238b5cf6" points="0,1000 1000,0 1000,1000"/></svg>');
+      background-size: cover;
+    }
+
+    .supermart-categories-container {
+      position: relative;
+      overflow: hidden;
+      padding: 0 60px;
+    }
+
+    .supermart-categories-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .supermart-categories-slide {
+      flex: 0 0 calc(16.666% - 17px); /* 6 items per row on desktop */
+      display: flex;
+      justify-content: center;
+    }
+
+    .supermart-cat-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: var(--supermart-shadow-md);
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--supermart-text-dark);
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      border: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    .supermart-cat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-accent));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .supermart-cat-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--supermart-shadow-lg);
+    }
+
+    .supermart-cat-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .supermart-cat-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-accent));
+      border-radius: 50%;
+      color: white;
+    }
+
+    .supermart-cat-card:hover .supermart-cat-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .supermart-cat-name {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .supermart-cat-count {
+      font-size: .85rem;
+      color: var(--supermart-text-light);
+      background: rgba(139, 92, 246, 0.08);
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .supermart-categories-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: white;
+      border: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--supermart-text-dark);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .supermart-categories-control:hover {
+      background: var(--supermart-primary);
+      color: white;
+      border-color: var(--supermart-primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .supermart-categories-prev {
+      left: 0;
+    }
+
+    .supermart-categories-next {
+      right: 0;
+    }
+
+    .supermart-categories-control.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .supermart-categories-control.disabled:hover {
+      background: white;
+      color: var(--supermart-text-dark);
+      border-color: #e0e0e0;
+      transform: translateY(-50%);
+    }
+
+    .supermart-categories-indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 8px;
+    }
+
+    .supermart-categories-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .supermart-categories-indicator.active {
+      background: var(--supermart-primary);
+      transform: scale(1.2);
     }
 
     /* Products */
-    .spm-prod-card{
-      background:#fff;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:var(--spm-shadow-md);
-      display:flex;
-      flex-direction:column;
-      height:100%;
-      transition:.4s;
+    .supermart-prod-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--supermart-shadow-md);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: .4s;
+      position: relative;
     }
-    .spm-prod-card:hover{
-      transform:translateY(-12px);
-      box-shadow:var(--spm-shadow-lg);
+
+    .supermart-prod-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--supermart-shadow-lg);
     }
-    .spm-prod-img-wrap{
-      position:relative;
-      height:200px;
-      overflow:hidden;
+
+    .supermart-prod-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
     }
-    .spm-prod-img-wrap img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:.6s;
+
+    .supermart-prod-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .6s;
     }
-    .spm-prod-card:hover .spm-prod-img-wrap img{
-      transform:scale(1.07);
+
+    .supermart-prod-card:hover .supermart-prod-img-wrap img {
+      transform: scale(1.07);
     }
-    .spm-prod-badge{
-      position:absolute;
-      top:10px;
-      left:10px;
-      padding:5px 10px;
-      border-radius:16px;
-      background:var(--spm-accent);
-      color:#fff;
-      font-size:.75rem;
-      font-weight:700;
+
+    .supermart-prod-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: var(--supermart-accent);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
     }
-    .spm-prod-body{
-      padding:14px 16px 16px;
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      flex:1;
+
+    .supermart-prod-body {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
     }
-    .spm-prod-title{
-      font-size:.98rem;
-      font-weight:700;
-      margin:0;
-      line-height:1.4;
+
+    .supermart-prod-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.4;
     }
-    .spm-prod-meta{
-      font-size:.8rem;
-      color:var(--spm-text-light);
+
+    .supermart-prod-meta {
+      font-size: .85rem;
+      color: var(--supermart-text-light);
     }
-    .spm-prod-price{
-      font-size:1.1rem;
-      font-weight:800;
-      color:var(--spm-primary-dark);
+
+    .supermart-prod-price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--supermart-primary-dark);
+      margin-top: 5px;
     }
-    .spm-prod-old{
-      text-decoration:line-through;
-      color:#999;
-      font-size:.85rem;
-      margin-left:6px;
+
+    .supermart-prod-old {
+      text-decoration: line-through;
+      color: #999;
+      font-size: .9rem;
+      margin-left: 8px;
     }
-    .spm-prod-actions{
-      margin-top:8px;
-      display:flex;
-      gap:8px;
+
+    .supermart-prod-actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
     }
-    .spm-btn-cart{
-      flex:1;
-      border-radius:18px;
-      border:none;
-      padding:8px 10px;
-      font-size:.85rem;
-      font-weight:700;
-      background:linear-gradient(135deg,var(--spm-primary),var(--spm-primary-dark));
-      color:#fff;
-      transition:.3s;
+
+    .supermart-btn-cart {
+      flex: 1;
+      border-radius: 18px;
+      border: none;
+      padding: 10px 12px;
+      font-size: .9rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--supermart-primary), var(--supermart-primary-dark));
+      color: #fff;
+      transition: .3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
     }
-    .spm-btn-cart:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 24px rgba(46,204,113,.4);
+
+    .supermart-btn-cart:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, .4);
     }
-    .spm-btn-heart{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      border:1px solid #e0e0e0;
-      background:#fff;
-      color:#999;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:.3s;
+
+    .supermart-btn-heart {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      background: #fff;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .3s;
     }
-    .spm-btn-heart:hover{
-      border-color:var(--spm-accent);
-      color:var(--spm-accent);
+
+    .supermart-btn-heart:hover {
+      border-color: var(--supermart-accent);
+      color: var(--supermart-accent);
+      transform: scale(1.1);
+    }
+
+    /* Category Navigation */
+    .supermart-cat-nav {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 12px 0;
+      margin-bottom: 25px;
+      scrollbar-width: none;
+    }
+
+    .supermart-cat-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .supermart-cat-nav-btn {
+      white-space: nowrap;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      color: var(--supermart-text-dark);
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .supermart-cat-nav-btn.active,
+    .supermart-cat-nav-btn:hover {
+      background: var(--supermart-primary);
+      color: #fff;
+      border-color: var(--supermart-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
     }
 
     /* Newsletter */
-    .spm-newsletter{
-      background:linear-gradient(135deg,#1a1a1a,#2d2d2d);
-      color:#fff;
-      padding:70px 0;
+    .supermart-newsletter {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      color: #fff;
+      padding: 80px 0;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
     }
-    .spm-news-box{
-      background:rgba(255,255,255,.05);
-      border-radius:22px;
-      padding:32px 28px;
-      border:1px solid rgba(255,255,255,.15);
+
+    .supermart-newsletter::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><polygon fill="white" points="500,0 1000,500 500,1000 0,500"/></svg>');
+      background-size: cover;
+    }
+
+    .supermart-news-box {
+      background: rgba(255, 255, 255, .08);
+      border-radius: 25px;
+      padding: 40px 35px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
     }
 
     /* Footer */
-    .spm-footer{
-      background:linear-gradient(180deg,#0f0f0f,#1a1a1a);
-      color:#b3b3b3;
-      padding:60px 0 30px;
+    .supermart-footer {
+      background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+      color: #b3b3b3;
+      padding: 70px 0 30px;
+      width: 100%;
     }
-    .spm-footer h6{
-      color:#fff;
-      font-weight:700;
-      margin-bottom:14px;
-      font-size:1rem;
-    }
-    .spm-footer a{
-      color:#b3b3b3;
-      text-decoration:none;
-      font-size:.9rem;
-      display:block;
-      margin-bottom:6px;
-      transition:.3s;
-    }
-    .spm-footer a:hover{color:var(--spm-primary);}
 
-    /* Offcanvas cart */
-    .spm-cart-item{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:8px 0;
-      border-bottom:1px solid #eee;
+    .supermart-footer h6 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+
+    .supermart-footer a {
+      color: #b3b3b3;
+      text-decoration: none;
+      font-size: .95rem;
+      display: block;
+      margin-bottom: 8px;
+      transition: .3s;
+    }
+
+    .supermart-footer a:hover {
+      color: var(--supermart-accent);
+      transform: translateX(5px);
+    }
+
+    /* Offcanvas cart - FIXED OVERLAP ISSUE */
+    .supermart-offcanvas-cart {
+      z-index: 1110 !important; /* Higher than header and topbar */
+    }
+
+    .supermart-cart-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
     }
 
     /* Skeleton Loading */
-    .spm-skeleton {
+    .supermart-skeleton {
       background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
       background-size: 200% 100%;
-      animation: loading 1.5s infinite;
+      animation: supermartLoading 1.5s infinite;
       border-radius: 4px;
     }
-    
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+
+    @keyframes supermartLoading {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
     }
-    
-    .spm-skeleton-img {
+
+    .supermart-skeleton-img {
       width: 100%;
       height: 200px;
       border-radius: 20px 20px 0 0;
     }
-    
-    .spm-skeleton-text {
+
+    .supermart-skeleton-text {
       height: 16px;
       margin-bottom: 8px;
     }
-    
-    .spm-skeleton-text.short {
+
+    .supermart-skeleton-text.short {
       width: 60%;
     }
-    
-    .spm-skeleton-text.medium {
+
+    .supermart-skeleton-text.medium {
       width: 80%;
     }
-    
-    .spm-skeleton-price {
+
+    .supermart-skeleton-price {
       height: 20px;
       width: 40%;
       margin-bottom: 12px;
     }
-    
-    .spm-skeleton-button {
+
+    .supermart-skeleton-button {
       height: 38px;
       border-radius: 18px;
     }
-    
-    .spm-skeleton-cat {
+
+    .supermart-skeleton-cat {
       width: 52px;
       height: 52px;
       border-radius: 50%;
       margin-bottom: 8px;
     }
-    
-    .spm-skeleton-cat-text {
+
+    .supermart-skeleton-cat-text {
       height: 16px;
       width: 70%;
       margin-bottom: 4px;
     }
-    
-    .spm-skeleton-cat-count {
+
+    .supermart-skeleton-cat-count {
       height: 12px;
       width: 50%;
     }
 
-    /* Category Navigation */
-    .spm-cat-nav {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 10px 0;
-      margin-bottom: 20px;
-      scrollbar-width: none;
-    }
-    
-    .spm-cat-nav::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .spm-cat-nav-btn {
-      white-space: nowrap;
-      padding: 8px 16px;
-      border-radius: 20px;
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      color: var(--spm-text-dark);
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    
-    .spm-cat-nav-btn.active,
-    .spm-cat-nav-btn:hover {
-      background: var(--spm-primary);
-      color: #fff;
-      border-color: var(--spm-primary);
+    /* Responsive */
+    @media (max-width: 1199.98px) {
+      .supermart-nav-container {
+        max-width: 500px;
+      }
+      
+      .supermart-categories-slide {
+        flex: 0 0 calc(20% - 16px); /* 5 items per row */
+      }
     }
 
-    /* Responsive */
-    @media(max-width:991.98px){
-      .spm-hero{padding:60px 0;}
+    @media (max-width: 991.98px) {
+      .supermart-nav-container {
+        max-width: 400px;
+      }
+      
+      .supermart-hero {
+        padding: 80px 0 60px;
+      }
+      
+      /* Desktop search - slightly smaller on tablet */
+      .supermart-search.desktop {
+        max-width: 280px;
+      }
+      
+      .supermart-categories-slide {
+        flex: 0 0 calc(25% - 15px); /* 4 items per row */
+      }
+      
+      .supermart-categories-container {
+        padding: 0 50px;
+      }
     }
-    @media(max-width:767.98px){
-      .spm-section{padding:50px 0;}
+
+    @media (max-width: 767.98px) {
+      body {
+        padding-top: 170px; /* Adjusted for topbar + header on mobile */
+      }
+
+      .supermart-header {
+        padding: 8px 0;
+        height: 90px;
+      }
+
+      .supermart-section {
+        padding: 60px 0;
+      }
+
+      /* Hide desktop navigation */
+      .supermart-nav-container {
+        display: none;
+      }
+
+      /* Show mobile elements */
+      .supermart-mobile-nav {
+        display: block;
+      }
+
+      .supermart-mobile-search {
+        display: block;
+      }
+
+      /* Adjust search for mobile */
+      .supermart-search.desktop {
+        display: none !important;
+      }
+
+      .supermart-header-icons .d-md-none {
+        display: none !important;
+      }
+
+      /* Stack layout for mobile - FIXED WIDTH ISSUE */
+      .supermart-header .row {
+        flex-wrap: nowrap;
+        width: 100%;
+        margin: 0;
+      }
+
+      .supermart-header .col-auto:first-child {
+        flex-shrink: 0;
+        min-width: auto;
+      }
+
+      .supermart-header .col-auto:last-child {
+        flex-shrink: 0;
+        margin-left: auto;
+        min-width: auto;
+      }
+
+      /* Fix for mobile navigation width */
+      .supermart-mobile-nav {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .supermart-mobile-nav-track {
+        width: max-content;
+      }
+      
+      /* Mobile search - full width */
+      .supermart-search.mobile {
+        max-width: 100%;
+      }
+
+      /* Hero adjustments for mobile */
+      .supermart-hero-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+
+      .supermart-hero-text {
+        font-size: 1rem;
+      }
+
+      .supermart-stat-item {
+        padding: 12px 15px;
+      }
+
+      .supermart-stat-num {
+        font-size: 1.6rem;
+      }
+      
+      .supermart-categories-slide {
+        flex: 0 0 calc(33.333% - 14px); /* 3 items per row */
+      }
+      
+      .supermart-categories-container {
+        padding: 0 40px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .supermart-logo {
+        max-height: 40px;
+      }
+
+      .supermart-mobile-nav-item {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+
+      .supermart-search input {
+        font-size: 0.85rem;
+      }
+
+      .supermart-header-icons a {
+        width: 36px;
+        height: 36px;
+        margin-left: 6px;
+      }
+
+      .supermart-hero-stats {
+        gap: 15px;
+      }
+
+      .supermart-stat-item {
+        flex: 1;
+        min-width: calc(50% - 15px);
+      }
+      
+      .supermart-categories-slide {
+        flex: 0 0 calc(50% - 10px); /* 2 items per row */
+      }
+      
+      .supermart-categories-container {
+        padding: 0 30px;
+      }
+      
+      .supermart-cat-card {
+        height: 160px;
+        padding: 20px 15px;
+      }
+      
+      .supermart-cat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .supermart-container {
+        padding: 0 10px;
+      }
+      
+      .supermart-header .row {
+        flex-wrap: nowrap;
+      }
+      
+      .supermart-header-icons a {
+        width: 34px;
+        height: 34px;
+        margin-left: 4px;
+      }
+      
+      .supermart-logo {
+        max-height: 36px;
+      }
+      
+      /* Mobile search - full width with adjusted padding */
+      .supermart-search.mobile input {
+        padding: 8px 42px 8px 14px;
+      }
+      
+      .supermart-search.mobile button {
+        width: 36px;
+        height: 36px;
+      }
+
+      .supermart-hero {
+        padding: 60px 0 40px;
+      }
+
+      .supermart-btn-main, .supermart-btn-outline {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+
+      .supermart-stat-item {
+        min-width: 100%;
+      }
+      
+      .supermart-categories-slide {
+        flex: 0 0 100%; /* 1 item per row */
+      }
+      
+      .supermart-categories-container {
+        padding: 0 20px;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- TOPBAR -->
-  <div class="spm-topbar" data-aos="fade-down">
-    <div class="spm-container">
+  <div class="supermart-topbar" data-aos="fade-down">
+    <div class="supermart-container">
       <div class="row align-items-center g-2">
         <div class="col-md-6">
           <div class="d-flex flex-wrap align-items-center gap-2">
@@ -562,193 +1393,215 @@
     </div>
   </div>
 
-  <!-- HEADER -->
-  <header class="spm-header" data-aos="fade-down" data-aos-delay="80">
-    <div class="spm-container">
+  <!-- HEADER - FIXED OVERLAP ISSUE -->
+  <header class="supermart-header" data-aos="fade-down" data-aos-delay="80">
+    <div class="supermart-container">
+      <!-- First Row: Logo, Search, Icons -->
       <div class="row align-items-center g-3">
+        <!-- Logo -->
         <div class="col-auto">
-          <a href="#"><img src="logo.jpg" alt="SuperMart Pro" class="spm-logo"></a>
+          <a href="#">
+            <img src="https://via.placeholder.com/150x50/8b5cf6/ffffff?text=SuperMart" alt="SuperMart Pro" class="supermart-logo">
+          </a>
         </div>
+        
+        <!-- Desktop Navigation with One-by-One Carousel -->
         <div class="col d-none d-lg-block">
-          <ul class="nav spm-nav">
-            <li class="nav-item"><a class="nav-link active" href="#">Fruits & Veg</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Dairy</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Staples</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Snacks</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Beverages</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Household</a></li>
-          </ul>
+          <div class="supermart-nav-container">
+            <div class="supermart-nav-carousel">
+              <div class="supermart-nav-track" id="supermartNavTrack">
+                <!-- Navigation items will be added dynamically -->
+              </div>
+            </div>
+            <button class="supermart-nav-control supermart-nav-prev" id="supermartNavPrev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="supermart-nav-control supermart-nav-next" id="supermartNavNext">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
         </div>
+        
+        <!-- Search and Icons -->
         <div class="col-auto ms-auto">
           <div class="d-flex align-items-center">
-            <div class="spm-search me-2 d-none d-md-block">
+            <!-- Desktop Search -->
+            <div class="supermart-search desktop me-2 d-none d-md-block">
               <input type="text" class="form-control" placeholder="Search 15K+ products...">
               <button><i class="fas fa-search"></i></button>
             </div>
-            <div class="spm-header-icons d-flex align-items-center">
+            <div class="supermart-header-icons d-flex align-items-center">
               <a href="#" title="Search" class="d-md-none"><i class="fas fa-search"></i></a>
               <a href="#" title="Account"><i class="far fa-user"></i></a>
               <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-              <a href="#" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#spmCartOffcanvas">
+              <a href="#" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#supermartCartOffcanvas">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="spm-cart-count">3</span>
+                <span class="supermart-cart-count">3</span>
               </a>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Second Row: Mobile Search and Navigation -->
+      <div class="d-lg-none">
+        <!-- Mobile Search - Full Width -->
+        <div class="supermart-mobile-search">
+          <div class="supermart-search mobile">
+            <input type="text" class="form-control" placeholder="Search 15K+ products...">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="supermart-mobile-nav">
+          <div class="supermart-mobile-nav-track" id="supermartMobileNavTrack">
+            <!-- Mobile navigation items will be added dynamically -->
+          </div>
+          <button class="supermart-mobile-control supermart-mobile-prev" id="supermartMobilePrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="supermart-mobile-control supermart-mobile-next" id="supermartMobileNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="spm-hero">
-    <div class="spm-container">
-      <div class="row align-items-center gy-4">
-        <div class="col-lg-6" data-aos="fade-right">
-          <span class="spm-hero-badge">🔥 Up to 50% OFF + Free Delivery</span>
-          <h1 class="spm-hero-title">
-            Premium Groceries<br>Delivered in 90 Minutes
+  <!-- PREMIUM HERO SECTION - FIXED OVERLAP ISSUE -->
+  <section class="supermart-hero">
+    <div class="supermart-floating-elements">
+      <div class="supermart-floating-element"></div>
+      <div class="supermart-floating-element"></div>
+      <div class="supermart-floating-element"></div>
+      <div class="supermart-floating-element"></div>
+    </div>
+    <div class="supermart-container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+          <span class="supermart-hero-badge">🔥 TRENDING NOW - Up to 50% OFF + Free Delivery</span>
+          <h1 class="supermart-hero-title">
+            Premium Groceries<br>Delivered in <span style="background:linear-gradient(135deg, #f59e0b, #d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">90 Minutes</span>
           </h1>
-          <p class="spm-hero-text">
-            15,000+ fresh products across 25+ categories. Farm-fresh fruits, crisp vegetables, premium dairy and daily essentials, delivered to your doorstep.
+          <p class="supermart-hero-text">
+            Experience the future of grocery shopping with 15,000+ fresh products across 25+ premium categories. Farm-fresh organic produce, artisanal dairy, and gourmet essentials delivered to your doorstep with lightning speed.
           </p>
-          <div class="spm-hero-stats">
-            <div>
-              <span class="spm-stat-num">50K+</span>
-              <span class="spm-stat-label">Happy Customers</span>
+          <div class="supermart-hero-stats">
+            <div class="supermart-stat-item" data-aos="zoom-in" data-aos-delay="200">
+              <span class="supermart-stat-num">50K+</span>
+              <span class="supermart-stat-label">Happy Customers</span>
             </div>
-            <div>
-              <span class="spm-stat-num">15K+</span>
-              <span class="spm-stat-label">Products</span>
+            <div class="supermart-stat-item" data-aos="zoom-in" data-aos-delay="300">
+              <span class="supermart-stat-num">15K+</span>
+              <span class="supermart-stat-label">Premium Products</span>
             </div>
-            <div>
-              <span class="spm-stat-num">90</span>
-              <span class="spm-stat-label">Min Delivery</span>
+            <div class="supermart-stat-item" data-aos="zoom-in" data-aos-delay="400">
+              <span class="supermart-stat-num">90</span>
+              <span class="supermart-stat-label">Min Delivery</span>
             </div>
           </div>
-          <div class="d-flex flex-wrap gap-2">
-            <button class="spm-btn-main">🛒 Start Shopping</button>
-            <button class="btn btn-outline-dark rounded-pill px-4">View All Offers</button>
+          <div class="d-flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="500">
+            <button class="supermart-btn-main">
+              <i class="fas fa-bolt me-2"></i>Start Shopping Now
+            </button>
+            <button class="supermart-btn-outline">
+              <i class="fas fa-gift me-2"></i>View Premium Offers
+            </button>
           </div>
         </div>
-        <div class="col-lg-6 text-center" data-aos="zoom-in">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&fit=crop"
-               alt="Grocery Store" class="img-fluid rounded-4 shadow-lg"
-               style="max-height:450px;object-fit:cover;">
+        <div class="col-lg-6 text-center" data-aos="zoom-in" data-aos-delay="300">
+          <div class="supermart-hero-visual">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&fit=crop"
+                 alt="Premium Grocery Delivery" class="img-fluid supermart-hero-image"
+                 style="max-height:500px;object-fit:cover;">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CATEGORIES -->
-  <section class="spm-section bg-white">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Shop by Category</h2>
-        <p class="spm-section-sub">Browse all essentials neatly organised into easy-to-explore sections.</p>
+  <!-- PREMIUM CATEGORIES CAROUSEL -->
+  <section class="supermart-categories-section">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Shop by Category</h2>
+        <p class="supermart-section-sub">Browse all essentials neatly organised into easy-to-explore premium sections.</p>
       </div>
-      <div class="row g-3">
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="50">
-          <a href="#" class="spm-cat-card">
-            <img src="https://via.placeholder.com/60x60/28a745/ffffff?text=🥬" class="spm-cat-icon" alt="">
-            <span class="spm-cat-name">Vegetables</span>
-            <span class="spm-cat-count">2,847 items</span>
-          </a>
+      
+      <div class="supermart-categories-container" data-aos="fade-up" data-aos-delay="100">
+        <div class="supermart-categories-track" id="supermartCategoriesTrack">
+          <!-- Categories will be added dynamically -->
         </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
-          <a href="#" class="spm-cat-card">
-            <img src="https://via.placeholder.com/60x60/e74c3c/ffffff?text=🍎" class="spm-cat-icon" alt="">
-            <span class="spm-cat-name">Fruits</span>
-            <span class="spm-cat-count">1,932 items</span>
-          </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="150">
-          <a href="#" class="spm-cat-card">
-            <img src="https://via.placeholder.com/60x60/f39c12/ffffff?text=🥛" class="spm-cat-icon" alt="">
-            <span class="spm-cat-name">Dairy & Eggs</span>
-            <span class="spm-cat-count">1,456 items</span>
-          </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
-          <a href="#" class="spm-cat-card">
-            <img src="https://via.placeholder.com/60x60/9b59b6/ffffff?text=🍚" class="spm-cat-icon" alt="">
-            <span class="spm-cat-name">Staples</span>
-            <span class="spm-cat-count">3,112 items</span>
-          </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="250">
-          <a href="#" class="spm-cat-card">
-            <img src="https://via.placeholder.com/60x60/3498db/ffffff?text=🍪" class="spm-cat-icon" alt="">
-            <span class="spm-cat-name">Snacks</span>
-            <span class="spm-cat-count">1,205 items</span>
-          </a>
-        </div>
-        <div class="col-6 col-sm-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="300">
-          <a href="#" class="spm-cat-card">
-            <img src="https://via.placeholder.com/60x60/1abc9c/ffffff?text=🥤" class="spm-cat-icon" alt="">
-            <span class="spm-cat-name">Beverages</span>
-            <span class="spm-cat-count">980 items</span>
-          </a>
-        </div>
+        <button class="supermart-categories-control supermart-categories-prev" id="supermartCategoriesPrev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="supermart-categories-control supermart-categories-next" id="supermartCategoriesNext">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <div class="supermart-categories-indicators" id="supermartCategoriesIndicators">
+        <!-- Indicators will be added dynamically -->
       </div>
     </div>
   </section>
 
   <!-- DEALS -->
-  <section class="spm-section" style="background:#fff7ec;">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Today’s Hot Deals</h2>
-        <p class="spm-section-sub">Grab these limited-time offers before they are sold out.</p>
+  <section class="supermart-section" style="background:#fefce8;">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Today's Hot Deals</h2>
+        <p class="supermart-section-sub">Grab these limited-time premium offers before they are sold out.</p>
       </div>
-      <div class="row g-3">
+      <div class="row g-4">
         <div class="col-md-4" data-aos="flip-left" data-aos-delay="50">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1542838132-b439b1d5de00?w=500&fit=crop" alt="">
-              <span class="spm-prod-badge">35% OFF</span>
+              <span class="supermart-prod-badge">35% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Sunflower Cooking Oil</p>
-              <span class="spm-prod-meta">5L • Family Pack</span>
-              <div class="spm-prod-price">₹749 <span class="spm-prod-old">₹1,149</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Organic Sunflower Cooking Oil</p>
+              <span class="supermart-prod-meta">5L • Premium Family Pack</span>
+              <div class="supermart-prod-price">₹749 <span class="supermart-prod-old">₹1,149</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1597946658698-baa8c5069efc?w=500&fit=crop" alt="">
-              <span class="spm-prod-badge">28% OFF</span>
+              <span class="supermart-prod-badge">28% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Premium Basmati Rice</p>
-              <span class="spm-prod-meta">10kg • Aged Grains</span>
-              <div class="spm-prod-price">₹999 <span class="spm-prod-old">₹1,399</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Premium Basmati Rice</p>
+              <span class="supermart-prod-meta">10kg • Aged Grains</span>
+              <div class="supermart-prod-price">₹999 <span class="supermart-prod-old">₹1,399</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="flip-left" data-aos-delay="150">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1574651351436-395d16a9bcce?w=500&fit=crop" alt="">
-              <span class="spm-prod-badge">B1G1 FREE</span>
+              <span class="supermart-prod-badge">B1G1 FREE</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Masala Chips Combo</p>
-              <span class="spm-prod-meta">6 packs • Assorted Flavours</span>
-              <div class="spm-prod-price">₹199 <span class="spm-prod-old">₹398</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Gourmet Masala Chips Combo</p>
+              <span class="supermart-prod-meta">6 packs • Assorted Flavours</span>
+              <div class="supermart-prod-price">₹199 <span class="supermart-prod-old">₹398</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-bolt me-1"></i>Grab Deal</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -758,77 +1611,77 @@
   </section>
 
   <!-- BEST SELLERS -->
-  <section class="spm-section bg-white">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Best Sellers</h2>
-        <p class="spm-section-sub">Most-loved items that customers reorder every week.</p>
+  <section class="supermart-section bg-white">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Best Sellers</h2>
+        <p class="supermart-section-sub">Most-loved premium items that customers reorder every week.</p>
       </div>
-      <div class="row g-3">
+      <div class="row g-4">
         <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1569625346610-98748f371d85?w=400&fit=crop" alt="">
-              <span class="spm-prod-badge">22% OFF</span>
+              <span class="supermart-prod-badge">22% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Organic Tomatoes</p>
-              <span class="spm-prod-meta">1kg • Farm Fresh</span>
-              <div class="spm-prod-price">₹79 <span class="spm-prod-old">₹99</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Organic Tomatoes</p>
+              <span class="supermart-prod-meta">1kg • Farm Fresh</span>
+              <div class="supermart-prod-price">₹79 <span class="supermart-prod-old">₹99</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1571877227019-e2fb3d32228b?w=400&fit=crop" alt="">
-              <span class="spm-prod-badge">15% OFF</span>
+              <span class="supermart-prod-badge">15% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Amul Toned Milk</p>
-              <span class="spm-prod-meta">1L • Pouch</span>
-              <div class="spm-prod-price">₹52 <span class="spm-prod-old">₹62</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Amul Toned Milk</p>
+              <span class="supermart-prod-meta">1L • Pouch</span>
+              <div class="supermart-prod-price">₹52 <span class="supermart-prod-old">₹62</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1542838132-b439b1d5de00?w=400&fit=crop" alt="">
-              <span class="spm-prod-badge">18% OFF</span>
+              <span class="supermart-prod-badge">18% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Red Onions</p>
-              <span class="spm-prod-meta">1kg • Fresh Stock</span>
-              <div class="spm-prod-price">₹45 <span class="spm-prod-old">₹55</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Fresh Red Onions</p>
+              <span class="supermart-prod-meta">1kg • Premium Quality</span>
+              <div class="supermart-prod-price">₹45 <span class="supermart-prod-old">₹55</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
               <img src="https://images.unsplash.com/photo-1601001734310-7b591b6fef3d?w=400&fit=crop" alt="">
-              <span class="spm-prod-badge">12% OFF</span>
+              <span class="supermart-prod-badge">12% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">Farm Fresh Eggs</p>
-              <span class="spm-prod-meta">Tray of 30</span>
-              <div class="spm-prod-price">₹135 <span class="spm-prod-old">₹155</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Farm Fresh Eggs</p>
+              <span class="supermart-prod-meta">Tray of 30</span>
+              <div class="supermart-prod-price">₹135 <span class="supermart-prod-old">₹155</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -838,85 +1691,91 @@
   </section>
 
   <!-- FRUITS & VEGETABLES -->
-  <section class="spm-section bg-white">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Fresh Fruits & Vegetables</h2>
-        <p class="spm-section-sub">Farm-fresh produce delivered directly to your doorstep.</p>
+  <section class="supermart-section bg-white">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Fresh Fruits & Vegetables</h2>
+        <p class="supermart-section-sub">Farm-fresh organic produce delivered directly to your doorstep.</p>
       </div>
       
-      <div class="spm-cat-nav">
-        <button class="spm-cat-nav-btn active">All Fruits & Veg</button>
-        <button class="spm-cat-nav-btn">Seasonal Fruits</button>
-        <button class="spm-cat-nav-btn">Leafy Greens</button>
-        <button class="spm-cat-nav-btn">Exotic Fruits</button>
-        <button class="spm-cat-nav-btn">Organic Produce</button>
-        <button class="spm-cat-nav-btn">Root Vegetables</button>
+      <div class="supermart-cat-nav">
+        <button class="supermart-cat-nav-btn active">All Fruits & Veg</button>
+        <button class="supermart-cat-nav-btn">Seasonal Fruits</button>
+        <button class="supermart-cat-nav-btn">Leafy Greens</button>
+        <button class="supermart-cat-nav-btn">Exotic Fruits</button>
+        <button class="supermart-cat-nav-btn">Organic Produce</button>
+        <button class="supermart-cat-nav-btn">Root Vegetables</button>
       </div>
       
-      <div class="row g-3" id="fruits-veg-container">
-        <!-- Skeleton loading -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+      <div class="row g-4" id="supermart-fruits-veg-container">
+        <!-- Product 1 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">17% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Fresh Apples</p>
+              <span class="supermart-prod-meta">1kg • Shimla</span>
+              <div class="supermart-prod-price">₹149 <span class="supermart-prod-old">₹179</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <!-- Repeat skeleton 7 more times -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 2 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">14% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Organic Bananas</p>
+              <span class="supermart-prod-meta">1 dozen • Premium</span>
+              <div class="supermart-prod-price">₹59 <span class="supermart-prod-old">₹69</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 3 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">22% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Fresh Carrots</p>
+              <span class="supermart-prod-meta">500g • Farm Fresh</span>
+              <div class="supermart-prod-price">₹35 <span class="supermart-prod-old">₹45</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 4 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">24% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Broccoli</p>
+              <span class="supermart-prod-meta">1 piece • Imported</span>
+              <div class="supermart-prod-price">₹65 <span class="supermart-prod-old">₹85</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -926,85 +1785,91 @@
   </section>
 
   <!-- DAIRY & EGGS -->
-  <section class="spm-section" style="background:#f0f9ff;">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Dairy & Eggs</h2>
-        <p class="spm-section-sub">Fresh dairy products, milk, cheese, and eggs from trusted farms.</p>
+  <section class="supermart-section" style="background:#faf5ff;">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Dairy & Eggs</h2>
+        <p class="supermart-section-sub">Fresh dairy products, milk, cheese, and eggs from trusted farms.</p>
       </div>
       
-      <div class="spm-cat-nav">
-        <button class="spm-cat-nav-btn active">All Dairy</button>
-        <button class="spm-cat-nav-btn">Milk & Cream</button>
-        <button class="spm-cat-nav-btn">Cheese</button>
-        <button class="spm-cat-nav-btn">Yogurt & Curd</button>
-        <button class="spm-cat-nav-btn">Butter & Ghee</button>
-        <button class="spm-cat-nav-btn">Eggs</button>
+      <div class="supermart-cat-nav">
+        <button class="supermart-cat-nav-btn active">All Dairy</button>
+        <button class="supermart-cat-nav-btn">Milk & Cream</button>
+        <button class="supermart-cat-nav-btn">Cheese</button>
+        <button class="supermart-cat-nav-btn">Yogurt & Curd</button>
+        <button class="supermart-cat-nav-btn">Butter & Ghee</button>
+        <button class="supermart-cat-nav-btn">Eggs</button>
       </div>
       
-      <div class="row g-3" id="dairy-container">
-        <!-- Skeleton loading -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+      <div class="row g-4" id="supermart-dairy-container">
+        <!-- Product 1 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1559585782-9759d0052e7b?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">11% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Amul Butter</p>
+              <span class="supermart-prod-meta">500g • Salted</span>
+              <div class="supermart-prod-price">₹245 <span class="supermart-prod-old">₹275</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <!-- Repeat skeleton 7 more times -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 2 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1567336273898-ebbe52f1f78e?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">18% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Mother Dairy Curd</p>
+              <span class="supermart-prod-meta">400g • Fresh</span>
+              <div class="supermart-prod-price">₹45 <span class="supermart-prod-old">₹55</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 3 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">14% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Britannia Cheese</p>
+              <span class="supermart-prod-meta">200g • Slices</span>
+              <div class="supermart-prod-price">₹125 <span class="supermart-prod-old">₹145</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 4 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">11% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Nestle Milkmaid</p>
+              <span class="supermart-prod-meta">400g • Condensed Milk</span>
+              <div class="supermart-prod-price">₹165 <span class="supermart-prod-old">₹185</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -1014,85 +1879,91 @@
   </section>
 
   <!-- STAPLES -->
-  <section class="spm-section bg-white">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Kitchen Staples</h2>
-        <p class="spm-section-sub">Essential ingredients for your everyday cooking needs.</p>
+  <section class="supermart-section bg-white">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Kitchen Staples</h2>
+        <p class="supermart-section-sub">Essential ingredients for your everyday cooking needs.</p>
       </div>
       
-      <div class="spm-cat-nav">
-        <button class="spm-cat-nav-btn active">All Staples</button>
-        <button class="spm-cat-nav-btn">Rice & Grains</button>
-        <button class="spm-cat-nav-btn">Pulses & Lentils</button>
-        <button class="spm-cat-nav-btn">Flour & Atta</button>
-        <button class="spm-cat-nav-btn">Oils & Ghee</button>
-        <button class="spm-cat-nav-btn">Spices & Masalas</button>
+      <div class="supermart-cat-nav">
+        <button class="supermart-cat-nav-btn active">All Staples</button>
+        <button class="supermart-cat-nav-btn">Rice & Grains</button>
+        <button class="supermart-cat-nav-btn">Pulses & Lentils</button>
+        <button class="supermart-cat-nav-btn">Flour & Atta</button>
+        <button class="supermart-cat-nav-btn">Oils & Ghee</button>
+        <button class="supermart-cat-nav-btn">Spices & Masalas</button>
       </div>
       
-      <div class="row g-3" id="staples-container">
-        <!-- Skeleton loading -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+      <div class="row g-4" id="supermart-staples-container">
+        <!-- Product 1 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">14% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Fortune Chakki Atta</p>
+              <span class="supermart-prod-meta">5kg • Whole Wheat</span>
+              <div class="supermart-prod-price">₹245 <span class="supermart-prod-old">₹285</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <!-- Repeat skeleton 7 more times -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 2 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">12% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Tata Sona Masoori</p>
+              <span class="supermart-prod-meta">5kg • Premium Rice</span>
+              <div class="supermart-prod-price">₹395 <span class="supermart-prod-old">₹450</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 3 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1594663653925-8931effb2935?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">17% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Tata Salt</p>
+              <span class="supermart-prod-meta">1kg • Iodized</span>
+              <div class="supermart-prod-price">₹25 <span class="supermart-prod-old">₹30</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 4 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611854778585-e8e59e6e73c9?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">13% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Fortune Sunflower Oil</p>
+              <span class="supermart-prod-meta">1L • Refined</span>
+              <div class="supermart-prod-price">₹165 <span class="supermart-prod-old">₹190</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -1102,85 +1973,91 @@
   </section>
 
   <!-- SNACKS & BEVERAGES -->
-  <section class="spm-section" style="background:#fff7ec;">
-    <div class="spm-container">
-      <div class="spm-section-head" data-aos="fade-up">
-        <h2 class="spm-section-title">Snacks & Beverages</h2>
-        <p class="spm-section-sub">Delicious treats and refreshing drinks for every occasion.</p>
+  <section class="supermart-section" style="background:#fefce8;">
+    <div class="supermart-container">
+      <div class="supermart-section-head" data-aos="fade-up">
+        <h2 class="supermart-section-title">Snacks & Beverages</h2>
+        <p class="supermart-section-sub">Delicious treats and refreshing drinks for every occasion.</p>
       </div>
       
-      <div class="spm-cat-nav">
-        <button class="spm-cat-nav-btn active">All Snacks & Drinks</button>
-        <button class="spm-cat-nav-btn">Chips & Crisps</button>
-        <button class="spm-cat-nav-btn">Biscuits & Cookies</button>
-        <button class="spm-cat-nav-btn">Soft Drinks</button>
-        <button class="spm-cat-nav-btn">Juices</button>
-        <button class="spm-cat-nav-btn">Tea & Coffee</button>
+      <div class="supermart-cat-nav">
+        <button class="supermart-cat-nav-btn active">All Snacks & Drinks</button>
+        <button class="supermart-cat-nav-btn">Chips & Crisps</button>
+        <button class="supermart-cat-nav-btn">Biscuits & Cookies</button>
+        <button class="supermart-cat-nav-btn">Soft Drinks</button>
+        <button class="supermart-cat-nav-btn">Juices</button>
+        <button class="supermart-cat-nav-btn">Tea & Coffee</button>
       </div>
       
-      <div class="row g-3" id="snacks-container">
-        <!-- Skeleton loading -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+      <div class="row g-4" id="supermart-snacks-container">
+        <!-- Product 1 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1566474986508-0e6c2831e9cf?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">25% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Lays Potato Chips</p>
+              <span class="supermart-prod-meta">3 packs • Assorted</span>
+              <div class="supermart-prod-price">₹90 <span class="supermart-prod-old">₹120</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <!-- Repeat skeleton 7 more times -->
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 2 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">15% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Coca Cola</p>
+              <span class="supermart-prod-meta">1.5L • Soft Drink</span>
+              <div class="supermart-prod-price">₹85 <span class="supermart-prod-old">₹100</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 3 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">20% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Parle-G Biscuits</p>
+              <span class="supermart-prod-meta">2 packs • 200g each</span>
+              <div class="supermart-prod-price">₹40 <span class="supermart-prod-old">₹50</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <div class="spm-skeleton spm-skeleton-img"></div>
+        <!-- Product 4 -->
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="supermart-prod-card">
+            <div class="supermart-prod-img-wrap">
+              <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&fit=crop" alt="">
+              <span class="supermart-prod-badge">17% OFF</span>
             </div>
-            <div class="spm-prod-body">
-              <div class="spm-skeleton spm-skeleton-text medium"></div>
-              <div class="spm-skeleton spm-skeleton-text short"></div>
-              <div class="spm-skeleton spm-skeleton-price"></div>
-              <div class="spm-prod-actions">
-                <div class="spm-skeleton spm-skeleton-button"></div>
-                <div class="spm-skeleton spm-btn-heart"></div>
+            <div class="supermart-prod-body">
+              <p class="supermart-prod-title">Tropicana Juice</p>
+              <span class="supermart-prod-meta">1L • Orange</span>
+              <div class="supermart-prod-price">₹145 <span class="supermart-prod-old">₹175</span></div>
+              <div class="supermart-prod-actions">
+                <button class="supermart-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
+                <button class="supermart-btn-heart"><i class="far fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -1190,25 +2067,25 @@
   </section>
 
   <!-- NEWSLETTER -->
-  <section class="spm-newsletter">
-    <div class="spm-container">
+  <section class="supermart-newsletter">
+    <div class="supermart-container">
       <div class="row gy-4 align-items-center">
         <div class="col-lg-6" data-aos="fade-right">
-          <h2 class="spm-section-title text-white">Never miss a price drop</h2>
+          <h2 class="supermart-section-title text-white">Never miss a price drop</h2>
           <p class="mt-3" style="max-width:420px;">
-            Subscribe to get flash sales, festival offers and new product alerts directly in your inbox.
+            Subscribe to get flash sales, festival offers and new premium product alerts directly in your inbox.
           </p>
-          <p class="small text-muted mb-0">Trusted by 250K+ subscribers.</p>
+          <p class="small text-muted mb-0">Trusted by 250K+ premium subscribers.</p>
         </div>
         <div class="col-lg-6" data-aos="fade-left">
-          <div class="spm-news-box">
+          <div class="supermart-news-box">
             <form class="row g-2">
               <div class="col-md-8">
                 <input type="email" class="form-control form-control-lg"
                        placeholder="Enter your email address">
               </div>
               <div class="col-md-4 d-grid">
-                <button class="btn btn-success btn-lg">Get Deals</button>
+                <button class="btn btn-primary btn-lg">Get Premium Deals</button>
               </div>
             </form>
             <p class="small text-muted mt-2 mb-0">No spam. Unsubscribe anytime.</p>
@@ -1219,8 +2096,8 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="spm-footer">
-    <div class="spm-container">
+  <footer class="supermart-footer">
+    <div class="supermart-container">
       <div class="row g-4">
         <div class="col-md-4">
           <h6>About SuperMart Pro</h6>
@@ -1228,7 +2105,7 @@
             Your premium online supermarket for fresh fruits, vegetables, dairy, and daily-use essentials with 90‑minute delivery promise.
           </p>
           <p class="mb-1"><i class="fas fa-award text-warning me-1"></i>50K+ happy customers</p>
-          <p class="mb-0"><i class="fas fa-shipping-fast text-success me-1"></i>Serving across Mumbai & nearby regions</p>
+          <p class="mb-0"><i class="fas fa-shipping-fast text-primary me-1"></i>Serving across Mumbai & nearby regions</p>
         </div>
         <div class="col-md-4">
           <h6>Customer Care</h6>
@@ -1264,14 +2141,14 @@
     </div>
   </footer>
 
-  <!-- OFFCANVAS CART -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="spmCartOffcanvas">
+  <!-- OFFCANVAS CART - FIXED OVERLAP ISSUE -->
+  <div class="offcanvas offcanvas-end supermart-offcanvas-cart" tabindex="-1" id="supermartCartOffcanvas">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">My Cart (3 items)</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column">
-      <div class="spm-cart-item">
+      <div class="supermart-cart-item">
         <img src="https://via.placeholder.com/60x60" class="rounded" alt="">
         <div class="flex-grow-1">
           <div>Organic Tomatoes 1kg</div>
@@ -1279,7 +2156,7 @@
         </div>
         <strong>₹158</strong>
       </div>
-      <div class="spm-cart-item">
+      <div class="supermart-cart-item">
         <img src="https://via.placeholder.com/60x60" class="rounded" alt="">
         <div class="flex-grow-1">
           <div>Amul Toned Milk 1L</div>
@@ -1287,19 +2164,27 @@
         </div>
         <strong>₹52</strong>
       </div>
+      <div class="supermart-cart-item">
+        <img src="https://via.placeholder.com/60x60" class="rounded" alt="">
+        <div class="flex-grow-1">
+          <div>Fresh Apples 1kg</div>
+          <small class="text-muted">Qty: 1</small>
+        </div>
+        <strong>₹149</strong>
+      </div>
       <div class="mt-3 border-top pt-3">
         <div class="d-flex justify-content-between mb-1">
-          <span>Subtotal</span><strong>₹210</strong>
+          <span>Subtotal</span><strong>₹359</strong>
         </div>
         <div class="d-flex justify-content-between mb-1">
           <span>Delivery</span><strong>₹40</strong>
         </div>
         <div class="d-flex justify-content-between fw-bold">
-          <span>Total</span><strong>₹250</strong>
+          <span>Total</span><strong>₹399</strong>
         </div>
       </div>
       <div class="mt-3 d-grid gap-2">
-        <button class="btn btn-success">Proceed to Checkout</button>
+        <button class="btn btn-primary">Proceed to Checkout</button>
         <button class="btn btn-outline-secondary" data-bs-dismiss="offcanvas">Continue Shopping</button>
       </div>
     </div>
@@ -1311,218 +2196,404 @@
   <script>
     // Initialize AOS
     AOS.init({
-      duration: 700,
+      duration: 800,
       easing: 'ease-out-cubic',
       once: false,
       offset: 80
     });
     
-    // Lazy loading and skeleton replacement
+    // Navigation Carousel Functionality
     document.addEventListener('DOMContentLoaded', function() {
-      // Simulate loading products after a delay
-      setTimeout(loadFruitsVegetables, 1500);
-      setTimeout(loadDairyProducts, 2000);
-      setTimeout(loadStaples, 2500);
-      setTimeout(loadSnacksBeverages, 3000);
+      // Desktop elements
+      const supermartNavTrack = document.getElementById('supermartNavTrack');
+      const supermartNavPrev = document.getElementById('supermartNavPrev');
+      const supermartNavNext = document.getElementById('supermartNavNext');
       
-      // Category navigation
-      const catNavButtons = document.querySelectorAll('.spm-cat-nav-btn');
-      catNavButtons.forEach(button => {
+      // Mobile elements
+      const supermartMobileNavTrack = document.getElementById('supermartMobileNavTrack');
+      const supermartMobilePrev = document.getElementById('supermartMobilePrev');
+      const supermartMobileNext = document.getElementById('supermartMobileNext');
+      
+      // Categories elements
+      const supermartCategoriesTrack = document.getElementById('supermartCategoriesTrack');
+      const supermartCategoriesPrev = document.getElementById('supermartCategoriesPrev');
+      const supermartCategoriesNext = document.getElementById('supermartCategoriesNext');
+      const supermartCategoriesIndicators = document.getElementById('supermartCategoriesIndicators');
+      
+      // Initial navigation items
+      const initialItems = [
+        'Fruits & Veg',
+        'Dairy & Eggs',
+        'Staples',
+        'Snacks',
+        'Beverages',
+        'Household',
+        'Personal Care',
+        'Baby Care',
+        'Frozen Foods',
+        'Bakery',
+        'Meat & Fish',
+        'Organic'
+      ];
+      
+      // Categories data
+      const categories = [
+        { name: 'Fresh Vegetables', icon: '🥬', count: '2,847 items' },
+        { name: 'Premium Fruits', icon: '🍎', count: '1,932 items' },
+        { name: 'Dairy & Eggs', icon: '🥛', count: '1,456 items' },
+        { name: 'Kitchen Staples', icon: '🍚', count: '3,112 items' },
+        { name: 'Gourmet Snacks', icon: '🍪', count: '1,205 items' },
+        { name: 'Beverages', icon: '🥤', count: '980 items' },
+        { name: 'Personal Care', icon: '🧴', count: '1,875 items' },
+        { name: 'Household Items', icon: '🏠', count: '2,340 items' },
+        { name: 'Baby Care', icon: '👶', count: '890 items' },
+        { name: 'Frozen Foods', icon: '🧊', count: '1,120 items' },
+        { name: 'Bakery', icon: '🥖', count: '760 items' },
+        { name: 'Meat & Fish', icon: '🐟', count: '650 items' },
+        { name: 'Organic', icon: '🌿', count: '1,430 items' },
+        { name: 'Pet Supplies', icon: '🐕', count: '540 items' },
+        { name: 'Health Foods', icon: '🥗', count: '890 items' },
+        { name: 'International Cuisine', icon: '🌍', count: '1,210 items' }
+      ];
+      
+      let supermartDesktopCurrentPosition = 0;
+      let supermartMobileCurrentPosition = 0;
+      let supermartDesktopItemWidth = 0;
+      let supermartMobileItemWidth = 0;
+      
+      let supermartCategoriesCurrentPosition = 0;
+      let supermartCategoriesItemWidth = 0;
+      let supermartVisibleItems = 6; // Default for desktop
+      let supermartCurrentSlide = 0;
+      let supermartTotalSlides = 0;
+      
+      // Initialize navigation with items
+      function initializeSupermartNav() {
+        // Clear existing items
+        supermartNavTrack.innerHTML = '';
+        supermartMobileNavTrack.innerHTML = '';
+        
+        // Add items to both desktop and mobile
+        initialItems.forEach((item, index) => {
+          addSupermartNavItem(item, index === 0);
+        });
+        
+        // Calculate item widths after rendering
+        calculateSupermartItemWidths();
+        updateSupermartNavControls();
+      }
+      
+      // Add navigation item to both desktop and mobile
+      function addSupermartNavItem(text, isActive = false) {
+        if (!text.trim()) return;
+        
+        // Desktop item
+        const desktopItem = document.createElement('a');
+        desktopItem.className = `supermart-nav-item ${isActive ? 'active' : ''}`;
+        desktopItem.href = '#';
+        desktopItem.textContent = text;
+        supermartNavTrack.appendChild(desktopItem);
+        
+        // Mobile item
+        const mobileItem = document.createElement('a');
+        mobileItem.className = `supermart-mobile-nav-item ${isActive ? 'active' : ''}`;
+        mobileItem.href = '#';
+        mobileItem.textContent = text;
+        supermartMobileNavTrack.appendChild(mobileItem);
+        
+        calculateSupermartItemWidths();
+        updateSupermartNavControls();
+      }
+      
+      // Calculate item widths for both desktop and mobile
+      function calculateSupermartItemWidths() {
+        // Desktop item width
+        if (supermartNavTrack.children.length > 0) {
+          const firstItem = supermartNavTrack.children[0];
+          const styles = window.getComputedStyle(firstItem);
+          supermartDesktopItemWidth = firstItem.offsetWidth + 
+                           parseInt(styles.marginLeft) + 
+                           parseInt(styles.marginRight) + 4;
+        }
+        
+        // Mobile item width
+        if (supermartMobileNavTrack.children.length > 0) {
+          const firstItem = supermartMobileNavTrack.children[0];
+          const styles = window.getComputedStyle(firstItem);
+          supermartMobileItemWidth = firstItem.offsetWidth + 
+                           parseInt(styles.marginLeft) + 
+                           parseInt(styles.marginRight) + 8; // +8 for gap
+        }
+      }
+      
+      // Update navigation controls state for both desktop and mobile
+      function updateSupermartNavControls() {
+        // Desktop controls
+        const desktopContainerWidth = supermartNavTrack.parentElement.clientWidth;
+        const desktopTrackWidth = supermartNavTrack.scrollWidth;
+        const desktopMaxPosition = Math.max(0, desktopTrackWidth - desktopContainerWidth);
+        
+        supermartNavPrev.classList.toggle('disabled', supermartDesktopCurrentPosition === 0);
+        supermartNavNext.classList.toggle('disabled', supermartDesktopCurrentPosition >= desktopMaxPosition);
+        
+        // Mobile controls
+        const mobileContainerWidth = supermartMobileNavTrack.parentElement.clientWidth;
+        const mobileTrackWidth = supermartMobileNavTrack.scrollWidth;
+        const mobileMaxPosition = Math.max(0, mobileTrackWidth - mobileContainerWidth);
+        
+        supermartMobilePrev.classList.toggle('disabled', supermartMobileCurrentPosition === 0);
+        supermartMobileNext.classList.toggle('disabled', supermartMobileCurrentPosition >= mobileMaxPosition);
+      }
+      
+      // Move desktop navigation by one item
+      function moveSupermartDesktopNav(direction) {
+        const containerWidth = supermartNavTrack.parentElement.clientWidth;
+        const trackWidth = supermartNavTrack.scrollWidth;
+        const maxPosition = Math.max(0, trackWidth - containerWidth);
+        
+        if (direction === 'prev') {
+          supermartDesktopCurrentPosition = Math.max(0, supermartDesktopCurrentPosition - supermartDesktopItemWidth);
+        } else {
+          supermartDesktopCurrentPosition = Math.min(maxPosition, supermartDesktopCurrentPosition + supermartDesktopItemWidth);
+        }
+        
+        supermartNavTrack.style.transform = `translateX(-${supermartDesktopCurrentPosition}px)`;
+        updateSupermartNavControls();
+      }
+      
+      // Move mobile navigation by one item
+      function moveSupermartMobileNav(direction) {
+        const containerWidth = supermartMobileNavTrack.parentElement.clientWidth;
+        const trackWidth = supermartMobileNavTrack.scrollWidth;
+        const maxPosition = Math.max(0, trackWidth - containerWidth);
+        
+        if (direction === 'prev') {
+          supermartMobileCurrentPosition = Math.max(0, supermartMobileCurrentPosition - supermartMobileItemWidth);
+        } else {
+          supermartMobileCurrentPosition = Math.min(maxPosition, supermartMobileCurrentPosition + supermartMobileItemWidth);
+        }
+        
+        supermartMobileNavTrack.style.transform = `translateX(-${supermartMobileCurrentPosition}px)`;
+        updateSupermartNavControls();
+      }
+      
+      // Initialize categories with items
+      function initializeSupermartCategories() {
+        // Clear existing items
+        supermartCategoriesTrack.innerHTML = '';
+        supermartCategoriesIndicators.innerHTML = '';
+        
+        // Add categories
+        categories.forEach((category, index) => {
+          const categorySlide = document.createElement('div');
+          categorySlide.className = 'supermart-categories-slide';
+          
+          categorySlide.innerHTML = `
+            <a href="#" class="supermart-cat-card">
+              <div class="supermart-cat-icon">${category.icon}</div>
+              <span class="supermart-cat-name">${category.name}</span>
+              <span class="supermart-cat-count">${category.count}</span>
+            </a>
+          `;
+          
+          supermartCategoriesTrack.appendChild(categorySlide);
+        });
+        
+        // Calculate item widths after rendering
+        calculateSupermartCategoriesItemWidth();
+        updateSupermartCategoriesControls();
+        
+        // Create indicators
+        supermartTotalSlides = Math.ceil(categories.length / supermartVisibleItems);
+        for (let i = 0; i < supermartTotalSlides; i++) {
+          const indicator = document.createElement('div');
+          indicator.className = `supermart-categories-indicator ${i === 0 ? 'active' : ''}`;
+          indicator.addEventListener('click', () => {
+            supermartGoToSlide(i);
+          });
+          supermartCategoriesIndicators.appendChild(indicator);
+        }
+      }
+      
+      // Calculate item widths for categories
+      function calculateSupermartCategoriesItemWidth() {
+        if (supermartCategoriesTrack.children.length > 0) {
+          const firstItem = supermartCategoriesTrack.children[0];
+          const styles = window.getComputedStyle(firstItem);
+          supermartCategoriesItemWidth = firstItem.offsetWidth + 
+                              parseInt(styles.marginLeft) + 
+                              parseInt(styles.marginRight) + 20; // +20 for gap
+        }
+        
+        // Update visible items count based on screen size
+        if (window.innerWidth >= 1200) {
+          supermartVisibleItems = 6;
+        } else if (window.innerWidth >= 992) {
+          supermartVisibleItems = 5;
+        } else if (window.innerWidth >= 768) {
+          supermartVisibleItems = 4;
+        } else if (window.innerWidth >= 576) {
+          supermartVisibleItems = 3;
+        } else if (window.innerWidth >= 480) {
+          supermartVisibleItems = 2;
+        } else {
+          supermartVisibleItems = 1;
+        }
+        
+        // Recalculate total slides
+        supermartTotalSlides = Math.ceil(categories.length / supermartVisibleItems);
+      }
+      
+      // Update categories controls state
+      function updateSupermartCategoriesControls() {
+        const containerWidth = supermartCategoriesTrack.parentElement.clientWidth;
+        const trackWidth = supermartCategoriesTrack.scrollWidth;
+        const maxPosition = Math.max(0, trackWidth - containerWidth);
+        
+        supermartCategoriesPrev.classList.toggle('disabled', supermartCategoriesCurrentPosition === 0);
+        supermartCategoriesNext.classList.toggle('disabled', supermartCategoriesCurrentPosition >= maxPosition);
+      }
+      
+      // Move categories by one item
+      function moveSupermartCategories(direction) {
+        const containerWidth = supermartCategoriesTrack.parentElement.clientWidth;
+        const trackWidth = supermartCategoriesTrack.scrollWidth;
+        const maxPosition = Math.max(0, trackWidth - containerWidth);
+        
+        if (direction === 'prev') {
+          supermartCategoriesCurrentPosition = Math.max(0, supermartCategoriesCurrentPosition - supermartCategoriesItemWidth);
+          supermartCurrentSlide = Math.max(0, supermartCurrentSlide - 1);
+        } else {
+          supermartCategoriesCurrentPosition = Math.min(maxPosition, supermartCategoriesCurrentPosition + supermartCategoriesItemWidth);
+          supermartCurrentSlide = Math.min(supermartTotalSlides - 1, supermartCurrentSlide + 1);
+        }
+        
+        supermartCategoriesTrack.style.transform = `translateX(-${supermartCategoriesCurrentPosition}px)`;
+        updateSupermartCategoriesControls();
+        supermartUpdateIndicators();
+      }
+      
+      // Go to specific slide
+      function supermartGoToSlide(slideIndex) {
+        const containerWidth = supermartCategoriesTrack.parentElement.clientWidth;
+        const trackWidth = supermartCategoriesTrack.scrollWidth;
+        const maxPosition = Math.max(0, trackWidth - containerWidth);
+        
+        supermartCategoriesCurrentPosition = Math.min(maxPosition, slideIndex * supermartCategoriesItemWidth * supermartVisibleItems);
+        supermartCurrentSlide = slideIndex;
+        
+        supermartCategoriesTrack.style.transform = `translateX(-${supermartCategoriesCurrentPosition}px)`;
+        updateSupermartCategoriesControls();
+        supermartUpdateIndicators();
+      }
+      
+      // Update indicators
+      function supermartUpdateIndicators() {
+        const indicators = document.querySelectorAll('.supermart-categories-indicator');
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === supermartCurrentSlide);
+        });
+      }
+      
+      // Event listeners for desktop
+      supermartNavPrev.addEventListener('click', () => {
+        if (!supermartNavPrev.classList.contains('disabled')) {
+          moveSupermartDesktopNav('prev');
+        }
+      });
+      
+      supermartNavNext.addEventListener('click', () => {
+        if (!supermartNavNext.classList.contains('disabled')) {
+          moveSupermartDesktopNav('next');
+        }
+      });
+      
+      // Event listeners for mobile
+      supermartMobilePrev.addEventListener('click', () => {
+        if (!supermartMobilePrev.classList.contains('disabled')) {
+          moveSupermartMobileNav('prev');
+        }
+      });
+      
+      supermartMobileNext.addEventListener('click', () => {
+        if (!supermartMobileNext.classList.contains('disabled')) {
+          moveSupermartMobileNav('next');
+        }
+      });
+      
+      // Event listeners for categories
+      supermartCategoriesPrev.addEventListener('click', () => {
+        if (!supermartCategoriesPrev.classList.contains('disabled')) {
+          moveSupermartCategories('prev');
+        }
+      });
+      
+      supermartCategoriesNext.addEventListener('click', () => {
+        if (!supermartCategoriesNext.classList.contains('disabled')) {
+          moveSupermartCategories('next');
+        }
+      });
+      
+      // Navigation item click handler for both desktop and mobile
+      function handleSupermartNavItemClick(e) {
+        if (e.target.classList.contains('supermart-nav-item') || e.target.classList.contains('supermart-mobile-nav-item')) {
+          // Remove active class from all items
+          document.querySelectorAll('.supermart-nav-item, .supermart-mobile-nav-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          // Add active class to clicked item
+          e.target.classList.add('active');
+        }
+      }
+      
+      supermartNavTrack.addEventListener('click', handleSupermartNavItemClick);
+      supermartMobileNavTrack.addEventListener('click', handleSupermartNavItemClick);
+      
+      // Category navigation buttons
+      const supermartCatNavButtons = document.querySelectorAll('.supermart-cat-nav-btn');
+      supermartCatNavButtons.forEach(button => {
         button.addEventListener('click', function() {
-          catNavButtons.forEach(btn => btn.classList.remove('active'));
+          supermartCatNavButtons.forEach(btn => btn.classList.remove('active'));
           this.classList.add('active');
         });
       });
+      
+      // Update controls on window resize
+      window.addEventListener('resize', function() {
+        calculateSupermartItemWidths();
+        
+        // Recalculate positions based on new container widths
+        const desktopContainerWidth = supermartNavTrack.parentElement.clientWidth;
+        const desktopTrackWidth = supermartNavTrack.scrollWidth;
+        const desktopMaxPosition = Math.max(0, desktopTrackWidth - desktopContainerWidth);
+        supermartDesktopCurrentPosition = Math.min(supermartDesktopCurrentPosition, desktopMaxPosition);
+        supermartNavTrack.style.transform = `translateX(-${supermartDesktopCurrentPosition}px)`;
+        
+        const mobileContainerWidth = supermartMobileNavTrack.parentElement.clientWidth;
+        const mobileTrackWidth = supermartMobileNavTrack.scrollWidth;
+        const mobileMaxPosition = Math.max(0, mobileTrackWidth - mobileContainerWidth);
+        supermartMobileCurrentPosition = Math.min(supermartMobileCurrentPosition, mobileMaxPosition);
+        supermartMobileNavTrack.style.transform = `translateX(-${supermartMobileCurrentPosition}px)`;
+        
+        updateSupermartNavControls();
+        
+        // Update categories
+        calculateSupermartCategoriesItemWidth();
+        
+        const categoriesContainerWidth = supermartCategoriesTrack.parentElement.clientWidth;
+        const categoriesTrackWidth = supermartCategoriesTrack.scrollWidth;
+        const categoriesMaxPosition = Math.max(0, categoriesTrackWidth - categoriesContainerWidth);
+        supermartCategoriesCurrentPosition = Math.min(supermartCategoriesCurrentPosition, categoriesMaxPosition);
+        supermartCategoriesTrack.style.transform = `translateX(-${supermartCategoriesCurrentPosition}px)`;
+        
+        updateSupermartCategoriesControls();
+      });
+      
+      // Initialize on load
+      initializeSupermartNav();
+      initializeSupermartCategories();
     });
-    
-    // Sample product data
-    const fruitsVegetables = [
-      { name: "Fresh Apples", meta: "1kg • Shimla", price: "₹149", oldPrice: "₹179", badge: "17% OFF", img: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&fit=crop" },
-      { name: "Organic Bananas", meta: "1 dozen • Premium", price: "₹59", oldPrice: "₹69", badge: "14% OFF", img: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&fit=crop" },
-      { name: "Fresh Carrots", meta: "500g • Farm Fresh", price: "₹35", oldPrice: "₹45", badge: "22% OFF", img: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&fit=crop" },
-      { name: "Broccoli", meta: "1 piece • Imported", price: "₹65", oldPrice: "₹85", badge: "24% OFF", img: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&fit=crop" },
-      { name: "Avocado", meta: "2 pieces • Premium", price: "₹120", oldPrice: "₹150", badge: "20% OFF", img: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&fit=crop" },
-      { name: "Fresh Spinach", meta: "200g • Organic", price: "₹40", oldPrice: "₹50", badge: "20% OFF", img: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&fit=crop" },
-      { name: "Bell Peppers", meta: "3 pieces • Mixed Colors", price: "₹85", oldPrice: "₹110", badge: "23% OFF", img: "https://images.unsplash.com/photo-1525607551107-68e20c75b1a8?w=400&fit=crop" },
-      { name: "Fresh Strawberries", meta: "250g • Imported", price: "₹199", oldPrice: "₹249", badge: "20% OFF", img: "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400&fit=crop" }
-    ];
-    
-    const dairyProducts = [
-      { name: "Amul Butter", meta: "500g • Salted", price: "₹245", oldPrice: "₹275", badge: "11% OFF", img: "https://images.unsplash.com/photo-1559585782-9759d0052e7b?w=400&fit=crop" },
-      { name: "Mother Dairy Curd", meta: "400g • Fresh", price: "₹45", oldPrice: "₹55", badge: "18% OFF", img: "https://images.unsplash.com/photo-1567336273898-ebbe52f1f78e?w=400&fit=crop" },
-      { name: "Britannia Cheese", meta: "200g • Slices", price: "₹125", oldPrice: "₹145", badge: "14% OFF", img: "https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400&fit=crop" },
-      { name: "Nestle Milkmaid", meta: "400g • Condensed Milk", price: "₹165", oldPrice: "₹185", badge: "11% OFF", img: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&fit=crop" },
-      { name: "Amul Paneer", meta: "200g • Fresh", price: "₹90", oldPrice: "₹110", badge: "18% OFF", img: "https://images.unsplash.com/photo-1611251432627-030fee8a1ac5?w=400&fit=crop" },
-      { name: "Gowardhan Ghee", meta: "1L • Pure", price: "₹550", oldPrice: "₹620", badge: "11% OFF", img: "https://images.unsplash.com/photo-1602351447937-745cb720613f?w=400&fit=crop" },
-      { name: "Yakult Probiotic", meta: "5 bottles • 65ml each", price: "₹75", oldPrice: "₹90", badge: "17% OFF", img: "https://images.unsplash.com/photo-1570194065650-d99fb4bedff0?w=400&fit=crop" },
-      { name: "Amul Cream", meta: "200ml • Fresh", price: "₹65", oldPrice: "₹80", badge: "19% OFF", img: "https://images.unsplash.com/photo-1565698370035-93e78cbaa3e6?w=400&fit=crop" }
-    ];
-    
-    const staples = [
-      { name: "Fortune Chakki Atta", meta: "5kg • Whole Wheat", price: "₹245", oldPrice: "₹285", badge: "14% OFF", img: "https://images.unsplash.com/photo-1558961367-f4fcd7934c8f?w=400&fit=crop" },
-      { name: "Tata Sona Masoori", meta: "5kg • Premium Rice", price: "₹395", oldPrice: "₹450", badge: "12% OFF", img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&fit=crop" },
-      { name: "Tata Salt", meta: "1kg • Iodized", price: "₹25", oldPrice: "₹30", badge: "17% OFF", img: "https://images.unsplash.com/photo-1594663653925-8931effb2935?w=400&fit=crop" },
-      { name: "Fortune Sunflower Oil", meta: "1L • Refined", price: "₹165", oldPrice: "₹190", badge: "13% OFF", img: "https://images.unsplash.com/photo-1611854778585-e8e59e6e73c9?w=400&fit=crop" },
-      { name: "Toor Dal", meta: "1kg • Premium", price: "₹145", oldPrice: "₹170", badge: "15% OFF", img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&fit=crop" },
-      { name: "MDH Garam Masala", meta: "100g • Spice Mix", price: "₹65", oldPrice: "₹80", badge: "19% OFF", img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&fit=crop" },
-      { name: "Aashirvaad Besan", meta: "500g • Gram Flour", price: "₹55", oldPrice: "₹70", badge: "21% OFF", img: "https://images.unsplash.com/photo-1594663653925-8931effb2935?w=400&fit=crop" },
-      { name: "Sugar", meta: "1kg • Refined", price: "₹45", oldPrice: "₹55", badge: "18% OFF", img: "https://images.unsplash.com/photo-1611854778585-e8e59e6e73c9?w=400&fit=crop" }
-    ];
-    
-    const snacksBeverages = [
-      { name: "Lays Potato Chips", meta: "3 packs • Assorted", price: "₹90", oldPrice: "₹120", badge: "25% OFF", img: "https://images.unsplash.com/photo-1566474986508-0e6c2831e9cf?w=400&fit=crop" },
-      { name: "Coca Cola", meta: "1.5L • Soft Drink", price: "₹85", oldPrice: "₹100", badge: "15% OFF", img: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400&fit=crop" },
-      { name: "Parle-G Biscuits", meta: "2 packs • 200g each", price: "₹40", oldPrice: "₹50", badge: "20% OFF", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&fit=crop" },
-      { name: "Tropicana Juice", meta: "1L • Orange", price: "₹145", oldPrice: "₹175", badge: "17% OFF", img: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&fit=crop" },
-      { name: "Kurkure Masala Munch", meta: "3 packs • 70g each", price: "₹60", oldPrice: "₹75", badge: "20% OFF", img: "https://images.unsplash.com/photo-1566474986508-0e6c2831e9cf?w=400&fit=crop" },
-      { name: "Red Label Tea", meta: "500g • Premium", price: "₹285", oldPrice: "₹325", badge: "12% OFF", img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&fit=crop" },
-      { name: "Bourbon Biscuits", meta: "2 packs • 150g each", price: "₹50", oldPrice: "₹65", badge: "23% OFF", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&fit=crop" },
-      { name: "Nescafe Classic", meta: "100g • Instant Coffee", price: "₹245", oldPrice: "₹285", badge: "14% OFF", img: "https://images.unsplash.com/photo-1587734195503-904fca47e0e9?w=400&fit=crop" }
-    ];
-    
-    // Function to load fruits and vegetables
-    function loadFruitsVegetables() {
-      const container = document.getElementById('fruits-veg-container');
-      container.innerHTML = '';
-      
-      fruitsVegetables.forEach((product, index) => {
-        const productCard = document.createElement('div');
-        productCard.className = 'col-6 col-md-3';
-        productCard.setAttribute('data-aos', 'zoom-in');
-        productCard.setAttribute('data-aos-delay', (index * 50).toString());
-        
-        productCard.innerHTML = `
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <img src="${product.img}" alt="${product.name}" loading="lazy">
-              <span class="spm-prod-badge">${product.badge}</span>
-            </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">${product.name}</p>
-              <span class="spm-prod-meta">${product.meta}</span>
-              <div class="spm-prod-price">${product.price} <span class="spm-prod-old">${product.oldPrice}</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        `;
-        
-        container.appendChild(productCard);
-      });
-      
-      // Re-initialize AOS for new elements
-      AOS.refresh();
-    }
-    
-    // Function to load dairy products
-    function loadDairyProducts() {
-      const container = document.getElementById('dairy-container');
-      container.innerHTML = '';
-      
-      dairyProducts.forEach((product, index) => {
-        const productCard = document.createElement('div');
-        productCard.className = 'col-6 col-md-3';
-        productCard.setAttribute('data-aos', 'zoom-in');
-        productCard.setAttribute('data-aos-delay', (index * 50).toString());
-        
-        productCard.innerHTML = `
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <img src="${product.img}" alt="${product.name}" loading="lazy">
-              <span class="spm-prod-badge">${product.badge}</span>
-            </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">${product.name}</p>
-              <span class="spm-prod-meta">${product.meta}</span>
-              <div class="spm-prod-price">${product.price} <span class="spm-prod-old">${product.oldPrice}</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        `;
-        
-        container.appendChild(productCard);
-      });
-      
-      // Re-initialize AOS for new elements
-      AOS.refresh();
-    }
-    
-    // Function to load staples
-    function loadStaples() {
-      const container = document.getElementById('staples-container');
-      container.innerHTML = '';
-      
-      staples.forEach((product, index) => {
-        const productCard = document.createElement('div');
-        productCard.className = 'col-6 col-md-3';
-        productCard.setAttribute('data-aos', 'zoom-in');
-        productCard.setAttribute('data-aos-delay', (index * 50).toString());
-        
-        productCard.innerHTML = `
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <img src="${product.img}" alt="${product.name}" loading="lazy">
-              <span class="spm-prod-badge">${product.badge}</span>
-            </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">${product.name}</p>
-              <span class="spm-prod-meta">${product.meta}</span>
-              <div class="spm-prod-price">${product.price} <span class="spm-prod-old">${product.oldPrice}</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        `;
-        
-        container.appendChild(productCard);
-      });
-      
-      // Re-initialize AOS for new elements
-      AOS.refresh();
-    }
-    
-    // Function to load snacks and beverages
-    function loadSnacksBeverages() {
-      const container = document.getElementById('snacks-container');
-      container.innerHTML = '';
-      
-      snacksBeverages.forEach((product, index) => {
-        const productCard = document.createElement('div');
-        productCard.className = 'col-6 col-md-3';
-        productCard.setAttribute('data-aos', 'zoom-in');
-        productCard.setAttribute('data-aos-delay', (index * 50).toString());
-        
-        productCard.innerHTML = `
-          <div class="spm-prod-card">
-            <div class="spm-prod-img-wrap">
-              <img src="${product.img}" alt="${product.name}" loading="lazy">
-              <span class="spm-prod-badge">${product.badge}</span>
-            </div>
-            <div class="spm-prod-body">
-              <p class="spm-prod-title">${product.name}</p>
-              <span class="spm-prod-meta">${product.meta}</span>
-              <div class="spm-prod-price">${product.price} <span class="spm-prod-old">${product.oldPrice}</span></div>
-              <div class="spm-prod-actions">
-                <button class="spm-btn-cart"><i class="fas fa-cart-plus me-1"></i>Add</button>
-                <button class="spm-btn-heart"><i class="far fa-heart"></i></button>
-              </div>
-            </div>
-          </div>
-        `;
-        
-        container.appendChild(productCard);
-      });
-      
-      // Re-initialize AOS for new elements
-      AOS.refresh();
-    }
   </script>
 </body>
 </html>
